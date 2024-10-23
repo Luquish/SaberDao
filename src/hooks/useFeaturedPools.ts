@@ -1,3 +1,5 @@
+// src/hooks/useFeaturedPools.ts
+
 import { useQuery } from '@tanstack/react-query';
 import { fetchNullableWithSessionCache } from '../helpers/fetch';
 import { DetailedSwapSummary } from '../types';

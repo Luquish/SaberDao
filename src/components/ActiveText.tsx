@@ -1,3 +1,5 @@
+// src/components/ActiveText.tsx
+
 import React from 'react';
 
 export default function ActiveText(props: { children: any }) {

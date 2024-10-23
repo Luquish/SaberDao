@@ -1,3 +1,5 @@
+// src/types.ts
+
 import { MineProgram } from '@quarryprotocol/quarry-sdk';
 import { Pair, StableSwapPool } from '@saberhq/saber-periphery';
 import { IExchangeInfo, StableSwapConfig, StableSwapState, SwapTokenInfo } from '@saberhq/stableswap-sdk';

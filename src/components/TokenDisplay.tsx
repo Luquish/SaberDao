@@ -1,3 +1,5 @@
+// src/components/TokenDisplay.tsx
+
 import React from 'react';
 
 export const TokenDisplay = (props: { name?: string; mint: string }) => {

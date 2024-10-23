@@ -1,3 +1,5 @@
+// src/components/H1.tsx
+
 import React from 'react';
 
 export default function H1 (props: { children: string }) {

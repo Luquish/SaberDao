@@ -1,3 +1,5 @@
+// src/helpers/number.ts
+
 /**
  * Show decimal digits maximum. Eg with precision = 2
  * 0.000022123 => 0.000022

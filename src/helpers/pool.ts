@@ -1,3 +1,5 @@
+// src/helpers/pool.ts
+
 export const getPoolName = (name: string) => {
     return name.replace('scnSOL', 'INF');
 };

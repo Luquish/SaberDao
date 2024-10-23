@@ -1,3 +1,5 @@
+// src/components/models/model-header.tsx
+
 import clsx from 'clsx';
 import React from 'react';
 

@@ -1,3 +1,5 @@
+// src/hooks/useGetPrices.ts
+
 import { PythHttpClient, getPythProgramKeyForCluster } from '@pythnetwork/client';
 import { useConnection } from '@solana/wallet-adapter-react';
 import { useQuery } from '@tanstack/react-query';

@@ -1,3 +1,5 @@
+// src/components/LoadingText.tsx
+
 import React from 'react';
 
 export default function LoadingText () {

@@ -1,3 +1,5 @@
+// src/components/Table.tsx
+
 import React from 'react';
 import Block from './Block';
 import clsx from 'clsx';
