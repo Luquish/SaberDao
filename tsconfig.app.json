@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "rootDir": "src/",
+    "composite": true,
+    "skipLibCheck": true,
+    "outDir": "dist/app/",
+    "jsx": "react-jsx",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "strict": true
+  },
+  "include": ["src/", "src/**/*.json"]
+} 

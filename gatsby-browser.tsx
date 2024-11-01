@@ -1,6 +1,4 @@
-import './src/styles/global.css';
-
-import dapp from './src/hoc/dapp';
+import React from 'react';
 
 export const wrapPageElement = ({
     element,
@@ -9,5 +7,5 @@ export const wrapPageElement = ({
     element: React.ReactElement;
     props: Record<string, unknown> & { location: Location };
 }) => {
-    return dapp(element, props);
-};
+    return element;
+}; 

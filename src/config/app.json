@@ -1,0 +1,95 @@
+{
+  "tribeca": {
+    "name": "Tribeca",
+    "title": "Tribeca - Solana Governance By DAOs, For DAOs",
+    "fullName": "Tribeca DAO Platform",
+    "description": "Tribeca is a governance platform on Solana built by DAOs, for DAOs.",
+    "url": "https://tribeca.so",
+    "image": "https://tribeca.so/images/tribeca/og-image.png",
+    "imageAlt": "A Solana-based governance platform built by DAOs, for DAOs.",
+    "socials": {
+      "twitter": "TribecaDAO",
+      "medium": "TribecaDAO",
+      "github": "TribecaHQ",
+      "discord": "cDvtZt886p",
+      "keybase": ""
+    },
+    "favicon": "/images/tribeca/favicon.png",
+    "code": "https://github.com/TribecaHQ/tribeca",
+    "docs": "https://docs.tribeca.so",
+    "sentry": {
+      "org": "shipcap",
+      "project": "tribeca-interface",
+      "repo": "GokiProtocol/goki-interface",
+      "dsn": "https://ff672b53bedc4967a09c127da4a94064@o676708.ingest.sentry.io/6130116"
+    },
+    "baseUrl": "https://tribeca.so",
+    "colors": {
+      "theme": "#282A2C",
+      "msTile": "#282A2C"
+    },
+    "gaID": "G-3KJZR5HSRZ"
+  },
+  "goki": {
+    "name": "Goki",
+    "title": "Goki - Solana multisig made for humans.",
+    "fullName": "Goki Smart Wallet",
+    "description": "Goki is a multisig wallet and treasury management system for Solana users that want to keep their keys safe.",
+    "url": "https://goki.so",
+    "image": "https://goki.so/images/goki/og-image.png",
+    "imageAlt": "Goki is a multisig wallet and treasury management system for Solana users that want to keep their keys safe.",
+    "socials": {
+      "twitter": "GokiProtocol",
+      "medium": "GokiProtocol",
+      "github": "GokiProtocol",
+      "discord": "",
+      "keybase": "gokihelp"
+    },
+    "favicon": "/images/goki/favicon.png",
+    "code": "https://github.com/GokiProtocol/goki",
+    "docs": "https://docs.tribeca.so/goki",
+    "sentry": {
+      "org": "shipcap",
+      "project": "goki-interface",
+      "repo": "GokiProtocol/goki-interface",
+      "dsn": "https://ae724926463940b8aa62562ac6ffb051@o676708.ingest.sentry.io/6053032"
+    },
+    "baseUrl": "https://goki.so",
+    "colors": {
+      "theme": "#192908",
+      "msTile": "#192908"
+    },
+    "gaID": "G-FGC58QJV1V"
+  },
+  "anchor": {
+    "name": "Anchor.so",
+    "title": "Anchor.so - Anchor Tools By Devs, For Devs",
+    "fullName": "Anchor.so",
+    "description": "Anchor.so hosts a suite of developer tools to help Solana developers ship better, safer apps.",
+    "url": "https://anchor.so",
+    "image": "https://anchor.so/images/anchor/og-image.png",
+    "imageAlt": "Anchor tools made by devs, for devs.",
+    "socials": {
+      "twitter": "simplyianm",
+      "medium": "TribecaDAO",
+      "github": "TribecaHQ",
+      "discord": "cDvtZt886p",
+      "keybase": ""
+    },
+    "favicon": "/images/anchor/favicon.png",
+    "code": "https://github.com/TribecaHQ/tribeca",
+    "docs": "https://docs.tribeca.so",
+    "sentry": {
+      "org": "shipcap",
+      "project": "anchor-so-interface",
+      "repo": "GokiProtocol/goki-interface",
+      "dsn": "https://1e4b12b23b3c4d4b9207f7884ed3e7f4@o676708.ingest.sentry.io/6130118"
+    },
+    "baseUrl": "https://anchor.so",
+    "colors": {
+      "theme": "#282A2C",
+      "msTile": "#282A2C"
+    },
+    "gaID": "G-CEXM7802CJ"
+  }
+}

@@ -1,0 +1,130 @@
+name: Deploy
+
+on:
+  push:
+    branches: ['**']
+  release:
+    types: [published]
+
+env:
+  SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+  SENTRY_RELEASE: gh-${{ github.sha }}
+  GIT_COMMIT_SHA: ${{ github.sha }}
+  REACT_APP_SENTRY_RELEASE: gh-${{ github.sha }}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.17.0'
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+      
+      - name: Yarn Cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-modules-
+
+      - run: yarn install
+      - run: yarn typecheck
+      - run: yarn lint:ci
+
+  goki-dist:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.17.0'
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build
+        run: yarn build
+        env:
+          REACT_APP_APP_CONFIG: goki
+          REACT_APP_GA_ID: G-FGC58QJV1V
+          REACT_APP_SENTRY_DSN: https://ae724926463940b8aa62562ac6ffb051@o676708.ingest.sentry.io/6053032
+          SENTRY_PROJECT: goki-interface
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.DIST_DEPLOY_KEY }}
+          external_repository: ${{ github.repository }}-dist
+          publish_branch: master
+          publish_dir: ./build/
+
+  tribeca-dist:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.17.0'
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build
+        run: yarn build
+        env:
+          REACT_APP_APP_CONFIG: tribeca
+          REACT_APP_GA_ID: G-3KJZR5HSRZ
+          REACT_APP_SENTRY_DSN: https://ff672b53bedc4967a09c127da4a94064@o676708.ingest.sentry.io/6130116
+          SENTRY_PROJECT: tribeca-interface
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.TRIBECA_DEPLOY_KEY }}
+          external_repository: TribecaHQ/tribeca-interface-dist
+          publish_branch: master
+          publish_dir: ./build/
+          user_name: "swaglioni"
+          user_email: "swag@tribeca.so"
+
+  anchor-dist:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.17.0'
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build
+        run: yarn build
+        env:
+          REACT_APP_APP_CONFIG: anchor
+          REACT_APP_GA_ID: G-CEXM7802CJ
+          REACT_APP_SENTRY_DSN: https://1e4b12b23b3c4d4b9207f7884ed3e7f4@o676708.ingest.sentry.io/6130118
+          SENTRY_PROJECT: anchor-so
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ANCHOR_SO_DEPLOY_KEY }}
+          external_repository: saber-hq/anchor.so
+          publish_branch: master
+          publish_dir: ./build/
+          user_name: sungoki
+          user_email: goki@goki.so

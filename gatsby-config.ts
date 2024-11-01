@@ -1,27 +1,43 @@
 import type { GatsbyConfig } from 'gatsby';
+import dotenv from 'dotenv';
+import path from 'path';
 
-require('dotenv').config({
+dotenv.config({
     path: `.env.${process.env.NODE_ENV}`,
 });
 
 const config: GatsbyConfig = {
     siteMetadata: {
-        title: 'dapp',
-        siteUrl: 'https://www.saber.so',
+        title: 'Unified Dapp',
+        siteUrl: 'https://www.example.com',
     },
-    // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-    // If you use VSCode you can also use the GraphQL plugin
-    // Learn more at: https://gatsby.dev/graphql-typegen
-    graphqlTypegen: true,
     plugins: [
         'gatsby-plugin-postcss',
         {
-            resolve: "gatsby-plugin-google-tagmanager",
+            resolve: '@sentry/gatsby',
             options: {
-              id: "G-R67GCPSJD7",
-            },
+                dsn: process.env.REACT_APP_SENTRY_DSN || '',
+                environment: process.env.NODE_ENV || 'development',
+            }
         },
+        {
+            resolve: 'gatsby-plugin-google-analytics',
+            options: {
+                trackingId: process.env.REACT_APP_GA_ID || '',
+            }
+        },
+        {
+            resolve: 'gatsby-plugin-root-import',
+            options: {
+                '@': path.join(__dirname, 'src'),
+                '@/src': path.join(__dirname, 'src'),
+                'components': path.join(__dirname, 'src/components'),
+                'hooks': path.join(__dirname, 'src/hooks'),
+                'utils': path.join(__dirname, 'src/utils'),
+                'helpers': path.join(__dirname, 'src/helpers')
+            }
+        }
     ],
 };
 
-export default config;
+export default config; 
