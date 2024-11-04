@@ -1,36 +1,18 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "target": "esnext",
-    "lib": ["dom", "esnext"],
-    "jsx": "react-jsx",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
+    "target": "esnext",                                 
+    "lib": ["dom", "esnext"],                                        
+    "jsx": "react",                              
+    "module": "esnext",                                
+    "moduleResolution": "node",                       
+    "esModuleInterop": true,                            
+    "forceConsistentCasingInFileNames": true,          
+    "strict": true,                                      
     "skipLibCheck": true,
-    "allowJs": true,
-    "noEmit": true,
     "paths": {
       "@/src/*": ["./src/*"],
-      "@/*": ["./src/*"]
-    },
-    "typeRoots": [
-      "./node_modules/@types"
-    ],
-    "types": [
-      "node",
-      "react",
-      "react-dom"
-    ],
-    "jsxImportSource": "react"
+    }                                
   },
-  "include": [
-    "./src/**/*",
-    "./gatsby-node.ts",
-    "./gatsby-config.ts",
-    "./gatsby-browser.tsx",
-    "./gatsby-ssr.tsx"
-  ]
-} 
+  "include": ["./src/**/*", "./gatsby-node.ts", "./gatsby-config.ts", "./plugins/**/*"]
+}
