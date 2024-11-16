@@ -11,7 +11,7 @@ import H1 from '../components/H1';
 import usePoolsInfo from '../hooks/usePoolsInfo';
 import Table from '../components/Table';
 import LoadingText from '../components/LoadingText';
-import Button from '@/src/components/Button';
+import { Button } from '../components/tribeca/common/Button';
 import Input, { InputType } from '../components/Input';
 import ActiveText from '../components/ActiveText';
 import PoolSwitch, { PoolsView } from '../components/PoolSwitch';

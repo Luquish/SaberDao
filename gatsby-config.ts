@@ -21,6 +21,15 @@ const config: GatsbyConfig = {
               id: "G-R67GCPSJD7",
             },
         },
+        'gatsby-plugin-emotion',
+        'gatsby-plugin-react-helmet',
+        {
+            resolve: 'gatsby-plugin-typescript',
+            options: {
+                isTSX: true,
+                allExtensions: true,
+            },
+        },
     ],
 };
 

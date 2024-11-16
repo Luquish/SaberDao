@@ -156,11 +156,11 @@ export default function Navbar() {
                             Pools
                         </Button>
                     </Link>
-                    <a href="https://tribeca.so/gov/sbr/" target="_blank" rel="noreferrer">
-                        <Button type="secondary" className="flex items-center gap-2 h-10">
-                            Vote <FaExternalLinkAlt />
+                    <Link to="/tribeca">
+                        <Button className="flex items-center gap-2 h-10" type="secondary">
+                            TribecaDao
                         </Button>
-                    </a>
+                    </Link>
                     <a href="https://vota.fi/" target="_blank" rel="noreferrer">
                         <Button type="secondary" className="flex items-center gap-2 h-10">
                             Bribes <FaExternalLinkAlt />

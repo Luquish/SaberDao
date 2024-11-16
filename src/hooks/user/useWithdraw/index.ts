@@ -7,7 +7,7 @@ import invariant from 'tiny-invariant';
 
 import { calculateWithdrawAll } from './calculateWithdrawAll';
 import { calculateWithdrawOne } from './calculateWithdrawOne';
-import { WrappedToken } from '../../../types/wrappedToken';
+import { WrappedToken } from '../../../typings/wrappedToken';
 import { PoolData } from '../../../types';
 import { Wallet, useConnection, useWallet } from '@solana/wallet-adapter-react';
 import useProvider from '../../useProvider';

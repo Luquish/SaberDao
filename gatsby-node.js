@@ -31,3 +31,16 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
         },
     });
 };
+
+exports.createPages = async ({ actions }) => {
+  const { createPage } = actions;
+
+  // Create wallet pages
+  createPage({
+    path: "/wallets/:walletKey/*",
+    component: require.resolve("./src/pages/tribeca/wallet/WalletView/index.tsx"),
+    context: {
+      // Add any additional context needed
+    },
+  });
+};

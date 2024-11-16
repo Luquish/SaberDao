@@ -3,7 +3,7 @@ import { Token } from '@saberhq/token-utils';
 import * as Sentry from '@sentry/react';
 import { useMemo } from 'react';
 
-import { WrappedToken } from '../types/wrappedToken';
+import { WrappedToken } from '../typings/wrappedToken';
 import useGetTokens from './useGetTokens';
 import useNetwork from './useNetwork';
 import { PoolData } from '../types';

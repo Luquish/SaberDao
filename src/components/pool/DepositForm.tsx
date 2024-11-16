@@ -15,8 +15,8 @@ import useUserGetLPTokenBalance from '../../hooks/user/useGetLPTokenBalance';
 import { useStableSwapTokens } from '../../hooks/useStableSwapTokens';
 import clsx from 'clsx';
 import { getSymbol } from '../../helpers/pool';
-import { getMax } from '@/src/helpers/token';
-import useNetwork from '@/src/hooks/useNetwork';
+import { getMax } from '../../helpers/token';
+import useNetwork from '../../hooks/useNetwork';
 
 export default function DepositForm(props: { pool: PoolData }) {
     const { network } = useNetwork();

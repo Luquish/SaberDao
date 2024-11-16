@@ -36,6 +36,8 @@ const HeadComponents = [
 
 export const onRenderBody = ({
     setHeadComponents,
+}: {
+    setHeadComponents: (components: React.ReactNode[]) => void;
 }) => {
     setHeadComponents(HeadComponents);
 };
