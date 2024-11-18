@@ -1,4 +1,4 @@
-import { styled } from "@emotion/styled";
+import styled from "@emotion/styled";
 
 const commonStyles = `
   padding: 0.375rem 0.75rem;

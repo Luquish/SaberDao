@@ -4,7 +4,7 @@ import React, { useMemo, useState } from "react";
 import { FaBell } from "react-icons/fa";
 
 import { useGovernor } from "@/hooks/tribeca/useGovernor";
-import { Drop } from "../../../../common/Drop";
+import { Drop } from "@/components/tribeca/common/Drop";
 import { SubscriptionPopoverContainer } from "./SubscriptionPopoverContainer";
 
 interface Props {

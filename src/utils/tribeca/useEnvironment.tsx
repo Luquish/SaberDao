@@ -4,7 +4,7 @@ import * as Sentry from "@sentry/react";
 import { useEffect, useMemo } from "react";
 import { createContainer } from "unstated-next";
 
-import { SOLE_NETWORK } from "../contexts/wallet";
+import { SOLE_NETWORK } from "../../contexts/wallet";
 import type { IEnvironment } from "./environments";
 import { environments } from "./environments";
 

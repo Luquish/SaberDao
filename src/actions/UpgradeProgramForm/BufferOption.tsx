@@ -1,6 +1,6 @@
-import type { ProgramDeployBuffer } from "../../hooks/tribeca/useAuthorityPrograms";
-import { truncateShasum } from "../../hooks/tribeca/useSha256Sum";
-import { displayAddress } from "../../utils/tribeca/programs";
+import type { ProgramDeployBuffer } from "@/hooks/tribeca/useAuthorityPrograms";
+import { truncateShasum } from "@/hooks/tribeca/useSha256Sum";
+import { displayAddress } from "@/utils/tribeca/programs";
 import React from "react";
 
 interface Props {

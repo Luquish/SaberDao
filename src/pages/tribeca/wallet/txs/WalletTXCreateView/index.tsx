@@ -4,12 +4,13 @@ import { SignerWallet } from "@saberhq/solana-contrib";
 import { useConnection } from "@solana/wallet-adapter-react";
 import { Keypair, PublicKey } from "@solana/web3.js";
 import { useEffect, useMemo, useState } from "react";
+import React from "react";
 
-import { useProgramIndex } from "../../../../../hooks/deploydao/useProgramIndex";
-import { useIDL } from "../../../../../hooks/useIDLs";
-import { useSmartWallet } from "../../../../../hooks/useSmartWallet";
-import { Select } from "../../../../common/inputs/InputText";
-import { BasicPage } from "../../../../common/page/BasicPage";
+import { useProgramIndex } from "@/hooks/tribeca/deploydao/useProgramIndex";
+import { useIDL } from "@/hooks/tribeca/useIDLs";
+import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
+import { Select } from "@/components/tribeca/common/inputs/InputText";
+import { BasicPage } from "@/components/tribeca/common/page/BasicPage";
 import { IXForm } from "./IXForm";
 
 export type InstructionInfo = {
@@ -31,11 +32,11 @@ export const WalletTXCreateView: React.FC = () => {
     if (!idl) {
       return idl;
     }
-    const methods = (idl?.state?.methods ?? []).map((ix) => ({
+    const methods = (idl?.state?.methods ?? []).map((ix: any) => ({
       type: "method" as const,
       instruction: ix,
     }));
-    const instructions = (idl?.instructions ?? []).map((ix) => ({
+    const instructions = (idl?.instructions ?? []).map((ix: any) => ({
       type: "instruction" as const,
       instruction: ix,
     }));
@@ -63,12 +64,12 @@ export const WalletTXCreateView: React.FC = () => {
       title="Propose a Transaction"
       description="Interact with any Anchor program."
     >
-      <form tw="grid gap-4">
-        <div tw="p-4 border grid gap-4">
-          <label tw="grid gap-1">
+      <form className="grid gap-4">
+        <div className="p-4 border grid gap-4">
+          <label className="grid gap-1">
             <span>Program</span>
             <Select
-              onChange={(e) => {
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
                 setProgramID(
                   e.target.value ? new PublicKey(e.target.value) : null
                 );
@@ -92,10 +93,10 @@ export const WalletTXCreateView: React.FC = () => {
             </Select>
           </label>
           {programID && (
-            <label tw="grid gap-1">
+            <label className="grid gap-1">
               <span>Instruction</span>
               <Select
-                onChange={(e) => {
+                onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
                   const [ixType, ixName] = e.target.value.split("_");
                   const theIX = ixs?.find(
                     (ix) => ix.type === ixType && ix.instruction.name === ixName
@@ -121,7 +122,7 @@ export const WalletTXCreateView: React.FC = () => {
           )}
         </div>
         {ix && program && (
-          <div tw="p-4 border">
+          <div className="p-4 border">
             <IXForm
               key={`${program.programId.toString()}_${ix.type}_${
                 ix.instruction.name

@@ -1,10 +1,11 @@
 import { useToken } from "@rockooor/sail";
 import { TokenAmount } from "@saberhq/token-utils";
+import React from "react";
 
-import type { TransferChecked } from "@/utils/instructions/token/types";
-import { AddressLink } from "@/common/AddressLink";
-import { LoadingSpinner } from "@/common/LoadingSpinner";
-import { TokenAmountDisplay } from "@/common/TokenAmountDisplay";
+import type { TransferChecked } from "@/utils/tribeca/instructions/token/types";
+import { AddressLink } from "@/components/tribeca/common/AddressLink";
+import { LoadingSpinner } from "@/components/tribeca/common/LoadingSpinner";
+import { TokenAmountDisplay } from "@/components/tribeca/common/TokenAmountDisplay";
 import { Box } from "../Box";
 
 interface Props {
@@ -24,7 +25,7 @@ export const Transfer: React.FC<Props> = ({
   return (
     <Box title="Summary">
       {amt ? (
-        <div tw="inline-flex items-center gap-2">
+        <div className="inline-flex items-center gap-2">
           Transfer <TokenAmountDisplay amount={amt} showIcon /> to{" "}
           <AddressLink address={destination} />
         </div>

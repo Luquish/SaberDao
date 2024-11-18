@@ -18,13 +18,13 @@ import { FaSign } from "react-icons/fa";
 import React from "react";
 import { RouteComponentProps } from "@reach/router";
 
-import { useSDK } from "../../../../contexts/sdk";
-import { useExecutiveCouncil } from "../../../../hooks/tribeca/useExecutiveCouncil";
-import { GovernorProvider } from "../../../../hooks/tribeca/useGovernor";
-import { useProvider } from "../../../../hooks/tribeca/useProvider";
-import { CardWithImage } from "../../common/governance/CardWithImage";
-import { useGMData } from "../../../../pages/tribeca/governance/gauges/hooks/useGaugemeister";
-import { SABER_POOL_MANAGER } from "../../../../pages/tribeca/governance/saber-pools/SaberPoolView";
+import { useSDK } from "@/contexts/sdk";
+import { useExecutiveCouncil } from "@/hooks/tribeca/useExecutiveCouncil";
+import { GovernorProvider } from "@/hooks/tribeca/useGovernor";
+import { useProvider } from "@/hooks/tribeca/useProvider";
+import { CardWithImage } from "@/components/tribeca/common/governance/CardWithImage";
+import { useGMData } from "@/pages/tribeca/gauges/hooks/useGaugemeister";
+import { SABER_POOL_MANAGER } from "@/pages/tribeca/saber-pools/SaberPoolView";
 import { AsyncButton } from "../AsyncButton";
 
 const ownerInvokerSignTX = async (

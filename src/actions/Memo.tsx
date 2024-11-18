@@ -4,9 +4,9 @@ import {
 } from "@saberhq/solana-contrib";
 import { useEffect, useState } from "react";
 
-import { Textarea } from "../components/tribeca/common/inputs/InputText";
-import { serializeToBase64 } from "../utils/tribeca/makeTransaction";
-import { useEnvironment } from "../utils/tribeca/useEnvironment";
+import { Textarea } from "@/components/tribeca/common/inputs/InputText";
+import { serializeToBase64 } from "@/utils/tribeca/makeTransaction";
+import { useEnvironment } from "@/utils/tribeca/useEnvironment";
 import type { ActionFormProps } from "./types";
 import React from "react";
 export const Memo: React.FC<ActionFormProps> = ({

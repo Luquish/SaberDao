@@ -3,16 +3,17 @@ import { useSail } from "@rockooor/sail";
 import { useQuery } from "@tanstack/react-query";
 import pluralize from "pluralize";
 import invariant from "tiny-invariant";
+import React from "react";
 
-import { useProvider } from "@/hooks/useProvider";
-import { useSmartWallet } from "@/hooks/useSmartWallet";
-import { useWrapTx } from "@/hooks/useWrapTx";
+import { useProvider } from "@/hooks/tribeca/useProvider";
+import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
+import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import {
   SABER_DAO_SMART_WALLET_KEY,
   SABER_EXECUTIVE_COUNCIL,
-} from "@/utils/constants";
-import { AsyncButton } from "../../../../../common/AsyncButton";
-import { Button } from "../../../../../common/Button";
+} from "@/utils/tribeca/constants";
+import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
+import { Button } from "@/components/tribeca/common/Button";
 import { useTransaction } from "../context";
 
 export const Actions: React.FC = () => {
@@ -53,10 +54,10 @@ export const Actions: React.FC = () => {
   return (
     <>
       {state === "active" && (
-        <div tw="p-4 border w-full my-4 text-sm flex flex-col gap-4">
+        <div className="p-4 border w-full my-4 text-sm flex flex-col gap-4">
           <div>
-            <h2 tw="font-medium mb-1.5">More Signatures Required</h2>
-            <p tw="text-secondary text-xs">
+            <h2 className="font-medium mb-1.5">More Signatures Required</h2>
+            <p className="text-secondary text-xs">
               This transaction still requires {(threshold ?? 0) - numSigned}{" "}
               more {pluralize("signature", (threshold ?? 0) - numSigned)} to be
               able to executed.
@@ -115,10 +116,10 @@ export const Actions: React.FC = () => {
         </div>
       )}
       {state === "approved" && (
-        <div tw="p-4 border w-full my-4 text-sm flex flex-col gap-4">
+        <div className="p-4 border w-full my-4 text-sm flex flex-col gap-4">
           <div>
-            <h2 tw="font-medium mb-1.5">Transaction Approved</h2>
-            <p tw="text-secondary text-xs">
+            <h2 className="font-medium mb-1.5">Transaction Approved</h2>
+            <p className="text-secondary text-xs">
               The transaction has been approved by the minimum number of
               signers.
             </p>

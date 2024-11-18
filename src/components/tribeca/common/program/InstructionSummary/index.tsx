@@ -1,10 +1,10 @@
 import { TOKEN_PROGRAM_ID } from "@saberhq/token-utils";
 import type { ProposalInstruction } from "@tribecahq/tribeca-sdk";
 
-import { useParsedProposalInstruction } from "../../../../../hooks/tribeca/tx/useParsedInstruction";
-import { BPF_UPGRADEABLE_LOADER_ID } from "../../../../../hooks/tribeca/useAuthorityPrograms";
-import type { TokenInstructionInner } from "../../../../../utils/tribeca/instructions/token/parsers";
-import type { UpgradeableLoaderInstructionData } from "../../../../../utils/tribeca/instructions/upgradeable_loader/parsers";
+import { useParsedProposalInstruction } from "@/hooks/tribeca/tx/useParsedInstruction";
+import { BPF_UPGRADEABLE_LOADER_ID } from "@/hooks/tribeca/useAuthorityPrograms";
+import type { TokenInstructionInner } from "@/utils/tribeca/instructions/token/parsers";
+import type { UpgradeableLoaderInstructionData } from "@/utils/tribeca/instructions/upgradeable_loader/parsers";
 import { UpgradeProgramInstruction } from "./bpf_upgradeable/UpgradeProgramInstruction";
 import { TokenTransferInstruction } from "./token/TokenTransferInstruction";
 import React from "react";

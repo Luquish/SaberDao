@@ -40,9 +40,9 @@ import TX from '../../components/TX';
 import UniversalPopover, { Ref } from '../../components/models/universal-popover';
 import ModelHeader from '../../components/models/model-header';
 import { toast } from 'sonner';
-import { TokenDisplay, TokenLogo } from '@/src/components/TokenDisplay';
-import useUpgradeStake from '@/src/hooks/user/useUpgradeStake';
-import useDeprecatedPools from '@/src/hooks/useDeprecatedPools';
+import { TokenDisplay, TokenLogo } from '@/components/TokenDisplay';
+import useUpgradeStake from '@/hooks/user/useUpgradeStake';
+import useDeprecatedPools from '@/hooks/useDeprecatedPools';
 import BigNumber from 'bignumber.js';
 
 const InfoPanel = (props: { data: any[][] }) => {
@@ -338,7 +338,7 @@ const LiquidityBlock = (props: { pool: PoolData; handleOpenModel?: () => void })
                     ].filter((x) => x.length !== 0)}
                 />
 
-                {(rewards.primary + rewards.secondary.reduce((a, b) => a + b, 0) > 0) &&
+                {(rewards.primary + rewards.secondary.reduce((a: number, b: number) => a + b, 0) > 0) &&
                     (isPending ? (
                         <Button size="full" disabled key="g">
                             Claiming...

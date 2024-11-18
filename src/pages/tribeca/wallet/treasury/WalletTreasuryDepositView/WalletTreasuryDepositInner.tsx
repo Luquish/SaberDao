@@ -14,16 +14,17 @@ import {
 import { TransactionInstruction } from "@solana/web3.js";
 import { useState } from "react";
 import invariant from "tiny-invariant";
+import React from "react";
 
-import { useParseTokenAmount } from "../../../../../hooks/useParseTokenAmount";
-import { useSmartWallet } from "../../../../../hooks/useSmartWallet";
-import { useUserTokenAccounts } from "../../../../../hooks/useTokenAccounts";
-import { useWrapTx } from "../../../../../hooks/useWrapTx";
-import { MEMO_PROGRAM_ID } from "../../../../../utils/constants";
-import { wrapAndSendSOLToATA } from "../../../../../utils/wrappedSol";
-import { AsyncButton } from "../../../../common/AsyncButton";
-import { InputText } from "../../../../common/inputs/InputText";
-import { InputTokenAmount } from "../../../../common/inputs/InputTokenAmount";
+import { useParseTokenAmount } from "@/hooks/tribeca/useParseTokenAmount";
+import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
+import { useUserTokenAccounts } from "@/hooks/tribeca/useTokenAccounts";
+import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
+import { MEMO_PROGRAM_ID } from "@/utils/tribeca/constants";
+import { wrapAndSendSOLToATA } from "@/utils/tribeca/wrappedSol";
+import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
+import { InputText } from "@/components/tribeca/common/inputs/InputText";
+import { InputTokenAmount } from "@/components/tribeca/common/inputs/InputTokenAmount";
 
 export const WalletTreasuryDepositInner: React.FC = () => {
   const { key } = useSmartWallet();
@@ -44,8 +45,8 @@ export const WalletTreasuryDepositInner: React.FC = () => {
     : null;
 
   return (
-    <div tw="p-4 w-full max-w-md mx-auto border rounded flex flex-col gap-4">
-      <div tw="rounded border p-4 bg-gray-50">
+    <div className="p-4 w-full max-w-md mx-auto border rounded flex flex-col gap-4">
+      <div className="rounded border p-4 bg-gray-50">
         <InputTokenAmount
           label="Deposit Amount"
           isLoading={isLoading}
@@ -68,12 +69,12 @@ export const WalletTreasuryDepositInner: React.FC = () => {
           }
         />
       </div>
-      <div tw="flex flex-col gap-2 text-sm">
-        <span tw="font-medium">Memo (optional)</span>
+      <div className="flex flex-col gap-2 text-sm">
+        <span className="font-medium">Memo (optional)</span>
         <InputText
           type="text"
           value={memo}
-          onChange={(e) => {
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setMemo(e.target.value);
           }}
         />
@@ -82,7 +83,7 @@ export const WalletTreasuryDepositInner: React.FC = () => {
         <AsyncButton
           variant="primary"
           size="md"
-          tw="w-full"
+          className="w-full"
           disabled={!selectedAccount || !amount}
           onClick={async (sdkMut) => {
             invariant(selectedAccount && amount, "selected account");
@@ -103,7 +104,7 @@ export const WalletTreasuryDepositInner: React.FC = () => {
               destMint = NATIVE_MINT;
             }
             const destATA = await getOrCreateATA({
-              provider: sdkMut.provider,
+              provider: sdkMut.provider as any,
               mint: destMint,
               owner: key,
             });

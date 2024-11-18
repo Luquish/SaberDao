@@ -7,13 +7,13 @@ import { navigate } from "@reach/router";
 import { Link } from "gatsby";
 import invariant from "tiny-invariant";
 
-import { useSDK } from "../../../../contexts/sdk";
-import { useSmartWalletAddress } from "../../../../hooks/tribeca/useSmartWalletAddress";
-import { useWrapTx } from "../../../../hooks/tribeca/useWrapTx";
-import { handleException } from "../../../../utils/tribeca/error";
-import { notify } from "../../../../utils/tribeca/notifications";
-import { AsyncButton } from "../../../../components/tribeca/common/AsyncButton";
-import { Button } from "../../../../components/tribeca/common/Button";
+import { useSDK } from "@/contexts/sdk";
+import { useSmartWalletAddress } from "@/hooks/tribeca/useSmartWalletAddress";
+import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
+import { handleException } from "@/utils/tribeca/error";
+import { notify } from "@/utils/tribeca/notifications";
+import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
+import { Button } from "@/components/tribeca/common/Button";
 
 export const WalletCreateSimpleView: React.FC = () => {
   const { handleTX } = useSail();

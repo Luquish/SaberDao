@@ -8,9 +8,9 @@ import { FaCopy, FaExternalLinkAlt } from "react-icons/fa";
 
 import { notify } from "@/utils/tribeca/notifications";
 import { useEnvironment } from "@/utils/tribeca/useEnvironment";
-import { Button } from "../../../../common/Button";
-import { Profile } from "../../../../common/governance/Profile";
-import { MouseoverTooltip } from "../../../../common/MouseoverTooltip";
+import { Button } from "@/components/tribeca/common/Button";
+import { Profile } from "@/components/tribeca/common/governance/Profile";
+import { MouseoverTooltip } from "@/components/tribeca/common/MouseoverTooltip";
 
 interface Props {
   close?: () => void;

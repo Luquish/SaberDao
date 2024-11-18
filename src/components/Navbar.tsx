@@ -12,20 +12,20 @@ import { Token, WRAPPED_SOL } from '@saberhq/token-utils';
 import { FaMedium, FaXTwitter } from 'react-icons/fa6';
 import clsx from 'clsx';
 
-import I18n from '../i18n';
-import Saber from '../svg/saber';
+import I18n from '@/i18n';
+import Saber from '@/svg/saber';
 import Button from './Button';
 import Block from './Block';
-import useUserATA from '../hooks/user/useUserATA';
-import useNetwork from '../hooks/useNetwork';
-import useUnwrap from '../hooks/user/useUnwrap';
+import useUserATA from '@/hooks/user/useUserATA';
+import useNetwork from '@/hooks/useNetwork';
+import useUnwrap from '@/hooks/user/useUnwrap';
 import TX from './TX';
 import UniversalPopover, { Ref } from './models/universal-popover';
 import ModelHeader from './models/model-header';
 import SettingModel from './models/setting-model';
 import { toast } from 'sonner';
 import { SABER_IOU_MINT } from '@saberhq/saber-periphery';
-import useRedeemSbr from '../hooks/user/useRedeemSbr';
+import useRedeemSbr from '@/hooks/user/useRedeemSbr';
 
 const WrappedSolBlock = () => {
     const { network } = useNetwork();

@@ -3,22 +3,22 @@ import { PublicKey } from "@solana/web3.js";
 import { useEffect, useState } from "react";
 import { GiTumbleweed } from "react-icons/gi";
 
-import { AddressLink } from "../../components/tribeca/common/AddressLink";
-import { EmptyState } from "../../components/tribeca/common/EmptyState";
-import { NoPrograms } from "../../components/tribeca/common/governance/NoPrograms";
-import { Select } from "../../components/tribeca/common/inputs/InputText";
-import { LoadingPage } from "../../components/tribeca/common/LoadingPage";
-import { useSDK } from "../../contexts/sdk";
-import { useGovernor } from "../../hooks/tribeca/useGovernor";
+import { AddressLink } from "@/components/tribeca/common/AddressLink";
+import { EmptyState } from "@/components/tribeca/common/EmptyState";
+import { NoPrograms } from "@/components/tribeca/common/governance/NoPrograms";
+import { Select } from "@/components/tribeca/common/inputs/InputText";
+import { LoadingPage } from "@/components/tribeca/common/LoadingPage";
+import { useSDK } from "@/contexts/sdk";
+import { useGovernor } from "@/hooks/tribeca/useGovernor";
 import {
   useAuthorityBuffers,
   useAuthorityPrograms,
-} from "../../hooks/tribeca/useAuthorityPrograms";
-import { createUpgradeInstruction } from "../../utils/tribeca/instructions/upgradeable_loader/instructions";
-import { makeTransaction } from "../../utils/tribeca/makeTransaction";
-import { programLabel } from "../../utils/tribeca/programs";
-import { useEnvironment } from "../../utils/tribeca/useEnvironment";
-import { shortenAddress } from "../../utils/tribeca/utils";
+} from "@/hooks/tribeca/useAuthorityPrograms";
+import { createUpgradeInstruction } from "@/utils/tribeca/instructions/upgradeable_loader/instructions";
+import { makeTransaction } from "@/utils/tribeca/makeTransaction";
+import { programLabel } from "@/utils/tribeca/programs";
+import { useEnvironment } from "@/utils/tribeca/useEnvironment";
+import { shortenAddress } from "@/utils/tribeca/utils";
 import { BufferOption } from "./BufferOption";
 import React from "react";
 
@@ -112,7 +112,7 @@ export const UpgradeProgramForm: React.FC<Props> = ({ onSelect }: Props) => {
               </EmptyState>
             ) : (
               <Select
-                onChange={(e) => {
+                onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
                   setBufferKey(e.target.value);
                 }}
               >

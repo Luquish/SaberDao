@@ -6,19 +6,20 @@ import { createLocker, findGovernorAddress } from "@tribecahq/tribeca-sdk";
 import BN from "bn.js";
 import { useFormik } from "formik";
 import { useMemo } from "react";
-import { useNavigate } from "react-router";
+import { navigate } from "@reach/router";
 import invariant from "tiny-invariant";
 import * as Yup from "yup";
+import React from "react";
 
-import { useSDK } from "../../../../../contexts/sdk";
-import { useKeypair } from "../../../../../hooks/useKeypair";
-import { useSmartWalletAddress } from "../../../../../hooks/useSmartWalletAddress";
-import { useWrapTx } from "../../../../../hooks/useWrapTx";
-import { handleException } from "../../../../../utils/error";
-import { notify } from "../../../../../utils/notifications";
-import { AsyncButton } from "../../../../common/AsyncButton";
-import { AttributeList } from "../../../../common/AttributeList";
-import { InputText, Textarea } from "../../../../common/inputs/InputText";
+import { useSDK } from "@/contexts/sdk";
+import { useKeypair } from "@/hooks/tribeca/useKeypair";
+import { useSmartWalletAddress } from "@/hooks/tribeca/useSmartWalletAddress";
+import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
+import { handleException } from "@/utils/tribeca/error";
+import { notify } from "@/utils/notifications";
+import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
+import { AttributeList } from "@/components/tribeca/common/AttributeList";
+import { InputText, Textarea } from "@/components/tribeca/common/inputs/InputText";
 
 const DAY = 86_400;
 interface CustomDAOFormValues {
@@ -93,7 +94,6 @@ export const DAOCustomView: React.FC = () => {
   const { handleTX } = useSail();
   const { wrapTx } = useWrapTx();
   const { sdkMut, tribecaMut } = useSDK();
-  const navigate = useNavigate();
 
   const initialBaseKPs = useMemo(
     () =>
@@ -223,28 +223,28 @@ export const DAOCustomView: React.FC = () => {
   });
 
   return (
-    <div tw="grid gap-12 w-full max-w-sm mx-auto">
+    <div className="grid gap-12 w-full max-w-sm mx-auto">
       <div>
-        <div tw="mb-8">
-          <h1 tw="font-bold text-2xl mb-4 dark:text-gray-50">
+        <div className="mb-8">
+          <h1 className="font-bold text-2xl mb-4 dark:text-gray-50">
             Create Custom DAO
           </h1>
         </div>
-        <div tw="flex flex-col w-full gap-4">
-          <div tw="flex flex-col w-full">
+        <div className="flex flex-col w-full gap-4">
+          <div className="flex flex-col w-full">
             <form
-              tw="grid grid-cols-1 gap-6 w-full"
+              className="grid grid-cols-1 gap-6 w-full"
               onSubmit={formik.handleSubmit}
             >
-              <label tw="flex flex-col" htmlFor="govTokenMint">
-                <span tw="text-xs mb-1">Governance Token Mint</span>
+              <label className="flex flex-col" htmlFor="govTokenMint">
+                <span className="text-xs mb-1">Governance Token Mint</span>
                 <InputText
                   id="govTokenMintStr"
                   name="govTokenMintStr"
                   type="text"
-                  tw="mt-1 w-full"
+                  className="mt-1 w-full"
                   placeholder="Enter an address"
-                  onChange={(e) => {
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                     void formik.setFieldValue(
                       "govTokenMintStr",
                       e.target.value
@@ -257,95 +257,95 @@ export const DAOCustomView: React.FC = () => {
                 />
               </label>
 
-              <label tw="flex flex-col">
-                <span tw="text-xs w-full mb-1">
+              <label className="flex flex-col">
+                <span className="text-xs w-full mb-1">
                   Executive Council Base Keypair JSON
                 </span>
                 <Textarea
                   name="execBaseKP"
-                  tw="mt-1 block w-full h-24"
+                  className="mt-1 block w-full h-24"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.execBaseKP}
                 />
                 {formik.touched.execBaseKP && formik.errors.execBaseKP && (
-                  <div tw="text-red-500 text-sm mt-2">
+                  <div className="text-red-500 text-sm mt-2">
                     {formik.errors.execBaseKP}
                   </div>
                 )}
               </label>
 
               <label>
-                <span tw="text-xs w-full mb-1">
+                <span className="text-xs w-full mb-1">
                   Emergency DAO Base Keypair JSON
                 </span>
                 <Textarea
                   name="sosBaseKP"
-                  tw="mt-1 block w-full h-24"
+                  className="mt-1 block w-full h-24"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.sosBaseKP}
                 />
                 {formik.touched.sosBaseKP && formik.errors.sosBaseKP && (
-                  <div tw="text-red-500 text-sm mt-2">
+                  <div className="text-red-500 text-sm mt-2">
                     {formik.errors.sosBaseKP}
                   </div>
                 )}
               </label>
 
               <label>
-                <span tw="text-xs w-full mb-1">Governor Base Keypair JSON</span>
+                <span className="text-xs w-full mb-1">Governor Base Keypair JSON</span>
                 <Textarea
                   name="govBaseKP"
-                  tw="mt-1 block w-full h-24"
+                  className="mt-1 block w-full h-24"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.govBaseKP}
                 />
                 {formik.touched.govBaseKP && formik.errors.govBaseKP && (
-                  <div tw="text-red-500 text-sm mt-2">
+                  <div className="text-red-500 text-sm mt-2">
                     {formik.errors.govBaseKP}
                   </div>
                 )}
               </label>
 
               <label>
-                <span tw="text-xs w-full mb-1">
+                <span className="text-xs w-full mb-1">
                   Governance Wallet Base Keypair JSON
                 </span>
                 <Textarea
                   name="govWalletBaseKP"
-                  tw="mt-1 block w-full h-24"
+                  className="mt-1 block w-full h-24"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.govWalletBaseKP}
                 />
                 {formik.touched.govWalletBaseKP &&
                   formik.errors.govWalletBaseKP && (
-                    <div tw="text-red-500 text-sm mt-2">
+                    <div className="text-red-500 text-sm mt-2">
                       {formik.errors.govWalletBaseKP}
                     </div>
                   )}
               </label>
 
               <label>
-                <span tw="text-xs w-full mb-1">Locker Base Keypair JSON</span>
+                <span className="text-xs w-full mb-1">Locker Base Keypair JSON</span>
                 <Textarea
                   name="lockerBaseKP"
-                  tw="mt-1 block w-full h-24"
+                  className="mt-1 block w-full h-24"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.lockerBaseKP}
                 />
                 {formik.touched.lockerBaseKP && formik.errors.lockerBaseKP && (
-                  <div tw="text-red-500 text-sm mt-2">
+                  <div className="text-red-500 text-sm mt-2">
                     {formik.errors.lockerBaseKP}
                   </div>
                 )}
               </label>
 
-              <div tw="rounded mt-8 p-4 border">
-                <h3 tw="mb-4 uppercase text-secondary text-sm">Details</h3>
+              <div className="rounded mt-8 p-4 border">
+                <h3 className="mb-4 uppercase text-secondary text-sm">Details</h3>
                 <AttributeList
                   attributes={{
                     "Executive Council Wallet": execKey.data ?? "--",
@@ -357,7 +357,7 @@ export const DAOCustomView: React.FC = () => {
                 />
               </div>
 
-              <div tw="flex mt-8 items-center justify-center ">
+              <div className="flex mt-8 items-center justify-center ">
                 <AsyncButton
                   type="submit"
                   variant="primary"

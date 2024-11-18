@@ -35,7 +35,7 @@ export const parseTokenInstructionData = <
   type: K,
   keys: PublicKey[],
   data: Buffer
-): (TokenInstructionInner & { type: K })["data"] => {
+): TokenInstructionInner["data"] => {
   switch (type) {
     case "transfer": {
       const dataLayout = BufferLayout.struct<{

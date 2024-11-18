@@ -4,14 +4,13 @@ import { SuperCoder } from "@saberhq/anchor-contrib";
 import type { KeyedAccountInfo, PublicKey } from "@solana/web3.js";
 import { SystemProgram } from "@solana/web3.js";
 import { startCase } from "lodash-es";
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import { Link } from "gatsby";
-import React from "react";
 import clsx from "clsx";
 
-import { useSubaccountInfo } from "../../../../hooks/tribeca/useSubaccountInfo";
-import { useIDL } from "../../../../hooks/tribeca/useIDLs";
-import { SYSVAR_OWNER } from "../../../../utils/tribeca/programs";
+import { useSubaccountInfo } from "@/hooks/tribeca/useSubaccountInfo";
+import { useIDL } from "@/hooks/tribeca/useIDLs";
+import { SYSVAR_OWNER } from "@/utils/tribeca/programs";
 import { AddressLink } from "../AddressLink";
 import { ProgramLabel } from "./ProgramLabel";
 import { SolAmount } from "./SolAmount";

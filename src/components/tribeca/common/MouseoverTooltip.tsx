@@ -1,24 +1,29 @@
 import type { ReactNode } from "react";
 import React, { useCallback, useState } from "react";
+import type { Placement } from "@popperjs/core";
 
 import type { PopoverProps } from "./Popover";
 import { Popover } from "./Popover";
 
+
+
 interface TooltipProps extends Omit<PopoverProps, "content"> {
   text: ReactNode;
+  show?: boolean;
+  placement?: Placement;
 }
 
 interface TooltipContentProps extends Omit<PopoverProps, "content"> {
   content: ReactNode;
+  show?: boolean;
 }
 
+const TooltipContainer = ({ children }: { children: ReactNode }) => (
+  <div className="py-2 px-4 text-sm text-white">{children}</div>
+);
+
 export const Tooltip: React.FC<TooltipProps> = ({ text, ...rest }) => {
-  return (
-    <Popover
-      content={<div className="py-2 px-4 text-sm text-white">{text}</div>}
-      {...rest}
-    />
-  );
+  return <Popover content={<TooltipContainer>{text}</TooltipContainer>} {...rest} />;
 };
 
 const TooltipContent: React.FC<TooltipContentProps> = ({

@@ -23,15 +23,15 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect, useMemo, useState } from "react";
 import invariant from "tiny-invariant";
 
-import { AsyncButton } from "../../components/tribeca/common/AsyncButton";
-import { InputText } from "../../components/tribeca/common/inputs/InputText";
-import { InputTokenAmount } from "../../components/tribeca/common/inputs/InputTokenAmount";
-import { useGovernor } from "../../hooks/tribeca/useGovernor";
-import { useParseTokenAmount } from "../../hooks/tribeca/useParseTokenAmount";
-import { useProvider } from "../../hooks/tribeca/useProvider";
-import { useWrapTx } from "../../hooks/tribeca/useWrapTx";
-import { serializeToBase64 } from "../../utils/tribeca/makeTransaction";
-import { useParsedMintWrapper } from "../../utils/tribeca/parsers";
+import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
+import { InputText } from "@/components/tribeca/common/inputs/InputText";
+import { InputTokenAmount } from "@/components/tribeca/common/inputs/InputTokenAmount";
+import { useGovernor } from "@/hooks/tribeca/useGovernor";
+import { useParseTokenAmount } from "@/hooks/tribeca/useParseTokenAmount";
+import { useProvider } from "@/hooks/tribeca/useProvider";
+import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
+import { serializeToBase64 } from "@/utils/tribeca/makeTransaction";
+import { useParsedMintWrapper } from "@/utils/tribeca/parsers";
 import type { ActionFormProps } from "../types";
 import React from "react";
 
@@ -235,20 +235,20 @@ export const IssueTokensAction: React.FC<ActionFormProps> = ({
         label="Amount"
         token={govToken ?? null}
         tokens={[]}
-        tw="h-auto"
+        className="h-auto"
         inputValue={amountStr}
         inputDisabled={!actor}
         inputOnChange={(e) => {
           setAmountStr(e);
         }}
       />
-      <label tw="flex flex-col gap-1" htmlFor="destination">
-        <span tw="text-sm">Recipient</span>
+      <label className="flex flex-col gap-1" htmlFor="destination">
+        <span className="text-sm">Recipient</span>
         <InputText
           id="destination"
           placeholder="Address to give tokens to."
           value={destinationStr}
-          onChange={(e) => {
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setDestinationStr(e.target.value);
           }}
         />
@@ -263,7 +263,7 @@ export const IssueTokensAction: React.FC<ActionFormProps> = ({
             const ixs: (TransactionInstruction | null)[] = [];
             const { instruction: createMintWrapperATAIX } =
               await getOrCreateATA({
-                provider: sdkMut.provider,
+                provider: sdkMut.provider as any,
                 mint: mintWrapperData.accountInfo.data.tokenMint,
                 owner: actor,
               });
@@ -273,7 +273,7 @@ export const IssueTokensAction: React.FC<ActionFormProps> = ({
               !outputToken.equals(mintWrapperData.accountInfo.data.tokenMint)
             ) {
               const { instruction: createRedeemATAIX } = await getOrCreateATA({
-                provider: sdkMut.provider,
+                provider: sdkMut.provider as any,
                 mint: outputToken,
                 owner: actor,
               });
@@ -281,7 +281,7 @@ export const IssueTokensAction: React.FC<ActionFormProps> = ({
             }
             if (recipient) {
               const { instruction: recipientATA } = await getOrCreateATA({
-                provider: sdkMut.provider,
+                provider: sdkMut.provider as any,
                 mint: outputToken,
                 owner: recipient,
               });

@@ -1,4 +1,6 @@
-import { BasicPage } from "../../../../common/page/BasicPage";
+import React from "react";
+
+import { BasicPage } from "@/components/tribeca/common/page/BasicPage";
 import { SaberLockupInner } from "./SaberLockupInner";
 
 export const WalletSaberLockupView: React.FC = () => {

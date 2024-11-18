@@ -7,7 +7,7 @@ import { PublicKey } from "@solana/web3.js";
 import type { ProposalInstruction } from "@tribecahq/tribeca-sdk";
 import { useMemo } from "react";
 
-import { useProvider } from "../../../../hooks/tribeca/useProvider";
+import { useProvider } from "@/hooks/tribeca/useProvider";
 import { ExternalLink } from "../typography/ExternalLink";
 import React from "react";
 

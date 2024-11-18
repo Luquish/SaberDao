@@ -1,8 +1,9 @@
 import { RouteComponentProps } from '@reach/router';
 import { useEffect } from "react";
 import React from "react";
-import { Header } from "../../../../components/tribeca/layout/GovernorLayout/Header";
-import { Alliance } from "./Alliance";
+
+import { Header } from "@/components/tribeca/layout/GovernorLayout/Header";
+import { Alliance } from "../../alliance";
 import { Jumbotron } from "./Jumbotron";
 
 export const TribecaIndexView: React.FC<RouteComponentProps> = () => {

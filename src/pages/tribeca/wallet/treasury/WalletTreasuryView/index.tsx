@@ -1,6 +1,6 @@
 import { RouteComponentProps } from '@reach/router';
-import { BasicPage } from "../../../../../components/tribeca/common/page/BasicPage";
-import { BasicSection } from "../../../../../components/tribeca/common/page/Section";
+import { BasicPage } from "@/components/tribeca/common/page/BasicPage";
+import { BasicSection } from "@/components/tribeca/common/page/Section";
 import { Tokens } from "./Tokens";
 import React from "react";
 

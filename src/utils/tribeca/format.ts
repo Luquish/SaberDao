@@ -1,6 +1,5 @@
 import { Fraction, Percent, ZERO } from "@saberhq/token-utils";
-import formatDuration from "date-fns/formatDuration";
-import intervalToDuration from "date-fns/intervalToDuration";
+import { formatDuration, intervalToDuration } from "date-fns";
 import JSBI from "jsbi";
 
 import { CURRENCY_INFO, CurrencyMarket } from "./currencies";

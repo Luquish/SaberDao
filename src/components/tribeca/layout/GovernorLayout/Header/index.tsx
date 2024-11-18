@@ -4,7 +4,7 @@ import { useLocation } from "@reach/router";
 import React from "react";
 import clsx from "clsx";
 
-import { useEnvironment } from "../../../../../utils/tribeca/useEnvironment";
+import { useEnvironment } from "@/utils/tribeca/useEnvironment";
 import { MobileNav } from "./MobileNav";
 import { Nav } from "./Nav";
 import { ReactComponent as Rook } from "./Rook.svg";

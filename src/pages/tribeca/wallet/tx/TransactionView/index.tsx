@@ -1,9 +1,9 @@
 import { navigate } from "@reach/router";
 import React from 'react'
 
-import { useParsedTX } from "../../../../../hooks/tribeca/useParsedTX";
-import { useSmartWallet } from "../../../../../hooks/tribeca/useSmartWallet";
-import { LoadingPage } from "../../../../../components/tribeca/common/LoadingPage";
+import { useParsedTX } from "@/hooks/tribeca/useParsedTX";
+import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
+import { LoadingPage } from "@/components/tribeca/common/LoadingPage";
 import { TransactionProvider } from "./context";
 
 interface TransactionViewProps {

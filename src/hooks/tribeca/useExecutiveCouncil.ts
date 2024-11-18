@@ -42,8 +42,7 @@ export const useExecutiveCouncil = () => {
   const subaccountInfo = useMemo(
     () =>
       subaccountInfos?.find(
-        (s: { account: { subaccountType: { ownerInvoker: unknown } } }) =>
-          s && "ownerInvoker" in s.account.subaccountType
+        (s) => s?.account && "ownerInvoker" in s.account.subaccountType
       ),
     [subaccountInfos]
   );

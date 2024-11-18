@@ -1,9 +1,9 @@
 import { extractErrorMessage } from "@rockooor/sail";
 import { Transaction } from "@solana/web3.js";
 
-import { HelperCard } from "../components/tribeca/common/HelperCard";
-import { Textarea } from "../components/tribeca/common/inputs/InputText";
-import { LabeledInput } from "../components/tribeca/common/inputs/LabeledInput";
+import { HelperCard } from "@/components/tribeca/common/HelperCard";
+import { Textarea } from "@/components/tribeca/common/inputs/InputText";
+import { LabeledInput } from "@/components/tribeca/common/inputs/LabeledInput";
 import type { ActionFormProps } from "./types";
 import React from "react";
 

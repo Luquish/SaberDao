@@ -1,14 +1,14 @@
 import { useSail } from "@rockooor/sail";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+import React, { useEffect, useState } from "react";
+import { navigate } from "@reach/router";
 import invariant from "tiny-invariant";
 
-import { useSmartWallet } from "../../../../../hooks/useSmartWallet";
-import { useWrapTx } from "../../../../../hooks/useWrapTx";
-import { notify } from "../../../../../utils/notifications";
-import { AsyncButton } from "../../../../common/AsyncButton";
-import { InputText } from "../../../../common/inputs/InputText";
-import { Modal } from "../../../../common/Modal";
+import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
+import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
+import { notify } from "@/utils/tribeca/notifications";
+import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
+import { InputText } from "@/components/tribeca/common/inputs/InputText";
+import { Modal } from "@/components/tribeca/common/Modal";
 
 interface Props {
   isOpen: boolean;
@@ -25,7 +25,6 @@ export const UpdateThresholdModal: React.FC<Props> = ({
   );
   const { handleTX } = useSail();
   const { wrapTx } = useWrapTx();
-  const navigate = useNavigate();
 
   const numSigners = smartWalletData?.account.owners.length;
   const nextThreshold = (() => {
@@ -41,19 +40,21 @@ export const UpdateThresholdModal: React.FC<Props> = ({
   }, [smartWalletData?.account.threshold]);
 
   return (
-    <Modal isOpen={isOpen} onDismiss={onDismiss} tw="p-0">
-      <div tw="h-14 flex items-center px-8">
-        <h1 tw="font-medium text-base">Update Minimum Signers Threshold</h1>
+    <Modal isOpen={isOpen} onDismiss={onDismiss} className="p-0">
+      <div className="h-14 flex items-center px-8">
+        <h1 className="font-medium text-base">
+          Update Minimum Signers Threshold
+        </h1>
       </div>
-      <div tw="px-8 py-6 grid gap-6">
-        <label htmlFor="threshold" tw="flex flex-col gap-2 text-sm">
-          <span tw="font-medium">Minimum Signers Threshold</span>
+      <div className="px-8 py-6 grid gap-6">
+        <label htmlFor="threshold" className="flex flex-col gap-2 text-sm">
+          <span className="font-medium">Minimum Signers Threshold</span>
           <InputText
             id="threshold"
             type="number"
             placeholder="Minimum number of signers"
             value={thresholdStr}
-            onChange={(e) => {
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setThresholdStr(e.target.value);
             }}
           />

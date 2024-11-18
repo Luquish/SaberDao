@@ -1,11 +1,12 @@
+import React from "react";
+
 import {
   useGovernor,
   useGovernorInfo,
-} from "../../../../hooks/tribeca/useGovernor";
-import { GovernanceNotFoundPage } from "../../../../pages/tribeca/governance/GovernanceNotFoundPage";
+} from "@/hooks/tribeca/useGovernor";
+import { GovernanceNotFoundPage } from "@/pages/tribeca/GovernanceNotFoundPage";
 import { LoadingPage } from "../LoadingPage";
 import { GovernancePageInner } from "./GovernancePageInner";
-import React from "react";
 
 interface Props {
   title: React.ReactNode;

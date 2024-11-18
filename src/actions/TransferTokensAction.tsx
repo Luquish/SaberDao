@@ -16,13 +16,13 @@ import type { TransactionInstruction } from "@solana/web3.js";
 import { useEffect, useState } from "react";
 import invariant from "tiny-invariant";
 
-import { AsyncButton } from "../components/tribeca/common/AsyncButton";
-import { InputText } from "../components/tribeca/common/inputs/InputText";
-import { InputTokenAmount } from "../components/tribeca/common/inputs/InputTokenAmount";
-import { useTokenAccounts } from "../hooks/tribeca/useTokenAccounts";
-import { useWrapTx } from "../hooks/tribeca/useWrapTx";
-import { serializeToBase64 } from "../utils/tribeca/makeTransaction";
-import { useEnvironment } from "../utils/tribeca/useEnvironment";
+import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
+import { InputText } from "@/components/tribeca/common/inputs/InputText";
+import { InputTokenAmount } from "@/components/tribeca/common/inputs/InputTokenAmount";
+import { useTokenAccounts } from "@/hooks/tribeca/useTokenAccounts";
+import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
+import { serializeToBase64 } from "@/utils/tribeca/makeTransaction";
+import { useEnvironment } from "@/utils/tribeca/useEnvironment";
 import type { ActionFormProps } from "./types";
 import React from "react";
 export const TransferTokensAction: React.FC<ActionFormProps> = ({

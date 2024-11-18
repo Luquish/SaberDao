@@ -83,9 +83,9 @@ export const useTokenAccounts = (address: PublicKey | null | undefined) => {
       const result = tokenAccountsRaw.data?.map(
         ({ mint, balance, ...taRest }) => {
           const token = tokens.find(
-            (token: Token) =>
-              token.mintAccount.equals(mint) &&
-              token.network === network
+            (token) =>
+              token.data?.mintAccount.equals(mint) &&
+              token.data?.network === network
           );
           if (!token || !token?.data) {
             return null;
@@ -105,7 +105,7 @@ export const useTokenAccounts = (address: PublicKey | null | undefined) => {
       !nativeBalance.loading &&
       nativeBalance.data !== undefined &&
       !!address &&
-      tokens.every((t: Token) => t !== undefined) &&
+      tokens.every((t) => t !== undefined) &&
       tokenAccountsRaw.isFetched,
   });
 };

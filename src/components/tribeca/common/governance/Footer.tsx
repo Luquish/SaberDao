@@ -2,7 +2,7 @@ import { pickBy } from "lodash-es";
 import { FaDiscord, FaGithub, FaMedium, FaTwitter } from "react-icons/fa";
 import React from "react";
 
-import { useGovernor } from "../../../../hooks/tribeca/useGovernor";
+import { useGovernor } from "@/hooks/tribeca/useGovernor";
 import { Button } from "../Button";
 import { PageContainer } from "./GovernancePageInner";
 

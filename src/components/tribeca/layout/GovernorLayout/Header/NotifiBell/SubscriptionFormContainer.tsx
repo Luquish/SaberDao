@@ -1,7 +1,7 @@
 import React from "react";
 
-import { useUserEscrow } from "../../../../../hooks/tribeca/useEscrow";
-import { useGovernorInfo } from "../../../../../hooks/tribeca/useGovernor";
+import { useUserEscrow } from "@/hooks/tribeca/useEscrow";
+import { useGovernorInfo } from "@/hooks/tribeca/useGovernor";
 import type { Props } from "./SubscriptionForm";
 import { SubscriptionForm } from "./SubscriptionForm";
 import { SubscriptionGlimmer } from "./SubscriptionGlimmer";

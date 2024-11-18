@@ -1,5 +1,5 @@
-import { Notice } from "../../../../components/tribeca/common/Notice";
-import { BasicPage } from "../../../../components/tribeca/common/page/BasicPage";
+import { Notice } from "@/components/tribeca/common/Notice";
+import { BasicPage } from "@/components/tribeca/common/page/BasicPage";
 import React from "react";
 import { RouteComponentProps } from '@reach/router';
 

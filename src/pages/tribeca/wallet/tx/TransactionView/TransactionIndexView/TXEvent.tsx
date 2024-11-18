@@ -1,4 +1,5 @@
-import { AddressLink } from "../../../../../common/AddressLink";
+import React from "react";
+import { AddressLink } from "@/components/tribeca/common/AddressLink";
 import type { SmartWalletEvent } from "../context";
 
 interface Props {
@@ -11,7 +12,7 @@ export const TXEvent: React.FC<Props> = ({ event }: Props) => {
       return (
         <>
           <AddressLink
-            tw="text-gray-800 font-medium"
+            className="text-gray-800 font-medium"
             address={event.data.proposer}
           />{" "}
           <span>proposed the transaction.</span>
@@ -21,7 +22,7 @@ export const TXEvent: React.FC<Props> = ({ event }: Props) => {
       return (
         <>
           <AddressLink
-            tw="text-gray-800 font-medium"
+            className="text-gray-800 font-medium"
             address={event.data.owner}
           />{" "}
           <span>approved the transaction.</span>
@@ -31,7 +32,7 @@ export const TXEvent: React.FC<Props> = ({ event }: Props) => {
       return (
         <>
           <AddressLink
-            tw="text-gray-800 font-medium"
+            className="text-gray-800 font-medium"
             address={event.data.executor}
           />{" "}
           <span>executed the transaction.</span>
@@ -46,7 +47,7 @@ export const TXEvent: React.FC<Props> = ({ event }: Props) => {
               {i !== 0 && <span>, </span>}
               <AddressLink
                 key={i}
-                tw="text-gray-800 font-medium"
+                className="text-gray-800 font-medium"
                 address={owner}
               />
             </>

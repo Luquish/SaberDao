@@ -1,4 +1,7 @@
-import { useSmartWallet } from "../../../../hooks/useSmartWallet";
+import React from "react";
+
+import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
+
 
 export const SmartWalletInner: React.FC = () => {
   const { smartWallet } = useSmartWallet();

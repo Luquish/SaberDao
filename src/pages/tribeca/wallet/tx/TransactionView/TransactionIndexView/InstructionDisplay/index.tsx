@@ -1,10 +1,11 @@
-import type { RichParsedInstruction } from "@/hooks/tx/useParsedInstruction";
-import type { ParsedInstruction } from "@/hooks/useSmartWallet";
-import { AttributeList } from "@/common/AttributeList";
+import type { RichParsedInstruction } from "@/hooks/tribeca/tx/useParsedInstruction";
+import type { ParsedInstruction } from "@/hooks/tribeca/useSmartWallet";
+import { AttributeList } from "@/components/tribeca/common/AttributeList";
 import { Box } from "./Box";
 import { IXAccounts } from "./IXAccounts";
 import { IXArguments } from "./IXArguments";
 import { IXData } from "./IXData";
+import React from "react";
 
 interface Props {
   instruction: ParsedInstruction;
@@ -16,7 +17,7 @@ export const InstructionDisplay: React.FC<Props> = ({
   parsed,
 }: Props) => {
   return (
-    <div tw="grid gap-4">
+    <div className="grid gap-4">
       {parsed.data.type === "raw" && (
         <IXData
           data={Buffer.from(parsed.data.data)}
@@ -29,7 +30,7 @@ export const InstructionDisplay: React.FC<Props> = ({
       )}
       {parsed.data.type === "anchor" && <IXArguments args={parsed.data.args} />}
       {parsed.data.type === "object" && (
-        <Box title="Arguments" tw="p-0">
+        <Box title="Arguments" className="p-0">
           <AttributeList
             attributes={parsed.data.args as Record<string, unknown>}
           />

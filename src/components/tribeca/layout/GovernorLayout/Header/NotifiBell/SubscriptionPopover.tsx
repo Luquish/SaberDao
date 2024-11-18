@@ -51,11 +51,13 @@ export const SubscriptionPopover: React.FC<Props> = ({
   const [isSubscribed, setIsSubscribed] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
   const [phone, setPhoneRaw] = useState<string>("");
+  const [telegramId, setTelegramId] = useState<string>("");
   const [visibilityState, setVisibilityState] = useState<VisibilityState>({
     isEditing: false,
     needsRefresh: false,
     isToggleVisible: false,
   });
+  
 
   const setPhone = useCallback(
     (value: string): void => {
@@ -84,6 +86,7 @@ export const SubscriptionPopover: React.FC<Props> = ({
     dappAddress: governor,
     walletPublicKey,
     env,
+    walletBlockchain: "SOLANA",
   });
 
   const { alert, targetGroup } = useMemo(() => {
@@ -103,10 +106,10 @@ export const SubscriptionPopover: React.FC<Props> = ({
 
   useEffect(() => {
     if (targetGroup !== null) {
-      const emailTarget = targetGroup.emailTargets[0];
+      const emailTarget = targetGroup.emailTargets?.[0];
       setEmail(emailTarget?.emailAddress ?? "");
 
-      const smsTarget = targetGroup.smsTargets[0];
+      const smsTarget = targetGroup.smsTargets?.[0];
       setPhone(smsTarget?.phoneNumber ?? "");
     }
   }, [targetGroup, setEmail, setPhone]);
@@ -140,7 +143,10 @@ export const SubscriptionPopover: React.FC<Props> = ({
   }, [expiry, isInitialized]);
 
   const refreshLogin = useCallback(async () => {
-    await logIn(signer);
+    await logIn({
+      walletBlockchain: "SOLANA",
+      signMessage: signer.signMessage,
+    });
     setVisibilityState({
       isEditing: false,
       needsRefresh: false,
@@ -155,7 +161,10 @@ export const SubscriptionPopover: React.FC<Props> = ({
     }
 
     if (!isAuthenticated) {
-      await logIn(signer);
+      await logIn({
+        walletBlockchain: "SOLANA",
+        signMessage: signer.signMessage,
+      });
     }
 
     const data = await fetchData();
@@ -178,9 +187,10 @@ export const SubscriptionPopover: React.FC<Props> = ({
       name: governor,
       sourceId,
       filterId,
-      emailAddress: email === "" ? null : email,
-      phoneNumber: phone === "" ? null : `+1${phone}`,
-      telegramId: null,
+      emailAddress: email === "" ? undefined : email,
+      phoneNumber: phone === "" ? undefined : `+1${phone}`,
+      telegramId: telegramId === "" ? undefined : telegramId,
+      includeDiscord: false,
     });
 
     setVisibilityState({
@@ -271,7 +281,7 @@ export const SubscriptionPopover: React.FC<Props> = ({
                 className={[
                   isSubscribed ? "bg-primary" : "bg-warmGray-600",
                   "relative inline-flex items-center h-6 rounded-full w-11 transition-colors",
-                ]}
+                ].join(" ")}
               >
                 <span
                   className={[

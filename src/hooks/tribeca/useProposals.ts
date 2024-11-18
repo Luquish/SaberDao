@@ -21,8 +21,8 @@ import {
   useParsedProposals,
   useParsedTXByKey,
   useParsedTXByKeys,
-} from "../../utils/parsers";
-import { useEnvironment } from "../../utils/useEnvironment";
+} from "@/utils/tribeca/parsers";
+import { useEnvironment } from "@/utils/tribeca/useEnvironment";
 import { useGovernor } from "./useGovernor";
 
 export class ProposalStatus {

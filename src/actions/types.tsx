@@ -1,7 +1,7 @@
 import type { PublicKey } from "@solana/web3.js";
 import type { GovernorConfig } from "@tribecahq/registry";
 
-import { serializeToBase64 } from "../utils/tribeca/makeTransaction";
+import { serializeToBase64 } from "@/utils/tribeca/makeTransaction";
 import { Memo } from "./Memo";
 import { IssueTokensAction } from "./IssueTokensAction";
 import { RawTX } from "./RawTX";

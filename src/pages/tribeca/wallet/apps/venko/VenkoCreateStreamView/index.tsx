@@ -1,4 +1,6 @@
-import { BasicPage } from "../../../../../common/page/BasicPage";
+import React from "react";
+
+import { BasicPage } from "@/components/tribeca/common/page/BasicPage";
 import { CreateStream } from "./CreateStream";
 
 export const VenkoCreateStreamView: React.FC = () => {

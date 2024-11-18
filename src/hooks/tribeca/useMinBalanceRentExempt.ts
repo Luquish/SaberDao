@@ -2,7 +2,7 @@ import { RAW_SOL, TokenAmount } from "@saberhq/token-utils";
 import { useConnection } from "@solana/wallet-adapter-react";
 import { useQuery } from "@tanstack/react-query";
 
-import { useEnvironment } from "../utils/useEnvironment";
+import { useEnvironment } from "@/utils/tribeca/useEnvironment";
 
 /**
  * Fetches the minimum rent exempt balance.

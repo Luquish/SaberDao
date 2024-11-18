@@ -2,8 +2,8 @@ import { PageProps } from 'gatsby';
 import React, { useEffect } from 'react';
 import { Router } from '@reach/router';
 
-import { SmartWalletProvider } from '../../hooks/tribeca/useSmartWallet';
-import { WalletLayout } from '../../components/tribeca/layout/WalletLayout';
+import { SmartWalletProvider } from '@/hooks/tribeca/useSmartWallet';
+import { WalletLayout } from '@/components/tribeca/layout/WalletLayout';
 import { TribecaIndexView } from './landing/TribecaIndexView';
 import { WalletTreasurySendView } from './wallet/treasury/WalletTreasurySendView';
 import { WalletTreasuryDepositView } from './wallet/treasury/WalletTreasuryDepositView';
@@ -14,11 +14,10 @@ import { WalletTreasuryView } from './wallet/treasury/WalletTreasuryView';
 import { WalletSettingsView } from './wallet/WalletSettingsView';
 import { WalletInboxView } from './wallet/WalletInboxView';
 import { DAOStep1IntroView } from './onboarding/dao/DAOStep1IntroView';
-import { governanceRoutes } from './governance/routes';
+import { governanceRoutes } from './routes';
 
-const TribecaDaoPage: React.FC<PageProps> = () => {
+const GovernancePage: React.FC<PageProps> = () => {
     useEffect(() => {
-        // Asegurarse de que el modo oscuro esté activado para Tribeca
         document.body.classList.add("dark");
         return () => {
             document.body.classList.remove("dark");
@@ -58,4 +57,4 @@ const TribecaDaoPage: React.FC<PageProps> = () => {
     );
 }
 
-export default TribecaDaoPage; 
+export default GovernancePage; 

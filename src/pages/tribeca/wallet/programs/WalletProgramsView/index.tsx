@@ -3,16 +3,16 @@ import { Link } from "gatsby";
 import React from "react";
 import clsx from "clsx";
 
-import { useAuthorityPrograms } from "../../../../../hooks/tribeca/useAuthorityPrograms";
-import { useSmartWallet } from "../../../../../hooks/tribeca/useSmartWallet";
-import { Button } from "../../../../../components/tribeca/common/Button";
-import { EmptyState } from "../../../../../components/tribeca/common/EmptyState";
-import { ErrorMessage } from "../../../../../components/tribeca/common/ErrorMessage";
-import { LoadingPage } from "../../../../../components/tribeca/common/LoadingPage";
-import { LoadingSpinner } from "../../../../../components/tribeca/common/LoadingSpinner";
-import { Notice } from "../../../../../components/tribeca/common/Notice";
-import { BasicPage } from "../../../../../components/tribeca/common/page/BasicPage";
-import { ReactComponent as EmptyFolder } from "../../../../../components/tribeca/common/svgs/EmptyFolder.svg";
+import { useAuthorityPrograms } from "@/hooks/tribeca/useAuthorityPrograms";
+import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
+import { Button } from "@/components/tribeca/common/Button";
+import { EmptyState } from "@/components/tribeca/common/EmptyState";
+import { ErrorMessage } from "@/components/tribeca/common/ErrorMessage";
+import { LoadingPage } from "@/components/tribeca/common/LoadingPage";
+import { LoadingSpinner } from "@/components/tribeca/common/LoadingSpinner";
+import { Notice } from "@/components/tribeca/common/Notice";
+import { BasicPage } from "@/components/tribeca/common/page/BasicPage";
+import { ReactComponent as EmptyFolder } from "@/components/tribeca/common/svgs/EmptyFolder.svg";
 import { ProgramCard } from "./ProgramCard";
 
 export const WalletProgramsView: React.FC<RouteComponentProps> = () => {

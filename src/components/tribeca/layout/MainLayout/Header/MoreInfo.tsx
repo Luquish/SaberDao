@@ -8,8 +8,8 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 
-import { APP_CONFIG } from "../../../../../config";
-import { Drop } from "../../../common/Drop";
+import { APP_CONFIG } from "@/config";
+import { Drop } from "@/components/tribeca/common/Drop";
 
 export const MoreInfo: React.FC = () => {
   const [show, setShow] = useState(false);

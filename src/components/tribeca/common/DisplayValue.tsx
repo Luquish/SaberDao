@@ -5,8 +5,8 @@ import BN, { isBN } from "bn.js";
 import { startCase } from "lodash-es";
 import React from "react";
 
-import { formatPercent } from "../../../utils/tribeca/format";
-import { fmtObject } from "../../../pages/tribeca/InspectorPage/SimulationSection/AccountDiff/makeDiff";
+import { formatPercent } from "@/utils/tribeca/format";
+import { fmtObject } from "@/pages/tribeca/InspectorPage/SimulationSection/AccountDiff/makeDiff";
 import { NamedAddressLink } from "./account/NamedAddressLink";
 import { TableCardBody } from "./card/TableCardBody";
 import { LoadingSpinner } from "./LoadingSpinner";

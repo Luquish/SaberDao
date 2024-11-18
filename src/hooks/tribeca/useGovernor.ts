@@ -7,9 +7,9 @@ import { useMemo } from "react";
 import { useLocation } from "@reach/router";
 import { createContainer } from "unstated-next";
 
-import { useSDK } from "../../contexts/sdk";
-import { formatDurationSeconds } from "../../utils/tribeca/format";
-import { useGovernorData, useLockerData } from "../../utils/tribeca/parsers";
+import { useSDK } from "@/contexts/sdk";
+import { formatDurationSeconds } from "@/utils/tribeca/format";
+import { useGovernorData, useLockerData } from "@/utils/tribeca/parsers";
 import { useGovernanceManifest } from "./api/useGovernanceManifest";
 import { useTribecaRegistry } from "./api/useTribecaRegistry";
 import { useWindowTitle } from "./useWindowTitle";

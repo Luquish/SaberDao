@@ -15,10 +15,11 @@ import copyToClipboard from "copy-to-clipboard";
 import { set, startCase } from "lodash-es";
 import { useMemo, useState } from "react";
 import invariant from "tiny-invariant";
+import React from "react";
 
-import { COMMON_ACCOUNTS } from "../../../../../utils/anchor";
-import { Button } from "../../../../common/Button";
-import { InputText } from "../../../../common/inputs/InputText";
+import { COMMON_ACCOUNTS } from "@/utils/tribeca/anchor";
+import { Button } from "@/components/tribeca/common/Button";
+import { InputText } from "@/components/tribeca/common/inputs/InputText";
 import type { InstructionInfo } from ".";
 import { AccountsForm } from "./AccountsForm";
 import { PreviewIXModal } from "./PreviewIXModal";
@@ -130,7 +131,7 @@ export const IXForm: React.FC<Props> = ({
         type="text"
         placeholder={field.name}
         value={(rawArgs[index] as string | null | undefined)?.toString() ?? ""}
-        onChange={(e) => {
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           setRawArgs((prev) => {
             const next = prev.slice();
             next[index] = e.target.value;
@@ -150,7 +151,7 @@ export const IXForm: React.FC<Props> = ({
       case "struct":
         return (
           <div>
-            <div tw="grid gap-2">
+            <div className="grid gap-2">
               {typeDef.type.fields.map((f, i) => (
                 <>
                   <span>
@@ -182,7 +183,7 @@ export const IXForm: React.FC<Props> = ({
   };
 
   return (
-    <div tw="grid gap-4">
+    <div className="grid gap-4">
       {builtIX && (
         <PreviewIXModal
           ix={ix}
@@ -199,13 +200,15 @@ export const IXForm: React.FC<Props> = ({
           }}
         />
       )}
-      <h2 tw="text-xl font-semibold mb-4">{startCase(ix.instruction.name)}</h2>
+      <h2 className="text-xl font-semibold mb-4">
+        {startCase(ix.instruction.name)}
+      </h2>
       {ix.instruction.args.length > 0 && (
         <div>
-          <h3 tw="text-lg font-semibold mb-2">Arguments</h3>
-          <div tw="grid gap-2">
+          <h3 className="text-lg font-semibold mb-2">Arguments</h3>
+          <div className="grid gap-2">
             {ix.instruction.args.map((arg, i) => (
-              <label key={`arg_${i}`} tw="grid gap-1 grid-cols-2">
+              <label key={`arg_${i}`} className="grid gap-1 grid-cols-2">
                 <span>
                   {startCase(arg.name)} ({formatIdlType(arg.type)})
                 </span>
@@ -216,7 +219,7 @@ export const IXForm: React.FC<Props> = ({
         </div>
       )}
       <div>
-        <h3 tw="text-lg font-semibold mb-2">Accounts</h3>
+        <h3 className="text-lg font-semibold mb-2">Accounts</h3>
         <div>
           <AccountsForm
             accountItems={ix.instruction.accounts}
@@ -231,17 +234,17 @@ export const IXForm: React.FC<Props> = ({
           />
         </div>
       </div>
-      <div tw="flex flex-col gap-2 text-sm">
-        <span tw="font-medium">Memo (optional)</span>
+      <div className="flex flex-col gap-2 text-sm">
+        <span className="font-medium">Memo (optional)</span>
         <InputText
           type="text"
           value={memo}
-          onChange={(e) => {
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setMemo(e.target.value);
           }}
         />
       </div>
-      <div tw="flex gap-2">
+      <div className="flex gap-2">
         <Button
           disabled={!builtIX}
           type="button"

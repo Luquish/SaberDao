@@ -1,7 +1,8 @@
 import type { IdlAccountItem } from "@project-serum/anchor/dist/esm/idl";
 import { startCase } from "lodash-es";
+import React from "react";
 
-import { InputText } from "../../../../common/inputs/InputText";
+import { InputText } from "@/components/tribeca/common/inputs/InputText";
 
 interface Props {
   accountItems: IdlAccountItem[];
@@ -17,10 +18,10 @@ export const AccountsForm: React.FC<Props> = ({
   onChange,
 }: Props) => {
   return (
-    <div tw="grid gap-2">
+    <div className="grid gap-2">
       {accountItems.map((account) =>
         "accounts" in account ? (
-          <div tw="border p-4">
+          <div className="border p-4">
             <span>{account.name}</span>
             <div>
               <AccountsForm
@@ -33,16 +34,16 @@ export const AccountsForm: React.FC<Props> = ({
             </div>
           </div>
         ) : (
-          <div tw="grid gap-1 grid-cols-2">
-            <div tw="flex items-center gap-2">
+          <div className="grid gap-1 grid-cols-2">
+            <div className="flex items-center gap-2">
               <span>{startCase(account.name)}</span>
               {account.isMut && (
-                <span tw="rounded bg-primary text-white px-1 py-0.5">
+                <span className="rounded bg-primary text-white px-1 py-0.5">
                   writable
                 </span>
               )}
               {account.isSigner && (
-                <span tw="rounded bg-accent text-white px-1 py-0.5">
+                <span className="rounded bg-accent text-white px-1 py-0.5">
                   signer
                 </span>
               )}
@@ -52,7 +53,7 @@ export const AccountsForm: React.FC<Props> = ({
               type="text"
               placeholder={account.name}
               value={accountsStrs[`${prefix}${account.name}`] ?? ""}
-              onChange={(e) => {
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 onChange(`${prefix}${account.name}`, e.target.value);
               }}
             />

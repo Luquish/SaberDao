@@ -3,8 +3,7 @@ import { Keypair } from "@solana/web3.js";
 import BN from "bn.js";
 import { useState } from "react";
 import { FaDice } from "react-icons/fa";
-import { useLocation } from "@reach/router";
-import { navigate } from "@reach/router";
+import { useLocation, navigate } from "@reach/router";
 import invariant from "tiny-invariant";
 import React from "react";
 

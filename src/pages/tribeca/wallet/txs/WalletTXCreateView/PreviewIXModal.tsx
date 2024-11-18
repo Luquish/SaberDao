@@ -16,12 +16,13 @@ import { startCase } from "lodash-es";
 import { useEffect, useMemo, useState } from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import invariant from "tiny-invariant";
+import React from "react";
 
-import { useWrapTx } from "../../../../../hooks/useWrapTx";
-import { useEnvironment } from "../../../../../utils/useEnvironment";
-import { AsyncButton } from "../../../../common/AsyncButton";
-import { AttributeList } from "../../../../common/AttributeList";
-import { Modal } from "../../../../common/Modal";
+import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
+import { useEnvironment } from "@/utils/tribeca/useEnvironment";
+import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
+import { AttributeList } from "@/components/tribeca/common/AttributeList";
+import { Modal } from "@/components/tribeca/common/Modal";
 import type { InstructionInfo } from ".";
 
 interface Props {
@@ -90,11 +91,11 @@ export const PreviewIXModal: React.FC<Props> = ({
 
   return (
     <Modal isOpen={isOpen} onDismiss={onDismiss}>
-      <div tw="flex flex-col gap-6">
-        <h2 tw="font-semibold">Preview: {startCase(ix.instruction.name)}</h2>
+      <div className="flex flex-col gap-6">
+        <h2 className="font-semibold">Preview: {startCase(ix.instruction.name)}</h2>
         {formatted.args.length > 0 && (
-          <div tw="grid gap-4">
-            <h3 tw="font-semibold">Arguments</h3>
+          <div className="grid gap-4">
+            <h3 className="font-semibold">Arguments</h3>
             <AttributeList
               attributes={formatted.args.reduce(
                 (acc, el) => ({
@@ -106,8 +107,8 @@ export const PreviewIXModal: React.FC<Props> = ({
             />
           </div>
         )}
-        <div tw="grid gap-4">
-          <h3 tw="font-semibold">Accounts</h3>
+        <div className="grid gap-4">
+          <h3 className="font-semibold">Accounts</h3>
           <AttributeList
             attributes={formatted.accounts.reduce(
               (acc, el) => ({
@@ -119,22 +120,22 @@ export const PreviewIXModal: React.FC<Props> = ({
           />
         </div>
         <div>
-          <h3 tw="font-semibold flex items-center gap-1">
+          <h3 className="font-semibold flex items-center gap-1">
             Simulated Output
             {result?.err && (
-              <span tw="bg-red-500 px-1 py-0.5 rounded text-white text-xs">
+              <span className="bg-red-500 px-1 py-0.5 rounded text-white text-xs">
                 error
               </span>
             )}
           </h3>
-          <div tw="relative w-full max-w-full font-mono">
-            <div tw="w-full max-w-full overflow-x-scroll text-xs whitespace-pre">
+          <div className="relative w-full max-w-full font-mono">
+            <div className="w-full max-w-full overflow-x-scroll text-xs whitespace-pre">
               {result?.logs?.join("\n")}
             </div>
           </div>
           {network !== "localnet" && (
             <a
-              tw="flex items-center text-primary gap-2"
+              className="flex items-center text-primary gap-2"
               target="_blank"
               href={txEnv?.generateInspectLink(network) ?? ""}
               rel="noreferrer"

@@ -116,29 +116,29 @@ import type {
       () =>
         uniq(
           txs
-            ?.flatMap((tx: ProgramAccount<SmartWalletTransactionData>) =>
-              tx?.account.instructions.map((ix: TransactionInstruction) => ix.programId.toString())
+            ?.flatMap((tx) =>
+              tx?.account.instructions.map((ix) => ix.programId.toString())
             )
-            .filter((x: string): x is string => !!x)
+            .filter((x): x is string => !!x)
         ) as string[],
       [txs]
     );
   
-    const idls = useIDLs(programIDsToFetch.map((p: string) => new PublicKey(p)));
+    const idls = useIDLs(programIDsToFetch.map((p) => new PublicKey(p)));
   
     const parsedTXs = useMemo(() => {
       return txs
-        ?.filter((tx: ProgramAccount<SmartWalletTransactionData>): tx is ProgramAccount<SmartWalletTransactionData> => !!tx)
+        ?.filter((tx): tx is ProgramAccount<SmartWalletTransactionData> => !!tx)
         .map((tx: ProgramAccount<SmartWalletTransactionData>): ParsedTX => {
           const index = tx.account.index.toNumber();
           const instructions: ParsedInstruction[] = tx.account.instructions
-            .map((rawIx: TransactionInstruction) => ({
+            .map((rawIx) => ({
               ...rawIx,
               data: Buffer.from(rawIx.data),
             }))
-            .map((ix: TransactionInstruction): Omit<ParsedInstruction, "title"> => {
+            .map((ix): Omit<ParsedInstruction, "title"> => {
               const idlIndex = programIDsToFetch.findIndex(
-                (pid: string) => pid === ix.programId.toString()
+                (pid) => pid === ix.programId.toString()
               );
               const idl = idls[idlIndex]?.data?.idl;
               const label = programLabel(ix.programId.toString());

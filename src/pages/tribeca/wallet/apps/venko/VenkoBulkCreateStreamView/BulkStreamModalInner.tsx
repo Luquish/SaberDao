@@ -3,13 +3,14 @@ import type { TransactionEnvelope } from "@saberhq/solana-contrib";
 import { VenkoSDK } from "@venkoapp/venko";
 import { useEffect, useState } from "react";
 import invariant from "tiny-invariant";
+import React from "react";
 
-import { useSDK } from "../../../../../contexts/sdk";
-import { useWrapTx } from "@/hooks/useWrapTx";
-import { useEnvironment } from "@/utils/useEnvironment";
-import { useModal } from "../../../../../common/Modal/context";
-import { ModalInner } from "../../../../../common/Modal/ModalInner";
-import { ExternalLink } from "../../../../../common/typography/ExternalLink";
+import { useSDK } from "@/contexts/sdk";
+import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
+import { useEnvironment } from "@/utils/tribeca/useEnvironment";
+import { useModal } from "@/components/tribeca/common/Modal/context";
+import { ModalInner } from "@/components/tribeca/common/Modal/ModalInner";
+import { ExternalLink } from "@/components/tribeca/common/typography/ExternalLink";
 import type { BulkStreamConfig } from "./BulkCreateStream";
 
 export interface Props {
@@ -73,9 +74,9 @@ export const BulkStreamModalInner: React.FC<Props> = ({ config }: Props) => {
       }}
     >
       <div>You are about to send the following transactions:</div>
-      <div tw="flex flex-col text-sm">
+      <div className="flex flex-col text-sm">
         {txEnvs?.map((tx, i) => (
-          <div key={i} tw="flex justify-between py-4 border-b">
+          <div key={i} className="flex justify-between py-4 border-b">
             <div>
               <span>TX #{i + 1}</span>
             </div>

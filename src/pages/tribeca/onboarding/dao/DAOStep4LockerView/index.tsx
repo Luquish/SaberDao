@@ -6,11 +6,11 @@ import { FaDice } from "react-icons/fa";
 import invariant from "tiny-invariant";
 import { usePubkey } from "@rockooor/sail";
 
-import { AsyncButton } from "../../../../../components/tribeca/common/AsyncButton";
-import { Button } from "../../../../../components/tribeca/common/Button";
-import { InputText } from "../../../../../components/tribeca/common/inputs/InputText";
-import { LabeledInput } from "../../../../../components/tribeca/common/inputs/LabeledInput";
-import { Section } from "../../../../../components/tribeca/layout/WalletLayout/Section";
+import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
+import { Button } from "@/components/tribeca/common/Button";
+import { InputText } from "@/components/tribeca/common/inputs/InputText";
+import { LabeledInput } from "@/components/tribeca/common/inputs/LabeledInput";
+import { Section } from "@/components/tribeca/layout/WalletLayout/Section";
 import { LaunchDAOModal } from "./LaunchDAOModal";
 import type { DAOParams } from "./params";
 import { DAOParamsFormSchema, DEFAULT_DAO_PARAMS } from "./params";

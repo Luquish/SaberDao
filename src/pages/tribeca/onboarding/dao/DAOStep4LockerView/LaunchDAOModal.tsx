@@ -5,15 +5,16 @@ import { PublicKey } from "@solana/web3.js";
 import { createLocker } from "@tribecahq/tribeca-sdk";
 import { BN } from "bn.js";
 import { useCallback, useState } from "react";
-import { useNavigate } from "react-router";
+import { navigate } from "@reach/router";
 import invariant from "tiny-invariant";
+import React from "react";
 
-import { useSDK } from "../../../../../contexts/sdk";
-import { AttributeList } from "../../../../common/AttributeList";
-import type { ModalProps } from "../../../../common/Modal";
-import { Modal } from "../../../../common/Modal";
-import { TransactionPlanExecutor } from "../../../../common/TransactionPlanExecutor";
-import type { TransactionPlan } from "../../../../common/TransactionPlanExecutor/plan";
+import { useSDK } from "@/contexts/sdk";
+import { AttributeList } from "@/components/tribeca/common/AttributeList";
+import type { ModalProps } from "@/components/tribeca/common/Modal";
+import { Modal } from "@/components/tribeca/common/Modal";
+import { TransactionPlanExecutor } from "@/components/tribeca/common/TransactionPlanExecutor";
+import type { TransactionPlan } from "@/components/tribeca/common/TransactionPlanExecutor/plan";
 import type { DAOParams } from "./params";
 
 interface IProps extends Omit<ModalProps, "children"> {
@@ -32,7 +33,6 @@ export const LaunchDAOModal: React.FC<IProps> = ({
   govTokenMint,
   ...modalProps
 }: IProps) => {
-  const navigate = useNavigate();
   const { data: token } = useToken(govTokenMint);
   const { sdkMut, tribecaMut } = useSDK();
   const [governorKey, setGovernorKey] = useState<PublicKey>(PublicKey.default);
@@ -86,12 +86,12 @@ export const LaunchDAOModal: React.FC<IProps> = ({
 
   return (
     <Modal {...modalProps}>
-      <div tw="relative border-b dark:border-b-warmGray-800 dark:text-white font-bold text-base text-center py-4">
-        <div tw="px-8 overflow-ellipsis overflow-hidden whitespace-nowrap">
+      <div className="relative border-b dark:border-b-warmGray-800 dark:text-white font-bold text-base text-center py-4">
+        <div className="px-8 overflow-ellipsis overflow-hidden whitespace-nowrap">
           {"Launch DAO"}
         </div>
 
-        <div tw="mb-4">
+        <div className="mb-4">
           <AttributeList
             transformLabel={false}
             attributes={

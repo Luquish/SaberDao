@@ -24,22 +24,24 @@ function Arrow({ className, position }: ArrowProps) {
   );
 }
 
-interface PopoverProps {
+export interface PopoverProps {
   children: React.ReactNode;
   className?: string;
-  position?: 'top' | 'bottom' | 'left' | 'right';
+  position?: "top" | "bottom" | "left" | "right";
   showArrow?: boolean;
+  content: React.ReactNode;
 }
 
 export function Popover({ 
-  children, 
+  content,
+  children,
   className,
-  position = 'bottom',
-  showArrow = true 
+  position = "bottom",
+  showArrow = true,
 }: PopoverProps) {
   return (
     <div className={clsx('relative', className)}>
-      {children}
+      {content}
       {showArrow && <Arrow position={position} />}
     </div>
   );

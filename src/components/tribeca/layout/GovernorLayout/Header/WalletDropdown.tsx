@@ -4,10 +4,10 @@ import { useAnchorWallet, useWallet } from "@solana/wallet-adapter-react";
 import { useEffect, useState } from "react";
 import React from "react";
 
-import { useCardinalDisplayName } from "../../../../../hooks/tribeca/cardinal/useAddressName";
-import { ContentLoader } from "../../../common/ContentLoader";
-import { Drop } from "../../../common/Drop";
-import { AccountPopover } from "../../MainLayout/Header/WalletDropdown/AccountPopover";
+import { useCardinalDisplayName } from "@/hooks/tribeca/cardinal/useAddressName";
+import { ContentLoader } from "@/components/tribeca/common/ContentLoader";
+import { Drop } from "@/components/tribeca/common/Drop";
+import { AccountPopover } from "@/components/tribeca/layout/MainLayout/Header/WalletDropdown/AccountPopover";
 import { WalletButton } from "./WalletButton";
 
 interface Props {

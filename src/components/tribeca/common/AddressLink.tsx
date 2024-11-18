@@ -2,10 +2,10 @@ import type { PublicKey } from "@solana/web3.js";
 import copy from "copy-to-clipboard";
 import React from "react";
     
-import { notify } from "../../../utils/tribeca/notifications";
-import { displayAddress } from "../../../utils/tribeca/programs";
-import { useEnvironment } from "../../../utils/tribeca/useEnvironment";
-import { shortenAddress } from "../../../utils/tribeca/utils";
+import { notify } from "@/utils/tribeca/notifications";
+import { displayAddress } from "@/utils/tribeca/programs";
+import { useEnvironment } from "@/utils/tribeca/useEnvironment";
+import { shortenAddress } from "@/utils/tribeca/utils";
 
 interface Props {
   address: PublicKey;

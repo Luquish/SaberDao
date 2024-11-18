@@ -9,9 +9,6 @@ const config: GatsbyConfig = {
         title: 'dapp',
         siteUrl: 'https://www.saber.so',
     },
-    // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-    // If you use VSCode you can also use the GraphQL plugin
-    // Learn more at: https://gatsby.dev/graphql-typegen
     graphqlTypegen: true,
     plugins: [
         'gatsby-plugin-postcss',
@@ -28,6 +25,34 @@ const config: GatsbyConfig = {
             options: {
                 isTSX: true,
                 allExtensions: true,
+            },
+        },
+        'gatsby-plugin-image',
+        'gatsby-plugin-sharp',
+        'gatsby-transformer-sharp',
+        {
+            resolve: 'gatsby-source-filesystem',
+            options: {
+                name: 'images',
+                path: `${__dirname}/src/images`,
+            },
+        },
+        {
+            resolve: 'gatsby-plugin-manifest',
+            options: {
+                name: 'SaberDAO',
+                short_name: 'SaberDAO',
+                start_url: '/',
+                background_color: '#ffffff',
+                theme_color: '#3D42CE',
+                display: 'minimal-ui',
+                icon: 'src/images/icon.png',
+            },
+        },
+        {
+            resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
+            options: {
+                devMode: false,
             },
         },
     ],

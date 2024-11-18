@@ -3,8 +3,8 @@ import { FaGear } from "react-icons/fa6";
 import { useLocalStorage } from "usehooks-ts";
 import React from "react";
 
-import { Button } from "../../../common/Button";
-import { Modal } from "../../../common/Modal";
+import { Button } from "@/components/tribeca/common/Button";
+import { Modal } from "@/components/tribeca/common/Modal";
 
 interface Props {
   className?: string;

@@ -3,20 +3,21 @@ import { Keypair } from "@solana/web3.js";
 import BN from "bn.js";
 import { useState } from "react";
 import { FaDice } from "react-icons/fa";
-import { useNavigate } from "react-router";
+import { navigate } from "@reach/router";
 import invariant from "tiny-invariant";
+import React from "react";
 
-import { useSDK } from "../../../../../contexts/sdk";
+import { useSDK } from "@/contexts/sdk";
 import {
   useOwnerInvokerAddress,
   useSmartWalletAddress,
-} from "../../../../../hooks/useSmartWalletAddress";
-import { useWrapTx } from "../../../../../hooks/useWrapTx";
-import { handleException } from "../../../../../utils/error";
-import { notify } from "../../../../../utils/notifications";
-import { AsyncButton } from "../../../../common/AsyncButton";
-import { Button } from "../../../../common/Button";
-import { InputText } from "../../../../common/inputs/InputText";
+} from "@/hooks/tribeca/useSmartWalletAddress";
+import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
+import { handleException } from "@/utils/tribeca/error";
+import { notify } from "@/utils/notifications";
+import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
+import { Button } from "@/components/tribeca/common/Button";
+import { InputText } from "@/components/tribeca/common/inputs/InputText";
 
 export const DAOStep2ExecutiveView: React.FC = () => {
   const [baseKP, setBaseKP] = useState<Keypair>(Keypair.generate());
@@ -25,18 +26,17 @@ export const DAOStep2ExecutiveView: React.FC = () => {
   const { sdkMut } = useSDK();
   const { handleTX } = useSail();
   const { wrapTx } = useWrapTx();
-  const navigate = useNavigate();
 
   return (
-    <div tw="grid gap-12 w-full max-w-sm mx-auto">
+    <div className="grid gap-12 w-full max-w-sm mx-auto">
       <div>
-        <div tw="mb-8">
-          <h1 tw="font-bold text-2xl mb-4 dark:text-gray-50">
+        <div className="mb-8">
+          <h1 className="font-bold text-2xl mb-4 dark:text-gray-50">
             Create the Executive Council
           </h1>
         </div>
-        <div tw="flex flex-col items-center gap-16">
-          <div tw="prose prose-sm dark:prose-light">
+        <div className="flex flex-col items-center gap-16">
+          <div className="prose prose-sm dark:prose-light">
             <p>
               The Executive Council is a Smart Wallet which allows trusted
               individuals to carry out the execution of governance proposals.
@@ -51,17 +51,17 @@ export const DAOStep2ExecutiveView: React.FC = () => {
               parties being able to execute a proposal.
             </p>
           </div>
-          <div tw="flex flex-col w-full gap-4">
-            <div tw="flex flex-col w-full">
-              <span tw="text-xs mb-1.5">Executive Council Key</span>
-              <div tw="flex gap-2 w-full">
+          <div className="flex flex-col w-full gap-4">
+            <div className="flex flex-col w-full">
+              <span className="text-xs mb-1.5">Executive Council Key</span>
+              <div className="flex gap-2 w-full">
                 <InputText
-                  tw="h-10 flex-grow"
+                  className="h-10 flex-grow"
                   disabled
                   value={ownerInvokerKey?.toString()}
                 />
                 <Button
-                  tw="flex items-center gap-2 h-10"
+                  className="flex items-center gap-2 h-10"
                   onClick={() => {
                     setBaseKP(Keypair.generate());
                   }}
@@ -71,11 +71,11 @@ export const DAOStep2ExecutiveView: React.FC = () => {
                 </Button>
               </div>
             </div>
-            <div tw="flex flex-col w-full">
-              <span tw="text-xs mb-1.5">Smart Wallet</span>
-              <div tw="flex gap-2 w-full">
+            <div className="flex flex-col w-full">
+              <span className="text-xs mb-1.5">Smart Wallet</span>
+              <div className="flex gap-2 w-full">
                 <InputText
-                  tw="h-10 flex-grow"
+                  className="h-10 flex-grow"
                   disabled
                   value={smartWalletKey?.toString()}
                 />

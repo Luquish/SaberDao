@@ -1,5 +1,5 @@
-import { useProgramLabel } from "../../../../hooks/tribeca/useProgramMeta";
-import { SYSVAR_OWNER } from "../../../../utils/tribeca/programs";
+import { useProgramLabel } from "@/hooks/tribeca/useProgramMeta";
+import { SYSVAR_OWNER } from "@/utils/tribeca/programs";
 import { AddressLink } from "../AddressLink";
 import React from "react";
 

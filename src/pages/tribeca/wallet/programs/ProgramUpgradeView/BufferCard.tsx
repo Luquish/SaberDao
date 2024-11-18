@@ -8,22 +8,22 @@ import { navigate } from "@reach/router";
 import invariant from "tiny-invariant";
 import React from "react";
 
-import { useSDK } from "../../../../../contexts/sdk";
-import type { ProgramDeployBuffer } from "../../../../../hooks/tribeca/useAuthorityPrograms";
-import { truncateShasum } from "../../../../../hooks/tribeca/useSha256Sum";
-import { useSmartWallet } from "../../../../../hooks/tribeca/useSmartWallet";
-import { useWrapTx } from "../../../../../hooks/tribeca/useWrapTx";
+import { useSDK } from "@/contexts/sdk";
+import type { ProgramDeployBuffer } from "@/hooks/tribeca/useAuthorityPrograms";
+import { truncateShasum } from "@/hooks/tribeca/useSha256Sum";
+import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
+import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import {
   SABER_DAO_SMART_WALLET_KEY,
   SABER_EMERGENCY_DAO,
-} from "../../../../../utils/tribeca/constants";
+} from "@/utils/tribeca/constants";
 import {
   createCloseInstruction,
   createUpgradeInstruction,
-} from "../../../../../utils/tribeca/instructions/upgradeable_loader/instructions";
-import { notify } from "../../../../../utils/tribeca/notifications";
-import { AddressLink } from "../../../../../components/tribeca/common/AddressLink";
-import { AsyncButton } from "../../../../../components/tribeca/common/AsyncButton";
+} from "@/utils/tribeca/instructions/upgradeable_loader/instructions";
+import { notify } from "@/utils/tribeca/notifications";
+import { AddressLink } from "@/components/tribeca/common/AddressLink";
+import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
 
 interface Props {
   buffer: ProgramDeployBuffer;

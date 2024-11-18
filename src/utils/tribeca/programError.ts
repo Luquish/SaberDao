@@ -7,7 +7,7 @@ import {
 } from "@saberhq/token-utils";
 import type { PublicKey, TransactionInstruction } from "@solana/web3.js";
 
-import type { ProgramKey } from "../contexts/sdk";
+import type { ProgramKey } from "@/contexts/sdk";
 
 export class IdlError extends Error {}
 

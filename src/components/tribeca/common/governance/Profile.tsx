@@ -4,8 +4,8 @@ import { Link } from "gatsby";
 import React from "react";
 import clsx from "clsx";
 
-import { useAddressImage } from "../../../../hooks/tribeca/cardinal/useAddressImage";
-import { useCardinalDisplayName } from "../../../../hooks/tribeca/cardinal/useAddressName";
+import { useAddressImage } from "@/hooks/tribeca/cardinal/useAddressImage";
+import { useCardinalDisplayName } from "@/hooks/tribeca/cardinal/useAddressName";
 import { AddressLink } from "../AddressLink";
 import { ContentLoader } from "../ContentLoader";
 

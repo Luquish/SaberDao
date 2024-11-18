@@ -9,16 +9,16 @@ import { PublicKey } from "@solana/web3.js";
 import { useMemo } from "react";
 import { createContainer } from "unstated-next";
 
-import { useProvider } from "../../../../../hooks/tribeca/useProvider";
-import { useSignaturesForAddress } from "../../../../../hooks/tribeca/useSignaturesForAddress";
-import type { ParsedTX } from "../../../../../hooks/tribeca/useSmartWallet";
+import { useProvider } from "@/hooks/tribeca/useProvider";
+import { useSignaturesForAddress } from "@/hooks/tribeca/useSignaturesForAddress";
+import type { ParsedTX } from "@/hooks/tribeca/useSmartWallet";
 import {
   SMART_WALLET_CODER,
   useSmartWallet,
-} from "../../../../../hooks/tribeca/useSmartWallet";
-import { useTransactions } from "../../../../../hooks/tribeca/useTransactions";
-import { displayAddress } from "../../../../../utils/tribeca/programs";
-import { shortenAddress } from "../../../../../utils/tribeca/utils";
+} from "@/hooks/tribeca/useSmartWallet";
+import { useTransactions } from "@/hooks/tribeca/useTransactions";
+import { displayAddress } from "@/utils/tribeca/programs";
+import { shortenAddress } from "@/utils/tribeca/utils";
 
 interface LoadedTransaction extends ParsedTX {
   tx: ProgramAccount<SmartWalletTransactionData>;
@@ -93,7 +93,7 @@ const useTransactionInner = (tx?: LoadedTransaction): DetailedTransaction => {
             },
           },
         }),
-      tx.tx.account.instructions.map((ix: TransactionInstruction) => ({
+      tx.tx.account.instructions.map((ix) => ({
         ...ix,
         data: Buffer.from(ix.data),
       }))

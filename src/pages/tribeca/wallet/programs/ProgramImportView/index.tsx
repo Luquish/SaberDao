@@ -4,25 +4,25 @@ import { useAnchorWallet } from "@solana/wallet-adapter-react";
 import invariant from "tiny-invariant";
 import React from "react";
 
-import { useAuthorityPrograms } from "../../../../../hooks/tribeca/useAuthorityPrograms";
-import { useSmartWallet } from "../../../../../hooks/tribeca/useSmartWallet";
-import { useWrapTx } from "../../../../../hooks/tribeca/useWrapTx";
+import { useAuthorityPrograms } from "@/hooks/tribeca/useAuthorityPrograms";
+import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
+import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import {
   createSetAuthorityInstruction,
   findProgramDataAddress,
-} from "../../../../../utils/tribeca/instructions/upgradeable_loader/instructions";
-import { displayAddress } from "../../../../../utils/tribeca/programs";
-import { AsyncButton } from "../../../../../components/tribeca/common/AsyncButton";
+} from "@/utils/tribeca/instructions/upgradeable_loader/instructions";
+import { displayAddress } from "@/utils/tribeca/programs";
+import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
 import {
   EmptyState,
   EmptyStateConnectWallet,
-} from "../../../../../components/tribeca/common/EmptyState";
-import { ErrorMessage } from "../../../../../components/tribeca/common/ErrorMessage";
-import { LoadingPage } from "../../../../../components/tribeca/common/LoadingPage";
-import { LoadingSpinner } from "../../../../../components/tribeca/common/LoadingSpinner";
-import { Notice } from "../../../../../components/tribeca/common/Notice";
-import { BasicPage } from "../../../../../components/tribeca/common/page/BasicPage";
-import { ReactComponent as EmptyFolder } from "../../../../../components/tribeca/common/svgs/EmptyFolder.svg";
+} from "@/components/tribeca/common/EmptyState";
+import { ErrorMessage } from "@/components/tribeca/common/ErrorMessage";
+import { LoadingPage } from "@/components/tribeca/common/LoadingPage";
+import { LoadingSpinner } from "@/components/tribeca/common/LoadingSpinner";
+import { Notice } from "@/components/tribeca/common/Notice";
+import { BasicPage } from "@/components/tribeca/common/page/BasicPage";
+import { ReactComponent as EmptyFolder } from "@/components/tribeca/common/svgs/EmptyFolder.svg";
 import { ProgramCard } from "../WalletProgramsView/ProgramCard";
 
 export const ProgramImportView: React.FC<RouteComponentProps> = () => {

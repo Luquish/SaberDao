@@ -1,8 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-import { useSmartWallet } from "../../../../../hooks/useSmartWallet";
-import { NamedAddressLink } from "../../../../common/account/NamedAddressLink";
-import { Button } from "../../../../common/Button";
+import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
+import { NamedAddressLink } from "@/components/tribeca/common/account/NamedAddressLink";
+import { Button } from "@/components/tribeca/common/Button";
 import { AddSignerModal } from "./AddSignerModal";
 import { UpdateThresholdModal } from "./UpdateThresholdModal";
 
@@ -31,12 +31,12 @@ export const SignersSection: React.FC = () => {
           setSignerModal(null);
         }}
       />
-      <h2 tw="text-xl font-medium mb-1">Signers</h2>
-      <p tw="text-secondary text-sm">
+      <h2 className="text-xl font-medium mb-1">Signers</h2>
+      <p className="text-secondary text-sm">
         A proposed transaction may only be executed if {threshold} of these
         addresses approve it.
       </p>
-      <div tw="my-6 flex items-center gap-4">
+      <div className="my-6 flex items-center gap-4">
         <Button
           variant="primary"
           onClick={() => {
@@ -54,15 +54,15 @@ export const SignersSection: React.FC = () => {
           Add a signer
         </Button>
       </div>
-      <div tw="text-sm">
+      <div className="text-sm">
         {smartWalletData?.account?.owners.map((owner, i) => {
           return (
             <div
               key={`owner_${i}`}
-              tw="h-11 flex items-center justify-between border-b px-2"
+              className="h-11 flex items-center justify-between border-b px-2"
             >
               <NamedAddressLink address={owner} showCopy />
-              <Button variant="outline" size="sm" tw="text-xs h-7">
+              <Button variant="outline" size="sm" className="text-xs h-7">
                 Remove
               </Button>
             </div>

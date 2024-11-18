@@ -4,7 +4,7 @@ import { Link } from "gatsby";
 import React from "react";
 import clsx from "clsx";
 
-import { useGovernor } from "../../../../../hooks/tribeca/useGovernor";
+import { useGovernor } from "@/hooks/tribeca/useGovernor";
 
 export const NAV_LINKS = [
   {

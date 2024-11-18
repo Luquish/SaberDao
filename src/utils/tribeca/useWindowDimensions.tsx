@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { BREAKPOINT_SIZES } from "../theme/breakpoints";
+import { BREAKPOINT_SIZES } from "@/theme/breakpoints";
 
 function getWindowDimensions() {
   const { innerWidth: width, innerHeight: height } = window;

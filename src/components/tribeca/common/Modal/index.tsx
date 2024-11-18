@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { animated, useSpring, useTransition, SpringValue } from "@react-spring/web";
 import React from "react";
 import { isMobile } from "react-device-detect";
-import { useGesture, DragState } from "react-use-gesture";
+import { useGesture, DragState } from "@use-gesture/react";
 
 import { ModalProvider } from "./context";
 
@@ -35,13 +35,13 @@ export const Modal: React.FC<ModalProps> = ({
     config: { mass: 1, tension: 210, friction: 20 },
   }));
   const bind = useGesture({
-    onDrag: (state: DragState) => {
+    onDrag: (state) => {
       set({
         y: state.down ? state.movement[1] : 0,
       });
       if (
         state.movement[1] > 300 ||
-        (state.velocity > 3 && state.direction[1] > 0)
+        (state.velocity[1] > 3 && state.direction[1] > 0)
       ) {
         onDismiss();
       }

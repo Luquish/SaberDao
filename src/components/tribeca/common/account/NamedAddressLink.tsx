@@ -1,4 +1,4 @@
-import { useCardinalDisplayName } from "../../../../hooks/tribeca/cardinal/useAddressName";
+import { useCardinalDisplayName } from "@/hooks/tribeca/cardinal/useAddressName";
 import { AddressLink } from "../AddressLink";
 import React from "react";
 type Props = React.ComponentProps<typeof AddressLink>;

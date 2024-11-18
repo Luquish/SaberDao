@@ -1,8 +1,9 @@
+import React from "react";
 import { useUserATAs } from "@rockooor/sail";
 import { TokenAmount } from "@saberhq/token-utils";
 
-import { AttributeList } from "../../../../../common/AttributeList";
-import { AddressWithContext } from "../../../../../common/program/AddressWithContext";
+import { AttributeList } from "@/components/tribeca/common/AttributeList";
+import { AddressWithContext } from "@/components/tribeca/common/program/AddressWithContext";
 import type { BulkStreamConfig } from "./BulkCreateStream";
 
 interface Props {
@@ -33,10 +34,10 @@ export const BulkStreamConfigRenderer: React.FC<Props> = ({
       {!balance || balance.balance.lessThan(total) ? (
         <div>Insufficient balance</div>
       ) : null}
-      <div tw="flex flex-col text-sm">
+      <div className="flex flex-col text-sm">
         {config.recipients.map((rec) => (
-          <div key={rec.name} tw="flex flex-col gap-1 py-4 border-b">
-            <div tw="flex justify-between">
+          <div key={rec.name} className="flex flex-col gap-1 py-4 border-b">
+            <div className="flex justify-between">
               <span>{rec.name}</span>
               <span>{rec.amount.formatUnits()}</span>
             </div>

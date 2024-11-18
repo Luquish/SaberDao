@@ -9,13 +9,13 @@ import { useFormik } from "formik";
 import invariant from "tiny-invariant";
 import * as Yup from "yup";
 
-import { Button } from "../../components/tribeca/common/Button";
-import { InputText } from "../../components/tribeca/common/inputs/InputText";
-import { LabeledInput } from "../../components/tribeca/common/inputs/LabeledInput";
-import { Section } from "../../components/tribeca/layout/WalletLayout/Section";
-import { useSDK } from "../../contexts/sdk";
-import { useWrapTx } from "../../hooks/tribeca/useWrapTx";
-import { YupKeypair, YupPublicKey } from "../../utils/tribeca/validators/pubkey";
+import { Button } from "@/components/tribeca/common/Button";
+import { InputText } from "@/components/tribeca/common/inputs/InputText";
+import { LabeledInput } from "@/components/tribeca/common/inputs/LabeledInput";
+import { Section } from "@/components/tribeca/layout/WalletLayout/Section";
+import { useSDK } from "@/contexts/sdk";
+import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
+import { YupKeypair, YupPublicKey } from "@/utils/tribeca/validators/pubkey";
 import React from "react";
 interface CreateStreamForm {
   amount: number;
@@ -166,10 +166,9 @@ export const GrantVenkoStreamForm: React.FC<Props> = ({
                     void setFieldValue("revocable", checked);
                   }}
                   onBlur={handleBlur}
-                  className={[
-                    values.revocable ? "bg-primary" : "bg-warmGray-600",
-                    "relative inline-flex items-center h-6 rounded-full w-11 transition-colors",
-                  ]}
+                  className={
+                    values.revocable ? "bg-primary" : "bg-warmGray-600"
+                  }
                 >
                   <span
                     className={[

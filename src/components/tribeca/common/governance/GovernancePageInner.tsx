@@ -2,7 +2,7 @@ import { BsArrowLeft } from "react-icons/bs";
 import { Link } from "gatsby";
 import React from "react";
 
-import { useGovernor } from "../../../../hooks/tribeca/useGovernor";
+import { useGovernor } from "@/hooks/tribeca/useGovernor";
 import { ImageWithFallback } from "../ImageWithFallback";
 import { Footer } from "./Footer";
 

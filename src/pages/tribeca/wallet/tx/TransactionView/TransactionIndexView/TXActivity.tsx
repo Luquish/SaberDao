@@ -1,7 +1,8 @@
-import formatDistance from "date-fns/formatDistance";
+import { formatDistance } from "date-fns";
+import React from "react";
 
-import { LoadingPage } from "../../../../../common/LoadingPage";
-import { TXLink } from "../../../../../common/TXLink";
+import { LoadingPage } from "@/components/tribeca/common/LoadingPage";
+import { TXLink } from "@/components/tribeca/common/TXLink";
 import { useTransaction } from "../context";
 import { TXEvent } from "./TXEvent";
 
@@ -12,14 +13,14 @@ export const TXActivity: React.FC = () => {
   );
   return (
     <div>
-      <h2 tw="mt-8 text-gray-800 font-semibold mb-4">Activity</h2>
+      <h2 className="mt-8 text-gray-800 font-semibold mb-4">Activity</h2>
       {txsWithEvents ? (
-        <div tw="text-xs flex flex-col gap-4">
+        <div className="text-xs flex flex-col gap-4">
           {txsWithEvents.map(({ tx, event }, i) => {
             return (
               <div
                 key={`${tx.sig}_${i}`}
-                tw="text-gray-500 inline-flex items-center gap-4"
+                className="text-gray-500 inline-flex items-center gap-4"
               >
                 <span>
                   <TXEvent event={event} />
@@ -33,7 +34,10 @@ export const TXActivity: React.FC = () => {
                       )
                     : ""}
                 </span>
-                <TXLink txSig={tx.sig} tw="text-primary hover:text-primary-300">
+                <TXLink
+                  txSig={tx.sig}
+                  className="text-primary hover:text-primary-300"
+                >
                   {" "}
                 </TXLink>
               </div>

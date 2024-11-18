@@ -5,13 +5,13 @@ import { Link } from "gatsby";
 import React from "react";
 import clsx from "clsx";
 
-import { useProvider } from "../../../../../hooks/tribeca/useProvider";
-import { useSmartWallet } from "../../../../../hooks/tribeca/useSmartWallet";
-import { useTokenAccounts } from "../../../../../hooks/tribeca/useTokenAccounts";
-import { notify } from "../../../../../utils/tribeca/notifications";
-import { Button } from "../../../../../components/tribeca/common/Button";
-import { TokenAmountDisplay } from "../../../../../components/tribeca/common/TokenAmountDisplay";
-import { TokenIcon } from "../../../../../components/tribeca/common/TokenIcon";
+import { useProvider } from "@/hooks/tribeca/useProvider";
+import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
+import { useTokenAccounts } from "@/hooks/tribeca/useTokenAccounts";
+import { notify } from "@/utils/tribeca/notifications";
+import { Button } from "@/components/tribeca/common/Button";
+import { TokenAmountDisplay } from "@/components/tribeca/common/TokenAmountDisplay";
+import { TokenIcon } from "@/components/tribeca/common/TokenIcon";
 
 export const Tokens: React.FC = () => {
   const { provider, network } = useProvider();

@@ -5,9 +5,9 @@ import { Link } from "gatsby";
 import React from "react";
 
 import { useSmartWallet } from "../../../../../hooks/tribeca/useSmartWallet";
-import { useEnvironment } from "../../../../../utils/tribeca/useEnvironment";
-import { AddressLink } from "../../../common/AddressLink";
-import { ReactComponent as GokiLogo } from "../../../common/svgs/logo-dark.svg";
+import { useEnvironment } from "@/utils/tribeca/useEnvironment";
+import { AddressLink } from "@/components/tribeca/common/AddressLink";
+import { ReactComponent as GokiLogo } from "@/components/tribeca/common/svgs/logo-dark.svg";
 import { WalletDropdownMini } from "../WalletDropdownMini";
 import { SidebarNavLink } from "./SidebarNavLink";
 

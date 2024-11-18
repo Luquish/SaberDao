@@ -3,11 +3,12 @@ import type { Token } from "@saberhq/token-utils";
 import { TokenAmount } from "@saberhq/token-utils";
 import { PublicKey } from "@solana/web3.js";
 import { useMemo, useState } from "react";
+import React from "react";
 
 import { Textarea } from "@/components/tribeca/common/inputs/InputText";
-import { LabeledInput } from "../../../../../common/inputs/LabeledInput";
-import { ModalButton } from "../../../../../common/Modal/ModalButton";
-import { Section } from "../../../../../layout/WalletLayout/Section";
+import { LabeledInput } from "@/components/tribeca/common/inputs/LabeledInput";
+import { ModalButton } from "@/components/tribeca/common/Modal/ModalButton";
+import { Section } from "@/components/tribeca/layout/WalletLayout/Section";
 import { BulkStreamConfigRenderer } from "./BulkStreamConfigRenderer";
 import { BulkStreamModalInner } from "./BulkStreamModalInner";
 
@@ -67,13 +68,15 @@ export const BulkCreateStream: React.FC = () => {
         title="Bulk Create Streams"
         description="Create Streams from a JSON spec."
       >
-        <div tw="flex flex-col gap-4">
+        <div className="flex flex-col gap-4">
           <LabeledInput
             id="config"
             Component={Textarea}
             label="Configuration JSON"
             value={configStr}
-            onChange={(e) => setConfigStr(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+              setConfigStr(e.target.value)
+            }
           />
           {config && (
             <>

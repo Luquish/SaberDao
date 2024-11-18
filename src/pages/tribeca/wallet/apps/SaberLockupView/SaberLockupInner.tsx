@@ -4,11 +4,12 @@ import type { u64 } from "@saberhq/token-utils";
 import { getOrCreateATA, TOKEN_PROGRAM_ID } from "@saberhq/token-utils";
 import { LAMPORTS_PER_SOL, SYSVAR_CLOCK_PUBKEY } from "@solana/web3.js";
 import invariant from "tiny-invariant";
+import React, { Provider } from "react";
 
-import { useSmartWallet } from "../../../../../hooks/useSmartWallet";
-import { useWrapTx } from "../../../../../hooks/useWrapTx";
-import { AsyncButton } from "../../../../common/AsyncButton";
-import { Button } from "../../../../common/Button";
+import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
+import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
+import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
+import { Button } from "@/components/tribeca/common/Button";
 
 export const SaberLockupInner: React.FC = () => {
   const { key, smartWallet } = useSmartWallet();
@@ -30,7 +31,7 @@ export const SaberLockupInner: React.FC = () => {
     const mintProxyStateAddress = saber.mintProxy.program.state.address();
 
     const { address, instruction } = await getOrCreateATA({
-      provider: saber.provider,
+      provider: saber.provider as any,
       mint: mintProxyState.tokenMint,
       owner: saber.provider.wallet.publicKey,
     });

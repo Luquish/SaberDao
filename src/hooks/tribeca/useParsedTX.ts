@@ -5,10 +5,10 @@ import { startCase } from "lodash-es";
 import { useEffect } from "react";
 import invariant from "tiny-invariant";
 
-import { parseNonAnchorInstruction } from "../utils/instructions/parseNonAnchorInstruction";
-import { useGokiTransactionData } from "../utils/parsers";
-import { displayAddress, programLabel } from "../utils/programs";
-import { useEnvironment } from "../utils/useEnvironment";
+import { parseNonAnchorInstruction } from "@/utils/tribeca/instructions/parseNonAnchorInstruction";
+import { useGokiTransactionData } from "@/utils/tribeca/parsers";
+import { displayAddress, programLabel } from "@/utils/tribeca/programs";
+import { useEnvironment } from "@/utils/tribeca/useEnvironment";
 import { useIDLs } from "./useIDLs";
 import type { ParsedInstruction } from "./useSmartWallet";
 import { useTXAddress } from "./useTXAddress";

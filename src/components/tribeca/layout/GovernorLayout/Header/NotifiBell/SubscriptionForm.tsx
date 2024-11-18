@@ -1,7 +1,7 @@
 import React from "react";
 import { FaEnvelope, FaMobileAlt } from "react-icons/fa";
 
-import { Button } from "../../../../common/Button";
+import { Button } from "@/components/tribeca/common/Button";
 import { IconInput } from "./IconInput";
 
 export interface Props {

@@ -1,6 +1,6 @@
 import "@reach/slider/styles.css";
 import { SliderInput as ReachSlider } from "@reach/slider";
-import { styled } from "@emotion/styled";
+import styled from "@emotion/styled";
 
 const InputSlider = styled(ReachSlider)`
   background: none;

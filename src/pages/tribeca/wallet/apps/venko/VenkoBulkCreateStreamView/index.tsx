@@ -1,4 +1,6 @@
-import { BasicPage } from "../../../../../common/page/BasicPage";
+import React from "react";
+
+import { BasicPage } from "@/components/tribeca/common/page/BasicPage";
 import { BulkCreateStream } from "./BulkCreateStream";
 
 export const VenkoBulkCreateStreamView: React.FC = () => {

@@ -21,21 +21,22 @@ import {
 } from "@saberhq/token-utils";
 import type { TransactionInstruction } from "@solana/web3.js";
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import invariant from "tiny-invariant";
+import type { Provider } from "@saberhq/solana-contrib";
 
-import { AsyncButton } from "../../components/tribeca/common/AsyncButton";
-import { InputText } from "../../components/tribeca/common/inputs/InputText";
-import { InputTokenAmount } from "../../components/tribeca/common/inputs/InputTokenAmount";
-import { useGovernor } from "../../hooks/tribeca/useGovernor";
-import { useParseTokenAmount } from "../../hooks/tribeca/useParseTokenAmount";
-import { useProvider } from "../../hooks/tribeca/useProvider";
-import { useWrapTx } from "../../hooks/tribeca/useWrapTx";
-import { serializeToBase64 } from "../../utils/tribeca/makeTransaction";
-import { useParsedMintWrapper } from "../../utils/tribeca/parsers";
-import type { ActionFormProps } from "../../types";
+import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
+import { InputText } from "@/components/tribeca/common/inputs/InputText";
+import { InputTokenAmount } from "@/components/tribeca/common/inputs/InputTokenAmount";
+import { useGovernor } from "@/hooks/tribeca/useGovernor";
+import { useParseTokenAmount } from "@/hooks/tribeca/useParseTokenAmount";
+import { useProvider } from "@/hooks/tribeca/useProvider";
+import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
+import { serializeToBase64 } from "@/utils/tribeca/makeTransaction";
+import { useParsedMintWrapper } from "@/utils/tribeca/parsers";
+import type { ActionFormProps } from "@/actions/types";
 import { GrantVenkoStreamForm } from "./GrantVenkoStreamForm";
-import React from "react";
+
 export const VenkoGrantAction: React.FC<ActionFormProps> = ({
   actor,
   ctx,
@@ -229,7 +230,7 @@ export const VenkoGrantAction: React.FC<ActionFormProps> = ({
             const ixs: (TransactionInstruction | null)[] = [];
             const { instruction: createMintWrapperATAIX } =
               await getOrCreateATA({
-                provider: sdkMut.provider,
+                provider: sdkMut.provider as any,
                 mint: mintWrapperData.accountInfo.data.tokenMint,
                 owner: actor,
               });
@@ -241,7 +242,7 @@ export const VenkoGrantAction: React.FC<ActionFormProps> = ({
               )
             ) {
               const { instruction: createRedeemATAIX } = await getOrCreateATA({
-                provider: sdkMut.provider,
+                provider: sdkMut.provider as any,
                 mint: grantToken.mintAccount,
                 owner: actor,
               });
@@ -249,7 +250,7 @@ export const VenkoGrantAction: React.FC<ActionFormProps> = ({
             }
             if (recipient) {
               const { instruction: recipientATA } = await getOrCreateATA({
-                provider: sdkMut.provider,
+                provider: sdkMut.provider as any,
                 mint: grantToken.mintAccount,
                 owner: recipient,
               });

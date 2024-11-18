@@ -4,9 +4,9 @@ import { useState } from "react";
 import { isMobile } from "react-device-detect";
 import React from "react";
 
-import { useEnvironment } from "../../../../utils/tribeca/useEnvironment";
-import { shortenAddress } from "../../../../utils/tribeca/utils";
-import { Drop } from "../../common/Drop";
+import { useEnvironment } from "@/utils/tribeca/useEnvironment";
+import { shortenAddress } from "@/utils/tribeca/utils";
+import { Drop } from "@/components/tribeca/common/Drop";
 import { WalletButton } from "../GovernorLayout/Header/WalletButton";
 import { AccountPopover } from "../MainLayout/Header/WalletDropdown/AccountPopover";
 

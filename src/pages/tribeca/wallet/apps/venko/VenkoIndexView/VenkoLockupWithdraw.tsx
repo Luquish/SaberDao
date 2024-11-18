@@ -12,19 +12,20 @@ import type { StreamData } from "@venkoapp/venko";
 import { findStreamAddress, VenkoSDK } from "@venkoapp/venko";
 import BN from "bn.js";
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { navigate } from "@reach/router";
 import invariant from "tiny-invariant";
+import React from "react";
 
-import { useProvider } from "@/hooks/useProvider";
-import { useSmartWallet } from "@/hooks/useSmartWallet";
-import { useWrapTx } from "@/hooks/useWrapTx";
-import { notify } from "@/utils/notifications";
+import { useProvider } from "@/hooks/tribeca/useProvider";
+import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
+import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
+import { notify } from "@/utils/tribeca/notifications";
 import { useParsedStream } from "@/utils/tribeca/parsers";
-import { AsyncButton } from "../../../../../common/AsyncButton";
-import { AttributeList } from "../../../../../common/AttributeList";
-import { Button } from "../../../../../common/Button";
+import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
+import { AttributeList } from "@/components/tribeca/common/AttributeList";
+import { Button } from "@/components/tribeca/common/Button";
 import { InputText } from "@/components/tribeca/common/inputs/InputText";
-import { LabeledInput } from "../../../../../common/inputs/LabeledInput";
+import { LabeledInput } from "@/components/tribeca/common/inputs/LabeledInput";
 
 /**
  * Computes the amount of tokens that may be redeemed on a Stream.
@@ -50,7 +51,6 @@ const computeRedeemableAmount = (stream: StreamData): u64 => {
 };
 
 export const VenkoLockupInner: React.FC = () => {
-  const navigate = useNavigate();
   const { providerMut } = useProvider();
   const { smartWallet, key: smartWalletKey, path } = useSmartWallet();
   const { handleTX } = useSail();
@@ -145,14 +145,14 @@ export const VenkoLockupInner: React.FC = () => {
   };
 
   return (
-    <div tw="flex flex-col gap-4">
+    <div className="flex flex-col gap-4">
       <LabeledInput
         Component={InputText}
         label="Stream Mint"
         type="text"
         placeholder="Mint address of your Stream token."
         value={mintStr}
-        onChange={(e) => {
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           setMintStr(e.target.value);
         }}
       />

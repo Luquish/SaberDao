@@ -16,4 +16,6 @@ export const notify = ({ message, description, type = 'info', txid }: NotifyProp
       label: 'View Transaction',
       onClick: () => window.open(`https://explorer.solana.com/tx/${txid}`, '_blank'),
     } : undefined,
-  }); 
+  });
+};
+    

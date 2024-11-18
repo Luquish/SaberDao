@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import invariant from "tiny-invariant";
 
-import { generateSHA256BufferHash } from "../utils/crypto";
+import { generateSHA256BufferHash } from "@/utils/tribeca/crypto";
 
 export const useSha256Sum = (buffer?: Buffer | null) => {
   return useQuery({

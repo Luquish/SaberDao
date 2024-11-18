@@ -2,11 +2,11 @@ import React from "react";
 import { GiTumbleweed } from "react-icons/gi";
 import { Link, PageProps } from "gatsby";
 
-import type { ParsedTX } from "../../../../../hooks/tribeca/useSmartWallet";
-import { useSmartWallet } from "../../../../../hooks/tribeca/useSmartWallet";
-import { Button } from "../../../../../components/tribeca/common/Button";
-import { EmptyState } from "../../../../../components/tribeca/common/EmptyState";
-import { IXSummary } from "../../../../../components/tribeca/common/governance/IXSummary";
+import type { ParsedTX } from "@/hooks/tribeca/useSmartWallet";
+import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
+import { Button } from "@/components/tribeca/common/Button";
+import { EmptyState } from "@/components/tribeca/common/EmptyState";
+import { IXSummary } from "@/components/tribeca/common/governance/IXSummary";
 
 interface TXList {
   title: string;

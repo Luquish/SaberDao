@@ -6,15 +6,16 @@ import { useQuery } from "@tanstack/react-query";
 import { createLocker, findGovernorAddress } from "@tribecahq/tribeca-sdk";
 import BN from "bn.js";
 import { useMemo, useState } from "react";
-import { useNavigate } from "react-router";
+import { navigate } from "@reach/router";
 import invariant from "tiny-invariant";
+import React from "react";
 
-import { useSDK } from "../../../../../contexts/sdk";
-import { useWrapTx } from "../../../../../hooks/useWrapTx";
-import { notify } from "../../../../../utils/notifications";
-import { AsyncButton } from "../../../../common/AsyncButton";
-import { Textarea } from "../../../../common/inputs/InputText";
-import { LabeledInput } from "../../../../common/inputs/LabeledInput";
+import { useSDK } from "@/contexts/sdk";
+import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
+import { notify } from "@/utils/notifications";
+import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
+import { Textarea } from "@/components/tribeca/common/inputs/InputText";
+import { LabeledInput } from "@/components/tribeca/common/inputs/LabeledInput";
 import { DAOConfigRenderer } from "./DAOConfigRenderer";
 
 interface DAOConfigRaw {
@@ -96,7 +97,6 @@ export const DAOConfigView: React.FC = () => {
     };
   }, [configRaw, token]);
 
-  const navigate = useNavigate();
   const [govBaseKP, setGovBaseKP] = useState<string>(
     JSON.stringify([...Keypair.generate().secretKey])
   );
@@ -140,42 +140,50 @@ export const DAOConfigView: React.FC = () => {
   });
 
   return (
-    <div tw="grid gap-12 w-full max-w-sm mx-auto">
+    <div className="grid gap-12 w-full max-w-sm mx-auto">
       <div>
-        <div tw="mb-8">
-          <h1 tw="font-bold text-2xl mb-4 dark:text-gray-50">
+        <div className="mb-8">
+          <h1 className="font-bold text-2xl mb-4 dark:text-gray-50">
             Create Custom DAO
           </h1>
         </div>
-        <div tw="flex flex-col w-full gap-4">
-          <div tw="flex flex-col w-full">
+        <div className="flex flex-col w-full gap-4">
+          <div className="flex flex-col w-full">
             <LabeledInput
               id="config"
               Component={Textarea}
               label="Configuration JSON"
               value={configStr}
-              onChange={(e) => setConfigStr(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+                setConfigStr(e.target.value)
+              }
             />
             <LabeledInput
               id="govBaseKP"
               Component={Textarea}
               label="Governor Base KP"
               value={govBaseKP}
-              onChange={(e) => setGovBaseKP(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+                setGovBaseKP(e.target.value)
+              }
             />
             <LabeledInput
               id="lockerBaseKP"
               Component={Textarea}
               label="Locker Base KP"
               value={lockerBaseKP}
-              onChange={(e) => setLockerBaseKP(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+                setLockerBaseKP(e.target.value)
+              }
             />
             <LabeledInput
               id="govWalletBaseKP"
               Component={Textarea}
               label="Gov Wallet Base KP"
               value={govWalletBaseKP}
-              onChange={(e) => setGovWalletBaseKP(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+                setGovWalletBaseKP(e.target.value)
+              }
             />
             {config && (
               <DAOConfigRenderer
@@ -187,7 +195,7 @@ export const DAOConfigView: React.FC = () => {
                 }}
               />
             )}
-            <div tw="flex mt-8 items-center justify-center ">
+            <div className="flex mt-8 items-center justify-center ">
               <AsyncButton
                 type="submit"
                 variant="primary"

@@ -10,17 +10,18 @@ import {
 import { TransactionInstruction } from "@solana/web3.js";
 import { useMemo, useState } from "react";
 import invariant from "tiny-invariant";
+import React from "react";
 
-import { useParseTokenAmount } from "../../../../hooks/useParseTokenAmount";
-import { useSmartWallet } from "../../../../hooks/useSmartWallet";
-import type { TokenAccountWithInfo } from "../../../../hooks/useTokenAccounts";
-import { useTokenAccounts } from "../../../../hooks/useTokenAccounts";
-import { useWrapTx } from "../../../../hooks/useWrapTx";
-import { MEMO_PROGRAM_ID } from "../../../../utils/constants";
-import { AsyncButton } from "../../../common/AsyncButton";
-import { InputText } from "../../../common/inputs/InputText";
-import { InputTokenAmount } from "../../../common/inputs/InputTokenAmount";
-import { BasicPage } from "../../../common/page/BasicPage";
+import { useParseTokenAmount } from "@/hooks/tribeca/useParseTokenAmount";
+import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
+import type { TokenAccountWithInfo } from "@/hooks/tribeca/useTokenAccounts";
+import { useTokenAccounts } from "@/hooks/tribeca/useTokenAccounts";
+import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
+import { MEMO_PROGRAM_ID } from "@/utils/tribeca/constants";
+import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
+import { InputText } from "@/components/tribeca/common/inputs/InputText";
+import { InputTokenAmount } from "@/components/tribeca/common/inputs/InputTokenAmount";
+import { BasicPage } from "@/components/tribeca/common/page/BasicPage";
 
 export const WalletSendsView: React.FC = () => {
   const { key } = useSmartWallet();
@@ -64,8 +65,8 @@ export const WalletSendsView: React.FC = () => {
 
   return (
     <BasicPage title="Send funds" description="Send tokens to another account.">
-      <div tw="p-4 w-full max-w-md mx-auto border rounded flex flex-col gap-4">
-        <div tw="rounded border p-4 bg-gray-50">
+      <div className="p-4 w-full max-w-md mx-auto border rounded flex flex-col gap-4">
+        <div className="rounded border p-4 bg-gray-50">
           <InputTokenAmount
             label="Transfer Amount"
             isLoading={isLoading}
@@ -90,23 +91,23 @@ export const WalletSendsView: React.FC = () => {
             }
           />
         </div>
-        <div tw="flex flex-col gap-2 text-sm">
-          <span tw="font-medium">Recipient</span>
+        <div className="flex flex-col gap-2 text-sm">
+          <span className="font-medium">Recipient</span>
           <InputText
             type="text"
             value={toStr}
             placeholder={`Recipient's address`}
-            onChange={(e) => {
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setToStr(e.target.value);
             }}
           />
         </div>
-        <div tw="flex flex-col gap-2 text-sm">
-          <span tw="font-medium">Memo (optional)</span>
+        <div className="flex flex-col gap-2 text-sm">
+          <span className="font-medium">Memo (optional)</span>
           <InputText
             type="text"
             value={memo}
-            onChange={(e) => {
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setMemo(e.target.value);
             }}
           />
@@ -115,7 +116,7 @@ export const WalletSendsView: React.FC = () => {
           <AsyncButton
             variant="primary"
             size="md"
-            tw="w-full"
+            className="w-full"
             disabled={!selectedAccount || !amount || !to}
             onClick={async (sdkMut) => {
               invariant(selectedAccount && amount && to, "selected account");
@@ -124,7 +125,7 @@ export const WalletSendsView: React.FC = () => {
               const initTX = provider.newTX([]);
 
               const destATA = await getOrCreateATA({
-                provider: sdkMut.provider,
+                provider: sdkMut.provider as any,
                 mint: amount.token.mintAccount,
                 owner: to,
               });

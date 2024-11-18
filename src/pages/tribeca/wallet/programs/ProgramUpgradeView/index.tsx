@@ -5,17 +5,17 @@ import { FaSync, FaUpload } from "react-icons/fa";
 import { useLocation } from "@reach/router";
 import React from "react";
 
-import { useAuthorityBuffers } from "../../../../../hooks/tribeca/useAuthorityPrograms";
-import { useProgramLabel } from "../../../../../hooks/tribeca/useProgramMeta";
-import { useSmartWallet } from "../../../../../hooks/tribeca/useSmartWallet";
-import { BPF_UPGRADEABLE_LOADER_ID } from "../../../../../utils/tribeca/instructions/upgradeable_loader/instructions";
-import { Button } from "../../../../../components/tribeca/common/Button";
-import { ErrorMessage } from "../../../../../components/tribeca/common/ErrorMessage";
-import { LoadingPage } from "../../../../../components/tribeca/common/LoadingPage";
-import { Notice } from "../../../../../components/tribeca/common/Notice";
-import { BasicPage } from "../../../../../components/tribeca/common/page/BasicPage";
-import { BasicSection } from "../../../../../components/tribeca/common/page/Section";
-import { ProseSmall } from "../../../../../components/tribeca/common/typography/Prose";
+import { useAuthorityBuffers } from "@/hooks/tribeca/useAuthorityPrograms";
+import { useProgramLabel } from "@/hooks/tribeca/useProgramMeta";
+import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
+import { BPF_UPGRADEABLE_LOADER_ID } from "@/utils/tribeca/instructions/upgradeable_loader/instructions";
+import { Button } from "@/components/tribeca/common/Button";
+import { ErrorMessage } from "@/components/tribeca/common/ErrorMessage";
+import { LoadingPage } from "@/components/tribeca/common/LoadingPage";
+import { Notice } from "@/components/tribeca/common/Notice";
+import { BasicPage } from "@/components/tribeca/common/page/BasicPage";
+import { BasicSection } from "@/components/tribeca/common/page/Section";
+import { ProseSmall } from "@/components/tribeca/common/typography/Prose";
 import { BufferCard } from "./BufferCard";
 
 function getParams(pathname: string) {

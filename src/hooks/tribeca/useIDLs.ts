@@ -3,8 +3,8 @@ import type { PublicKey } from "@solana/web3.js";
 import { useQueries } from "@tanstack/react-query";
 import invariant from "tiny-invariant";
 
-import { fetchIDL } from "../utils/fetchers";
-import { KNOWN_NON_ANCHOR_PROGRAMS } from "../utils/programs";
+import { fetchIDL } from "@/utils/tribeca/fetchers";
+import { KNOWN_NON_ANCHOR_PROGRAMS } from "@/utils/tribeca/programs";
 
 export const useIDLs = (idls: (PublicKey | null | undefined)[]) => {
   const { connection } = useConnection();

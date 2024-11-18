@@ -6,10 +6,10 @@ import { findWhitelistAddress, TRIBECA_CODERS } from "@tribecahq/tribeca-sdk";
 import { useEffect, useState } from "react";
 import invariant from "tiny-invariant";
 
-import { InputText } from "../../components/tribeca/common/inputs/InputText";
-import { LabeledInput } from "../../components/tribeca/common/inputs/LabeledInput";
-import { serializeToBase64 } from "../../utils/tribeca/makeTransaction";
-import { useEnvironment } from "../../utils/tribeca/useEnvironment";
+import { InputText } from "@/components/tribeca/common/inputs/InputText";
+import { LabeledInput } from "@/components/tribeca/common/inputs/LabeledInput";
+import { serializeToBase64 } from "@/utils/tribeca/makeTransaction";
+import { useEnvironment } from "@/utils/tribeca/useEnvironment";
 import type { ActionFormProps } from "../types";
 import React from "react";
 

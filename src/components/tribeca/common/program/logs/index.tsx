@@ -5,8 +5,8 @@ import { darken } from "polished";
 import React, { useMemo } from "react";
 import invariant from "tiny-invariant";
 
-import { useProgramMetas } from "../../../../../hooks/tribeca/deploydao/useProgramMeta";
-import { programLabel } from "../../../../../utils/tribeca/programs";
+import { useProgramMetas } from "@/hooks/tribeca/deploydao/useProgramMeta";
+import { programLabel } from "@/utils/tribeca/programs";
 import { Badge } from "../../Badge";
 import { TableCardBody } from "../../card/TableCardBody";
 import { RenderedLogEntry } from "./RenderedLogEntry";

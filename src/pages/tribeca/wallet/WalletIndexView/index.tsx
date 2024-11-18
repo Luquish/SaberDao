@@ -2,7 +2,7 @@ import React from "react";
 import { usePubkey } from "@rockooor/sail";
 import { PageProps } from "gatsby";
 
-import { SmartWalletProvider } from "../../../../hooks/tribeca/useSmartWallet";
+import { SmartWalletProvider } from "@/hooks/tribeca/useSmartWallet";
 import { SmartWalletInner } from "./SmartWalletInner";
 
 interface WalletParams {
