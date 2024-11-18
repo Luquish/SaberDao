@@ -12,5 +12,7 @@ const useGMInner = () => {
   return { gaugemeister, gmData, rewarderKey, votingEpoch };
 };
 
-export const { useContainer: useGM, Provider: GMProvider } =
+const { useContainer: useGM, Provider: GMProvider } =
   createContainer(useGMInner);
+
+export default { useGM, GMProvider };

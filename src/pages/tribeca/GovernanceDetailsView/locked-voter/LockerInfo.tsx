@@ -7,7 +7,7 @@ import { formatDurationSeconds } from "@/utils/tribeca/format";
 import { AttributeList } from "@/components/tribeca/common/AttributeList";
 import { Card } from "@/components/tribeca/common/governance/Card";
 
-export const LockerInfo: React.FC = () => {
+const LockerInfo: React.FC = () => {
   const { lockerData, minActivationThreshold, govToken } = useGovernor();
   return (
     <Card title="Locker">
@@ -23,13 +23,13 @@ export const LockerInfo: React.FC = () => {
           "Governance Token": govToken,
           "Min Stake Duration": lockerData
             ? formatDurationSeconds(
-                lockerData.account.params.minStakeDuration.toNumber()
-              )
+              lockerData.account.params.minStakeDuration.toNumber()
+            )
             : lockerData,
           "Max Stake Duration": lockerData
             ? formatDurationSeconds(
-                lockerData.account.params.maxStakeDuration.toNumber()
-              )
+              lockerData.account.params.maxStakeDuration.toNumber()
+            )
             : lockerData,
           "Max Vote Multiplier":
             lockerData?.account.params.maxStakeVoteMultiplier,
@@ -39,3 +39,5 @@ export const LockerInfo: React.FC = () => {
     </Card>
   );
 };
+
+export default LockerInfo;

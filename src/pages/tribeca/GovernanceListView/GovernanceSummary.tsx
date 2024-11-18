@@ -9,7 +9,7 @@ interface Props {
   config: GovernorConfig;
 }
 
-export const GovernanceSummary: React.FC<Props> = ({ config }: Props) => {
+const GovernanceSummary: React.FC<Props> = ({ config }: Props) => {
   const { data: voters } = useGovernorVoters(config.address);
 
   return (
@@ -22,7 +22,7 @@ export const GovernanceSummary: React.FC<Props> = ({ config }: Props) => {
             className="w-8 h-8"
           />
           <h2 className="text-xl font-bold text-white">
-            <Link 
+            <Link
               to={`/tribeca/gov/${config.slug}`}
               className="hover:text-primary transition-colors"
             >
@@ -39,3 +39,5 @@ export const GovernanceSummary: React.FC<Props> = ({ config }: Props) => {
     </div>
   );
 };
+
+export default GovernanceSummary;

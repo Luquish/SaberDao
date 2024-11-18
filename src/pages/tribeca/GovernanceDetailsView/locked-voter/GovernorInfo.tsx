@@ -6,7 +6,7 @@ import { AttributeList } from "@/components/tribeca/common/AttributeList";
 import { Card } from "@/components/tribeca/common/governance/Card";
 import React from "react";
 
-export const GovernorInfo: React.FC = () => {
+const GovernorInfo: React.FC = () => {
   const { governorData, governor, veToken } = useGovernor();
   const votesForQuorum =
     governorData && veToken
@@ -24,21 +24,23 @@ export const GovernorInfo: React.FC = () => {
           "Votes for Quorum": votesForQuorum?.formatUnits(),
           "Timelock Delay (seconds)": governorData
             ? formatDurationSeconds(
-                governorData.account.params.timelockDelaySeconds.toNumber()
-              )
+              governorData.account.params.timelockDelaySeconds.toNumber()
+            )
             : governorData,
           "Voting Delay": governorData
             ? formatDurationSeconds(
-                governorData.account.params.votingDelay.toNumber()
-              )
+              governorData.account.params.votingDelay.toNumber()
+            )
             : governorData,
           "Voting Period": governorData
             ? formatDurationSeconds(
-                governorData.account.params.votingPeriod.toNumber()
-              )
+              governorData.account.params.votingPeriod.toNumber()
+            )
             : governorData,
         }}
       />
     </Card>
   );
 };
+
+export default GovernorInfo;

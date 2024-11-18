@@ -10,7 +10,7 @@ interface Props {
   addresses: Record<string, TrackedAccountInfo>;
 }
 
-export const AddressesInfo: React.FC<Props> = ({ addresses }: Props) => {
+const AddressesInfo: React.FC<Props> = ({ addresses }: Props) => {
   return (
     <Card title="Related Accounts" bodyScrollX className="col-span-full">
       <TableCardBody>
@@ -36,3 +36,5 @@ export const AddressesInfo: React.FC<Props> = ({ addresses }: Props) => {
     </Card>
   );
 };
+
+export default AddressesInfo;

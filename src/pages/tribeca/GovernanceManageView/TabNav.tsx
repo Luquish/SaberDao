@@ -14,7 +14,7 @@ interface TabGroup {
   }[];
 }
 
-export const TabNav: React.FC = () => {
+const TabNav: React.FC = () => {
   const { path: rootPath, meta } = useGovernor();
   const unfilteredGroups: (TabGroup | boolean)[] = [
     {
@@ -55,7 +55,7 @@ export const TabNav: React.FC = () => {
     },
   ];
   const groups = unfilteredGroups.filter(Boolean) as readonly TabGroup[];
-  
+
   return (
     <div>
       <nav className="flex flex-col gap-2 bg-warmGray-850 px-3 py-2 rounded">
@@ -96,3 +96,5 @@ const SidebarNavLink = ({ className, ...props }: SidebarNavLinkProps) => {
     />
   );
 };
+
+export default TabNav;

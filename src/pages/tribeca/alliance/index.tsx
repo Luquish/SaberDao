@@ -22,7 +22,7 @@ const ALLIANCE = [
   ["traction", "traction.market"],
 ] as const;
 
-export const Alliance: React.FC = () => {
+const Alliance: React.FC = () => {
   return (
     <div className="mx-auto w-11/12 max-w-5xl">
       <div className="text-center">
@@ -76,3 +76,5 @@ const Box: React.FC<BoxProps> = ({ children, className, ...props }) => (
     {children}
   </a>
 );
+
+export default Alliance;

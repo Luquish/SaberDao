@@ -13,7 +13,7 @@ function getParams(pathname: string) {
   };
 }
 
-export const GovernanceNotFoundPage: React.FC = () => {
+const GovernanceNotFoundPage = () => {
   const location = useLocation();
   const { governor: governorStr } = getParams(location.pathname);
 
@@ -49,4 +49,6 @@ export const GovernanceNotFoundPage: React.FC = () => {
       </div>
     </div>
   );
-};
+}
+
+export default GovernanceNotFoundPage;

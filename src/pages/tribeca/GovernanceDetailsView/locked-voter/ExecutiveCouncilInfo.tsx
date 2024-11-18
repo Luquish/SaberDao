@@ -6,7 +6,7 @@ import { HelperCard } from "@/components/tribeca/common/HelperCard";
 import { ExternalLink } from "@/components/tribeca/common/typography/ExternalLink";
 import React from "react";
 
-export const ExecutiveCouncilInfo: React.FC = () => {
+const ExecutiveCouncilInfo: React.FC = () => {
   const { ecWallet, ownerInvokerKey } = useExecutiveCouncil();
 
   return (
@@ -45,3 +45,5 @@ export const ExecutiveCouncilInfo: React.FC = () => {
     </Card>
   );
 };
+
+export default ExecutiveCouncilInfo;

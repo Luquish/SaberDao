@@ -12,7 +12,7 @@ interface Props {
   children?: React.ReactNode;
 }
 
-export const ChecklistItem: React.FC<Props> = ({
+const ChecklistItem: React.FC<Props> = ({
   title,
   description,
   pass,
@@ -49,3 +49,5 @@ export const ChecklistItem: React.FC<Props> = ({
     </div>
   );
 };
+
+export default ChecklistItem;

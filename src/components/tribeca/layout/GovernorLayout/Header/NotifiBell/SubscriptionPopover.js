@@ -1,0 +1,183 @@
+import { Switch } from "@headlessui/react";
+import { BlockchainEnvironment, useNotifiClient, } from "@notifi-network/notifi-react-hooks";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { useEnvironment } from "@/utils/tribeca/useEnvironment";
+import { SubscriptionCard } from "./SubscriptionCard";
+import { SubscriptionFormContainer } from "./SubscriptionFormContainer";
+import { SubscriptionGlimmer } from "./SubscriptionGlimmer";
+import { SubscriptionInfo } from "./SubscriptionInfo";
+const getBlockchainEnvironment = (network) => {
+    switch (network) {
+        case "mainnet-beta":
+            return BlockchainEnvironment.MainNetBeta;
+        case "devnet":
+            return BlockchainEnvironment.DevNet;
+        case "testnet":
+            return BlockchainEnvironment.TestNet;
+        default:
+        case "localnet":
+            return BlockchainEnvironment.LocalNet;
+    }
+};
+export const SubscriptionPopover = ({ daoName, governor, walletPublicKey, signer, }) => {
+    const { network } = useEnvironment();
+    const [isSubscribed, setIsSubscribed] = useState(false);
+    const [email, setEmail] = useState("");
+    const [phone, setPhoneRaw] = useState("");
+    const [visibilityState, setVisibilityState] = useState({
+        isEditing: false,
+        needsRefresh: false,
+        isToggleVisible: false,
+    });
+    const setPhone = useCallback((value) => {
+        if (value?.startsWith("+") && value?.length > 1) {
+            setPhoneRaw(value.substring(2));
+        }
+        else {
+            setPhoneRaw(value ?? "");
+        }
+    }, [setPhoneRaw]);
+    const env = getBlockchainEnvironment(network);
+    const { data, createAlert, deleteAlert, expiry, fetchData, isInitialized, loading, logIn, isAuthenticated, } = useNotifiClient({
+        dappAddress: governor,
+        walletPublicKey,
+        env,
+    });
+    const { alert, targetGroup } = useMemo(() => {
+        let alert = null;
+        let targetGroup = null;
+        if (data !== null) {
+            const { alerts, targetGroups } = data;
+            alert = alerts[0] ?? null;
+            targetGroup = targetGroups[0] ?? null;
+        }
+        return {
+            alert,
+            targetGroup,
+        };
+    }, [data]);
+    useEffect(() => {
+        if (targetGroup !== null) {
+            const emailTarget = targetGroup.emailTargets[0];
+            setEmail(emailTarget?.emailAddress ?? "");
+            const smsTarget = targetGroup.smsTargets[0];
+            setPhone(smsTarget?.phoneNumber ?? "");
+        }
+    }, [targetGroup, setEmail, setPhone]);
+    useEffect(() => {
+        const newIsSubscribed = alert !== null;
+        setIsSubscribed(newIsSubscribed);
+    }, [alert]);
+    useEffect(() => {
+        if (isInitialized) {
+            const hasLoggedIn = expiry !== null;
+            if (hasLoggedIn) {
+                const expiryDate = new Date(expiry);
+                const now = new Date();
+                const needsRefresh = expiryDate < now;
+                setVisibilityState({
+                    isEditing: needsRefresh,
+                    needsRefresh: needsRefresh,
+                    isToggleVisible: true,
+                });
+            }
+            else {
+                // First time user
+                setVisibilityState({
+                    isEditing: true,
+                    needsRefresh: false,
+                    isToggleVisible: false,
+                });
+            }
+        }
+    }, [expiry, isInitialized]);
+    const refreshLogin = useCallback(async () => {
+        await logIn(signer);
+        setVisibilityState({
+            isEditing: false,
+            needsRefresh: false,
+            isToggleVisible: true,
+        });
+    }, [logIn, signer]);
+    const doCreateAlert = useCallback(async () => {
+        if ("" === email && "" === phone) {
+            // TODO: surface validation error
+            return;
+        }
+        if (!isAuthenticated) {
+            await logIn(signer);
+        }
+        const data = await fetchData();
+        const existingAlert = data.alerts.find((it) => it.name === governor);
+        if (existingAlert && existingAlert.id) {
+            await deleteAlert({
+                alertId: existingAlert.id,
+                keepSourceGroup: true,
+                keepTargetGroup: true,
+            });
+        }
+        const filterId = data.filters[0]?.id ?? null;
+        const sourceId = data.sources[0]?.id ?? null;
+        if (filterId === null || sourceId === null) {
+            throw new Error("Invalid Notifi Data! Please try again");
+        }
+        await createAlert({
+            name: governor,
+            sourceId,
+            filterId,
+            emailAddress: email === "" ? null : email,
+            phoneNumber: phone === "" ? null : `+1${phone}`,
+            telegramId: null,
+        });
+        setVisibilityState({
+            isEditing: false,
+            needsRefresh: false,
+            isToggleVisible: true,
+        });
+    }, [
+        createAlert,
+        deleteAlert,
+        email,
+        fetchData,
+        governor,
+        isAuthenticated,
+        logIn,
+        phone,
+        signer,
+    ]);
+    const toggleAlert = useCallback(async () => {
+        const alertId = alert?.id ?? null;
+        if (alertId !== null) {
+            await deleteAlert({
+                alertId,
+                keepSourceGroup: true,
+                keepTargetGroup: true,
+            });
+        }
+        else {
+            await doCreateAlert();
+        }
+    }, [alert, deleteAlert, doCreateAlert]);
+    let component = React.createElement(SubscriptionGlimmer, null);
+    if (isInitialized) {
+        component = visibilityState.isEditing ? (visibilityState.needsRefresh ? (React.createElement(SubscriptionFormContainer, { email: email, inputDisabled: true, submitDisabled: loading, submitLabel: "Refresh", phone: phone, setEmail: setEmail, setPhone: setPhone, submit: refreshLogin, warningMessage: "Your login has expired. Sign a message to refresh your login." })) : (React.createElement(SubscriptionFormContainer, { inputDisabled: loading, submitDisabled: loading, submitLabel: "Subscribe", email: email, phone: phone, setEmail: setEmail, setPhone: setPhone, submit: doCreateAlert }))) : (React.createElement(SubscriptionInfo, { email: email, phone: phone, edit: () => {
+                setVisibilityState({
+                    ...visibilityState,
+                    isEditing: true,
+                });
+            } }));
+    }
+    return (React.createElement(SubscriptionCard, { body: component, switchGroup: visibilityState.isToggleVisible ? (React.createElement(Switch.Group, null,
+            React.createElement("div", { className: "flex items-center justify-between py-2 px-4 border-b text-sm dark:border-warmGray-800" },
+                React.createElement(Switch.Label, { className: "font-medium text-warmGray-400" },
+                    daoName,
+                    " Notifications"),
+                React.createElement(Switch, { disabled: loading, checked: isSubscribed, onChange: toggleAlert, className: [
+                        isSubscribed ? "bg-primary" : "bg-warmGray-600",
+                        "relative inline-flex items-center h-6 rounded-full w-11 transition-colors",
+                    ] },
+                    React.createElement("span", { className: [
+                            isSubscribed ? "translate-x-6" : "translate-x-1",
+                            "inline-block w-4 h-4 transform bg-white rounded-full transition-transform",
+                        ].join(" ") }))))) : undefined }));
+};

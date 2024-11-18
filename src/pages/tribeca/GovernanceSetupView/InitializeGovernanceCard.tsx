@@ -17,7 +17,7 @@ interface Props {
   info: GovernorInfo;
 }
 
-export const InitializeGovernanceCard: React.FC<Props> = ({ info }: Props) => {
+const InitializeGovernanceCard: React.FC<Props> = ({ info }: Props) => {
   const { manifest } = info;
 
   const underlyingToken = manifest
@@ -30,20 +30,20 @@ export const InitializeGovernanceCard: React.FC<Props> = ({ info }: Props) => {
     const { locker, governor } = manifest.governance.parameters ?? {};
     const lockerParams: LockerParams | null = locker
       ? {
-          whitelistEnabled: locker.whitelistEnabled,
-          maxStakeVoteMultiplier: locker.maxStakeVoteMultiplier,
-          minStakeDuration: new BN(locker.minStakeDuration),
-          maxStakeDuration: new BN(locker.maxStakeDuration),
-          proposalActivationMinVotes: new BN(locker.proposalActivationMinVotes),
-        }
+        whitelistEnabled: locker.whitelistEnabled,
+        maxStakeVoteMultiplier: locker.maxStakeVoteMultiplier,
+        minStakeDuration: new BN(locker.minStakeDuration),
+        maxStakeDuration: new BN(locker.maxStakeDuration),
+        proposalActivationMinVotes: new BN(locker.proposalActivationMinVotes),
+      }
       : null;
     const governorParams: GovernanceParameters | null = governor
       ? {
-          votingDelay: new BN(governor.votingDelay),
-          votingPeriod: new BN(governor.votingPeriod),
-          quorumVotes: new BN(governor.quorumVotes),
-          timelockDelaySeconds: new BN(governor.timelockDelay),
-        }
+        votingDelay: new BN(governor.votingDelay),
+        votingPeriod: new BN(governor.votingPeriod),
+        quorumVotes: new BN(governor.quorumVotes),
+        timelockDelaySeconds: new BN(governor.timelockDelay),
+      }
       : null;
     return { lockerParams, governorParams };
   }, [manifest]);
@@ -105,3 +105,5 @@ export const InitializeGovernanceCard: React.FC<Props> = ({ info }: Props) => {
     </div>
   );
 };
+
+export default InitializeGovernanceCard;

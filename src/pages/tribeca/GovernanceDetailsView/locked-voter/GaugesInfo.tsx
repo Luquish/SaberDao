@@ -10,7 +10,7 @@ interface Props {
   gaugemeister: PublicKey;
 }
 
-export const GaugesInfo: React.FC<Props> = ({ gaugemeister }: Props) => {
+const GaugesInfo: React.FC<Props> = ({ gaugemeister }: Props) => {
   const { data: gmData } = useGaugemeisterData(gaugemeister);
   return (
     <Card title="Gauges" className="pb-2">
@@ -29,3 +29,5 @@ export const GaugesInfo: React.FC<Props> = ({ gaugemeister }: Props) => {
     </Card>
   );
 };
+
+export default GaugesInfo;

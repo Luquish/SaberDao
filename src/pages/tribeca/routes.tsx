@@ -37,7 +37,7 @@ const SaberRedeemerTab: React.FC<RouteComponentProps> = React.lazy(() => import(
 const SaberPoolView: React.FC<RouteComponentProps<{ poolID: string }>> = lazy(() => import("./saber-pools/SaberPoolView"));
 const SaberPoolsView: React.FC<RouteComponentProps> = lazy(() => import("./saber-pools/SaberPoolsView"));
 
-export const governanceRoutes = (
+const governanceRoutes = (
   <>
     <Router>
       <SaberPoolsView path="/tribeca/gov/saber-pools" />
@@ -48,7 +48,7 @@ export const governanceRoutes = (
       <VoterSnapshotsView path="/tribeca/gov/address/:voter/snapshots" />
       <VoterIndexView path="/tribeca/gov/address/:voter" />
       <AllVotersView path="/tribeca/gov/leaderboard" />
-      
+
       <Router basepath="/tribeca/gov/gauges">
         <GMProvider>
           <GaugesAllView path="all" />
@@ -69,7 +69,7 @@ export const governanceRoutes = (
       <ProposalsListView path="/tribeca/gov/proposals" />
       <GovernanceSetupView path="/tribeca/gov/setup" />
       <Temp path="/tribeca/gov/temp" />
-      
+
       <Router basepath="/tribeca/gov/manage">
         <SaberMintProxyTab path="saber/mint-proxy" />
         <SaberRedeemerTab path="saber/redeemer" />
@@ -85,3 +85,5 @@ export const governanceRoutes = (
     </Router>
   </>
 );
+
+export default governanceRoutes;
