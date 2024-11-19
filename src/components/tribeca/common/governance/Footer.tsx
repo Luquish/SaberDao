@@ -3,8 +3,8 @@ import { FaDiscord, FaGithub, FaMedium, FaTwitter } from "react-icons/fa";
 import React from "react";
 
 import { useGovernor } from "@/hooks/tribeca/useGovernor";
-import { Button } from "../Button";
-import { PageContainer } from "./GovernancePageInner";
+import { Button } from "@/components/tribeca/common/Button";
+import PageContainer from "@/components/tribeca/common/governance/PageContainer";
 
 const SOCIALS = {
   discord: <FaDiscord />,
@@ -15,10 +15,10 @@ const SOCIALS = {
 
 interface Link {
     url: string;
-    label: string;
-  }
+  label: string;
+}
 
-export const Footer: React.FC = () => {
+export default function Footer() {
   const { manifest } = useGovernor();
   if (!manifest) {
     return null;

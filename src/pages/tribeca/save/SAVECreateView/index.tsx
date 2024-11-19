@@ -4,12 +4,12 @@ import {
   useGovernor,
   useGovWindowTitle,
 } from "@/hooks/tribeca/useGovernor";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { GovernancePage } from "@/components/tribeca/common/governance/GovernancePage";
-import { AboutSAVE } from "../common/AboutSAVE";
-import { CreateSAVEForm } from "./CreateSAVEForm";
+import Card from "@/components/tribeca/common/governance/Card";
+import GovernancePage from "@/components/tribeca/common/governance/GovernancePage";
+import AboutSAVE from "@/pages/tribeca/save/common/AboutSAVE";
+import CreateSAVEForm from "@/pages/tribeca/save/SAVECreateView/CreateSAVEForm";
 
-export const SAVECreateView: React.FC = () => {
+const SAVECreateView: React.FC = () => {
   const { path } = useGovernor();
 
   useGovWindowTitle(`Create SAVE Token`);

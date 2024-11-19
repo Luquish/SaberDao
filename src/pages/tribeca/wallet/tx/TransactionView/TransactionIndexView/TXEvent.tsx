@@ -1,12 +1,12 @@
 import React from "react";
 import { AddressLink } from "@/components/tribeca/common/AddressLink";
-import type { SmartWalletEvent } from "../context";
+import type { SmartWalletEvent } from "@/contexts/tribeca/transaction";
 
 interface Props {
   event: SmartWalletEvent;
 }
 
-export const TXEvent: React.FC<Props> = ({ event }: Props) => {
+const TXEvent: React.FC<Props> = ({ event }: Props) => {
   switch (event.name) {
     case "TransactionCreateEvent":
       return (
@@ -59,3 +59,5 @@ export const TXEvent: React.FC<Props> = ({ event }: Props) => {
       return <>unknown</>;
   }
 };
+
+export default TXEvent;

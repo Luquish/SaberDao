@@ -6,13 +6,13 @@ import React from "react";
 import { useExecutiveCouncil } from "@/hooks/tribeca/useExecutiveCouncil";
 import { useGovernor } from "@/hooks/tribeca/useGovernor";
 import { AddressLink } from "@/components/tribeca/common/AddressLink";
-import { TableCardBody } from "@/components/tribeca/common/card/TableCardBody";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { CardWithImage } from "@/components/tribeca/common/governance/CardWithImage";
+import TableCardBody from "@/components/tribeca/common/card/TableCardBody";
+import Card from "@/components/tribeca/common/governance/Card";
+import CardWithImage from "@/components/tribeca/common/governance/CardWithImage";
 import { ProseSmall } from "@/components/tribeca/common/typography/Prose";
-import { RewarderCard } from "./RewarderCard";
+import RewarderCard from "./RewarderCard";
 
-export const QuarryRewardersTab: React.FC = () => {
+const QuarryRewardersTab: React.FC = () => {
   const { meta, daoName } = useGovernor();
   const allRewarderKeys = [
     meta?.quarry?.rewarder,

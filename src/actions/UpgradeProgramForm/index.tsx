@@ -5,9 +5,9 @@ import { GiTumbleweed } from "react-icons/gi";
 
 import { AddressLink } from "@/components/tribeca/common/AddressLink";
 import { EmptyState } from "@/components/tribeca/common/EmptyState";
-import { NoPrograms } from "@/components/tribeca/common/governance/NoPrograms";
+import NoPrograms from "@/components/tribeca/common/governance/NoPrograms";
 import { Select } from "@/components/tribeca/common/inputs/InputText";
-import { LoadingPage } from "@/components/tribeca/common/LoadingPage";
+import LoadingPage from "@/components/tribeca/common/LoadingPage";
 import { useSDK } from "@/contexts/sdk";
 import { useGovernor } from "@/hooks/tribeca/useGovernor";
 import {
@@ -17,16 +17,16 @@ import {
 import { createUpgradeInstruction } from "@/utils/tribeca/instructions/upgradeable_loader/instructions";
 import { makeTransaction } from "@/utils/tribeca/makeTransaction";
 import { programLabel } from "@/utils/tribeca/programs";
-import { useEnvironment } from "@/utils/tribeca/useEnvironment";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
 import { shortenAddress } from "@/utils/tribeca/utils";
-import { BufferOption } from "./BufferOption";
+import BufferOption from "@/actions/UpgradeProgramForm/BufferOption";
 import React from "react";
 
 interface Props {
   onSelect: (tx: Transaction) => void;
 }
 
-export const UpgradeProgramForm: React.FC<Props> = ({ onSelect }: Props) => {
+export default function UpgradeProgramForm({ onSelect }: Props) {
   const { sdkMut } = useSDK();
   const { smartWallet } = useGovernor();
   const { data: buffers } = useAuthorityBuffers(smartWallet);

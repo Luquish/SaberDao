@@ -2,14 +2,15 @@ import {
   useGovernor,
   useGovWindowTitle,
 } from "@/hooks/tribeca/useGovernor";
-import { GovernancePage } from "@/components/tribeca/common/governance/GovernancePage";
-import { AddressesInfo } from "./AddressesInfo";
-import { ExecutiveCouncilInfo } from "./ExecutiveCouncilInfo";
-import { GaugesInfo } from "./GaugesInfo";
-import { GovernorInfo } from "./GovernorInfo";
-import { LockerInfo } from "./LockerInfo";
+import GovernancePage from "@/components/tribeca/common/governance/GovernancePage";
+import  AddressesInfo from "./AddressesInfo";
+import  ExecutiveCouncilInfo from "./ExecutiveCouncilInfo";
+import  GaugesInfo from "./GaugesInfo";
+import  GovernorInfo from "./GovernorInfo";
+import  LockerInfo from "./LockerInfo";
 import React from "react";
-export const GovernanceDetailsView: React.FC = () => {
+
+const GovernanceDetailsView: React.FC = () => {
   useGovWindowTitle(`Details`);
   const { meta } = useGovernor();
   return (
@@ -26,3 +27,5 @@ export const GovernanceDetailsView: React.FC = () => {
     </GovernancePage>
   );
 };
+
+export default GovernanceDetailsView;

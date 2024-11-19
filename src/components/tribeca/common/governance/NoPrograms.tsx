@@ -1,8 +1,8 @@
 import type { PublicKey } from "@solana/web3.js";
 import { GiTumbleweed } from "react-icons/gi";
 
-import { AddressLink } from "../AddressLink";
-import { EmptyState } from "../EmptyState";
+import { AddressLink } from "@/components/tribeca/common/AddressLink";
+import { EmptyState } from "@/components/tribeca/common/EmptyState";
 
 import React from "react";
 
@@ -10,7 +10,7 @@ interface Props {
   smartWallet: PublicKey;
 }
 
-export const NoPrograms: React.FC<Props> = ({ smartWallet }: Props) => {
+export default function NoPrograms({ smartWallet }: Props) {
   return (
     <>
       <EmptyState
@@ -36,4 +36,4 @@ export const NoPrograms: React.FC<Props> = ({ smartWallet }: Props) => {
       </EmptyState>
     </>
   );
-};
+}

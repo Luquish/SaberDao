@@ -1,2 +1,3 @@
-export const ConditionalWrapper = ({ condition, wrapper, children }: any) => 
-    condition ? wrapper(children) : children;
+export default function ConditionalWrapper({ condition, wrapper, children }: any) {
+    return condition ? wrapper(children) : children;
+}

@@ -19,7 +19,7 @@ import invariant from "tiny-invariant";
 import React from "react";
 
 import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
-import { useEnvironment } from "@/utils/tribeca/useEnvironment";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
 import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
 import { AttributeList } from "@/components/tribeca/common/AttributeList";
 import { Modal } from "@/components/tribeca/common/Modal";
@@ -34,7 +34,7 @@ interface Props {
   smartWallet?: SmartWalletWrapper | null;
 }
 
-export const PreviewIXModal: React.FC<Props> = ({
+const PreviewIXModal: React.FC<Props> = ({
   ix,
   txInstructions,
   formatted,
@@ -168,3 +168,5 @@ export const PreviewIXModal: React.FC<Props> = ({
     </Modal>
   );
 };
+
+export default PreviewIXModal;

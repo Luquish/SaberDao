@@ -4,12 +4,12 @@ import { FaCode, FaInbox, FaWrench } from "react-icons/fa";
 import { Link } from "gatsby";
 import React from "react";
 
-import { useSmartWallet } from "../../../../../hooks/tribeca/useSmartWallet";
-import { useEnvironment } from "@/utils/tribeca/useEnvironment";
+import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
 import { AddressLink } from "@/components/tribeca/common/AddressLink";
-import { ReactComponent as GokiLogo } from "@/components/tribeca/common/svgs/logo-dark.svg";
-import { WalletDropdownMini } from "../WalletDropdownMini";
-import { SidebarNavLink } from "./SidebarNavLink";
+import GokiLogo from "@/svg/logo-dark.svg";
+import WalletDropdownMini from "@/components/tribeca/layout/WalletLayout/WalletDropdownMini";
+import SidebarNavLink from "@/components/tribeca/layout/WalletLayout/Sidebar/SidebarNavLink";
 
 const MAIN_LINKS = [
   {
@@ -56,7 +56,7 @@ const APPS: { title: string; href: string }[] = [
   // },
 ];
 
-export const Sidebar: React.FC = () => {
+export default function Sidebar() {
   const { key, path } = useSmartWallet();
   const { network } = useEnvironment();
   return (

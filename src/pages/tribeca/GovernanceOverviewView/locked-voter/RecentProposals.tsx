@@ -1,10 +1,10 @@
 import React from "react";
 
 import { useGovernor } from "@/hooks/tribeca/useGovernor";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { ProposalsList } from "./ProposalsList";
+import Card from "@/components/tribeca/common/governance/Card";
+import ProposalsList from "./ProposalsList";
 
-export const RecentProposals: React.FC = () => {
+const RecentProposals: React.FC = () => {
   const { path } = useGovernor();
   return (
     <Card
@@ -18,3 +18,5 @@ export const RecentProposals: React.FC = () => {
     </Card>
   );
 };
+
+export default RecentProposals;

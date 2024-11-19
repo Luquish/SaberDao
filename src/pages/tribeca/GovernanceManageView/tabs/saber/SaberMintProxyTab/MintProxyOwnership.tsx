@@ -8,12 +8,12 @@ import { useExecutiveCouncil } from "@/hooks/tribeca/useExecutiveCouncil";
 import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { AddressLink } from "@/components/tribeca/common/AddressLink";
 import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { LoadingPage } from "@/components/tribeca/common/LoadingPage";
+import Card from "@/components/tribeca/common/governance/Card";
+import LoadingPage from "@/components/tribeca/common/LoadingPage";
 import { ProseSmall } from "@/components/tribeca/common/typography/Prose";
-import { useMintProxyState } from "./useMintProxyState";
+import { useMintProxyState } from "@/hooks/tribeca/useMintProxyState";
 
-export const MintProxyOwnership: React.FC = () => {
+const MintProxyOwnership: React.FC = () => {
   const { ownerInvokerKey, buildOwnerInvokeTX, isMemberOfEC, ecWallet } =
     useExecutiveCouncil();
   const { data: state } = useMintProxyState();
@@ -160,3 +160,5 @@ export const MintProxyOwnership: React.FC = () => {
 
   return <></>;
 };
+
+export default MintProxyOwnership;

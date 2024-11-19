@@ -1,9 +1,9 @@
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { GovernancePage } from "@/components/tribeca/common/governance/GovernancePage";
-import { ProgramsList } from "./ProgramsList";
+import Card from "@/components/tribeca/common/governance/Card";
+import GovernancePage from "@/components/tribeca/common/governance/GovernancePage";
+import ProgramsList from "./ProgramsList";
 import React from "react";
 
-export const ProgramsView: React.FC = () => {
+const ProgramsView: React.FC = () => {
   return (
     <GovernancePage title="Programs">
       <Card

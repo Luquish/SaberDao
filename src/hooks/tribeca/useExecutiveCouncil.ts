@@ -4,11 +4,11 @@ import { PublicKey, TransactionEnvelope } from "@saberhq/solana-contrib";
 import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 
-import { useSDK } from "../../contexts/sdk";
+import { useSDK } from "@/contexts/sdk";
 import {
   useBatchedSubaccountInfos,
   useGokiSmartWalletData,
-} from "../../utils/tribeca/parsers";
+} from "@/utils/tribeca/parsers";
 import { useOwnerInvokerAddress } from "./useSmartWalletAddress";
 import { useWrapTx } from "./useWrapTx";
 import { useGovernor } from "./useGovernor";

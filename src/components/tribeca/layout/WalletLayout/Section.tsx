@@ -7,12 +7,12 @@ interface Props {
   children?: React.ReactNode;
 }
 
-export const Section: React.FC<Props> = ({
+export default function Section({
   title,
   description,
   className,
   children,
-}: Props) => {
+}: Props) {
   return (
     <section>
       <h2 className="text-xl font-medium mb-1">{title}</h2>

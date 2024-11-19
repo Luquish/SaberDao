@@ -4,7 +4,7 @@ import { PublicKey } from '@solana/web3.js';
 import { Percent } from '@ubeswap/token-math';
 import { valuesToKeys } from './keys';
 import { StableSwapState } from '@saberhq/stableswap-sdk';
-import { StableSwapStateRaw } from '../types';
+import { StableSwapStateRaw } from '@/types';
 import { u64 } from '@saberhq/token-utils';
 
 export const parseRawSwapState = (state: StableSwapStateRaw): StableSwapState => {

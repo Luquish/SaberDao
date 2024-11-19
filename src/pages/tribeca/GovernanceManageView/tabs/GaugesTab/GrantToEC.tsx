@@ -8,12 +8,12 @@ import { useExecutiveCouncil } from "@/hooks/tribeca/useExecutiveCouncil";
 import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { AddressLink } from "@/components/tribeca/common/AddressLink";
 import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
-import { CardWithImage } from "@/components/tribeca/common/governance/CardWithImage";
+import CardWithImage from "@/components/tribeca/common/governance/CardWithImage";
 import { ProseSmall } from "@/components/tribeca/common/typography/Prose";
-import { useGMData } from "@/pages/tribeca/gauges/hooks/useGaugemeister";
+import { useGMData } from "@/hooks/tribeca/useGaugemeister";
 import React from "react";
 
-export const GrantToEC: React.FC = () => {
+const GrantToEC: React.FC = () => {
   const { data: gmData } = useGMData();
   const { ownerInvokerKey } = useExecutiveCouncil();
   const { signAndConfirmTX } = useTXHandlers();
@@ -62,3 +62,5 @@ export const GrantToEC: React.FC = () => {
     </CardWithImage>
   );
 };
+
+export default GrantToEC;

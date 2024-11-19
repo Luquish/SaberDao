@@ -2,7 +2,7 @@ import { Switch } from "@headlessui/react";
 import React, { useState } from "react";
 import clsx from "clsx";
 
-import { LoadingSpinner } from "./LoadingSpinner";
+import LoadingSpinner from "./LoadingSpinner";
 
 interface Props {
   label?: string;

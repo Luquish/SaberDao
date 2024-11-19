@@ -79,7 +79,7 @@ interface CreateFormValues {
   delay?: number;
 }
 
-export const WalletCreateView: React.FC = () => {
+const WalletCreateView: React.FC = () => {
   const { handleTX } = useSail();
   const { wrapTx } = useWrapTx();
   const { sdkMut } = useSDK();

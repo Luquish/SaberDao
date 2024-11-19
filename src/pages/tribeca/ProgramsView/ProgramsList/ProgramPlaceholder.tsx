@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ContentLoader } from "@/components/tribeca/common/ContentLoader";
+import ContentLoader from "@/components/tribeca/common/ContentLoader";
 
 export const ProgramPlaceholder: React.FC = () => {
   return (
@@ -15,7 +15,7 @@ export const ProgramPlaceholder: React.FC = () => {
   );
 };
 
-export const PlaceholderSubtitle: React.FC = () => (
+const PlaceholderSubtitle: React.FC = () => (
   <div className="flex items-center gap-2 mt-2">
     <div className="flex items-center gap-1">
       <ContentLoader className="h-2 w-4" />
@@ -24,3 +24,5 @@ export const PlaceholderSubtitle: React.FC = () => (
     </div>
   </div>
 );
+
+export default PlaceholderSubtitle;

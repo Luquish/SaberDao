@@ -6,7 +6,7 @@ import { useExecutiveCouncil } from "@/hooks/tribeca/useExecutiveCouncil";
 import { useGovernor } from "@/hooks/tribeca/useGovernor";
 import { HelperCard } from "@/components/tribeca/common/HelperCard";
 import { Select } from "@/components/tribeca/common/inputs/InputText";
-import { LoadingPage } from "@/components/tribeca/common/LoadingPage";
+import LoadingPage from "@/components/tribeca/common/LoadingPage";
 
 interface Props {
   txRaw: string;
@@ -14,7 +14,7 @@ interface Props {
   setTxRaw: (txRaw: string) => void;
 }
 
-export const ProposalTXForm: React.FC<Props> = ({
+const ProposalTXForm: React.FC<Props> = ({
   setError,
   txRaw,
   setTxRaw,
@@ -74,3 +74,5 @@ export const ProposalTXForm: React.FC<Props> = ({
     </div>
   );
 };
+
+export default ProposalTXForm;

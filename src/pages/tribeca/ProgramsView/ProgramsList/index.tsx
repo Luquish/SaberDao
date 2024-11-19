@@ -6,18 +6,18 @@ import clsx from "clsx";
 import { useGovernor } from "@/hooks/tribeca/useGovernor";
 import { useAuthorityPrograms } from "@/hooks/tribeca/useAuthorityPrograms";
 import { Button } from "@/components/tribeca/common/Button";
-import { NoPrograms } from "@/components/tribeca/common/governance/NoPrograms";
-import { LoadingPage } from "@/components/tribeca/common/LoadingPage";
-import { LoadingSpinner } from "@/components/tribeca/common/LoadingSpinner";
-import { Notice } from "@/components/tribeca/common/Notice";
-import { ProgramCard } from "./ProgramCard";
-import { ProgramPlaceholder } from "./ProgramPlaceholder";
+import NoPrograms from "@/components/tribeca/common/governance/NoPrograms";
+import LoadingPage from "@/components/tribeca/common/LoadingPage";
+import LoadingSpinner from "@/components/tribeca/common/LoadingSpinner";
+import Notice from "@/components/tribeca/common/Notice";
+import ProgramCard from "./ProgramCard";
+import ProgramPlaceholder from "./ProgramPlaceholder";
 
 interface Props {
   maxCount?: number;
 }
 
-export const ProgramsList: React.FC<Props> = ({ maxCount = 100 }: Props) => {
+const ProgramsList: React.FC<Props> = ({ maxCount = 100 }: Props) => {
   const { smartWallet, path } = useGovernor();
   const { programs, programData } = useAuthorityPrograms(smartWallet);
   const programsToRender = useMemo(
@@ -73,3 +73,5 @@ export const ProgramsList: React.FC<Props> = ({ maxCount = 100 }: Props) => {
     </>
   );
 };
+
+export default ProgramsList;

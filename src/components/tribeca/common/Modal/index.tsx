@@ -6,7 +6,7 @@ import React from "react";
 import { isMobile } from "react-device-detect";
 import { useGesture, DragState } from "@use-gesture/react";
 
-import { ModalProvider } from "./context";
+import { ModalProvider } from "@/contexts/tribeca/modal";
 
 export interface ModalProps {
   children: React.ReactNode;

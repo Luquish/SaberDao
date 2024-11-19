@@ -21,8 +21,8 @@ import { COMMON_ACCOUNTS } from "@/utils/tribeca/anchor";
 import { Button } from "@/components/tribeca/common/Button";
 import { InputText } from "@/components/tribeca/common/inputs/InputText";
 import type { InstructionInfo } from ".";
-import { AccountsForm } from "./AccountsForm";
-import { PreviewIXModal } from "./PreviewIXModal";
+import AccountsForm from "./AccountsForm";
+import PreviewIXModal from "./PreviewIXModal";
 
 interface Props {
   ix: InstructionInfo;
@@ -98,7 +98,7 @@ const makeDefaults = (accounts: IdlAccountItem[]): Record<string, string> => {
   return result;
 };
 
-export const IXForm: React.FC<Props> = ({
+const IXForm: React.FC<Props> = ({
   ix,
   program,
   smartWallet,
@@ -282,3 +282,5 @@ export const IXForm: React.FC<Props> = ({
     </div>
   );
 };
+
+export default IXForm;

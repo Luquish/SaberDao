@@ -4,12 +4,12 @@ import React from "react";
 
 import { InputText } from "./InputText";
 import type { Props as LabeledInputProps } from "./LabeledInput";
-import { LabeledInput } from "./LabeledInput";
+import LabeledInput from "./LabeledInput";
 
 type Props = FieldHookConfig<string> &
   Omit<LabeledInputProps<HTMLInputElement>, "Component">;
 
-export const TextField = (props: Props) => {
+export default function TextField(props: Props) {
   const [field, meta] = useField<string>(props);
   return (
     <LabeledInput

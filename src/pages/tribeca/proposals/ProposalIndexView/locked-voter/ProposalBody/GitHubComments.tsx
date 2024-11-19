@@ -1,10 +1,10 @@
 import { formatDistance } from "date-fns";
 import React from "react";
 
-import { Card } from "@/components/tribeca/common/governance/Card";
+import Card from "@/components/tribeca/common/governance/Card";
 import { ProseSmall } from "@/components/tribeca/common/typography/Prose";
-import type { GitHubIssue } from "../github";
-import { useGitHubIssueComments } from "../github";
+import type { GitHubIssue } from "@/hooks/tribeca/github/useGitHubIssue";
+import { useGitHubIssueComments } from "@/hooks/tribeca/github/useGitHubIssue";
 
 interface Props {
   issue: GitHubIssue;
@@ -21,7 +21,7 @@ interface GitHubComment {
   } | null;
 }
 
-export const GitHubComments: React.FC<Props> = ({ issue }: Props) => {
+const GitHubComments: React.FC<Props> = ({ issue }: Props) => {
   const { data: githubComments } = useGitHubIssueComments(issue.comments_url);
   
   return (
@@ -67,3 +67,5 @@ export const GitHubComments: React.FC<Props> = ({ issue }: Props) => {
     </Card>
   );
 };
+
+export default GitHubComments;

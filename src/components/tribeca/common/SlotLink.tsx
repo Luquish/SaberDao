@@ -1,7 +1,7 @@
 import React from "react";
 
-import { CURRENT_APP } from "../../../config";
-import { useEnvironment } from "../../../utils/tribeca/useEnvironment";
+import { CURRENT_APP } from "@/config";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
 
 interface Props {
   slot: number;

@@ -1,14 +1,14 @@
 import { chunks } from "@rockooor/sail";
 import React from "react";
 import type { InstructionParseError } from "@/utils/tribeca/instructions/parseNonAnchorInstruction";
-import { Box } from "./Box";
+import Box from "./Box";
 
 interface Props {
   data: Buffer;
   error?: InstructionParseError | null;
 }
 
-export const IXData: React.FC<Props> = ({ data, error }: Props) => {
+const IXData: React.FC<Props> = ({ data, error }: Props) => {
   return (
     <Box title={`Instruction Data (${data.length} bytes)`}>
       {error && (
@@ -32,3 +32,5 @@ export const IXData: React.FC<Props> = ({ data, error }: Props) => {
     </Box>
   );
 };
+
+export default IXData;

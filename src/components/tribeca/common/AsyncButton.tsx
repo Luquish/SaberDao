@@ -1,8 +1,8 @@
 import type { GokiSDK } from "@gokiprotocol/client";
 import React from "react";
 
-import { useSDK } from "../../../contexts/sdk";
-import { WalletButton } from "../layout/GovernorLayout/Header/WalletButton";
+import { useSDK } from "@/contexts/sdk";
+import WalletButton from "@/components/tribeca/layout/GovernorLayout/Header/WalletButton";
 import { Button } from "./Button";
 
 interface Props

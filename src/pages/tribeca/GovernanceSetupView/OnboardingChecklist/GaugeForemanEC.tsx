@@ -9,10 +9,10 @@ import { useProvider } from "@/hooks/tribeca/useProvider";
 import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { AddressLink } from "@/components/tribeca/common/AddressLink";
 import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
-import { useGMData } from "@/pages/tribeca/gauges/hooks/useGaugemeister";
-import { ChecklistItem } from "./ChecklistItem";
+import { useGMData } from "@/hooks/tribeca/useGaugemeister";
+import ChecklistItem from "./ChecklistItem";
 
-export const GaugeForemanEC: React.FC = () => {
+const GaugeForemanEC: React.FC = () => {
   const { data: gmData } = useGMData();
   const { ownerInvokerKey } = useExecutiveCouncil();
   const { signAndConfirmTX } = useTXHandlers();
@@ -61,3 +61,5 @@ export const GaugeForemanEC: React.FC = () => {
     </ChecklistItem>
   );
 };
+
+export default GaugeForemanEC;

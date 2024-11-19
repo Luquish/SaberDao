@@ -13,13 +13,13 @@ import React from "react";
 
 import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
-import { InputTokenAmount } from "@/components/tribeca/common/inputs/InputTokenAmount";
+import InputTokenAmount from "@/components/tribeca/common/inputs/InputTokenAmount";
 
 interface Props {
   saveData: ProgramAccount<SAVEData>;
 }
 
-export const IssueSAVEForm: React.FC<Props> = ({ saveData }: Props) => {
+const IssueSAVEForm: React.FC<Props> = ({ saveData }: Props) => {
   const { data: underlyingToken } = useToken(saveData.account.underlyingMint);
   const [amountStr, setAmountStr] = useState<string>("");
   const tokenAmount = useTokenAmount(underlyingToken, amountStr);
@@ -65,3 +65,5 @@ export const IssueSAVEForm: React.FC<Props> = ({ saveData }: Props) => {
     </div>
   );
 };
+
+export default IssueSAVEForm;

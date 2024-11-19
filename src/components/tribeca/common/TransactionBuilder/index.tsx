@@ -4,11 +4,11 @@ import { useConnection } from "@solana/wallet-adapter-react";
 import { Keypair, PublicKey } from "@solana/web3.js";
 import { useEffect, useMemo, useState } from "react";
 
-import { useProgramIndex } from "../../../../hooks/tribeca/deploydao/useProgramIndex";
-import { useIDL } from "../../../../hooks/tribeca/useIDLs";
-import type { InstructionInfo } from "../../../../pages/tribeca/wallet/txs/WalletTXCreateView";
-import { IXForm } from "../../../../pages/tribeca/wallet/txs/WalletTXCreateView/IXForm";
-import { Select } from "../inputs/InputText";
+import { useProgramIndex } from "@/hooks/tribeca/deploydao/useProgramIndex";
+import { useIDL } from "@/hooks/tribeca/useIDLs";
+import type { InstructionInfo } from "@/pages/tribeca/wallet/txs/WalletTXCreateView";
+import IXForm from "@/pages/tribeca/wallet/txs/WalletTXCreateView/IXForm";
+import { Select } from "@/components/tribeca/common/inputs/InputText";
 
 import React from "react";
 import { IdlInstruction, IdlStateMethod } from "@project-serum/anchor/dist/cjs/idl";

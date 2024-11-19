@@ -45,3 +45,5 @@ export const LegendsNeverDie: React.FC = () => {
     </div>
   );
 };
+
+export default LegendsNeverDie;

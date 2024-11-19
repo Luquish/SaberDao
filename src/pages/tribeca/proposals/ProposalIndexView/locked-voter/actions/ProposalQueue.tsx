@@ -7,14 +7,14 @@ import { useGovernor } from "@/hooks/tribeca/useGovernor";
 import type { ProposalInfo } from "@/hooks/tribeca/useProposals";
 import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
-import { Card } from "@/components/tribeca/common/governance/Card";
+import Card from "@/components/tribeca/common/governance/Card";
 
 interface Props {
   proposal: ProposalInfo;
   onActivate: () => void;
 }
 
-export const ProposalQueue: React.FC<Props> = ({
+const ProposalQueue: React.FC<Props> = ({
   proposal,
   onActivate,
 }: Props) => {
@@ -60,3 +60,5 @@ export const ProposalQueue: React.FC<Props> = ({
     </Card>
   );
 };
+
+export default ProposalQueue;

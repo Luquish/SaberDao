@@ -4,7 +4,7 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   icon: React.ReactNode;
 }
 
-export const IconInput: React.FC<Props> = ({ icon, ...inputProps }: Props) => {
+export default function IconInput({ icon, ...inputProps }: Props) {
   return (
     <div className="relative text-gray-600 focus-within:text-gray-400">
       <span className="py-2 line-height[1.5rem] text-sm absolute height[100%] left-0 flex items-center pl-3">

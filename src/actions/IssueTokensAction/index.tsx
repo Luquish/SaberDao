@@ -25,22 +25,22 @@ import invariant from "tiny-invariant";
 
 import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
 import { InputText } from "@/components/tribeca/common/inputs/InputText";
-import { InputTokenAmount } from "@/components/tribeca/common/inputs/InputTokenAmount";
+import InputTokenAmount from "@/components/tribeca/common/inputs/InputTokenAmount";
 import { useGovernor } from "@/hooks/tribeca/useGovernor";
 import { useParseTokenAmount } from "@/hooks/tribeca/useParseTokenAmount";
 import { useProvider } from "@/hooks/tribeca/useProvider";
 import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { serializeToBase64 } from "@/utils/tribeca/makeTransaction";
 import { useParsedMintWrapper } from "@/utils/tribeca/parsers";
-import type { ActionFormProps } from "../types";
+import type { ActionFormProps } from "@/actions/types";
 import React from "react";
 
-export const IssueTokensAction: React.FC<ActionFormProps> = ({
+export default function IssueTokensAction({
   actor,
   ctx,
   setError,
   setTxRaw,
-}: ActionFormProps) => {
+}: ActionFormProps) {
   const { govToken } = useGovernor();
   const [amountStr, setAmountStr] = useState<string>("");
   const [destinationStr, setDestinationStr] = useState<string>("");

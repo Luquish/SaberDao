@@ -15,7 +15,7 @@ const FADE_IN_DOWN = keyframes`
   }
 `;
 
-export const Jumbotron: React.FC = () => {
+const Jumbotron: React.FC = () => {
   return (
     <header className="w-full flex flex-col gap-6 pt-16 relative">
       <div className="w-11/12 md:(w-full max-w-4xl) flex flex-col gap-6 mx-auto">
@@ -82,3 +82,5 @@ export const Jumbotron: React.FC = () => {
     </header>
   );
 };
+
+export default Jumbotron;

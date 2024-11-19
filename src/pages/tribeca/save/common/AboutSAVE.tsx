@@ -1,12 +1,12 @@
 import { FaArrowRight } from "react-icons/fa";
 import React from "react";
 
-import { CardWithImage } from "@/components/tribeca/common/governance/CardWithImage";
+import CardWithImage from "@/components/tribeca/common/governance/CardWithImage";
 import { ExternalLink } from "@/components/tribeca/common/typography/ExternalLink";
 import { ProseSmall } from "@/components/tribeca/common/typography/Prose";
-import { ReactComponent as AboutSAVEImage } from "./AboutSAVEImage.svg";
+import AboutSAVEImage from "./AboutSAVEImage.svg";
 
-export const AboutSAVE: React.FC = () => {
+const AboutSAVE: React.FC = () => {
   return (
     <CardWithImage
       title="About SAVE Tokens"
@@ -37,3 +37,5 @@ export const AboutSAVE: React.FC = () => {
     </CardWithImage>
   );
 };
+
+export default AboutSAVE;

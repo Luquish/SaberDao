@@ -19,8 +19,8 @@ import {
 } from "@/utils/tribeca/validators/pubkey";
 import { Button } from "@/components/tribeca/common/Button";
 import { InputText, Textarea } from "@/components/tribeca/common/inputs/InputText";
-import { LabeledInput } from "@/components/tribeca/common/inputs/LabeledInput";
-import { Section } from "@/components/tribeca/layout/WalletLayout/Section";
+import LabeledInput from "@/components/tribeca/common/inputs/LabeledInput";
+import Section from "@/components/tribeca/layout/WalletLayout/Section";
 
 interface CreateStreamForm {
   token: string;
@@ -58,7 +58,7 @@ const StreamFormSchema = Yup.object().shape({
   recipient: YupPublicKey.required(),
 });
 
-export const CreateStream: React.FC = () => {
+const CreateStream: React.FC = () => {
   const [memo, setMemo] = useState<string>("");
   const { sdkMut } = useSDK();
   const { handleTX } = useSail();
@@ -245,3 +245,5 @@ export const CreateStream: React.FC = () => {
     </div>
   );
 };
+
+export default CreateStream;

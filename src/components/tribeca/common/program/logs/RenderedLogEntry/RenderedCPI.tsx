@@ -2,7 +2,7 @@ import { usePubkey } from "@rockooor/sail";
 import type { InstructionLogEntry } from "@saberhq/solana-contrib";
 
 import { useProgramLabel } from "@/hooks/tribeca/useProgramMeta";
-import { styleColor } from "../programLogsV2";
+import { styleColor } from "@/components/tribeca/common/program/logs/programLogsV2";
 import { prefixBuilder } from ".";
 import React from "react";
 interface Props {

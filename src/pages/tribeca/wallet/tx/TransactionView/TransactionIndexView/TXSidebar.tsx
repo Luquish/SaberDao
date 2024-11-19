@@ -5,11 +5,11 @@ import React from "react";
 
 import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
 import { notify } from "@/utils/notifications";
-import { NamedAddressLink } from "@/components/tribeca/common/account/NamedAddressLink";
+import NamedAddressLink from "@/components/tribeca/common/account/NamedAddressLink";
 import { AddressLink } from "@/components/tribeca/common/AddressLink";
-import { useTransaction } from "../context";
+import { useTransaction } from "@/contexts/tribeca/transaction";
 
-export const TXSidebar: React.FC = () => {
+const TXSidebar: React.FC = () => {
   const { smartWalletData } = useSmartWallet();
   const { tx, id, executedAt, eta, state } = useTransaction();
   return (
@@ -99,3 +99,5 @@ export const TXSidebar: React.FC = () => {
     </>
   );
 };
+
+export default TXSidebar;

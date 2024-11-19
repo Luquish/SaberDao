@@ -17,7 +17,7 @@ const LABELS = {
   ),
 } as const;
 
-export const WalletButton: React.FC = () => {
+export default function WalletButton() {
   const { publicKey } = useWallet();
 
   return (

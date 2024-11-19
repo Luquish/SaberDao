@@ -6,17 +6,17 @@ import { Link } from "gatsby";
 import React from "react";
 import clsx from "clsx";
 
-import { useGovernor } from "../../../../hooks/tribeca/useGovernor";
-import { formatDurationSeconds } from "../../../../utils/tribeca/format";
-import { AddressLink } from "../../../../components/tribeca/common/AddressLink";
-import { ContentLoader } from "../../../../components/tribeca/common/ContentLoader";
-import { TokenAmountDisplay } from "../../../../components/tribeca/common/TokenAmountDisplay";
+import { useGovernor } from "@/hooks/tribeca/useGovernor";
+import { formatDurationSeconds } from "@/utils/tribeca/format";
+import { AddressLink } from "@/components/tribeca/common/AddressLink";
+import ContentLoader from "@/components/tribeca/common/ContentLoader";
+import { TokenAmountDisplay } from "@/components/tribeca/common/TokenAmountDisplay";
 
 interface Props {
   data: ProgramAccount<SAVEData>;
 }
 
-export const SAVECard: React.FC<Props> = ({ data }: Props) => {
+const SAVECard: React.FC<Props> = ({ data }: Props) => {
   const { path } = useGovernor();
   const { data: token } = useToken(data.account.mint);
   const { data: mintData } = useTokenMint(data.account.mint);
@@ -62,3 +62,5 @@ export const SAVECard: React.FC<Props> = ({ data }: Props) => {
     </div>
   );
 };
+
+export default SAVECard;

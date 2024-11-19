@@ -14,8 +14,8 @@ import {
 } from "@solana/wallet-adapter-wallets";
 import React, { useMemo } from "react";
 
-import { environments } from "../../utils/tribeca/environments";
-import { EnvironmentProvider } from "../../utils/tribeca/useEnvironment";
+import { environments } from "@/utils/tribeca/environments";
+import { EnvironmentProvider } from "@/hooks/tribeca/useEnvironment";
 
 interface Props {
   children: React.ReactNode;

@@ -12,18 +12,18 @@ import { useGovernor } from "@/hooks/tribeca/useGovernor";
 import type { ProposalInfo } from "@/hooks/tribeca/useProposals";
 import { useVote } from "@/hooks/tribeca/useVote";
 import { Button } from "@/components/tribeca/common/Button";
-import { Card } from "@/components/tribeca/common/governance/Card";
+import Card from "@/components/tribeca/common/governance/Card";
 import { MouseoverTooltip } from "@/components/tribeca/common/MouseoverTooltip";
-import { WalletButton } from "@/components/tribeca/layout/GovernorLayout/Header/WalletButton";
-import { sideColor } from "../../../../utils/voting";
-import { CastVoteButton } from "../CastVoteButton";
+import WalletButton from "@/components/tribeca/layout/GovernorLayout/Header/WalletButton";
+import sideColor from "@/utils/tribeca/voting";
+import CastVoteButton from "@/pages/tribeca/proposals/ProposalIndexView/locked-voter/CastVoteButton";
 
 interface Props {
   proposalInfo: ProposalInfo;
   onVote: () => void;
 }
 
-export const ProposalVote: React.FC<Props> = ({ proposalInfo }: Props) => {
+const ProposalVote: React.FC<Props> = ({ proposalInfo }: Props) => {
   const { veToken, path } = useGovernor();
   const { sdkMut } = useSDK();
   const { data: escrow, veBalance } = useUserEscrow();
@@ -125,3 +125,5 @@ export const ProposalVote: React.FC<Props> = ({ proposalInfo }: Props) => {
     </Card>
   );
 };
+
+export default ProposalVote;

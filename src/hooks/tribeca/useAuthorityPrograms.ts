@@ -6,12 +6,12 @@ import { PublicKey } from "@solana/web3.js";
 import { useQueries, useQuery } from "@tanstack/react-query";
 import invariant from "tiny-invariant";
 
-import { generateSHA256BufferHash } from "../../utils/tribeca/crypto";
-import { getGPAConnection } from "../../utils/tribeca/gpaConnection";
-import { useEnvironment } from "../../utils/tribeca/useEnvironment";
-import { stripTrailingNullBytes } from "./deploydao/stripTrailingNullBytes";
-import type { VerifiableProgramRelease } from "./deploydao/types";
-import { fetchCanonicalVerifiableBuild } from "./deploydao/useCanonicalVerifiableBuild";
+import { generateSHA256BufferHash } from "@/utils/tribeca/crypto";
+import { getGPAConnection } from "@/utils/tribeca/gpaConnection";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
+import { stripTrailingNullBytes } from "@/hooks/tribeca/deploydao/stripTrailingNullBytes";
+import type { VerifiableProgramRelease } from "@/hooks/tribeca/deploydao/types";
+import { fetchCanonicalVerifiableBuild } from "@/hooks/tribeca/deploydao/useCanonicalVerifiableBuild";
 
 export const BPF_UPGRADEABLE_LOADER_ID = new PublicKey(
   "BPFLoaderUpgradeab1e11111111111111111111111"
@@ -90,7 +90,7 @@ export const useAuthorityPrograms = (address: PublicKey | null | undefined) => {
               memcmp: {
                 offset: ACCOUNT_TYPE_SIZE + SLOT_SIZE,
                 bytes: utils.bytes.bs58.encode(
-                  Buffer.from(new Uint8Array([1, ...address.toBytes()]))
+                  Buffer.from(new Uint8Array([1].concat(Array.from(address.toBytes()))))
                 ),
               },
             },
@@ -144,7 +144,7 @@ export const useAuthorityPrograms = (address: PublicKey | null | undefined) => {
                       offset: 0,
                       bytes: utils.bytes.bs58.encode(
                         Buffer.from(
-                          new Uint8Array([2, 0, 0, 0, ...pubkey.toBytes()])
+                          new Uint8Array([1].concat(Array.from(pubkey.toBytes())))
                         )
                       ),
                     },
@@ -195,7 +195,7 @@ export const useAuthorityBuffers = (address: PublicKey | null | undefined) => {
                 offset: 0,
                 bytes: utils.bytes.bs58.encode(
                   Buffer.from(
-                    new Uint8Array([1, 0, 0, 0, 1, ...address.toBytes()])
+                    new Uint8Array([1].concat(Array.from(address.toBytes())))
                   )
                 ),
               },

@@ -2,7 +2,7 @@ import { useConnection } from "@solana/wallet-adapter-react";
 import type { TransactionSignature } from "@solana/web3.js";
 import { useQueries } from "@tanstack/react-query";
 
-import { useEnvironment } from "../../utils/tribeca/useEnvironment";
+import { useEnvironment } from "./useEnvironment";
 
 export const useTransactions = (txSigs: TransactionSignature[]) => {
   const { network } = useEnvironment();

@@ -6,14 +6,14 @@ import {
   useGovernor,
   useGovWindowTitle,
 } from "@/hooks/tribeca/useGovernor";
-import { useEnvironment } from "@/utils/tribeca/useEnvironment";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { GovernancePage } from "@/components/tribeca/common/governance/GovernancePage";
-import { LoadingPage } from "@/components/tribeca/common/LoadingPage";
-import { useGM } from "../context";
-import { AllGaugesInner } from "./AllGaugesInner";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
+import Card from "@/components/tribeca/common/governance/Card";
+import GovernancePage from "@/components/tribeca/common/governance/GovernancePage";
+import LoadingPage from "@/components/tribeca/common/LoadingPage";
+import { useGM } from "@/contexts/tribeca/gauges";
+import AllGaugesInner from "./AllGaugesInner";
 
-export const GaugesAllView: React.FC = () => {
+const GaugesAllView: React.FC = () => {
   const { path } = useGovernor();
   const { rewarderKey } = useGM();
   const { network } = useEnvironment();

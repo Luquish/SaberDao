@@ -2,7 +2,7 @@ import { FaCheck, FaTimes } from "react-icons/fa";
 import React from "react";
 
 import { Alert } from "@/components/tribeca/common/Alert";
-import { LoadingSpinner } from "@/components/tribeca/common/LoadingSpinner";
+import LoadingSpinner from "@/components/tribeca/common/LoadingSpinner";
 import { ProseSmall } from "@/components/tribeca/common/typography/Prose";
 
 interface Props {

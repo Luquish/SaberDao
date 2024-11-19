@@ -3,7 +3,7 @@ import type { PublicKey } from "@solana/web3.js";
 import { useQuery } from "@tanstack/react-query";
 import invariant from "tiny-invariant";
 
-import { useEnvironment } from "@/utils/tribeca/useEnvironment";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
 
 export const useSignaturesForAddress = (
   address: PublicKey | null | undefined

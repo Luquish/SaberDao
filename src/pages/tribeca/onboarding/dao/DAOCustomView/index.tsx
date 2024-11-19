@@ -90,7 +90,7 @@ const CustomDAOFormSchema = Yup.object().shape({
     }),
 });
 
-export const DAOCustomView: React.FC = () => {
+const DAOCustomView: React.FC = () => {
   const { handleTX } = useSail();
   const { wrapTx } = useWrapTx();
   const { sdkMut, tribecaMut } = useSDK();

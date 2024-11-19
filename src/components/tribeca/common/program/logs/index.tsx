@@ -7,8 +7,8 @@ import invariant from "tiny-invariant";
 
 import { useProgramMetas } from "@/hooks/tribeca/deploydao/useProgramMeta";
 import { programLabel } from "@/utils/tribeca/programs";
-import { Badge } from "../../Badge";
-import { TableCardBody } from "../../card/TableCardBody";
+import { Badge } from "@/components/tribeca/common/Badge";
+import TableCardBody from "@/components/tribeca/common/card/TableCardBody";
 import { RenderedLogEntry } from "./RenderedLogEntry";
 
 interface Props {

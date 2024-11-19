@@ -7,15 +7,15 @@ import {
   useGovWindowTitle,
 } from "@/hooks/tribeca/useGovernor";
 import { useBatchedSAVEs } from "@/utils/tribeca/parsers";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { GovernancePage } from "@/components/tribeca/common/governance/GovernancePage";
-import { LoadingPage } from "@/components/tribeca/common/LoadingPage";
+import Card from "@/components/tribeca/common/governance/Card";
+import GovernancePage from "@/components/tribeca/common/governance/GovernancePage";
+import LoadingPage from "@/components/tribeca/common/LoadingPage";
 import { NotFoundPage } from "@/components/tribeca/common/NotFoundPage";
-import { AboutSAVE } from "../common/AboutSAVE";
-import { SAVECard } from "./SAVECard";
+import AboutSAVE from "@/pages/tribeca/save/common/AboutSAVE";
+import SAVECard from "@/pages/tribeca/save/SAVESListView/SAVECard";
 import { PublicKey } from "@solana/web3.js";
 
-export const SAVESListView: React.FC = () => {
+const SAVESListView: React.FC = () => {
   const { meta } = useGovernor();
   const saveMints = meta?.saves?.map((save) => save.mint);
   const { data: saveKeys } = useQuery({

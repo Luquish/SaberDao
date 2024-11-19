@@ -10,25 +10,20 @@ import { useProgramLabel } from "@/hooks/tribeca/useProgramMeta";
 import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
 import { BPF_UPGRADEABLE_LOADER_ID } from "@/utils/tribeca/instructions/upgradeable_loader/instructions";
 import { Button } from "@/components/tribeca/common/Button";
-import { ErrorMessage } from "@/components/tribeca/common/ErrorMessage";
-import { LoadingPage } from "@/components/tribeca/common/LoadingPage";
-import { Notice } from "@/components/tribeca/common/Notice";
-import { BasicPage } from "@/components/tribeca/common/page/BasicPage";
+import ErrorMessage from "@/components/tribeca/common/ErrorMessage";
+import LoadingPage from "@/components/tribeca/common/LoadingPage";
+import Notice from "@/components/tribeca/common/Notice";
+import BasicPage from "@/components/tribeca/common/page/BasicPage";
 import { BasicSection } from "@/components/tribeca/common/page/Section";
 import { ProseSmall } from "@/components/tribeca/common/typography/Prose";
-import { BufferCard } from "./BufferCard";
-
-function getParams(pathname: string) {
-  const paths = pathname.split('/');
-  const programID = paths[paths.indexOf('programs') + 2] || '';
-  return { programID };
-}
+import BufferCard from "./BufferCard";
+import { getUrlParams } from "@/utils/tribeca/urlParams";
 
 export const ProgramUpgradeView: React.FC<RouteComponentProps> = () => {
   const { key } = useSmartWallet();
   const buffers = useAuthorityBuffers(key);
   const location = useLocation();
-  const { programID: programIDStr } = getParams(location.pathname);
+  const programIDStr = getUrlParams.tokenMint(location.pathname);
   const programID = usePubkey(programIDStr);
   const { data: program } = useAccountData(programID);
   const programLabel = useProgramLabel(programID);
@@ -150,3 +145,5 @@ export const ProgramUpgradeView: React.FC<RouteComponentProps> = () => {
     </BasicPage>
   );
 };
+
+export default ProgramUpgradeView;

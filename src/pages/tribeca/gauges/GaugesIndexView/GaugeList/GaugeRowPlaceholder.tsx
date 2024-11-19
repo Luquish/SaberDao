@@ -1,7 +1,7 @@
 import React from "react";
-import { ContentLoader } from "@/components/tribeca/common/ContentLoader";
+import ContentLoader from "@/components/tribeca/common/ContentLoader";
 
-export const GaugeRowPlaceholder: React.FC = () => {
+const GaugeRowPlaceholder: React.FC = () => {
   return (
     <tr>
       <td>
@@ -27,3 +27,5 @@ export const GaugeRowPlaceholder: React.FC = () => {
     </tr>
   );
 };
+
+export default GaugeRowPlaceholder;

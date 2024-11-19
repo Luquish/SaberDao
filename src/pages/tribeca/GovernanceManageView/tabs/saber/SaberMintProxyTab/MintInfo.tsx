@@ -10,7 +10,7 @@ interface Props {
   mint: PublicKey;
 }
 
-export const MintInfo: React.FC<Props> = ({ mint }: Props) => {
+const MintInfo: React.FC<Props> = ({ mint }: Props) => {
   const wallet = useAnchorWallet();
   const { data, loading } = useAccountData(mint);
   const mintInfo = useMemo(() => {
@@ -50,3 +50,5 @@ export const MintInfo: React.FC<Props> = ({ mint }: Props) => {
     />
   );
 };
+
+export default MintInfo;

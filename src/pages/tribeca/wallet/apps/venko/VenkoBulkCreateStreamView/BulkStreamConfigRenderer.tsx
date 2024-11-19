@@ -10,7 +10,7 @@ interface Props {
   config: BulkStreamConfig;
 }
 
-export const BulkStreamConfigRenderer: React.FC<Props> = ({
+const BulkStreamConfigRenderer: React.FC<Props> = ({
   config,
 }: Props) => {
   const total = config.recipients.reduce(
@@ -50,3 +50,5 @@ export const BulkStreamConfigRenderer: React.FC<Props> = ({
     </div>
   );
 };
+
+export default BulkStreamConfigRenderer;

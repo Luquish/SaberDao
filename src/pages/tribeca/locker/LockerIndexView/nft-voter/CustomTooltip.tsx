@@ -10,7 +10,7 @@ interface Props {
   disableOnClick?: boolean;
 }
 
-export const CustomTooltip = ({
+const CustomTooltip = ({
   content,
   children,
   disableOnClick = false,
@@ -52,3 +52,5 @@ export const CustomTooltip = ({
     </Tooltip>
   );
 };
+
+export default CustomTooltip;

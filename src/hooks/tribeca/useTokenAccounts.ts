@@ -14,8 +14,8 @@ import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 import invariant from "tiny-invariant";
 
-import { useEnvironment } from "../../utils/tribeca/useEnvironment";
-import { useProvider } from "./useProvider";
+import { useEnvironment } from "./useEnvironment";
+import { useProvider } from "@/hooks/tribeca/useProvider";
 
 export interface TokenAccountWithInfo {
   account: PublicKey;

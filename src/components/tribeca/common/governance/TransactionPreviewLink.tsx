@@ -8,16 +8,16 @@ import type { ProposalInstruction } from "@tribecahq/tribeca-sdk";
 import { useMemo } from "react";
 
 import { useProvider } from "@/hooks/tribeca/useProvider";
-import { ExternalLink } from "../typography/ExternalLink";
+import { ExternalLink } from "@/components/tribeca/common/typography/ExternalLink";
 import React from "react";
 
 interface Props {
   instructions: ProposalInstruction[];
 }
 
-export const TransactionPreviewLink: React.FC<Props> = ({
+export default function TransactionPreviewLink({
   instructions,
-}: Props) => {
+}: Props) {
   const { provider, providerMut, network } = useProvider();
   const txEnv = useMemo(() => {
     return new TransactionEnvelope(

@@ -5,6 +5,7 @@ import React from "react";
 import clsx from "clsx";
 
 import { useGovernor } from "@/hooks/tribeca/useGovernor";
+import { getUrlParams } from "@/utils/tribeca/urlParams";
 
 export const NAV_LINKS = [
   {
@@ -25,15 +26,7 @@ interface NFTGauge {
     label: string;
 }
 
-// Función auxiliar para obtener parámetros de la URL
-function getParams(pathname: string) {
-  const paths = pathname.split('/');
-  return {
-    governor: paths[3] || '' // Asumiendo /tribeca/gov/:governor/
-  };
-}
-
-export const useNavLinks = () => {
+export function useNavLinks() {
   const { manifest } = useGovernor();
   return useMemo(
     () => [
@@ -69,15 +62,15 @@ export const useNavLinks = () => {
     ],
     [manifest]
   );
-};
+}
 
 interface Props {
   className?: string;
 }
 
-export const Nav: React.FC<Props> = ({ className }: Props) => {
+export function Nav({ className }: Props) {
   const location = useLocation();
-  const { governor } = getParams(location.pathname);
+  const governor = getUrlParams.governor(location.pathname);
   const navLinks = useNavLinks();
   
   return (
@@ -100,4 +93,4 @@ export const Nav: React.FC<Props> = ({ className }: Props) => {
       ))}
     </nav>
   );
-};
+}

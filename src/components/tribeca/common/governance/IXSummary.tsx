@@ -1,12 +1,12 @@
 import type { ProposalInstruction } from "@tribecahq/tribeca-sdk";
 import React from "react";
 
-import { InstructionSummary } from "../program/InstructionSummary";
+import { InstructionSummary } from "@/components/tribeca/common/program/InstructionSummary";
 
 interface Props {
   instruction: ProposalInstruction;
 }
 
-export const IXSummary: React.FC<Props> = ({ instruction }: Props) => {
+export default function IXSummary({ instruction }: Props) {
   return <InstructionSummary instruction={instruction} />;
 };

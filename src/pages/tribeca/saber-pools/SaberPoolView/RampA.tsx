@@ -10,9 +10,9 @@ import React from "react";
 import type { SaberSwap } from "@/hooks/tribeca/saber/useSaberSwaps";
 import { useExecutiveCouncil } from "@/hooks/tribeca/useExecutiveCouncil";
 import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
-import { Card } from "@/components/tribeca/common/governance/Card";
+import Card from "@/components/tribeca/common/governance/Card";
 import { InputText } from "@/components/tribeca/common/inputs/InputText";
-import { LabeledInput } from "@/components/tribeca/common/inputs/LabeledInput";
+import LabeledInput from "@/components/tribeca/common/inputs/LabeledInput";
 import { SABER_POOL_MANAGER } from ".";
 
 interface Props {
@@ -20,7 +20,7 @@ interface Props {
   swapInfo: ProgramAccount<StableSwapState>;
 }
 
-export const RampA: React.FC<Props> = ({ swap, swapInfo }: Props) => {
+const RampA: React.FC<Props> = ({ swap, swapInfo }: Props) => {
   const [targetA, setTargetA] = useState<string>(
     swapInfo.account.targetAmpFactor.toString()
   );
@@ -113,3 +113,5 @@ export const RampA: React.FC<Props> = ({ swap, swapInfo }: Props) => {
     </Card>
   );
 };
+
+export default RampA;

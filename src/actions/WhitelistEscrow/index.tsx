@@ -7,18 +7,18 @@ import { useEffect, useState } from "react";
 import invariant from "tiny-invariant";
 
 import { InputText } from "@/components/tribeca/common/inputs/InputText";
-import { LabeledInput } from "@/components/tribeca/common/inputs/LabeledInput";
+import LabeledInput from "@/components/tribeca/common/inputs/LabeledInput";
 import { serializeToBase64 } from "@/utils/tribeca/makeTransaction";
-import { useEnvironment } from "@/utils/tribeca/useEnvironment";
-import type { ActionFormProps } from "../types";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
+import type { ActionFormProps } from "@/actions/types";
 import React from "react";
 
-export const WhitelistEscrow: React.FC<ActionFormProps> = ({
+export default function WhitelistEscrow({
   actor,
   ctx,
   payer,
   setTxRaw,
-}: ActionFormProps) => {
+}: ActionFormProps) {
   const lockerKey = ctx?.locker;
   const governorKey = ctx?.governor;
   invariant(lockerKey && governorKey);

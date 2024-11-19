@@ -2,13 +2,13 @@ import type { PublicKey } from "@solana/web3.js";
 import type { GovernorConfig } from "@tribecahq/registry";
 
 import { serializeToBase64 } from "@/utils/tribeca/makeTransaction";
-import { Memo } from "./Memo";
-import { IssueTokensAction } from "./IssueTokensAction";
-import { RawTX } from "./RawTX";
-import { TransferTokensAction } from "./TransferTokensAction";
-import { UpgradeProgramForm } from "./UpgradeProgramForm";
-import { WhitelistEscrow } from "./WhitelistEscrow";
-import { WhitelistProgram } from "./WhitelistProgram";
+import Memo from "@/actions/Memo";
+import IssueTokensAction from "@/actions/IssueTokensAction";
+import RawTX from "@/actions/RawTX";
+import TransferTokensAction from "@/actions/TransferTokensAction";
+import UpgradeProgramForm from "@/actions/UpgradeProgramForm";
+import WhitelistEscrow from "@/actions/WhitelistEscrow";
+import WhitelistProgram from "@/actions/WhitelistProgram";
 import React from "react";
 
 export interface ActorContext {

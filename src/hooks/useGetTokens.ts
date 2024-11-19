@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchNullableWithSessionCache } from '../helpers/fetch';
-import { TokenList } from '@saberhq/token-utils';
+import { fetchNullableWithSessionCache } from "@/helpers/fetch";
+import { TokenList } from "@saberhq/token-utils";
 
 export default function useGetTokens(formattedNetwork: string) {
     return useQuery({

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Button } from "../Button";
-import { Modal } from ".";
+import { Button } from "@/components/tribeca/common/Button";
+import { Modal } from "@/components/tribeca/common/Modal";
 
 type Props = {
   buttonLabel: string;

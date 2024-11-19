@@ -13,17 +13,17 @@ import React from "react";
 import { useUserEscrow } from "@/hooks/tribeca/useEscrow";
 import { FORMAT_VOTE_PERCENT } from "@/utils/tribeca/format";
 import { useGaugeVoteData } from "@/utils/tribeca/parsers";
-import { ContentLoader } from "@/components/tribeca/common/ContentLoader";
+import ContentLoader from "@/components/tribeca/common/ContentLoader";
 import { InputText } from "@/components/tribeca/common/inputs/InputText";
 import { TokenIcon } from "@/components/tribeca/common/TokenIcon";
-import { useGaugemeister } from "../hooks/useGaugemeister";
-import { useUpdateGaugeWeights } from "./useUpdateGaugeWeights";
+import { useGaugemeister } from "@/hooks/tribeca/useGaugemeister";
+import { useUpdateGaugeWeights } from "@/hooks/tribeca/useUpdateGaugeWeights";
 
 interface Props {
   quarry: QuarryInfo;
 }
 
-export const GaugeWeightRow: React.FC<Props> = ({ quarry }: Props) => {
+const GaugeWeightRow: React.FC<Props> = ({ quarry }: Props) => {
   const { data: stakedToken } = useToken(quarry.quarry.account.tokenMintKey);
 
   const { escrowKey } = useUserEscrow();
@@ -116,3 +116,5 @@ export const GaugeWeightRow: React.FC<Props> = ({ quarry }: Props) => {
     </tr>
   );
 };
+
+export default GaugeWeightRow;

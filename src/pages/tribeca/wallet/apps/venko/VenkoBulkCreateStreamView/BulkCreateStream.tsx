@@ -6,11 +6,11 @@ import { useMemo, useState } from "react";
 import React from "react";
 
 import { Textarea } from "@/components/tribeca/common/inputs/InputText";
-import { LabeledInput } from "@/components/tribeca/common/inputs/LabeledInput";
+import LabeledInput from "@/components/tribeca/common/inputs/LabeledInput";
 import { ModalButton } from "@/components/tribeca/common/Modal/ModalButton";
-import { Section } from "@/components/tribeca/layout/WalletLayout/Section";
-import { BulkStreamConfigRenderer } from "./BulkStreamConfigRenderer";
-import { BulkStreamModalInner } from "./BulkStreamModalInner";
+import Section from "@/components/tribeca/layout/WalletLayout/Section";
+import BulkStreamConfigRenderer from "./BulkStreamConfigRenderer";
+import BulkStreamModalInner from "./BulkStreamModalInner";
 
 interface BulkStreamConfigRaw {
   start: number;
@@ -28,7 +28,7 @@ export interface BulkStreamConfig {
   token: Token;
 }
 
-export const BulkCreateStream: React.FC = () => {
+const BulkCreateStream: React.FC = () => {
   const [configStr, setConfigStr] = useState<string>("");
 
   const configRaw = useMemo(() => {
@@ -94,3 +94,5 @@ export const BulkCreateStream: React.FC = () => {
     </div>
   );
 };
+
+export default BulkCreateStream;

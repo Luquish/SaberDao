@@ -6,9 +6,9 @@ import { findEscrowAddress, VoteEscrow } from "@tribecahq/tribeca-sdk";
 import { useEffect } from "react";
 import invariant from "tiny-invariant";
 
-import { useSDK } from "../../contexts/sdk";
-import { useEscrowData, useLockerData } from "../../utils/tribeca/parsers";
-import { useEnvironment } from "../../utils/tribeca/useEnvironment";
+import { useSDK } from "@/contexts/sdk";
+import { useEscrowData, useLockerData } from "@/utils/tribeca/parsers";
+import { useEnvironment } from "./useEnvironment";
 import { useGovernor } from "./useGovernor";
 
 export const useLocker = () => {

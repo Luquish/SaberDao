@@ -3,7 +3,7 @@ import invariant from "tiny-invariant";
 import type { RichParsedInstruction } from "@/hooks/tribeca/tx/useParsedInstruction";
 import { useProgramDeployBuffer } from "@/hooks/tribeca/useAuthorityPrograms";
 import { useProgramLabel } from "@/hooks/tribeca/useProgramMeta";
-import { AddressLink } from "../../../AddressLink";
+import { AddressLink } from "@/components/tribeca/common/AddressLink";
 import React from "react";
 
 interface Props {

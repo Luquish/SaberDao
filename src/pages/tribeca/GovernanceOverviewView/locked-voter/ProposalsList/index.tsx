@@ -7,9 +7,9 @@ import clsx from "clsx";
 import { useGovernor } from "@/hooks/tribeca/useGovernor";
 import { useProposals } from "@/hooks/tribeca/useProposals";
 import { EmptyState } from "@/components/tribeca/common/EmptyState";
-import { PageNav } from "./PageNav";
-import { PlaceholderCard } from "./PlaceholderCard";
-import { ProposalCard } from "./ProposalCard";
+import PageNav from "./PageNav";
+import PlaceholderCard from "./PlaceholderCard";
+import ProposalCard from "./ProposalCard";
 
 const NUM_PLACEHOLDERS = 0;
 const PROPOSALS_PER_PAGE = 20;
@@ -19,7 +19,7 @@ interface Props {
   showDrafts?: boolean;
 }
 
-export const ProposalsList: React.FC<Props> = ({
+const ProposalsList: React.FC<Props> = ({
   maxCount = 9_999_999,
   showDrafts = false,
 }: Props) => {
@@ -99,3 +99,5 @@ const calcPageTotal = (numProposals: number): number => {
   const div = Math.floor(numProposals / PROPOSALS_PER_PAGE);
   return div + (numProposals % PROPOSALS_PER_PAGE ? 1 : 0);
 };
+
+export default ProposalsList;

@@ -22,19 +22,13 @@ import { MEMO_PROGRAM_ID } from "@/utils/tribeca/constants";
 import { shortenAddress } from "@/utils/tribeca/utils";
 import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
 import { InputText } from "@/components/tribeca/common/inputs/InputText";
-import { InputTokenAmount } from "@/components/tribeca/common/inputs/InputTokenAmount";
-import { BasicPage } from "@/components/tribeca/common/page/BasicPage";
+import InputTokenAmount from "@/components/tribeca/common/inputs/InputTokenAmount";
+import BasicPage from "@/components/tribeca/common/page/BasicPage";
+import { getUrlParams } from "@/utils/tribeca/urlParams";
 
-// Función auxiliar para obtener parámetros de la URL
-function getParams(pathname: string) {
-  const paths = pathname.split('/');
-  const tokenMint = paths[paths.indexOf('treasury') + 2] || '';
-  return { tokenMint };
-}
-
-export const WalletTreasurySendView: React.FC<RouteComponentProps> = () => {
+const WalletTreasurySendView: React.FC<RouteComponentProps> = () => {
   const location = useLocation();
-  const { tokenMint: tokenMintStr } = getParams(location.pathname);
+  const tokenMintStr = getUrlParams.tokenMint(location.pathname);
   const { key, smartWallet } = useSmartWallet();
   const {
     data: treasuryTokenAccounts,
@@ -170,3 +164,5 @@ export const WalletTreasurySendView: React.FC<RouteComponentProps> = () => {
     </BasicPage>
   );
 };
+
+export default WalletTreasurySendView;

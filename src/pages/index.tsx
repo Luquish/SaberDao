@@ -6,21 +6,21 @@ import { useForm } from 'react-hook-form';
 import { useReadLocalStorage } from 'usehooks-ts';
 import { FaSort, FaSortDown, FaSortUp } from 'react-icons/fa';
 
-import { getLogo, getPoolId, getPoolName } from '../helpers/pool';
-import H1 from '../components/H1';
-import usePoolsInfo from '../hooks/usePoolsInfo';
-import Table from '../components/Table';
-import LoadingText from '../components/LoadingText';
-import { Button } from '../components/tribeca/common/Button';
-import Input, { InputType } from '../components/Input';
-import ActiveText from '../components/ActiveText';
-import PoolSwitch, { PoolsView } from '../components/PoolSwitch';
-import { CurrencyMarket, PoolData } from '../types';
-import { toAPY, toPrecision } from '../helpers/number';
-import useGetPrices from '../hooks/useGetPrices';
-import useGetStats from '../hooks/useGetStats';
-import useDeprecatedPools from '../hooks/useDeprecatedPools';
-import useFeaturedPools from '../hooks/useFeaturedPools';
+import { getLogo, getPoolId, getPoolName } from "@/helpers/pool";
+import H1 from "@/components/H1";
+import usePoolsInfo from "@/hooks/usePoolsInfo";
+import Table from "@/components/Table";
+import LoadingText from "@/components/LoadingText";
+import { Button } from "@/components/tribeca/common/Button";
+import Input, { InputType } from "@/components/Input";
+import ActiveText from "@/components/ActiveText";
+import PoolSwitch, { PoolsView } from "@/components/PoolSwitch";
+import { CurrencyMarket, PoolData } from "@/types";
+import { toAPY, toPrecision } from "@/helpers/number";
+import useGetPrices from "@/hooks/useGetPrices";
+import useGetStats from "@/hooks/useGetStats";
+import useDeprecatedPools from "@/hooks/useDeprecatedPools";
+import useFeaturedPools from "@/hooks/useFeaturedPools";
 
 const KNOWN_GROUPS = [
     CurrencyMarket.USD,

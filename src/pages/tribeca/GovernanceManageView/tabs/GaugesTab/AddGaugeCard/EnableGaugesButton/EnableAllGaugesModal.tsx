@@ -7,16 +7,16 @@ import invariant from "tiny-invariant";
 
 import { useSDK } from "@/contexts/sdk";
 import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
-import { useModal } from "@/components/tribeca/common/Modal/context";
+import { useModal } from "@/contexts/tribeca/modal";
 import { ModalInner } from "@/components/tribeca/common/Modal/ModalInner";
-import { useGaugemeister } from "@/pages/tribeca/gauges/hooks/useGaugemeister";
+import { useGaugemeister } from "@/hooks/tribeca/useGaugemeister";
 import React from "react";
 
 interface Props {
   gauges?: BatchedParsedAccountQueryData<GaugeData>;
 }
 
-export const EnableAllGaugesModal: React.FC<Props> = ({ gauges }: Props) => {
+const EnableAllGaugesModal: React.FC<Props> = ({ gauges }: Props) => {
   const { sdkMut } = useSDK();
   const gaugemeister = useGaugemeister();
   const { handleTXs } = useSail();
@@ -70,3 +70,5 @@ export const EnableAllGaugesModal: React.FC<Props> = ({ gauges }: Props) => {
     </ModalInner>
   );
 };
+
+export default EnableAllGaugesModal;

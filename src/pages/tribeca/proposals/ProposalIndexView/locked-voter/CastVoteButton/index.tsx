@@ -3,14 +3,14 @@ import React from 'react';
 
 import type { ProposalInfo } from "@/hooks/tribeca/useProposals";
 import { ModalButton } from "@/components/tribeca/common/Modal/ModalButton";
-import { CastVoteModal } from "./CastVoteModal";
+import CastVoteModal from "./CastVoteModal";
 
 interface Props {
   proposalInfo: ProposalInfo;
   side: VoteSide | null;
 }
 
-export const CastVoteButton: React.FC<Props> = ({
+const CastVoteButton: React.FC<Props> = ({
   proposalInfo,
   side,
 }: Props) => {
@@ -33,3 +33,5 @@ export const CastVoteButton: React.FC<Props> = ({
     </ModalButton>
   );
 };
+
+export default CastVoteButton;

@@ -53,7 +53,7 @@ const getStateIcon = (state: ProposalState): React.ReactNode => {
   }
 };
 
-export const ProposalStateBadge: React.FC<Props> = ({ status }: Props) => {
+const ProposalStateBadge: React.FC<Props> = ({ status }: Props) => {
   const { executed, state } = status;
   return (
     <div className="flex flex-col items-center gap-1 lg:(flex-row gap-5)">
@@ -64,3 +64,5 @@ export const ProposalStateBadge: React.FC<Props> = ({ status }: Props) => {
     </div>
   );
 };
+
+export default ProposalStateBadge;

@@ -3,7 +3,7 @@ import { TokenAmount } from "@saberhq/token-utils";
 import { useGovernor } from "@/hooks/tribeca/useGovernor";
 import { formatDurationSeconds } from "@/utils/tribeca/format";
 import { AttributeList } from "@/components/tribeca/common/AttributeList";
-import { Card } from "@/components/tribeca/common/governance/Card";
+import Card from "@/components/tribeca/common/governance/Card";
 import React from "react";
 
 const GovernorInfo: React.FC = () => {

@@ -8,10 +8,10 @@ import { FaCheckCircle } from "react-icons/fa";
 import invariant from "tiny-invariant";
 import React from "react";
 
-import { useWrapTx } from "../../../../hooks/tribeca/useWrapTx";
-import { Button } from "../Button";
-import { ContentLoader } from "../ContentLoader";
-import { LoadingSpinner } from "../LoadingSpinner";
+import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
+import { Button } from "@/components/tribeca/common/Button";
+import ContentLoader from "@/components/tribeca/common/ContentLoader";
+import LoadingSpinner from "@/components/tribeca/common/LoadingSpinner";
 import type { TransactionPlan } from "./plan";
 
 interface Props {

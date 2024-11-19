@@ -11,7 +11,7 @@ export interface Props<T extends HTMLElement> extends CommonProps<T> {
   footer?: React.ReactNode;
 }
 
-export const LabeledInput = <T extends HTMLElement>({
+export default function LabeledInput<T extends HTMLElement>({
   id,
   label,
   Component,
@@ -19,7 +19,7 @@ export const LabeledInput = <T extends HTMLElement>({
   touched,
   footer,
   ...commonProps
-}: Props<T>) => {
+}: Props<T>) {
   return (
     <label className="flex flex-col gap-1" htmlFor={id}>
       {label && <span className="text-sm">{label}</span>}
@@ -32,4 +32,4 @@ export const LabeledInput = <T extends HTMLElement>({
       {footer !== undefined && <span className="text-sm">{footer}</span>}
     </label>
   );
-};
+}

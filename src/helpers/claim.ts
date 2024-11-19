@@ -3,15 +3,15 @@ import { SABER_IOU_MINT, SBR_MINT, SBR_REWARDER, Saber } from '@saberhq/saber-pe
 import { Token, TokenAmount, TokenInfo, getOrCreateATAs } from '@saberhq/token-utils';
 import { Wallet } from '@solana/wallet-adapter-react';
 import { PublicKey, TransactionInstruction } from '@solana/web3.js';
-import useQuarryMiner from '../hooks/user/useQuarryMiner';
+import useQuarryMiner from '@/hooks/user/useQuarryMiner';
 import { QuarrySDK, findMergeMinerAddress, findReplicaMintAddress } from '@quarryprotocol/quarry-sdk';
 import { findMergePoolAddress, getReplicaRewards } from './replicaRewards';
 import BN from 'bn.js';
 import { createQuarryPayroll } from './quarry';
 import { ReplicaQuarryInfo } from './rewarder';
-import { SBR_INFO } from '../utils/builtinTokens';
-import { saberQuarryInfo } from '../constants';
-import { PoolData } from '../types';
+import { SBR_INFO } from '@/utils/builtinTokens';
+import { saberQuarryInfo } from '@/constants';
+import { PoolData } from '@/types';
 
 const getClaimReplicaIx = async (
     quarry: QuarrySDK,

@@ -12,7 +12,7 @@ import { startCase } from "lodash-es";
 import type { Infer } from "superstruct";
 import { any, string, type } from "superstruct";
 
-import { MEMO_PROGRAM_ID } from "../constants";
+import { MEMO_PROGRAM_ID } from "@/utils/tribeca/constants";
 import type { TokenInstructionInner } from "./token/parsers";
 import { parseTokenInstruction } from "./token/parsers";
 import type { TokenInstructionType } from "./token/types";

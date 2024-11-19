@@ -2,11 +2,11 @@ import React from 'react';
 
 import { useSDK } from "@/contexts/sdk";
 import { EmptyStateConnectWallet } from "@/components/tribeca/common/EmptyState";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { GovernancePage } from "@/components/tribeca/common/governance/GovernancePage";
-import { ProposalCreateInner } from "./ProposalCreateInner";
+import Card from "@/components/tribeca/common/governance/Card";
+import GovernancePage from "@/components/tribeca/common/governance/GovernancePage";
+import ProposalCreateInner from "./ProposalCreateInner";
 
-export const ProposalCreateView: React.FC = () => {
+const ProposalCreateView: React.FC = () => {
   const { sdkMut } = useSDK();
   return (
     <GovernancePage
@@ -23,3 +23,5 @@ export const ProposalCreateView: React.FC = () => {
     </GovernancePage>
   );
 };
+
+export default ProposalCreateView;

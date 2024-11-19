@@ -2,7 +2,7 @@ import { FaExclamationTriangle } from "react-icons/fa";
 import React from "react";
 import { MouseoverTooltip } from "@/components/tribeca/common/MouseoverTooltip";
 
-export const LockupTooShortTooltip = () => {
+const LockupTooShortTooltip = () => {
   return (
     <MouseoverTooltip
       text={
@@ -19,3 +19,5 @@ export const LockupTooShortTooltip = () => {
     </MouseoverTooltip>
   );
 };
+
+export default LockupTooShortTooltip;

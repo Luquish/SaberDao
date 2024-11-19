@@ -6,8 +6,8 @@ import clsx from "clsx";
 
 import { useAddressImage } from "@/hooks/tribeca/cardinal/useAddressImage";
 import { useCardinalDisplayName } from "@/hooks/tribeca/cardinal/useAddressName";
-import { AddressLink } from "../AddressLink";
-import { ContentLoader } from "../ContentLoader";
+import { AddressLink } from "@/components/tribeca/common/AddressLink";
+import ContentLoader from "@/components/tribeca/common/ContentLoader";
 
 interface Props {
   address: PublicKey;
@@ -19,13 +19,15 @@ interface ContentLoaderProps {
 }
 
 // Componente ContentLoader con tipos correctos
-const StyledContentLoader: React.FC<ContentLoaderProps> = ({ className }) => (
-  <ContentLoader>
-    <rect className={className} />
-  </ContentLoader>
-);
+function StyledContentLoader({ className }: ContentLoaderProps) {
+  return (
+    <ContentLoader>
+      <rect className={className} />
+    </ContentLoader>
+  );
+}
 
-export const Profile: React.FC<Props> = ({ address, href }: Props) => {
+export default function Profile({ address, href }: Props) {
   const { name, displayName } = useCardinalDisplayName(address);
   const { addressImage, loadingImage } = useAddressImage(address);
   
@@ -89,3 +91,4 @@ export const Profile: React.FC<Props> = ({ address, href }: Props) => {
     </div>
   );
 };
+

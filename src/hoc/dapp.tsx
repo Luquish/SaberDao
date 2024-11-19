@@ -4,13 +4,13 @@ import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
 import { PhantomWalletAdapter } from '@solana/wallet-adapter-wallets';
 import invariant from 'tiny-invariant';
 
-import Navbar from '../components/Navbar';
-import useNetwork from '../hooks/useNetwork';
+import Navbar from '@/components/Navbar';
+import useNetwork from '@/hooks/useNetwork';
 import { QueryClient } from '@tanstack/react-query';
 import { createSyncStoragePersister } from '@tanstack/query-sync-storage-persister';
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
 
-import Footer from '../components/Footer';
+import Footer from '@/components/Footer';
 import { PageProps } from 'gatsby';
 import { Toaster } from 'sonner';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';

@@ -1,4 +1,4 @@
-import { Card } from "./Card";
+import Card from "./Card";
 import React from "react";
 
 interface Props {
@@ -7,11 +7,11 @@ interface Props {
   children?: React.ReactNode;
 }
 
-export const CardWithImage: React.FC<Props> = ({
+export default function CardWithImage({
   title,
   children,
   image,
-}: Props) => {
+}: Props) {
   return (
     <Card>
       <div className="flex flex-col md:flex-row">
@@ -23,4 +23,4 @@ export const CardWithImage: React.FC<Props> = ({
       </div>
     </Card>
   );
-};
+}

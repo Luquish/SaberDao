@@ -1,11 +1,11 @@
 import React from 'react';
-import { Sidebar } from "./Sidebar";
+import Sidebar from "./Sidebar";
 
 interface Props {
   children?: React.ReactNode;
 }
 
-export const WalletLayout: React.FC<Props> = ({ children }: Props) => {
+export default function WalletLayout({ children }: Props) {
   return (
     <div className="flex w-screen">
       <Sidebar />

@@ -10,15 +10,15 @@ import { useProgramIndex } from "@/hooks/tribeca/deploydao/useProgramIndex";
 import { useIDL } from "@/hooks/tribeca/useIDLs";
 import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
 import { Select } from "@/components/tribeca/common/inputs/InputText";
-import { BasicPage } from "@/components/tribeca/common/page/BasicPage";
-import { IXForm } from "./IXForm";
+import BasicPage from "@/components/tribeca/common/page/BasicPage";
+import IXForm from "./IXForm";
 
 export type InstructionInfo = {
   type: "instruction" | "method";
   instruction: IdlInstruction;
 };
 
-export const WalletTXCreateView: React.FC = () => {
+const WalletTXCreateView: React.FC = () => {
   const { connection } = useConnection();
   const { smartWallet } = useSmartWallet();
   const [programID, setProgramID] = useState<PublicKey | null>(null);
@@ -138,3 +138,5 @@ export const WalletTXCreateView: React.FC = () => {
     </BasicPage>
   );
 };
+
+export default WalletTXCreateView;

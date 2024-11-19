@@ -2,11 +2,11 @@ import { RouteComponentProps } from '@reach/router';
 import { useEffect } from "react";
 import React from "react";
 
-import { Header } from "@/components/tribeca/layout/GovernorLayout/Header";
-import { Alliance } from "../../alliance";
-import { Jumbotron } from "./Jumbotron";
+import Header from "@/components/tribeca/layout/GovernorLayout/Header";
+import Alliance from "@/pages/tribeca/alliance";
+import Jumbotron from "./Jumbotron";
 
-export const TribecaIndexView: React.FC<RouteComponentProps> = () => {
+const TribecaIndexView: React.FC<RouteComponentProps> = () => {
   useEffect(() => {
     document.body.classList.add("dark");
     return () => {
@@ -41,3 +41,5 @@ export const TribecaIndexView: React.FC<RouteComponentProps> = () => {
     </div>
   );
 };
+
+export default TribecaIndexView;

@@ -6,17 +6,17 @@ import { useUserEscrow } from "@/hooks/tribeca/useEscrow";
 import { useGovernor } from "@/hooks/tribeca/useGovernor";
 import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { Button } from "@/components/tribeca/common/Button";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { LoadingSpinner } from "@/components/tribeca/common/LoadingSpinner";
+import Card from "@/components/tribeca/common/governance/Card";
+import LoadingSpinner from "@/components/tribeca/common/LoadingSpinner";
 import { TokenAmountDisplay } from "@/components/tribeca/common/TokenAmountDisplay";
-import { makeDate } from "../../../../proposals/ProposalIndexView/locked-voter/ProposalHistory";
-import { CardItem } from "../CardItem";
+import { makeDate } from "@/pages/tribeca/proposals/ProposalIndexView/locked-voter/ProposalHistory";
+import CardItem from "@/pages/tribeca/locker/LockerIndexView/locked-voter/CardItem";
 
 interface Props {
   className?: string;
 }
 
-export const YourLockup: React.FC<Props> = ({ className }: Props) => {
+const YourLockup: React.FC<Props> = ({ className }: Props) => {
   const { veToken } = useGovernor();
   const { data: escrow, veBalance } = useUserEscrow();
   const { handleTX } = useSail();
@@ -77,3 +77,5 @@ export const YourLockup: React.FC<Props> = ({ className }: Props) => {
     </Card>
   );
 };
+
+export default YourLockup;

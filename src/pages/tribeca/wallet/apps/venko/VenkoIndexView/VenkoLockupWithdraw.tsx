@@ -25,7 +25,7 @@ import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
 import { AttributeList } from "@/components/tribeca/common/AttributeList";
 import { Button } from "@/components/tribeca/common/Button";
 import { InputText } from "@/components/tribeca/common/inputs/InputText";
-import { LabeledInput } from "@/components/tribeca/common/inputs/LabeledInput";
+import LabeledInput from "@/components/tribeca/common/inputs/LabeledInput";
 
 /**
  * Computes the amount of tokens that may be redeemed on a Stream.
@@ -50,7 +50,7 @@ const computeRedeemableAmount = (stream: StreamData): u64 => {
   return new u64(max.sub(stream.redeemedAmount));
 };
 
-export const VenkoLockupInner: React.FC = () => {
+const VenkoLockupInner: React.FC = () => {
   const { providerMut } = useProvider();
   const { smartWallet, key: smartWalletKey, path } = useSmartWallet();
   const { handleTX } = useSail();
@@ -227,3 +227,5 @@ export const VenkoLockupInner: React.FC = () => {
     </div>
   );
 };
+
+export default VenkoLockupInner;

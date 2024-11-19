@@ -27,7 +27,7 @@ import type { Provider } from "@saberhq/solana-contrib";
 
 import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
 import { InputText } from "@/components/tribeca/common/inputs/InputText";
-import { InputTokenAmount } from "@/components/tribeca/common/inputs/InputTokenAmount";
+import InputTokenAmount from "@/components/tribeca/common/inputs/InputTokenAmount";
 import { useGovernor } from "@/hooks/tribeca/useGovernor";
 import { useParseTokenAmount } from "@/hooks/tribeca/useParseTokenAmount";
 import { useProvider } from "@/hooks/tribeca/useProvider";
@@ -35,14 +35,14 @@ import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { serializeToBase64 } from "@/utils/tribeca/makeTransaction";
 import { useParsedMintWrapper } from "@/utils/tribeca/parsers";
 import type { ActionFormProps } from "@/actions/types";
-import { GrantVenkoStreamForm } from "./GrantVenkoStreamForm";
+import GrantVenkoStreamForm from "@/actions/VenkoGrantAction/GrantVenkoStreamForm";
 
-export const VenkoGrantAction: React.FC<ActionFormProps> = ({
+export default function VenkoGrantAction({
   actor,
   ctx,
   setError,
   setTxRaw,
-}: ActionFormProps) => {
+}: ActionFormProps) {
   const { govToken } = useGovernor();
   const [amountStr, setAmountStr] = useState<string>("");
   const [destinationStr, setDestinationStr] = useState<string>("");

@@ -1,13 +1,13 @@
 import React, { Suspense } from "react";
 
-import { Header } from "./Header";
-import { PageLayout } from "./PageLayout";
+import Header from "./Header";
+import PageLayout from "./PageLayout";
 
 interface Props {
   children?: React.ReactNode;
 }
 
-export const MainLayoutInner: React.FC<Props> = ({ children }: Props) => {
+export default function MainLayoutInner({ children }: Props) {
   return (
     <div className="relative">
       <div className="w-11/12 mx-auto">
@@ -18,4 +18,4 @@ export const MainLayoutInner: React.FC<Props> = ({ children }: Props) => {
       </PageLayout>
     </div>
   );
-};
+}

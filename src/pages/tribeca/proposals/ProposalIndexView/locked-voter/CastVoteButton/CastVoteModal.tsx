@@ -4,21 +4,22 @@ import type { VoteSide } from "@tribecahq/tribeca-sdk";
 import { useState } from "react";
 import invariant from "tiny-invariant";
 import React from "react";
+
 import { useSDK } from "@/contexts/sdk";
 import { useUserEscrow } from "@/hooks/tribeca/useEscrow";
 import type { ProposalInfo } from "@/hooks/tribeca/useProposals";
 import { useVote } from "@/hooks/tribeca/useVote";
 import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { ModalInner } from "@/components/tribeca/common/Modal/ModalInner";
-import { VOTE_SIDE_LABEL } from "../VotesCard";
-import { VoteResult } from "./VoteResult";
-import { VoteSelectContents } from "./VoteSelectContents";
+import { VOTE_SIDE_LABEL } from "@/pages/tribeca/proposals/ProposalIndexView/locked-voter/VotesCard";
+import VoteResult from "@/pages/tribeca/proposals/ProposalIndexView/locked-voter/CastVoteButton/VoteResult";
+import VoteSelectContents from "@/pages/tribeca/proposals/ProposalIndexView/locked-voter/CastVoteButton/VoteSelectContents";
 
 interface Props {
   proposalInfo: ProposalInfo;
 }
 
-export const CastVoteModal: React.FC<Props> = ({ proposalInfo }: Props) => {
+const CastVoteModal: React.FC<Props> = ({ proposalInfo }: Props) => {
   const { data: escrow } = useUserEscrow();
   const { handleTX } = useSail();
   const { wrapTx } = useWrapTx();
@@ -84,3 +85,5 @@ export const CastVoteModal: React.FC<Props> = ({ proposalInfo }: Props) => {
     </ModalInner>
   );
 };
+
+export default CastVoteModal;

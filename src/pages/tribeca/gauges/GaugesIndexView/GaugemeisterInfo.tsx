@@ -8,16 +8,16 @@ import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { useParsedGaugemeister } from "@/utils/tribeca/parsers";
 import { tsToDate } from "@/utils/tribeca/utils";
 import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
-import { ContentLoader } from "@/components/tribeca/common/ContentLoader";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { CardItem } from "@/pages/tribeca/locker/LockerIndexView/locked-voter/CardItem";
-import { useGaugemeister } from "../hooks/useGaugemeister";
+import ContentLoader from "@/components/tribeca/common/ContentLoader";
+import Card from "@/components/tribeca/common/governance/Card";
+import CardItem from "@/pages/tribeca/locker/LockerIndexView/locked-voter/CardItem";
+import { useGaugemeister } from "@/hooks/tribeca/useGaugemeister";
 
 interface Props {
   className?: string;
 }
 
-export const GaugemeisterInfo: React.FC<Props> = ({ className }: Props) => {
+const GaugemeisterInfo: React.FC<Props> = ({ className }: Props) => {
   const gaugemeister = useGaugemeister();
   const { data: gm } = useParsedGaugemeister(gaugemeister);
   const nextEpochStartsAt = gm
@@ -80,3 +80,5 @@ export const GaugemeisterInfo: React.FC<Props> = ({ className }: Props) => {
     </Card>
   );
 };
+
+export default GaugemeisterInfo;

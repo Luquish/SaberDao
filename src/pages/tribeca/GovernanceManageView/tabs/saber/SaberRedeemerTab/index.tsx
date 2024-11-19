@@ -1,8 +1,8 @@
 import React from "react";
 
-import { TheRedeemer } from "./TheRedeemer";
+import TheRedeemer from "./TheRedeemer";
 
-export const SaberRedeemerTab: React.FC = () => {
+const SaberRedeemerTab: React.FC = () => {
   return <TheRedeemer />;
 };
 

@@ -4,19 +4,14 @@ import React from "react";
 import clsx from "clsx";
 
 import { useGovWindowTitle } from "@/hooks/tribeca/useGovernor";
-import { GovernancePage } from "@/components/tribeca/common/governance/GovernancePage";
-import { useGauge } from "../hooks/useGauges";
+import GovernancePage from "@/components/tribeca/common/governance/GovernancePage";
+import { useGauge } from "@/hooks/tribeca/useGauges";
+import { getUrlParams } from "@/utils/tribeca/urlParams";
 
-// Función auxiliar para obtener parámetros de la URL
-function getParams(pathname: string) {
-  const paths = pathname.split('/');
-  const stakedMint = paths[paths.indexOf('gauges') + 1] || '';
-  return { stakedMint };
-}
 
-export const GaugesIndexView: React.FC = () => {
+const GaugesIndexView: React.FC = () => {
   const location = useLocation();
-  const { stakedMint: stakedMintStr } = getParams(location.pathname);
+  const stakedMintStr = getUrlParams.gauge(location.pathname);
   const { token } = useGauge(usePubkey(stakedMintStr));
   useGovWindowTitle(`Gauge - ${token?.name ?? ""}`);
   

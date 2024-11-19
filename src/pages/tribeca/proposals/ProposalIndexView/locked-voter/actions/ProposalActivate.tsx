@@ -12,15 +12,15 @@ import type { ProposalInfo } from "@/hooks/tribeca/useProposals";
 import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { formatDurationSeconds } from "@/utils/tribeca/format";
 import { Button } from "@/components/tribeca/common/Button";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { LoadingPage } from "@/components/tribeca/common/LoadingPage";
+import Card from "@/components/tribeca/common/governance/Card";
+import LoadingPage from "@/components/tribeca/common/LoadingPage";
 
 interface Props {
   proposal: ProposalInfo;
   onActivate: () => void;
 }
 
-export const ProposalActivate: React.FC<Props> = ({
+const ProposalActivate: React.FC<Props> = ({
   proposal,
   onActivate,
 }: Props) => {
@@ -121,3 +121,5 @@ export const ProposalActivate: React.FC<Props> = ({
     </Card>
   );
 };
+
+export default ProposalActivate;

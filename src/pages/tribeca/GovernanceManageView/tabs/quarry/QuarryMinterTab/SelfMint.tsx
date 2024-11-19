@@ -11,15 +11,15 @@ import React from "react";
 import { useSDK } from "@/contexts/sdk";
 import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { InputTokenAmount } from "@/components/tribeca/common/inputs/InputTokenAmount";
+import Card from "@/components/tribeca/common/governance/Card";
+import InputTokenAmount from "@/components/tribeca/common/inputs/InputTokenAmount";
 
 interface Props {
   token: Token;
   minter: ProgramAccount<MinterData>;
 }
 
-export const SelfMint: React.FC<Props> = ({ token, minter }: Props) => {
+const SelfMint: React.FC<Props> = ({ token, minter }: Props) => {
   const [mintAmountRaw, setMintAmountRaw] = useState<string>("");
   const { sdkMut } = useSDK();
   const { wrapTx } = useWrapTx();
@@ -78,3 +78,5 @@ export const SelfMint: React.FC<Props> = ({ token, minter }: Props) => {
     </Card>
   );
 };
+
+export default SelfMint;

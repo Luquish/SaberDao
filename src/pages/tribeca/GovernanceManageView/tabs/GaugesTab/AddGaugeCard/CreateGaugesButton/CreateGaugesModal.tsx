@@ -6,12 +6,12 @@ import invariant from "tiny-invariant";
 
 import { useSDK } from "@/contexts/sdk";
 import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
-import { useModal } from "@/components/tribeca/common/Modal/context";
+import { useModal } from "@/contexts/tribeca/modal";
 import { ModalInner } from "@/components/tribeca/common/Modal/ModalInner";
-import { useGaugemeister } from "@/pages/tribeca/gauges/hooks/useGaugemeister";
+import { useGaugemeister } from "@/hooks/tribeca/useGaugemeister";
 import React from "react";
 
-export const CreateGaugesModal: React.FC = () => {
+const CreateGaugesModal: React.FC = () => {
   const { sdkMut } = useSDK();
   const { quarries } = useRewarder();
   const gaugemeister = useGaugemeister();
@@ -73,3 +73,5 @@ export const CreateGaugesModal: React.FC = () => {
     </ModalInner>
   );
 };
+
+export default CreateGaugesModal;

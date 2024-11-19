@@ -2,11 +2,11 @@ import { RouteComponentProps } from '@reach/router';
 import { useAnchorWallet } from "@solana/wallet-adapter-react";
 
 import { EmptyStateConnectWallet } from "@/components/tribeca/common/EmptyState";
-import { BasicPage } from "@/components/tribeca/common/page/BasicPage";
-import { WalletTreasuryDepositInner } from "./WalletTreasuryDepositInner";
+import BasicPage from "@/components/tribeca/common/page/BasicPage";
+import WalletTreasuryDepositInner from "./WalletTreasuryDepositInner";
 import React from "react";
 
-export const WalletTreasuryDepositView: React.FC<RouteComponentProps> = () => {
+const WalletTreasuryDepositView: React.FC<RouteComponentProps> = () => {
   const wallet = useAnchorWallet();
   return (
     <BasicPage
@@ -17,3 +17,5 @@ export const WalletTreasuryDepositView: React.FC<RouteComponentProps> = () => {
     </BasicPage>
   );
 };
+
+export default WalletTreasuryDepositView;

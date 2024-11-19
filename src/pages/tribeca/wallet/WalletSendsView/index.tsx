@@ -20,10 +20,10 @@ import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { MEMO_PROGRAM_ID } from "@/utils/tribeca/constants";
 import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
 import { InputText } from "@/components/tribeca/common/inputs/InputText";
-import { InputTokenAmount } from "@/components/tribeca/common/inputs/InputTokenAmount";
-import { BasicPage } from "@/components/tribeca/common/page/BasicPage";
+import InputTokenAmount from "@/components/tribeca/common/inputs/InputTokenAmount";
+import BasicPage from "@/components/tribeca/common/page/BasicPage";
 
-export const WalletSendsView: React.FC = () => {
+const WalletSendsView: React.FC = () => {
   const { key } = useSmartWallet();
   const {
     data: tokenAccounts,
@@ -167,3 +167,5 @@ export const WalletSendsView: React.FC = () => {
     </BasicPage>
   );
 };
+
+export default WalletSendsView;

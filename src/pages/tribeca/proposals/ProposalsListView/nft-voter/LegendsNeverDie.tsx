@@ -30,7 +30,7 @@ const LegendItem: React.FC<LegendItemProps> = ({ children }) => {
   );
 };
 
-export const LegendsNeverDie: React.FC = () => {
+const LegendsNeverDie: React.FC = () => {
   const { proposalCount } = useGovernor();
   return (
     <div className="bg-warmGray-800 p-5 flex gap-11 rounded">
@@ -45,3 +45,5 @@ export const LegendsNeverDie: React.FC = () => {
     </div>
   );
 };
+
+export default LegendsNeverDie;

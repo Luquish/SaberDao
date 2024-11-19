@@ -1,10 +1,10 @@
 import type { RichParsedInstruction } from "@/hooks/tribeca/tx/useParsedInstruction";
 import type { ParsedInstruction } from "@/hooks/tribeca/useSmartWallet";
 import { AttributeList } from "@/components/tribeca/common/AttributeList";
-import { Box } from "./Box";
-import { IXAccounts } from "./IXAccounts";
-import { IXArguments } from "./IXArguments";
-import { IXData } from "./IXData";
+import Box from "./Box";
+import IXAccounts from "./IXAccounts";
+import IXArguments from "./IXArguments";
+import IXData from "./IXData";
 import React from "react";
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
   parsed: RichParsedInstruction;
 }
 
-export const InstructionDisplay: React.FC<Props> = ({
+const InstructionDisplay: React.FC<Props> = ({
   instruction,
   parsed,
 }: Props) => {
@@ -40,3 +40,5 @@ export const InstructionDisplay: React.FC<Props> = ({
     </div>
   );
 };
+
+export default InstructionDisplay;

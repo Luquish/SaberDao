@@ -1,9 +1,9 @@
 import React from 'react';
 
 import type { ProposalInfo } from "@/hooks/tribeca/useProposals";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { IXSummary } from "@/components/tribeca/common/governance/IXSummary";
-import { TransactionPreviewLink } from "@/components/tribeca/common/governance/TransactionPreviewLink";
+import Card from "@/components/tribeca/common/governance/Card";
+import IXSummary from "@/components/tribeca/common/governance/IXSummary";
+import TransactionPreviewLink from "@/components/tribeca/common/governance/TransactionPreviewLink";
 import { ExternalLink } from "@/components/tribeca/common/typography/ExternalLink";
 import { InstructionData } from '@/hooks/tribeca/tx/useParsedInstruction';
 
@@ -12,7 +12,7 @@ interface Props {
   proposalInfo?: ProposalInfo | null;
 }
 
-export const ProposalDetails: React.FC<Props> = ({
+const ProposalDetails: React.FC<Props> = ({
   className,
   proposalInfo,
 }: Props) => {
@@ -60,3 +60,5 @@ export const ProposalDetails: React.FC<Props> = ({
     </Card>
   );
 };
+
+export default ProposalDetails;

@@ -8,11 +8,11 @@ import invariant from "tiny-invariant";
 
 import React from "react";
 import { useBatchedEpochGauges } from "@/utils/tribeca/parsers";
-import { TableCardBody } from "@/components/tribeca/common/card/TableCardBody";
-import { useGM } from "../../context";
-import { useAllGauges } from "../../hooks/useGauges";
-import { GaugeListRow } from "./GaugeListRow";
-import { GaugeRowPlaceholder } from "./GaugeRowPlaceholder";
+import TableCardBody from "@/components/tribeca/common/card/TableCardBody";
+import { useGM } from "@/contexts/tribeca/gauges";
+import { useAllGauges } from "@/hooks/tribeca/useGauges";
+import GaugeListRow from "./GaugeListRow";
+import GaugeRowPlaceholder from "./GaugeRowPlaceholder";
 
 interface Props {
   limit?: number;
@@ -20,7 +20,7 @@ interface Props {
 
 const DEFAULT_PLACEHOLDER_LIMIT = 10;
 
-export const GaugeListInner: React.FC<Props> = ({ limit }: Props) => {
+const GaugeListInner: React.FC<Props> = ({ limit }: Props) => {
   const { quarries, rewarder } = useRewarder();
   const { gaugemeister, votingEpoch } = useGM();
   const { gauges, gaugeKeys } = useAllGauges();
@@ -171,3 +171,5 @@ export const GaugeListInner: React.FC<Props> = ({ limit }: Props) => {
     </TableCardBody>
   );
 };
+
+export default GaugeListInner;

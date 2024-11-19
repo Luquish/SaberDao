@@ -11,7 +11,7 @@ import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
 import { Button } from "@/components/tribeca/common/Button";
 
-export const SaberLockupInner: React.FC = () => {
+const SaberLockupInner: React.FC = () => {
   const { key, smartWallet } = useSmartWallet();
   const { handleTX } = useSail();
   const { wrapTx } = useWrapTx();
@@ -103,3 +103,5 @@ export const SaberLockupInner: React.FC = () => {
     </div>
   );
 };
+
+export default SaberLockupInner;

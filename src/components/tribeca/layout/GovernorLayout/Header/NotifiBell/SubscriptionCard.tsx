@@ -1,16 +1,16 @@
 import React from "react";
 
-import { NotifiLogo } from "./NotifiLogo";
+import NotifiLogo from "./NotifiLogo";
 
 interface Props {
   body: React.ReactChild;
   switchGroup?: React.ReactChild;
 }
 
-export const SubscriptionCard: React.FC<Props> = ({
+export default function SubscriptionCard({
   body,
   switchGroup,
-}: Props) => {
+}: Props) {
   return (
     <div className="w-screen max-w-[312px]">
       <div className="w-full bg-white rounded-lg border dark:(bg-warmGray-850 border-warmGray-800)">

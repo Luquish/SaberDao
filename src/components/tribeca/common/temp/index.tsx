@@ -22,10 +22,10 @@ import { useSDK } from "@/contexts/sdk";
 import { useExecutiveCouncil } from "@/hooks/tribeca/useExecutiveCouncil";
 import { GovernorProvider } from "@/hooks/tribeca/useGovernor";
 import { useProvider } from "@/hooks/tribeca/useProvider";
-import { CardWithImage } from "@/components/tribeca/common/governance/CardWithImage";
-import { useGMData } from "@/pages/tribeca/gauges/hooks/useGaugemeister";
+import CardWithImage from "@/components/tribeca/common/governance/CardWithImage";
+import { useGMData } from "@/hooks/tribeca/useGaugemeister";
 import { SABER_POOL_MANAGER } from "@/pages/tribeca/saber-pools/SaberPoolView";
-import { AsyncButton } from "../AsyncButton";
+import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
 
 const ownerInvokerSignTX = async (
   smKey: PublicKey,

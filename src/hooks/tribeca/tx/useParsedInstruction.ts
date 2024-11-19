@@ -9,9 +9,9 @@ import type { ProposalInstruction } from "@tribecahq/tribeca-sdk";
 import { startCase } from "lodash-es";
 import { useMemo } from "react";
 
-import { parseNonAnchorInstruction } from "../../../utils/tribeca/instructions/parseNonAnchorInstruction";
-import { useIDL } from "../useIDLs";
-import { useProgramLabel } from "../useProgramMeta";
+import { parseNonAnchorInstruction } from "@/utils/tribeca/instructions/parseNonAnchorInstruction";
+import { useIDL } from "@/hooks/tribeca/useIDLs";
+import { useProgramLabel } from "@/hooks/tribeca/useProgramMeta";
 
 const flattenIdlAccounts = (
   accounts: IdlAccountItem[],

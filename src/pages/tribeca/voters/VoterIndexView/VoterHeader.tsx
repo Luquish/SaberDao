@@ -6,13 +6,13 @@ import React from 'react';
 import { useAddressImage } from "@/hooks/tribeca/cardinal/useAddressImage";
 import { useCardinalDisplayName } from "@/hooks/tribeca/cardinal/useAddressName";
 import { AddressLink } from "@/components/tribeca/common/AddressLink";
-import { ContentLoader } from "@/components/tribeca/common/ContentLoader";
+import ContentLoader from "@/components/tribeca/common/ContentLoader";
 
 interface Props {
   voterKey?: PublicKey | null;
 }
 
-export const VoterHeader: React.FC<Props> = ({ voterKey }: Props) => {
+const VoterHeader: React.FC<Props> = ({ voterKey }: Props) => {
   const { displayName, name } = useCardinalDisplayName(voterKey ?? undefined);
   const { addressImage, loadingImage } = useAddressImage(voterKey ?? undefined);
   return (
@@ -62,3 +62,5 @@ export const VoterHeader: React.FC<Props> = ({ voterKey }: Props) => {
     </div>
   );
 };
+
+export default VoterHeader;

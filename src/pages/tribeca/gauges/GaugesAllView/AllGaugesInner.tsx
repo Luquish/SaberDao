@@ -12,12 +12,12 @@ import { useSDK } from "@/contexts/sdk";
 import { useGovWindowTitle } from "@/hooks/tribeca/useGovernor";
 import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { Button } from "@/components/tribeca/common/Button";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { useGM } from "../context";
-import { GaugeList } from "../GaugesIndexView/GaugeList";
-import { useAllGauges } from "../hooks/useGauges";
+import Card from "@/components/tribeca/common/governance/Card";
+import { useGM } from "@/contexts/tribeca/gauges";
+import GaugeList from "@/pages/tribeca/gauges/GaugesIndexView/GaugeList";
+import { useAllGauges } from "@/hooks/tribeca/useGauges";
 
-export const AllGaugesInner: React.FC = () => {
+const AllGaugesInner: React.FC = () => {
   const { gaugemeister } = useGM();
   const { gaugeKeys } = useAllGauges();
   const { sdkMut } = useSDK();
@@ -105,3 +105,5 @@ export const AllGaugesInner: React.FC = () => {
     </div>
   );
 };
+
+export default AllGaugesInner;

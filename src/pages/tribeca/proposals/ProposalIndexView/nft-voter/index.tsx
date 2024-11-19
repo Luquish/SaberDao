@@ -4,26 +4,20 @@ import React from "react";
 import clsx from "clsx";
 
 import { useProposal } from "@/hooks/tribeca/useProposals";
-import { ContentLoader } from "@/components/tribeca/common/ContentLoader";
-import { GovernancePage } from "@/components/tribeca/common/governance/GovernancePage";
-import { Profile } from "@/components/tribeca/common/governance/Profile";
-import { PlaceholderSubtitle } from "../../../GovernanceOverviewView/nft-voter/ProposalsList/PlaceholderCard";
-import { ProposalSubtitle } from "../../../GovernanceOverviewView/nft-voter/ProposalsList/ProposalSubtitle";
-import { ProposalDetails } from "./ProposalDetails";
-import { ProposalHelmet } from "./ProposalHelmet";
-import { VotesCard } from "./VotesCard";
-
-// Función auxiliar para obtener parámetros de la URL
-function getParams(pathname: string) {
-  const paths = pathname.split('/');
-  const proposalIndex = paths[paths.indexOf('proposals') + 1] || '';
-  return { proposalIndex };
-}
+import ContentLoader from "@/components/tribeca/common/ContentLoader";
+import GovernancePage from "@/components/tribeca/common/governance/GovernancePage";
+import Profile from "@/components/tribeca/common/governance/Profile";
+import PlaceholderCard, { PlaceholderSubtitle } from "@/pages/tribeca/GovernanceOverviewView/nft-voter/ProposalsList/PlaceholderCard";
+import ProposalSubtitle from "@/pages/tribeca/GovernanceOverviewView/nft-voter/ProposalsList/ProposalSubtitle";
+import ProposalDetails from "@/pages/tribeca/proposals/ProposalIndexView/nft-voter/ProposalDetails";
+import ProposalHelmet from "@/pages/tribeca/proposals/ProposalIndexView/nft-voter/ProposalHelmet";
+import VotesCard from "@/pages/tribeca/proposals/ProposalIndexView/nft-voter/VotesCard";
+import { getUrlParams } from "@/utils/tribeca/urlParams";
 
 export const ProposalIndexView: React.FC = () => {
   const location = useLocation();
-  const { proposalIndex: proposalIndexStr = "" } = getParams(location.pathname);
-  const { info: proposalInfo } = useProposal(parseInt(proposalIndexStr));
+  const proposalIndex = getUrlParams.proposal(location.pathname);
+  const { info: proposalInfo } = useProposal(parseInt(proposalIndex));
 
   return (
     <GovernancePage
@@ -80,3 +74,5 @@ export const ProposalIndexView: React.FC = () => {
     </GovernancePage>
   );
 };
+
+export default ProposalIndexView;

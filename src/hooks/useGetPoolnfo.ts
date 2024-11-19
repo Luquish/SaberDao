@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchNullableWithSessionCache } from '../helpers/fetch';
+import { fetchNullableWithSessionCache } from '@/helpers/fetch';
 
 type Info = {
     twitter: string;

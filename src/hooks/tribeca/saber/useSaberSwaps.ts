@@ -3,7 +3,7 @@ import { formatNetwork } from "@saberhq/solana-contrib";
 import { PublicKey } from "@solana/web3.js";
 import { useQuery } from "@tanstack/react-query";
 
-import { useEnvironment } from "../../../utils/tribeca/useEnvironment";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
 
 export interface SaberSwap {
   addresses: SaberSwapAddresses;

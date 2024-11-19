@@ -1,4 +1,6 @@
 import React from 'react';
+import '@solana/wallet-adapter-react-ui/styles.css';
+import '@reach/dialog/styles.css';
 import './src/styles/global.css';
 import { ThemeProvider } from "@emotion/react";
 import { SailProvider } from "@rockooor/sail";
@@ -9,39 +11,55 @@ import { QuarryInterfaceProvider } from "./src/contexts/quarry";
 import { SDKProvider } from "./src/contexts/sdk";
 import dapp from './src/hoc/dapp';
 import { theme } from "./src/theme";
-import type { SailConfig } from "@rockooor/sail";
+import { Network, PendingTransaction, TransactionEnvelope } from "@saberhq/solana-contrib";
 
 // Configuración de react-query
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            refetchOnWindowFocus: false,
+            refetchOnReconnect: false,
+            refetchOnMount: false,
+            gcTime: 1000 * 60 * 60,
+            retry: 5,
+        },
+    },
+});
 
-// Configuración de Sail con tipos
-const sailConfig: SailConfig = {
-  batchDurationMs: 50,
-  onBeforeTxSend: ({ 
-    network, 
-    txs, 
-    message 
-  }: {
-    network: string;
-    txs: any[];
-    message?: string;
-  }) => {
-    // Implementar lógica de onBeforeTxSend
-  },
-  onTxSend: ({ 
-    network, 
-    pending, 
-    message 
-  }: {
-    network: string;
-    pending: any[];
-    message?: string;
-  }) => {
-    // Implementar lógica de onTxSend
-  },
-  onSailError: (err: Error) => {
-    // Implementar manejo de errores
-  }
+// Configuración de Sail con tipos explícitos
+const sailConfig = {
+    batchDurationMs: 50,
+    onBeforeTxSend: ({ 
+        bundleID,
+        network, 
+        txs,
+        message 
+    }: {
+        bundleID: string;
+        network: Network;
+        txs: readonly TransactionEnvelope[];
+        message?: string;
+    }) => {
+        console.log('Before TX Send:', { bundleID, network, txs, message });
+    },
+    onTxSend: ({ 
+        bundleID,
+        network, 
+        txs,
+        pending,
+        message 
+    }: {
+        bundleID: string;
+        network: Network;
+        txs: readonly TransactionEnvelope[];
+        pending: readonly PendingTransaction[];
+        message?: string;
+    }) => {
+        console.log('TX Send:', { bundleID, network, txs, pending, message });
+    },
+    onSailError: (err: Error) => {
+        console.error('Sail Error:', err);
+    }
 };
 
 export const wrapPageElement = ({

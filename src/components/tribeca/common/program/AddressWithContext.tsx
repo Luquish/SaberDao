@@ -11,9 +11,9 @@ import clsx from "clsx";
 import { useSubaccountInfo } from "@/hooks/tribeca/useSubaccountInfo";
 import { useIDL } from "@/hooks/tribeca/useIDLs";
 import { SYSVAR_OWNER } from "@/utils/tribeca/programs";
-import { AddressLink } from "../AddressLink";
-import { ProgramLabel } from "./ProgramLabel";
-import { SolAmount } from "./SolAmount";
+import { AddressLink } from "@/components/tribeca/common/AddressLink";
+import { ProgramLabel } from "@/components/tribeca/common/program/ProgramLabel";
+import { SolAmount } from "@/components/tribeca/common/program/SolAmount";
 
 type AccountValidator = (account: KeyedAccountInfo) => string | undefined;
 

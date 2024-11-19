@@ -15,8 +15,8 @@ import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { notify } from "@/utils/notifications";
 import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
 import { Textarea } from "@/components/tribeca/common/inputs/InputText";
-import { LabeledInput } from "@/components/tribeca/common/inputs/LabeledInput";
-import { DAOConfigRenderer } from "./DAOConfigRenderer";
+import LabeledInput from "@/components/tribeca/common/inputs/LabeledInput";
+import DAOConfigRenderer from "./DAOConfigRenderer";
 
 interface DAOConfigRaw {
   executive_council: string;
@@ -56,7 +56,7 @@ export interface DAOConfig {
   };
 }
 
-export const DAOConfigView: React.FC = () => {
+const DAOConfigView: React.FC = () => {
   const { sdkMut, tribecaMut } = useSDK();
   const { handleTX } = useSail();
   const { wrapTx } = useWrapTx();

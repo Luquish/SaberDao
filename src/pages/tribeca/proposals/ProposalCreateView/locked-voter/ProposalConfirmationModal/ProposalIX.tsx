@@ -7,7 +7,7 @@ interface Props {
   ix: TransactionInstruction;
 }
 
-export const ProposalIX: React.FC<Props> = ({ ix }: Props) => {
+const ProposalIX: React.FC<Props> = ({ ix }: Props) => {
   const parsedIX = useParsedInstruction(ix);
   return (
     <div className="bg-gray bg-opacity-20 border border-warmGray-800 px-4 py-2 rounded text-sm font-semibold">
@@ -15,3 +15,5 @@ export const ProposalIX: React.FC<Props> = ({ ix }: Props) => {
     </div>
   );
 };
+
+export default ProposalIX;

@@ -1,16 +1,16 @@
 import { BN } from "bn.js";
 import React from "react";
 import type { ProposalInfo } from "@/hooks/tribeca/useProposals";
-import { makeDate } from "../../../proposals/ProposalIndexView/nft-voter/ProposalHistory";
-import { ProposalStateDate } from "./ProposalStateDate";
-import { ProposalStateLabel } from "./ProposalStateLabel";
+import { makeDate } from "@/pages/tribeca/proposals/ProposalIndexView/nft-voter/ProposalHistory";
+import ProposalStateDate from "./ProposalStateDate";
+import ProposalStateLabel from "./ProposalStateLabel";
 
 interface Props {
   className?: string;
   proposalInfo: ProposalInfo;
 }
 
-export const ProposalSubtitle: React.FC<Props> = ({
+const ProposalSubtitle: React.FC<Props> = ({
   proposalInfo,
   className,
 }: Props) => {
@@ -39,3 +39,5 @@ export const ProposalSubtitle: React.FC<Props> = ({
     </div>
   );
 };
+
+export default ProposalSubtitle;

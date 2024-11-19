@@ -10,7 +10,7 @@ interface Props {
   className?: string;
 }
 
-export const SettingsModal: React.FC<Props> = ({ className }: Props) => {
+export default function SettingsModal({ className }: Props) {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [priorityFee, setPriorityFee] = useLocalStorage("priorityFee", 0);
 

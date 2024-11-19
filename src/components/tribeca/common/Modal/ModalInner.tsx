@@ -1,8 +1,8 @@
 import React from "react";
 import { FaTimes } from "react-icons/fa";
 
-import { Button } from "../Button";
-import { useModal } from "./context";
+import { Button } from "@/components/tribeca/common/Button";
+import { useModal } from "@/contexts/tribeca/modal";
 
 interface Props {
   title: string;

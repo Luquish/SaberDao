@@ -16,13 +16,14 @@ interface IProps
 const DIGIT_ONLY = /^(\d)*$/;
 const DECIMAL_ONLY = /^-?\d*(\.\d*)?$/;
 
-export const InputDecimal: React.FC<IProps> = ({
+export default function InputDecimal({
   onChange,
   integerOnly,
   ...rest
-}: IProps) => (
-  <StyledInput
-    {...rest}
+}: IProps) {
+  return (
+    <StyledInput
+      {...rest}
     onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
       const { value } = e.target;
       if (integerOnly) {
@@ -42,8 +43,9 @@ export const InputDecimal: React.FC<IProps> = ({
         onChange?.(value);
       }
     }}
-  />
-);
+    />
+  );
+}
 
 const StyledInput = styled.input<{ hasBackground?: boolean }>`
   font-family: monospace;

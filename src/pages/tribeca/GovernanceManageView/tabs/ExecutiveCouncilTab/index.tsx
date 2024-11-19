@@ -1,10 +1,10 @@
 import { useGovernor } from "@/hooks/tribeca/useGovernor";
 import { SmartWalletProvider } from "@/hooks/tribeca/useSmartWallet";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { PendingTXs } from "./PendingTXs";
+import Card from "@/components/tribeca/common/governance/Card";
+import PendingTXs from "./PendingTXs";
 import React from "react";
 
-export const ExecutiveCouncilTab: React.FC = () => {
+const ExecutiveCouncilTab: React.FC = () => {
   const { smartWallet } = useGovernor();
   return (
     <SmartWalletProvider initialState={smartWallet ?? undefined}>

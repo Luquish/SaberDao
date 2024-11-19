@@ -19,7 +19,7 @@ function getParams(pathname: string) {
   };
 }
 
-export const MobileNav: React.FC<Props> = ({ className }: Props) => {
+export default function MobileNav({ className }: Props) {
   const location = useLocation();
   const { governor } = getParams(location.pathname);
   const [showNav, setShowNav] = useState<boolean>(false);

@@ -4,12 +4,12 @@ import { TokenAmount } from "@saberhq/token-utils";
 import React from "react";
 
 import { AttributeList } from "@/components/tribeca/common/AttributeList";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { MintInfo } from "./MintInfo";
-import { MintProxyOwnership } from "./MintProxyOwnership";
-import { useMintProxyState } from "./useMintProxyState";
+import Card from "@/components/tribeca/common/governance/Card";
+import MintInfo from "@/pages/tribeca/GovernanceManageView/tabs/saber/SaberMintProxyTab/MintInfo";
+import MintProxyOwnership from "@/pages/tribeca/GovernanceManageView/tabs/saber/SaberMintProxyTab/MintProxyOwnership";
+import { useMintProxyState } from "@/hooks/tribeca/useMintProxyState";
 
-export const MintProxy: React.FC = () => {
+const MintProxy: React.FC = () => {
   const { data: token } = useToken(SBR_ADDRESS);
   const { data: state, isLoading } = useMintProxyState();
   const hardCap =
@@ -44,3 +44,5 @@ export const MintProxy: React.FC = () => {
     </div>
   );
 };
+
+export default MintProxy;

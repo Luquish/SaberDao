@@ -15,7 +15,7 @@ interface Props {
   onDismiss: () => void;
 }
 
-export const UpdateThresholdModal: React.FC<Props> = ({
+const UpdateThresholdModal: React.FC<Props> = ({
   isOpen,
   onDismiss,
 }: Props) => {
@@ -110,3 +110,5 @@ export const UpdateThresholdModal: React.FC<Props> = ({
     </Modal>
   );
 };
+
+export default UpdateThresholdModal;

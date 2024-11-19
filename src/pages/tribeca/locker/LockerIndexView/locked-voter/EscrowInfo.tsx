@@ -12,27 +12,21 @@ import {
 } from "@/hooks/tribeca/useEscrow";
 import { useGovernor } from "@/hooks/tribeca/useGovernor";
 import { Button } from "@/components/tribeca/common/Button";
-import { ContentLoader } from "@/components/tribeca/common/ContentLoader";
-import { Card } from "@/components/tribeca/common/governance/Card";
+import ContentLoader from "@/components/tribeca/common/ContentLoader";
+import Card from "@/components/tribeca/common/governance/Card";
 import { TokenAmountDisplay } from "@/components/tribeca/common/TokenAmountDisplay";
 import { TokenIcon } from "@/components/tribeca/common/TokenIcon";
-import { CardItem } from "./CardItem";
-import { LockEscrowModal } from "./LockEscrowModal";
+import CardItem from "./CardItem";
+import LockEscrowModal from "./LockEscrowModal";
+import { getUrlParams } from "@/utils/tribeca/urlParams";
 
 interface Props {
   className?: string;
 }
 
-// Función auxiliar para obtener parámetros de la URL
-function getParams(pathname: string) {
-  const paths = pathname.split('/');
-  const lockerSubpage = paths[paths.indexOf('locker') + 1] || '';
-  return { lockerSubpage };
-}
-
-export const EscrowInfo: React.FC<Props> = ({ className }: Props) => {
+const EscrowInfo: React.FC<Props> = ({ className }: Props) => {
   const location = useLocation();
-  const { lockerSubpage } = getParams(location.pathname);
+  const lockerSubpage = getUrlParams.save(location.pathname);
   const { governor, path } = useGovernor();
   const { data: locker } = useLocker();
   const { data: govToken } = useToken(locker?.account.tokenMint);
@@ -119,3 +113,5 @@ export const EscrowInfo: React.FC<Props> = ({ className }: Props) => {
     </Card>
   );
 };
+
+export default EscrowInfo;

@@ -8,11 +8,11 @@ import type { Network } from "@saberhq/solana-contrib";
 import type { MessageSignerWalletAdapterProps } from "@solana/wallet-adapter-base";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 
-import { useEnvironment } from "@/utils/tribeca/useEnvironment";
-import { SubscriptionCard } from "./SubscriptionCard";
-import { SubscriptionFormContainer } from "./SubscriptionFormContainer";
-import { SubscriptionGlimmer } from "./SubscriptionGlimmer";
-import { SubscriptionInfo } from "./SubscriptionInfo";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
+import SubscriptionCard from "./SubscriptionCard";
+import SubscriptionFormContainer from "./SubscriptionFormContainer";
+import SubscriptionGlimmer from "./SubscriptionGlimmer";
+import SubscriptionInfo from "./SubscriptionInfo";
 
 interface Props {
   daoName: string;
@@ -41,12 +41,12 @@ type VisibilityState = Readonly<{
   isToggleVisible: boolean;
 }>;
 
-export const SubscriptionPopover: React.FC<Props> = ({
+export default function SubscriptionPopover({
   daoName,
   governor,
   walletPublicKey,
   signer,
-}: Props) => {
+}: Props) {
   const { network } = useEnvironment();
   const [isSubscribed, setIsSubscribed] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");

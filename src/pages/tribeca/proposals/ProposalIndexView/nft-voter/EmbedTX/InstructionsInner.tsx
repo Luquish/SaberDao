@@ -1,8 +1,8 @@
-import { useTransaction } from "../../../../wallet/tx/TransactionView/context";
-import { InstructionPreview } from "./InstructionPreview";
+import { useTransaction } from "@/contexts/tribeca/transaction";
+import InstructionPreview from "./InstructionPreview";
 import React from "react";
 
-export const InstructionsInner: React.FC = () => {
+const InstructionsInner: React.FC = () => {
   const { instructions } = useTransaction();
   return (
     <div className="grid gap-4">
@@ -16,3 +16,5 @@ export const InstructionsInner: React.FC = () => {
     </div>
   );
 };
+
+export default InstructionsInner;

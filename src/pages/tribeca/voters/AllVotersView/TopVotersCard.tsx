@@ -2,13 +2,13 @@ import React from "react";
 
 import { useGovernor } from "@/hooks/tribeca/useGovernor";
 import { formatSignificantDistance } from "@/utils/tribeca/format";
-import { TableCardBody } from "@/components/tribeca/common/card/TableCardBody";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { Profile } from "@/components/tribeca/common/governance/Profile";
+import TableCardBody from "@/components/tribeca/common/card/TableCardBody";
+import Card from "@/components/tribeca/common/governance/Card";
+import Profile from "@/components/tribeca/common/governance/Profile";
 import { TokenAmountDisplay } from "@/components/tribeca/common/TokenAmountDisplay";
-import { useVotersList } from "./useVotersList";
+import { useVotersList } from "@/hooks/tribeca/useVotersList";
 
-export const TopVotersCard: React.FC = () => {
+const TopVotersCard: React.FC = () => {
   const { path } = useGovernor();
   const { data: voters } = useVotersList();
   return (
@@ -53,3 +53,5 @@ export const TopVotersCard: React.FC = () => {
     </Card>
   );
 };
+
+export default TopVotersCard;

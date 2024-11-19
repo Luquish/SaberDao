@@ -11,8 +11,8 @@ import * as Yup from "yup";
 
 import { Button } from "@/components/tribeca/common/Button";
 import { InputText } from "@/components/tribeca/common/inputs/InputText";
-import { LabeledInput } from "@/components/tribeca/common/inputs/LabeledInput";
-import { Section } from "@/components/tribeca/layout/WalletLayout/Section";
+import LabeledInput from "@/components/tribeca/common/inputs/LabeledInput";
+import Section from "@/components/tribeca/layout/WalletLayout/Section";
 import { useSDK } from "@/contexts/sdk";
 import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { YupKeypair, YupPublicKey } from "@/utils/tribeca/validators/pubkey";
@@ -56,10 +56,10 @@ interface Props {
   token: Token;
 }
 
-export const GrantVenkoStreamForm: React.FC<Props> = ({
+export default function GrantVenkoStreamForm({
   actor,
   token,
-}: Props) => {
+}: Props) {
   const { sdkMut } = useSDK();
   const { handleTX } = useSail();
   const { wrapTx } = useWrapTx();

@@ -5,7 +5,7 @@ interface Props {
   children?: React.ReactNode;
 }
 
-export const CardItem: React.FC<Props> = ({ label, children }: Props) => {
+const CardItem: React.FC<Props> = ({ label, children }: Props) => {
   return (
     <div className="px-7 py-4 border-b border-warmGray-800">
       <span className="text-warmGray-400 text-sm">{label}</span>
@@ -13,3 +13,5 @@ export const CardItem: React.FC<Props> = ({ label, children }: Props) => {
     </div>
   );
 };
+
+export default CardItem;

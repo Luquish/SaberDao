@@ -4,24 +4,24 @@ import React from "react";
 import { Link } from "gatsby";
 import clsx from "clsx";
 
-import { useUserEscrow } from "../../../../hooks/tribeca/useEscrow";
+import { useUserEscrow } from "@/hooks/tribeca/useEscrow";
 import {
   useGovernor,
   useGovWindowTitle,
-} from "../../../../hooks/tribeca/useGovernor";
-import { useParsedGaugemeister } from "../../../../utils/tribeca/parsers";
-import { useEnvironment } from "../../../../utils/tribeca/useEnvironment";
-import { Card } from "../../../../components/tribeca/common/governance/Card";
-import { GovernancePage } from "../../../../components/tribeca/common/governance/GovernancePage";
-import { InputSearchText } from "../../../../components/tribeca/common/inputs/InputSearchText";
-import { LoadingPage } from "../../../../components/tribeca/common/LoadingPage";
-import { ExternalLink } from "../../../../components/tribeca/common/typography/ExternalLink";
-import { LockupTooShortTooltip } from "../GaugesSetupView/lockupTooShortTooltip";
-import { useGaugemeister } from "../hooks/useGaugemeister";
-import { GaugeWeightsForm } from "./GaugeWeightsForm";
-import { UpdateGaugeWeightsProvider } from "./useUpdateGaugeWeights";
+} from "@/hooks/tribeca/useGovernor";
+import { useParsedGaugemeister } from "@/utils/tribeca/parsers";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
+import Card from "@/components/tribeca/common/governance/Card";
+import GovernancePage from "@/components/tribeca/common/governance/GovernancePage";
+import InputSearchText from "@/components/tribeca/common/inputs/InputSearchText";
+import LoadingPage from "@/components/tribeca/common/LoadingPage";
+import { ExternalLink } from "@/components/tribeca/common/typography/ExternalLink";
+import LockupTooShortTooltip from "@/pages/tribeca/gauges/GaugesSetupView/lockupTooShortTooltip";
+import { useGaugemeister } from "@/hooks/tribeca/useGaugemeister";
+import GaugeWeightsForm from "./GaugeWeightsForm";
+import { UpdateGaugeWeightsProvider } from "@/hooks/tribeca/useUpdateGaugeWeights";
 
-export const GaugeWeightsView: React.FC = () => {
+const GaugeWeightsView: React.FC = () => {
   const [filterTerm, setFilterTerm] = React.useState("");
   const gaugemeister = useGaugemeister();
   const gm = useParsedGaugemeister(gaugemeister);

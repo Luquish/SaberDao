@@ -18,25 +18,25 @@ import { useGovernor } from "@/hooks/tribeca/useGovernor";
 import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
 import { AttributeList } from "@/components/tribeca/common/AttributeList";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { InputTokenAmount } from "@/components/tribeca/common/inputs/InputTokenAmount";
-import { LoadingSpinner } from "@/components/tribeca/common/LoadingSpinner";
-import { SelfMint } from "./SelfMint";
+import Card from "@/components/tribeca/common/governance/Card";
+import InputTokenAmount from "@/components/tribeca/common/inputs/InputTokenAmount";
+import LoadingSpinner from "@/components/tribeca/common/LoadingSpinner";
+import SelfMint from "./SelfMint";
 
-// Función auxiliar para obtener parámetros de la URL
-function getParams(pathname: string) {
-  const paths = pathname.split('/');
-  const minterAuthorityKey = paths[paths.indexOf('minters') + 1] || '';
-  return { minterAuthorityKey };
-}
+export const getUrlParams = {
+  minterAuthority: (pathname: string) => {
+    const paths = pathname.split('/');
+    return paths[paths.indexOf('minters') + 1] || '';
+  },
+};
 
-export const MinterInner: React.FC = () => {
+const MinterInner: React.FC = () => {
   const { signAndConfirmTX } = useTXHandlers();
   const { meta } = useGovernor();
   const { wrapTx } = useWrapTx();
   const { mintWrapper: mintWrapperData } = useRewarder();
   const location = useLocation();
-  const { minterAuthorityKey: minterAuthorityKeyStr } = getParams(location.pathname);
+  const minterAuthorityKeyStr = getUrlParams.minterAuthority(location.pathname);
   const mintWrapper = meta?.quarry?.mintWrapper;
   const minterAuthority = usePubkey(minterAuthorityKeyStr);
 
@@ -169,3 +169,5 @@ export const MinterInner: React.FC = () => {
     </div>
   );
 };
+
+export default MinterInner;

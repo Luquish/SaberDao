@@ -1,17 +1,18 @@
 import { extractErrorMessage } from "@rockooor/sail";
 import { Transaction } from "@solana/web3.js";
+import React from "react";
 
 import { HelperCard } from "@/components/tribeca/common/HelperCard";
 import { Textarea } from "@/components/tribeca/common/inputs/InputText";
-import { LabeledInput } from "@/components/tribeca/common/inputs/LabeledInput";
-import type { ActionFormProps } from "./types";
-import React from "react";
+import LabeledInput from "@/components/tribeca/common/inputs/LabeledInput";
+import type { ActionFormProps } from "@/actions/types";
 
-export const RawTX: React.FC<ActionFormProps> = ({
+
+export default function RawTX({
   setError,
   txRaw,
   setTxRaw,
-}: ActionFormProps) => {
+}: ActionFormProps) {
   return (
     <>
       <HelperCard variant="warn">

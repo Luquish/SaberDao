@@ -7,12 +7,12 @@ export interface Props {
   rightAlignEnd?: boolean;
 }
 
-export const TableCardBody: React.FC<Props> = ({
+export default function TableCardBody({
   head,
   children,
   className,
   rightAlignEnd = false,
-}: Props) => {
+}: Props) {
   return (
     <div className="mb-0 w-full">
       <table
@@ -35,4 +35,4 @@ export const TableCardBody: React.FC<Props> = ({
       </table>
     </div>
   );
-};
+}

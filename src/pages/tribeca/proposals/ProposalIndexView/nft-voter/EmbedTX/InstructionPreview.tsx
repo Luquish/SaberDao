@@ -5,14 +5,14 @@ import { useParsedInstruction } from "@/hooks/tribeca/tx/useParsedInstruction";
 import type { ParsedInstruction } from "@/hooks/tribeca/useSmartWallet";
 import { shortenAddress } from "@/utils/tribeca/utils";
 import { AddressLink } from "@/components/tribeca/common/AddressLink";
-import { InstructionDisplay } from "../../../../wallet/tx/TransactionView/TransactionIndexView/InstructionDisplay";
+import InstructionDisplay from "@/pages/tribeca/wallet/tx/TransactionView/TransactionIndexView/InstructionDisplay";
 
 interface Props {
   index: number;
   instruction: ParsedInstruction;
 }
 
-export const InstructionPreview: React.FC<Props> = ({
+const InstructionPreview: React.FC<Props> = ({
   instruction,
   index,
 }: Props) => {
@@ -46,3 +46,5 @@ export const InstructionPreview: React.FC<Props> = ({
     </div>
   );
 };
+
+export default InstructionPreview;

@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { Box } from "./Box";
+import Box from "./Box";
 
 interface Props {
   args: { name: string; type: string; data: string }[];
 }
 
-export const IXArguments: React.FC<Props> = ({ args }: Props) => {
+const IXArguments: React.FC<Props> = ({ args }: Props) => {
   return (
     <Box title={`Arguments (${args.length})`} className="p-0">
       {args.map((arg, i) => {
@@ -32,3 +32,5 @@ export const IXArguments: React.FC<Props> = ({ args }: Props) => {
     </Box>
   );
 };
+
+export default IXArguments;

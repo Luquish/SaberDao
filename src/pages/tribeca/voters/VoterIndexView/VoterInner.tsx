@@ -5,11 +5,11 @@ import React from 'react';
 import { useEscrow } from "@/hooks/tribeca/useEscrow";
 import type { RowProps } from "@/components/tribeca/common/card/TableCard";
 import { TableCard } from "@/components/tribeca/common/card/TableCard";
-import { ContentLoader } from "@/components/tribeca/common/ContentLoader";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { UserGauge } from "../../gauges/GaugesIndexView/UserGauges/UserGauge";
-import type { UserGaugeInfo } from "../../gauges/hooks/useMyGauges";
-import { useVoterGauges } from "../../gauges/hooks/useMyGauges";
+import ContentLoader from "@/components/tribeca/common/ContentLoader";
+import Card from "@/components/tribeca/common/governance/Card";
+import UserGauge from "@/pages/tribeca/gauges/GaugesIndexView/UserGauges/UserGauge";
+import type { UserGaugeInfo } from "@/hooks/tribeca/useMyGauges";
+import { useVoterGauges } from "@/hooks/tribeca/useMyGauges";
 
 interface Props {
   voterKey: PublicKey;
@@ -17,7 +17,7 @@ interface Props {
 
 const generateKey = (g: UserGaugeInfo) => g.key.toString();
 
-export const VoterInner: React.FC<Props> = ({ voterKey }: Props) => {
+const VoterInner: React.FC<Props> = ({ voterKey }: Props) => {
   const { escrowKey } = useEscrow(voterKey);
   const { myGauges } = useVoterGauges(escrowKey);
 
@@ -68,3 +68,5 @@ export const VoterInner: React.FC<Props> = ({ voterKey }: Props) => {
     </Card>
   );
 };
+
+export default VoterInner;

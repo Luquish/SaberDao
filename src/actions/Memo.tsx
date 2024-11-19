@@ -3,17 +3,18 @@ import {
   createMemoInstruction,
 } from "@saberhq/solana-contrib";
 import { useEffect, useState } from "react";
+import React from "react";
 
 import { Textarea } from "@/components/tribeca/common/inputs/InputText";
 import { serializeToBase64 } from "@/utils/tribeca/makeTransaction";
-import { useEnvironment } from "@/utils/tribeca/useEnvironment";
-import type { ActionFormProps } from "./types";
-import React from "react";
-export const Memo: React.FC<ActionFormProps> = ({
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
+import type { ActionFormProps } from "@/actions/types";
+
+export default function Memo({
   actor,
   setError,
   setTxRaw,
-}: ActionFormProps) => {
+}: ActionFormProps) {
   const [memo, setMemo] = useState<string>("");
   const { network } = useEnvironment();
 

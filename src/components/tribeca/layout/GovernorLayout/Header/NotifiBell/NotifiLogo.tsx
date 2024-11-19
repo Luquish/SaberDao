@@ -4,7 +4,7 @@ interface Props {
   className?: string;
 }
 
-export const NotifiLogo: React.FC<Props> = ({ className }) => {
+export default function NotifiLogo({ className }: Props) {
   return (
     <svg
       className={className}

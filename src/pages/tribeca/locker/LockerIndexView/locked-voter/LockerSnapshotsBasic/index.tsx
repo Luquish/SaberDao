@@ -9,22 +9,22 @@ import { useGovernor } from "@/hooks/tribeca/useGovernor";
 import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { Alert } from "@/components/tribeca/common/Alert";
 import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { CardWithImage } from "@/components/tribeca/common/governance/CardWithImage";
+import Card from "@/components/tribeca/common/governance/Card";
+import CardWithImage from "@/components/tribeca/common/governance/CardWithImage";
 import { ExternalLink } from "@/components/tribeca/common/typography/ExternalLink";
 import { ProseSmall } from "@/components/tribeca/common/typography/Prose";
 import {
   createAndSyncSnapshots,
   syncSnapshots,
   useSnapshotHistories,
-} from "../LockerSnapshots/useSnapshotHistories";
-import { ReactComponent as TimeTravel } from "./TimeTravel.svg";
+} from "@/hooks/tribeca/useSnapshotHistories";
+import TimeTravel from "@/pages/tribeca/locker/LockerIndexView/locked-voter/LockerSnapshotsBasic/TimeTravel.svg";
 
 interface Props {
   owner?: PublicKey | null;
 }
 
-export const LockerSnapshotsBasic: React.FC<Props> = ({ owner }: Props) => {
+const LockerSnapshotsBasic: React.FC<Props> = ({ owner }: Props) => {
   const { tribecaMut } = useSDK();
   const { refetchMany } = useSail();
   const { wrapTx } = useWrapTx();
@@ -152,3 +152,5 @@ export const LockerSnapshotsBasic: React.FC<Props> = ({ owner }: Props) => {
     </>
   );
 };
+
+export default LockerSnapshotsBasic;

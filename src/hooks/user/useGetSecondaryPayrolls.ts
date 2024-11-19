@@ -1,9 +1,9 @@
 import invariant from 'tiny-invariant';
-import { getReplicaRewards } from '@/src/helpers/replicaRewards';
+import { getReplicaRewards } from '@/helpers/replicaRewards';
 import { TokenInfo } from '@saberhq/token-utils';
 import { useQuery } from '@tanstack/react-query';
-import useQuarry from '../useQuarry';
-import useQuarryMiner from './useQuarryMiner';
+import useQuarry from '@/hooks/useQuarry';
+import useQuarryMiner from '@/hooks/user/useQuarryMiner';
 import { useWallet } from '@solana/wallet-adapter-react';
 
 export default function useGetSecondaryPayrolls(lpToken: TokenInfo) {

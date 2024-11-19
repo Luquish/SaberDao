@@ -17,24 +17,24 @@ import {
   useEpochGaugeVoterData,
   useGaugeVoterData,
 } from "@/utils/tribeca/parsers";
-import { TableCardBody } from "@/components/tribeca/common/card/TableCardBody";
+import TableCardBody from "@/components/tribeca/common/card/TableCardBody";
 import {
   EmptyState,
   EmptyStateConnectWallet,
 } from "@/components/tribeca/common/EmptyState";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { LoadingPage } from "@/components/tribeca/common/LoadingPage";
+import Card from "@/components/tribeca/common/governance/Card";
+import LoadingPage from "@/components/tribeca/common/LoadingPage";
 import { ModalButton } from "@/components/tribeca/common/Modal/ModalButton";
 import { MouseoverTooltip } from "@/components/tribeca/common/MouseoverTooltip";
-import { LockupTooShortTooltip } from "../../GaugesSetupView/lockupTooShortTooltip";
-import { useGaugemeister, useGMData } from "../../hooks/useGaugemeister";
-import { useMyGauges } from "../../hooks/useMyGauges";
-import { SyncModal } from "./SyncModal";
-import { UserGauge } from "./UserGauge";
+import LockupTooShortTooltip from "@/pages/tribeca/gauges/GaugesSetupView/lockupTooShortTooltip";
+import { useGaugemeister, useGMData } from "@/hooks/tribeca/useGaugemeister";
+import { useMyGauges } from "@/hooks/tribeca/useMyGauges";
+import SyncModal from "@/pages/tribeca/gauges/GaugesIndexView/UserGauges/SyncModal";
+import UserGauge from "@/pages/tribeca/gauges/GaugesIndexView/UserGauges/UserGauge";
 
 const NUM_GAUGES_TO_DISPLAY = 3;
 
-export const UserGauges: React.FC = () => {
+const UserGauges: React.FC = () => {
   const { path } = useGovernor();
   const { sdkMut } = useSDK();
   const { myGauges, hasNoGauges, gaugeVotes } = useMyGauges();
@@ -179,7 +179,7 @@ export const UserGauges: React.FC = () => {
                 .map((gaugeVote: { 
                   weight: number, 
                   key: PublicKey, 
-                  percent: number,
+                  percent: number | null,
                   gauge: any,
                   gaugeVoter: any
                 }, i: number) => (
@@ -205,3 +205,5 @@ export const UserGauges: React.FC = () => {
     </Card>
   );
 };
+
+export default UserGauges;

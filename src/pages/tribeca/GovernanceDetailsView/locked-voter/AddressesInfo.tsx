@@ -1,8 +1,8 @@
 import { PublicKey } from "@solana/web3.js";
 import type { TrackedAccountInfo } from "@tribecahq/registry";
 
-import { TableCardBody } from "@/components/tribeca/common/card/TableCardBody";
-import { Card } from "@/components/tribeca/common/governance/Card";
+import TableCardBody from "@/components/tribeca/common/card/TableCardBody";
+import Card from "@/components/tribeca/common/governance/Card";
 import { AddressWithContext } from "@/components/tribeca/common/program/AddressWithContext";
 import React from "react";
 

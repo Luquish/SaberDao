@@ -7,12 +7,12 @@ interface Props {
   children?: React.ReactNode;
 }
 
-export const Notice: React.FC<Props> = ({
+export default function Notice({
   className,
   icon,
   title,
   children,
-}: Props) => {
+}: Props) {
   return (
     <div className={`border px-5 py-4 flex flex-col gap-3 ${className}`}>
       {title && (

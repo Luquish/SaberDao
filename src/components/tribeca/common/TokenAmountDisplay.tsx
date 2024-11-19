@@ -7,8 +7,8 @@ import type {
 import React from "react";
 import clsx from "clsx";
 
-import { formatDisplayWithSoftLimit, formatPercent } from "../../../utils/tribeca/format";
-import { TokenIcon } from "./TokenIcon";
+import { formatDisplayWithSoftLimit, formatPercent } from "@/utils/tribeca/format";
+import { TokenIcon } from "@/components/tribeca/common/TokenIcon";
 
 export interface Props extends IFormatUint {
   token?: Token;

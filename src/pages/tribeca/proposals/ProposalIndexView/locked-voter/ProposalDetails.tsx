@@ -1,19 +1,20 @@
 import React from 'react';
 
 import type { ProposalInfo } from "@/hooks/tribeca/useProposals";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { IXSummary } from "@/components/tribeca/common/governance/IXSummary";
-import { TransactionPreviewLink } from "@/components/tribeca/common/governance/TransactionPreviewLink";
-import { extractGitHubIssueURL, useGitHubIssue } from "./github";
-import { ProposalBody } from "./ProposalBody";
-import { GitHubComments } from "./ProposalBody/GitHubComments";
+import Card from "@/components/tribeca/common/governance/Card";
+import IXSummary from "@/components/tribeca/common/governance/IXSummary";
+import TransactionPreviewLink from "@/components/tribeca/common/governance/TransactionPreviewLink";
+import { useGitHubIssue } from "@/hooks/tribeca/github/useGitHubIssue";
+import { extractGitHubIssueURL } from "@/utils/github";
+import ProposalBody from "./ProposalBody";
+import GitHubComments from "./ProposalBody/GitHubComments";
 
 interface Props {
   className?: string;
   proposalInfo?: ProposalInfo | null;
 }
 
-export const ProposalDetails: React.FC<Props> = ({
+const ProposalDetails: React.FC<Props> = ({
   className,
   proposalInfo,
 }: Props) => {
@@ -52,3 +53,5 @@ export const ProposalDetails: React.FC<Props> = ({
     </>
   );
 };
+
+export default ProposalDetails;

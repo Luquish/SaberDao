@@ -4,7 +4,7 @@ import React from "react";
 import { formatDurationSeconds } from "@/utils/tribeca/format";
 import { useGaugemeisterData } from "@/utils/tribeca/parsers";
 import { AttributeList } from "@/components/tribeca/common/AttributeList";
-import { Card } from "@/components/tribeca/common/governance/Card";
+import Card from "@/components/tribeca/common/governance/Card";
 
 interface Props {
   gaugemeister: PublicKey;

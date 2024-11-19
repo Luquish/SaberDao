@@ -11,7 +11,7 @@ interface Props {
   saveData: ProgramAccount<SAVEData>;
 }
 
-export const SAVEDetails: React.FC<Props> = ({ saveData }: Props) => {
+const SAVEDetails: React.FC<Props> = ({ saveData }: Props) => {
   const { data: token } = useToken(saveData.account.mint);
   const { data: underlyingToken } = useToken(saveData.account.underlyingMint);
   const { data: yiToken } = useToken(saveData.account.yiMint);
@@ -41,3 +41,5 @@ export const SAVEDetails: React.FC<Props> = ({ saveData }: Props) => {
     />
   );
 };
+
+export default SAVEDetails;

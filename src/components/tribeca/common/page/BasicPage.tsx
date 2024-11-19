@@ -6,11 +6,11 @@ interface Props {
   children?: React.ReactNode;
 }
 
-export const BasicPage: React.FC<Props> = ({
+export default function BasicPage({
   title,
   description,
   children,
-}: Props) => {
+}: Props) {
   return (
     <div className="w-full pb-8 px-4">
       <div className="w-full max-w-2xl mx-auto mt-16">

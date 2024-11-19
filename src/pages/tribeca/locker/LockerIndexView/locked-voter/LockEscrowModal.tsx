@@ -22,11 +22,11 @@ import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { tsToDate } from "@/utils/tribeca/utils";
 import { AttributeList } from "@/components/tribeca/common/AttributeList";
 import { Button } from "@/components/tribeca/common/Button";
-import { ContentLoader } from "@/components/tribeca/common/ContentLoader";
+import ContentLoader from "@/components/tribeca/common/ContentLoader";
 import { HelperCard } from "@/components/tribeca/common/HelperCard";
 import { InputSlider } from "@/components/tribeca/common/inputs/InputSlider";
-import { InputTokenAmount } from "@/components/tribeca/common/inputs/InputTokenAmount";
-import { LoadingSpinner } from "@/components/tribeca/common/LoadingSpinner";
+import InputTokenAmount from "@/components/tribeca/common/inputs/InputTokenAmount";
+import LoadingSpinner from "@/components/tribeca/common/LoadingSpinner";
 import type { ModalProps } from "@/components/tribeca/common/Modal";
 import { Modal } from "@/components/tribeca/common/Modal";
 import { ModalInner } from "@/components/tribeca/common/Modal/ModalInner";
@@ -90,7 +90,7 @@ const nicePresets = (
   }));
 };
 
-export const LockEscrowModal: React.FC<Props> = ({
+const LockEscrowModal: React.FC<Props> = ({
   variant,
   ...modalProps
 }: Props) => {
@@ -361,3 +361,5 @@ export const LockEscrowModal: React.FC<Props> = ({
     </Modal>
   );
 };
+
+export default LockEscrowModal;

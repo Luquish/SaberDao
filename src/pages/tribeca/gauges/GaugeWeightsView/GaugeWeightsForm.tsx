@@ -10,33 +10,26 @@ import clsx from "clsx";
 import { useSDK } from "@/contexts/sdk";
 import { useUserEscrow } from "@/hooks/tribeca/useEscrow";
 import { Button } from "@/components/tribeca/common/Button";
-import { TableCardBody } from "@/components/tribeca/common/card/TableCardBody";
+import TableCardBody from "@/components/tribeca/common/card/TableCardBody";
 import {
   EmptyState,
   EmptyStateConnectWallet,
 } from "@/components/tribeca/common/EmptyState";
-import { LoadingPage } from "@/components/tribeca/common/LoadingPage";
+import LoadingPage from "@/components/tribeca/common/LoadingPage";
 import { ModalButton } from "@/components/tribeca/common/Modal/ModalButton";
-import { useAllGauges } from "../hooks/useGauges";
-import { GaugeWeightRow } from "./GaugeWeightRow";
-import { SetWeightsModal } from "./SetWeightsModal";
-import { useUpdateGaugeWeights } from "./useUpdateGaugeWeights";
+import { useAllGauges } from "@/hooks/tribeca/useGauges";
+import GaugeWeightRow from "./GaugeWeightRow";
+import SetWeightsModal from "./SetWeightsModal";
+import { useUpdateGaugeWeights } from "@/hooks/tribeca/useUpdateGaugeWeights";
+import { getUrlParams } from "@/utils/tribeca/urlParams";
 
 interface Props {
   filterTerm: string;
 }
 
-// Función auxiliar para obtener parámetros de la URL
-function getParams(pathname: string) {
-  const paths = pathname.split('/');
-  return {
-    governor: paths[3] || '' // Asumiendo /tribeca/gov/:governor/
-  };
-}
-
-export const GaugeWeightsForm: React.FC<Props> = ({ filterTerm }: Props) => {
+const GaugeWeightsForm: React.FC<Props> = ({ filterTerm }: Props) => {
   const location = useLocation();
-  const { governor } = getParams(location.pathname);
+  const governor = getUrlParams.governor(location.pathname);
   const { escrow, isLoading } = useUserEscrow();
   const { quarries, quarriesLoading } = useRewarder();
   const [filteredQuarries, setFilteredQuarries] = React.useState<
@@ -151,3 +144,5 @@ export const GaugeWeightsForm: React.FC<Props> = ({ filterTerm }: Props) => {
     </>
   );
 };
+
+export default GaugeWeightsForm;

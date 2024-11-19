@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 
 import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
-import { NamedAddressLink } from "@/components/tribeca/common/account/NamedAddressLink";
+import NamedAddressLink from "@/components/tribeca/common/account/NamedAddressLink";
 import { Button } from "@/components/tribeca/common/Button";
-import { AddSignerModal } from "./AddSignerModal";
-import { UpdateThresholdModal } from "./UpdateThresholdModal";
+import AddSignerModal from "./AddSignerModal";
+import UpdateThresholdModal from "./UpdateThresholdModal";
 
 enum SignerModal {
   UpdateThreshold,
   AddSigner,
 }
 
-export const SignersSection: React.FC = () => {
+const SignersSection: React.FC = () => {
   const { smartWalletData } = useSmartWallet();
   const threshold = smartWalletData?.account?.threshold.toNumber();
 
@@ -72,3 +72,5 @@ export const SignersSection: React.FC = () => {
     </div>
   );
 };
+
+export default SignersSection;

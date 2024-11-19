@@ -8,7 +8,7 @@ import React from "react";
 import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
 import { AddressLink } from "@/components/tribeca/common/AddressLink";
 
-export const SubaccountsSection: React.FC = () => {
+const SubaccountsSection: React.FC = () => {
   const { key } = useSmartWallet();
 
   const { data: subaccounts } = useQuery({
@@ -77,3 +77,5 @@ export const SubaccountsSection: React.FC = () => {
     </div>
   );
 };
+
+export default SubaccountsSection;

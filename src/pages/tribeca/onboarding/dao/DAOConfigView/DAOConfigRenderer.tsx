@@ -1,9 +1,9 @@
 import type { PublicKey } from "@solana/web3.js";
 import React from "react";
 
-import { TableCardBody } from "@/components/tribeca/common/card/TableCardBody";
+import TableCardBody from "@/components/tribeca/common/card/TableCardBody";
 import { DisplayValue } from "@/components/tribeca/common/DisplayValue";
-import { Card } from "@/components/tribeca/common/governance/Card";
+import Card from "@/components/tribeca/common/governance/Card";
 import { AddressWithContext } from "@/components/tribeca/common/program/AddressWithContext";
 import type { DAOConfig } from ".";
 
@@ -16,7 +16,7 @@ interface Props {
   };
 }
 
-export const DAOConfigRenderer: React.FC<Props> = ({
+const DAOConfigRenderer: React.FC<Props> = ({
   config,
   addresses: { govWallet, gov, locker },
 }: Props) => {
@@ -107,3 +107,5 @@ export const DAOConfigRenderer: React.FC<Props> = ({
     </div>
   );
 };
+
+export default DAOConfigRenderer;

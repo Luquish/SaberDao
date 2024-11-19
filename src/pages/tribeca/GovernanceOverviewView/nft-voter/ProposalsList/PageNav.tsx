@@ -7,7 +7,7 @@ interface Props {
   setCurrentPage: (page: number) => void;
 }
 
-export const PageNav: React.FC<Props> = (props: Props) => {
+const PageNav: React.FC<Props> = (props: Props) => {
   const { currentPage, setCurrentPage, numPages } = props;
   return (
     <>
@@ -58,3 +58,5 @@ export const PageNav: React.FC<Props> = (props: Props) => {
     </>
   );
 };
+
+export default PageNav;

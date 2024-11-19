@@ -3,20 +3,20 @@ import React, { useEffect } from 'react';
 import { Router } from '@reach/router';
 
 import { SmartWalletProvider } from '@/hooks/tribeca/useSmartWallet';
-import { WalletLayout } from '@/components/tribeca/layout/WalletLayout';
-import { TribecaIndexView } from './landing/TribecaIndexView';
-import { WalletTreasurySendView } from './wallet/treasury/WalletTreasurySendView';
-import { WalletTreasuryDepositView } from './wallet/treasury/WalletTreasuryDepositView';
-import { ProgramUpgradeView } from './wallet/programs/ProgramUpgradeView';
-import { ProgramImportView } from './wallet/programs/ProgramImportView';
-import { WalletProgramsView } from './wallet/programs/WalletProgramsView';
-import { WalletTreasuryView } from './wallet/treasury/WalletTreasuryView';
-import { WalletSettingsView } from './wallet/WalletSettingsView';
-import { WalletInboxView } from './wallet/WalletInboxView';
-import { DAOStep1IntroView } from './onboarding/dao/DAOStep1IntroView';
-import { governanceRoutes } from './routes';
+import WalletLayout from '@/components/tribeca/layout/WalletLayout';
+import TribecaIndexView from './landing/TribecaIndexView';
+import WalletTreasurySendView from './wallet/treasury/WalletTreasurySendView';
+import WalletTreasuryDepositView from './wallet/treasury/WalletTreasuryDepositView';
+import ProgramUpgradeView from './wallet/programs/ProgramUpgradeView';
+import ProgramImportView from './wallet/programs/ProgramImportView';
+import WalletProgramsView from './wallet/programs/WalletProgramsView';
+import WalletTreasuryView from './wallet/treasury/WalletTreasuryView';
+import WalletSettingsView from './wallet/WalletSettingsView';
+import WalletInboxView from './wallet/WalletInboxView';
+import DAOStep1IntroView from './onboarding/dao/DAOStep1IntroView';
+import governanceRoutes from './routes';
 
-const GovernancePage: React.FC<PageProps> = () => {
+const TribecaPage: React.FC<PageProps> = () => {
     useEffect(() => {
         document.body.classList.add("dark");
         return () => {
@@ -57,4 +57,4 @@ const GovernancePage: React.FC<PageProps> = () => {
     );
 }
 
-export default GovernancePage; 
+export default TribecaPage; 

@@ -13,7 +13,7 @@ import { Button } from "@/components/tribeca/common/Button";
 import { TokenAmountDisplay } from "@/components/tribeca/common/TokenAmountDisplay";
 import { TokenIcon } from "@/components/tribeca/common/TokenIcon";
 
-export const Tokens: React.FC = () => {
+const Tokens: React.FC = () => {
   const { provider, network } = useProvider();
   const { key } = useSmartWallet();
   const balances = useTokenAccounts(key);
@@ -76,3 +76,5 @@ export const Tokens: React.FC = () => {
     </div>
   );
 };
+
+export default Tokens;

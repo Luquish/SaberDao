@@ -3,7 +3,7 @@ import type { GatsbyLinkProps } from "gatsby";
 import React from "react";
 import clsx from "clsx";
 
-import { useGovernor } from "../../../hooks/tribeca/useGovernor";
+import { useGovernor } from "@/hooks/tribeca/useGovernor";
 
 interface TabGroup {
   title: string;

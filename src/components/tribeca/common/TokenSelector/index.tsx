@@ -3,9 +3,9 @@ import { useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
 import React from "react";
 
-import { LoadingSpinner } from "../LoadingSpinner";
-import { TokenIcon } from "../TokenIcon";
-import { SelectTokenModal } from "./SelectTokenModal";
+import LoadingSpinner from "@/components/tribeca/common/LoadingSpinner";
+import { TokenIcon } from "@/components/tribeca/common/TokenIcon";
+import { SelectTokenModal } from "@/components/tribeca/common/TokenSelector/SelectTokenModal";
 
 interface Props {
   className?: string;

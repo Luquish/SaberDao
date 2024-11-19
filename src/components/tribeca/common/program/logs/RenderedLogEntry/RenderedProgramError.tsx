@@ -3,7 +3,7 @@ import type { InstructionLogEntry, PublicKey } from "@saberhq/solana-contrib";
 import { useMemo } from "react";
 
 import { useIDL } from "@/hooks/tribeca/useIDLs";
-import { styleColor } from "../programLogsV2";
+import { styleColor } from "@/components/tribeca/common/program/logs/programLogsV2";
 import { prefixBuilder } from ".";
 import React from "react";
 

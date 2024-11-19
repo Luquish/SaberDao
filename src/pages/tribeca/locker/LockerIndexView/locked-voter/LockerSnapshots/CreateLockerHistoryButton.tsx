@@ -16,7 +16,7 @@ const lockerHistorySize = SNAPSHOTS_CODERS.Snapshots.coder.accounts.size(
   SNAPSHOTS_CODERS.Snapshots.idl.accounts[0]
 );
 
-export const CreateLockerHistoryButton: React.FC<Props> = ({
+const CreateLockerHistoryButton: React.FC<Props> = ({
   locker,
   era,
 }: Props) => {
@@ -41,3 +41,5 @@ export const CreateLockerHistoryButton: React.FC<Props> = ({
     </AsyncButton>
   );
 };
+
+export default CreateLockerHistoryButton;

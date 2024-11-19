@@ -4,15 +4,15 @@ import React from "react";
 
 import type { TransferChecked } from "@/utils/tribeca/instructions/token/types";
 import { AddressLink } from "@/components/tribeca/common/AddressLink";
-import { LoadingSpinner } from "@/components/tribeca/common/LoadingSpinner";
+import LoadingSpinner from "@/components/tribeca/common/LoadingSpinner";
 import { TokenAmountDisplay } from "@/components/tribeca/common/TokenAmountDisplay";
-import { Box } from "../Box";
+import Box from "@/components/tribeca/common/Box";
 
 interface Props {
   data: TransferChecked;
 }
 
-export const Transfer: React.FC<Props> = ({
+const Transfer: React.FC<Props> = ({
   data: {
     mint,
     tokenAmount: { amount },
@@ -35,3 +35,5 @@ export const Transfer: React.FC<Props> = ({
     </Box>
   );
 };
+
+export default Transfer;

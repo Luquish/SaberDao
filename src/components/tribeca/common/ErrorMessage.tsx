@@ -6,7 +6,7 @@ interface Props {
   error: unknown;
 }
 
-export const ErrorMessage: React.FC<Props> = ({ prefix, error }: Props) => {
+export default function ErrorMessage({ prefix, error }: Props) {
   const message = extractErrorMessage(error);
   return (
     <div className="text-red-500 text-sm px-3 py-2 border-accent-200">

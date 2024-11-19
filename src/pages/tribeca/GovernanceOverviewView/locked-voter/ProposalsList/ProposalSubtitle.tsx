@@ -1,6 +1,6 @@
 import type { ProposalInfo } from "@/hooks/tribeca/useProposals";
-import { ProposalStateDate } from "./ProposalStateDate";
-import { ProposalStateLabel } from "./ProposalStateLabel";
+import ProposalStateDate from "./ProposalStateDate";
+import ProposalStateLabel from "./ProposalStateLabel";
 import React from "react";
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
   proposalInfo: ProposalInfo;
 }
 
-export const ProposalSubtitle: React.FC<Props> = ({
+const ProposalSubtitle: React.FC<Props> = ({
   proposalInfo,
   className,
 }: Props) => {
@@ -24,3 +24,5 @@ export const ProposalSubtitle: React.FC<Props> = ({
     </div>
   );
 };
+
+export default ProposalSubtitle;

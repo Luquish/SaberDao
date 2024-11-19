@@ -1,8 +1,8 @@
 import { useTribecaRegistry } from "@/hooks/tribeca/api/useTribecaRegistry";
-import { GovernanceSummary } from "./GovernanceSummary";
+import GovernanceSummary from "./GovernanceSummary";
 import React from "react";
 
-export const GovernanceListView: React.FC = () => {
+const GovernanceListView: React.FC = () => {
   const { data: registry } = useTribecaRegistry();
 
   return (

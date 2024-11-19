@@ -3,12 +3,12 @@ import React from "react";
 import {
   GovernorProvider,
   useGovernorInfo,
-} from "../../../../hooks/tribeca/useGovernor";
+} from "@/hooks/tribeca/useGovernor";
 import { EmptyState } from "@/components/tribeca/common/EmptyState";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { GaugeForemanEC } from "./GaugeForemanEC";
+import Card from "@/components/tribeca/common/governance/Card";
+import GaugeForemanEC from "./GaugeForemanEC";
 
-export const OnboardingChecklist: React.FC = () => {
+const OnboardingChecklist: React.FC = () => {
   const info = useGovernorInfo();
 
   if (!info) {
@@ -27,3 +27,5 @@ export const OnboardingChecklist: React.FC = () => {
     </GovernorProvider>
   );
 };
+
+export default OnboardingChecklist;

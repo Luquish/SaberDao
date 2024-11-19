@@ -3,7 +3,7 @@ import type { PublicKey } from "@solana/web3.js";
 import { useQuery } from "@tanstack/react-query";
 import invariant from "tiny-invariant";
 
-import { useSubaccountInfoData } from "../../utils/tribeca/parsers";
+import { useSubaccountInfoData } from "@/utils/tribeca/parsers";
 
 export const useSubaccountInfo = (key: PublicKey | null | undefined) => {
   const { data: subaccountInfoKey } = useQuery({

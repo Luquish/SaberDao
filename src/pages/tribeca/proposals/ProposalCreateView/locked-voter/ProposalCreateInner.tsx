@@ -16,14 +16,14 @@ import {
 import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
 import { Button } from "@/components/tribeca/common/Button";
-import { Card } from "@/components/tribeca/common/governance/Card";
+import Card from "@/components/tribeca/common/governance/Card";
 import { HelperCard } from "@/components/tribeca/common/HelperCard";
 import { InputText, Textarea } from "@/components/tribeca/common/inputs/InputText";
-import { LabeledInput } from "@/components/tribeca/common/inputs/LabeledInput";
-import { ProposalConfirmModal } from "./ProposalConfirmationModal";
-import { ProposalTXForm } from "./ProposalTXForm";
+import LabeledInput from "@/components/tribeca/common/inputs/LabeledInput";
+import ProposalConfirmModal from "./ProposalConfirmationModal";
+import ProposalTXForm from "./ProposalTXForm";
 
-export const ProposalCreateInner: React.FC = () => {
+const ProposalCreateInner: React.FC = () => {
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [discussionLink, setDiscussionLink] = useState<string>("");
@@ -227,3 +227,5 @@ export const ProposalCreateInner: React.FC = () => {
     </>
   );
 };
+
+export default ProposalCreateInner;

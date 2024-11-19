@@ -8,7 +8,7 @@ import invariant from "tiny-invariant";
 import { parseNonAnchorInstruction } from "@/utils/tribeca/instructions/parseNonAnchorInstruction";
 import { useGokiTransactionData } from "@/utils/tribeca/parsers";
 import { displayAddress, programLabel } from "@/utils/tribeca/programs";
-import { useEnvironment } from "@/utils/tribeca/useEnvironment";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
 import { useIDLs } from "./useIDLs";
 import type { ParsedInstruction } from "./useSmartWallet";
 import { useTXAddress } from "./useTXAddress";

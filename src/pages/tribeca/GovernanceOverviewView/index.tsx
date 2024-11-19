@@ -1,10 +1,10 @@
 import React from "react";
 
 import { useGovernor } from "@/hooks/tribeca/useGovernor";
-import { GovernanceOverviewView as LockedVoter } from "./locked-voter";
-import { GovernanceOverviewView as NftVoter } from "./nft-voter";
+import LockedVoter from "@/pages/tribeca/locker/LockerIndexView/locked-voter";
+import NftVoter from "@/pages/tribeca/GovernanceOverviewView/nft-voter";
 
-export const GovernanceOverviewView: React.FC = () => {
+const GovernanceOverviewView: React.FC = () => {
   const { manifest } = useGovernor();
 
   if (manifest?.mndeNftLocker) {

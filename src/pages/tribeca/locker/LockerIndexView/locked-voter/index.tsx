@@ -7,13 +7,13 @@ import {
   useGovWindowTitle,
 } from "@/hooks/tribeca/useGovernor";
 import { Button } from "@/components/tribeca/common/Button";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { GovernancePage } from "@/components/tribeca/common/governance/GovernancePage";
-import { EscrowInfo } from "./EscrowInfo";
-import { LockerSnapshotsBasic } from "./LockerSnapshotsBasic";
-import { LockupDetails } from "./LockupDetails";
+import Card from "@/components/tribeca/common/governance/Card";
+import GovernancePage from "@/components/tribeca/common/governance/GovernancePage";
+import EscrowInfo from "./EscrowInfo";
+import LockerSnapshotsBasic from "./LockerSnapshotsBasic";
+import LockupDetails from "./LockupDetails";
 
-export const LockerIndexView: React.FC = () => {
+const LockerIndexView: React.FC = () => {
   const { path } = useGovernor();
 
   useGovWindowTitle(`Locker`);
@@ -40,3 +40,5 @@ export const LockerIndexView: React.FC = () => {
     </GovernancePage>
   );
 };
+
+export default LockerIndexView;

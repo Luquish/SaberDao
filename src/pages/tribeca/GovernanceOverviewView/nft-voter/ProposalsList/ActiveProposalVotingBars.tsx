@@ -4,14 +4,14 @@ import React from 'react';
 import { useGovernor } from "@/hooks/tribeca/useGovernor";
 import type { ProposalInfo } from "@/hooks/tribeca/useProposals";
 import { formatNumberSI } from "@/utils/tribeca/format";
-import { LoadingSpinner } from "@/components/tribeca/common/LoadingSpinner";
+import LoadingSpinner from "@/components/tribeca/common/LoadingSpinner";
 import { Meter } from "@/components/tribeca/common/Meter";
 
 interface Props {
   proposal: ProposalInfo;
 }
 
-export const ActiveProposalVotingBars: React.FC<Props> = ({
+const ActiveProposalVotingBars: React.FC<Props> = ({
   proposal,
 }: Props) => {
   const { veToken } = useGovernor();
@@ -46,3 +46,5 @@ export const ActiveProposalVotingBars: React.FC<Props> = ({
     </div>
   );
 };
+
+export default ActiveProposalVotingBars;

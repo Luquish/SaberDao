@@ -14,7 +14,7 @@ import React from "react";
 
 import type { ProposalInfo } from "@/hooks/tribeca/useProposals";
 import { useGokiTransactionData } from "@/utils/tribeca/parsers";
-import { Card } from "@/components/tribeca/common/governance/Card";
+import Card from "@/components/tribeca/common/governance/Card";
 
 interface Props {
   className?: string;
@@ -82,7 +82,7 @@ const extractEvents = (
   return events.sort((a, b) => (a.date < b.date ? -1 : 1));
 };
 
-export const ProposalHistory: React.FC<Props> = ({
+const ProposalHistory: React.FC<Props> = ({
   className,
   proposalInfo,
 }: Props) => {
@@ -127,3 +127,5 @@ export const ProposalHistory: React.FC<Props> = ({
     </Card>
   );
 };
+
+export default ProposalHistory;

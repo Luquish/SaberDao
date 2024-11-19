@@ -16,7 +16,7 @@ const STATE_LABELS: { [K in ProposalState]: string } = {
   [ProposalState.Queued]: "queued",
 };
 
-export const ProposalStateLabel: React.FC<Props> = ({
+const ProposalStateLabel: React.FC<Props> = ({
   state,
   executed,
 }: Props) => {
@@ -48,3 +48,5 @@ export const ProposalStateLabel: React.FC<Props> = ({
     </div>
   );
 };
+
+export default ProposalStateLabel;

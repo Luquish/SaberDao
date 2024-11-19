@@ -6,12 +6,12 @@ import { startCase } from "lodash-es";
 import React from "react";
 
 import { formatPercent } from "@/utils/tribeca/format";
-import { fmtObject } from "@/pages/tribeca/InspectorPage/SimulationSection/AccountDiff/makeDiff";
-import { NamedAddressLink } from "./account/NamedAddressLink";
-import { TableCardBody } from "./card/TableCardBody";
-import { LoadingSpinner } from "./LoadingSpinner";
-import { AddressWithContext } from "./program/AddressWithContext";
-import { TokenAmountDisplay } from "./TokenAmountDisplay";
+import { fmtObject } from "@/utils/tribeca/makeDiff";
+import NamedAddressLink from "@/components/tribeca/common/account/NamedAddressLink";
+import TableCardBody from "@/components/tribeca/common/card/TableCardBody";
+import LoadingSpinner from "@/components/tribeca/common/LoadingSpinner";
+import { AddressWithContext } from "@/components/tribeca/common/program/AddressWithContext";
+import { TokenAmountDisplay } from "@/components/tribeca/common/TokenAmountDisplay";
 
 interface Props {
   className?: string;

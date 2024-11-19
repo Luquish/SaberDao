@@ -12,7 +12,7 @@ interface Props {
   escrowHistory: ProgramAccount<EscrowHistoryData>;
 }
 
-export const SyncEscrowHistoryButton: React.FC<Props> = ({
+const SyncEscrowHistoryButton: React.FC<Props> = ({
   lockerHistory,
   escrowHistory,
 }: Props) => {
@@ -39,3 +39,5 @@ export const SyncEscrowHistoryButton: React.FC<Props> = ({
     </AsyncButton>
   );
 };
+
+export default SyncEscrowHistoryButton;

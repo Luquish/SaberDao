@@ -10,7 +10,7 @@ import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
 import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { notify } from "@/utils/tribeca/notifications";
 import { Button } from "@/components/tribeca/common/Button";
-import { TextField } from "@/components/tribeca/common/inputs/TextField";
+import TextField from "@/components/tribeca/common/inputs/TextField";
 import { Modal } from "@/components/tribeca/common/Modal";
 
 interface Props {
@@ -18,7 +18,7 @@ interface Props {
   onDismiss: () => void;
 }
 
-export const AddSignerModal: React.FC<Props> = ({
+const AddSignerModal: React.FC<Props> = ({
   isOpen,
   onDismiss,
 }: Props) => {
@@ -113,3 +113,5 @@ export const AddSignerModal: React.FC<Props> = ({
     </Modal>
   );
 };
+
+export default AddSignerModal;

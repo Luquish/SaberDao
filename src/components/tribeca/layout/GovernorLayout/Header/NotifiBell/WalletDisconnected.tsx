@@ -4,7 +4,7 @@ interface Props {
   className?: string;
 }
 
-export const WalletDisconnected: React.FC<Props> = ({ className }: Props) => {
+export default function WalletDisconnected({ className }: Props) {
   return (
     <svg
       className={className}

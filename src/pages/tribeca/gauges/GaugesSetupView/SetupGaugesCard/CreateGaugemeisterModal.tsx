@@ -17,7 +17,7 @@ interface Props {
   startTime: Date;
 }
 
-export const CreateGaugemeisterModal: React.FC<Props> = ({
+const CreateGaugemeisterModal: React.FC<Props> = ({
   operator,
   rewarder,
   startTime,
@@ -70,3 +70,5 @@ export const CreateGaugemeisterModal: React.FC<Props> = ({
     </ModalInner>
   );
 };
+
+export default CreateGaugemeisterModal;

@@ -2,7 +2,7 @@ import "@reach/slider/styles.css";
 import { SliderInput as ReachSlider } from "@reach/slider";
 import styled from "@emotion/styled";
 
-const InputSlider = styled(ReachSlider)`
+export const InputSlider = styled(ReachSlider)`
   background: none;
 
   [data-reach-slider-range] {
@@ -26,5 +26,3 @@ const InputSlider = styled(ReachSlider)`
     box-shadow: 0px 6px 12px 8px rgba(0, 0, 0, 0.3);
   }
 `;
-
-export { InputSlider };

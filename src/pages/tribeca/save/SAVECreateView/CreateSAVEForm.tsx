@@ -11,7 +11,7 @@ import { formatDurationSeconds } from "@/utils/tribeca/format";
 import { YupKeypair } from "@/utils/tribeca/validators/pubkey";
 import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
 import { InputText } from "@/components/tribeca/common/inputs/InputText";
-import { LabeledInput } from "@/components/tribeca/common/inputs/LabeledInput";
+import LabeledInput from "@/components/tribeca/common/inputs/LabeledInput";
 
 interface SAVEForm {
   minLockDurationSeconds: number;
@@ -23,7 +23,7 @@ const SAVEFormSchema = Yup.object().shape({
   saveMintKPStr: YupKeypair.required(),
 });
 
-export const CreateSAVEForm: React.FC = () => {
+const CreateSAVEForm: React.FC = () => {
   const { govToken, lockerData } = useGovernor();
   const { providerMut } = useProvider();
   const { signAndConfirmTX } = useTXHandlers();
@@ -111,3 +111,5 @@ export const CreateSAVEForm: React.FC = () => {
     </div>
   );
 };
+
+export default CreateSAVEForm;

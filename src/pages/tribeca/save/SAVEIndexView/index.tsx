@@ -11,25 +11,19 @@ import {
 } from "@/hooks/tribeca/useGovernor";
 import { useSAVEData } from "@/utils/tribeca/parsers";
 import { AddressLink } from "@/components/tribeca/common/AddressLink";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { GovernancePage } from "@/components/tribeca/common/governance/GovernancePage";
-import { LoadingPage } from "@/components/tribeca/common/LoadingPage";
+import Card from "@/components/tribeca/common/governance/Card";
+import GovernancePage from "@/components/tribeca/common/governance/GovernancePage";
+import LoadingPage from "@/components/tribeca/common/LoadingPage";
 import { NotFoundPage } from "@/components/tribeca/common/NotFoundPage";
-import { IssueSAVEForm } from "./IssueSAVEForm";
-import { LockSAVEForm } from "./LockSAVEForm";
-import { SAVEDetails } from "./SAVEDetails";
-
-// Función auxiliar para obtener parámetros de la URL
-function getParams(pathname: string) {
-  const paths = pathname.split('/');
-  const saveMintStr = paths[paths.indexOf('saves') + 1] || '';
-  return { saveMintStr };
-}
+import IssueSAVEForm from "./IssueSAVEForm";
+import LockSAVEForm from "./LockSAVEForm";
+import SAVEDetails from "./SAVEDetails";
+import { getUrlParams } from "@/utils/tribeca/urlParams";
 
 export const SAVEIndexView: React.FC = () => {
   const { path, govToken, daoName } = useGovernor();
   const location = useLocation();
-  const { saveMintStr } = getParams(location.pathname);
+  const saveMintStr = getUrlParams.save(location.pathname);
   const saveMintKey = usePubkey(saveMintStr);
   const { data: saveToken } = useToken(saveMintKey);
   const { data: saveKey } = useQuery({

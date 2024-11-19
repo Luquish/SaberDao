@@ -4,11 +4,11 @@ import {
   useGovernor,
   useGovWindowTitle,
 } from "@/hooks/tribeca/useGovernor";
-import { TableCardBody } from "@/components/tribeca/common/card/TableCardBody";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { GovernancePage } from "@/components/tribeca/common/governance/GovernancePage";
+import TableCardBody from "@/components/tribeca/common/card/TableCardBody";
+import Card from "@/components/tribeca/common/governance/Card";
+import GovernancePage from "@/components/tribeca/common/governance/GovernancePage";
 
-export const SaberPoolsView: React.FC = () => {
+const SaberPoolsView: React.FC = () => {
   const { data: swaps } = useSaberSwaps();
   const { path } = useGovernor();
   useGovWindowTitle(`All Pools`);

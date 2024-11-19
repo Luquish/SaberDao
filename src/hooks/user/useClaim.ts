@@ -1,12 +1,12 @@
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { TokenInfo } from '@saberhq/token-utils';
-import { executeMultipleTxs } from '../../helpers/transaction';
-import useUserGetLPTokenBalance from './useGetLPTokenBalance';
-import useQuarryMiner from './useQuarryMiner';
-import useProvider from '../useProvider';
-import { getClaimIxs } from '../../helpers/claim';
-import useQuarry from '../useQuarry';
-import { PoolData } from '@/src/types';
+import { executeMultipleTxs } from '@/helpers/transaction';
+import useUserGetLPTokenBalance from '@/hooks/user/useGetLPTokenBalance';
+import useQuarryMiner from '@/hooks/user/useQuarryMiner';
+import useProvider from '@/hooks/useProvider';
+import { getClaimIxs } from '@/helpers/claim';
+import useQuarry from '@/hooks/useQuarry';
+import { PoolData } from '@/types';
 
 export default function useClaim(pool: PoolData) {
     const { connection } = useConnection();

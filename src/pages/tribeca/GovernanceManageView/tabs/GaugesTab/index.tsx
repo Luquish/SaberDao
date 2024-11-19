@@ -1,8 +1,8 @@
-import { AddGaugeCard } from "./AddGaugeCard";
-import { GrantToEC } from "./GrantToEC";
+import AddGaugeCard from "./AddGaugeCard";
+import GrantToEC from "./GrantToEC";
 import React from "react";
 
-export const GaugesTab: React.FC = () => {
+const GaugesTab: React.FC = () => {
   return (
     <div className="flex flex-col gap-4">
       <GrantToEC />

@@ -5,11 +5,11 @@ import React from "react";
 import { useExecutiveCouncil } from "@/hooks/tribeca/useExecutiveCouncil";
 import { useGovernor } from "@/hooks/tribeca/useGovernor";
 import { Button } from "@/components/tribeca/common/Button";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { GovernancePage } from "@/components/tribeca/common/governance/GovernancePage";
-import { TabNav } from "./TabNav";
+import Card from "@/components/tribeca/common/governance/Card";
+import GovernancePage from "@/components/tribeca/common/governance/GovernancePage";
+import TabNav from "./TabNav";
 
-export const GovernanceManageView: React.FC = () => {
+const GovernanceManageView: React.FC = () => {
   const { path, daoName } = useGovernor();
   const { isMemberOfEC } = useExecutiveCouncil();
 

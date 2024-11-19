@@ -5,7 +5,7 @@ import { Percent, TokenAmount, ZERO } from '@saberhq/token-utils';
 import JSBI from 'jsbi';
 
 import type { WithdrawCalculationResult } from '.';
-import { WrappedToken } from '../../../typings/wrappedToken';
+import { WrappedToken } from '@/types/wrappedToken';
 
 /**
  * Calculates withdrawOne parameters

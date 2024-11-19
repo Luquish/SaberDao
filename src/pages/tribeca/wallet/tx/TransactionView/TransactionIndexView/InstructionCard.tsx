@@ -5,14 +5,14 @@ import { useParsedInstruction } from "@/hooks/tribeca/tx/useParsedInstruction";
 import type { ParsedInstruction } from "@/hooks/tribeca/useSmartWallet";
 import { AddressLink } from "@/components/tribeca/common/AddressLink";
 import { InstructionSummary } from "@/components/tribeca/common/program/InstructionSummary";
-import { InstructionDisplay } from "./InstructionDisplay";
+import InstructionDisplay from "./InstructionDisplay";
 
 interface Props {
   index: number;
   instruction: ParsedInstruction;
 }
 
-export const InstructionCard: React.FC<Props> = ({
+const InstructionCard: React.FC<Props> = ({
   instruction,
   index,
 }: Props) => {
@@ -40,3 +40,5 @@ export const InstructionCard: React.FC<Props> = ({
     </div>
   );
 };
+
+export default InstructionCard;

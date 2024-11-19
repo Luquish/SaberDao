@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import { SBR_REWARDER } from '@saberhq/saber-periphery';
-import { getRewarder } from '../helpers/rewarder';
+import { SBR_REWARDER } from "@saberhq/saber-periphery";
+import { getRewarder } from "@/helpers/rewarder";
 
 export default function useGetRewarders(network: string) {
     return useQuery({

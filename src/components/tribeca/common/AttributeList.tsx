@@ -4,12 +4,12 @@ import BN from "bn.js";
 import { startCase } from "lodash-es";
 import React from "react";
 
-import { formatPercent } from "../../../utils/tribeca/format";
-import { NamedAddressLink } from "./account/NamedAddressLink";
-import { AddressLink } from "./AddressLink";
-import { DisplayValue } from "./DisplayValue";
-import { LoadingSpinner } from "./LoadingSpinner";
-import { TokenAmountDisplay } from "./TokenAmountDisplay";
+import { formatPercent } from "@/utils/tribeca/format";
+import NamedAddressLink from "@/components/tribeca/common/account/NamedAddressLink";
+import { AddressLink } from "@/components/tribeca/common/AddressLink";
+import { DisplayValue } from "@/components/tribeca/common/DisplayValue";
+import LoadingSpinner from "@/components/tribeca/common/LoadingSpinner";
+import { TokenAmountDisplay } from "@/components/tribeca/common/TokenAmountDisplay";
 
 interface Props {
   className?: string;

@@ -7,15 +7,15 @@ import { useAuthorityPrograms } from "@/hooks/tribeca/useAuthorityPrograms";
 import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
 import { Button } from "@/components/tribeca/common/Button";
 import { EmptyState } from "@/components/tribeca/common/EmptyState";
-import { ErrorMessage } from "@/components/tribeca/common/ErrorMessage";
-import { LoadingPage } from "@/components/tribeca/common/LoadingPage";
-import { LoadingSpinner } from "@/components/tribeca/common/LoadingSpinner";
-import { Notice } from "@/components/tribeca/common/Notice";
-import { BasicPage } from "@/components/tribeca/common/page/BasicPage";
-import { ReactComponent as EmptyFolder } from "@/components/tribeca/common/svgs/EmptyFolder.svg";
-import { ProgramCard } from "./ProgramCard";
+import ErrorMessage from "@/components/tribeca/common/ErrorMessage";
+import LoadingPage from "@/components/tribeca/common/LoadingPage";
+import LoadingSpinner from "@/components/tribeca/common/LoadingSpinner";
+import Notice from "@/components/tribeca/common/Notice";
+import BasicPage from "@/components/tribeca/common/page/BasicPage";
+import EmptyFolder from "@/svg/EmptyFolder.svg";
+import ProgramCard from "@/pages/tribeca/wallet/programs/WalletProgramsView/ProgramCard";
 
-export const WalletProgramsView: React.FC<RouteComponentProps> = () => {
+const WalletProgramsView: React.FC<RouteComponentProps> = () => {
   const { key, path } = useSmartWallet();
   const { programs, programData } = useAuthorityPrograms(key);
   const isEmpty = programs.length === 0 && programData.isFetched;
@@ -80,3 +80,5 @@ export const WalletProgramsView: React.FC<RouteComponentProps> = () => {
     </BasicPage>
   );
 };
+
+export default WalletProgramsView;

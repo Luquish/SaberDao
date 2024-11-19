@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import H2 from '../H2';
-import Input, { InputType } from '../Input';
+import H2 from '@/components/H2';
+import Input, { InputType } from '@/components/Input';
 import { useForm } from 'react-hook-form';
-import Button from '../Button';
-import { PoolData } from '../../types';
-import useStake from '../../hooks/user/useStake';
+import Button from '@/components/Button';
+import { PoolData } from '@/types';
+import useStake from '@/hooks/user/useStake';
 import { useMutation } from '@tanstack/react-query';
-import useUserGetLPTokenBalance from '../../hooks/user/useGetLPTokenBalance';
-import TX from '../TX';
-import useQuarryMiner from '../../hooks/user/useQuarryMiner';
+import useUserGetLPTokenBalance from '@/hooks/user/useGetLPTokenBalance';
+import useQuarryMiner from '@/hooks/user/useQuarryMiner';
 
 export default function StakeForm (props: { pool: PoolData }) {
     const { register, watch, setValue } = useForm<{ amount: number }>();

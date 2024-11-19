@@ -2,10 +2,10 @@ import type { Token } from "@saberhq/token-utils";
 import { TokenAmount } from "@saberhq/token-utils";
 import React from "react";
 
-import { theme } from "../../../../theme";
-import { TokenAmountDisplay } from "../TokenAmountDisplay";
-import { TokenSelector } from "../TokenSelector";
-import { InputDecimal } from "./InputDecimal";
+import { theme } from "@/theme";
+import { TokenAmountDisplay } from "@/components/tribeca/common/TokenAmountDisplay";
+import { TokenSelector } from "@/components/tribeca/common/TokenSelector";
+import InputDecimal from "./InputDecimal";
 
 interface IProps {
   label: string;
@@ -30,7 +30,7 @@ interface IProps {
  * @param param0
  * @returns
  */
-export const InputTokenAmount: React.FC<IProps> = ({
+export default function InputTokenAmount({
   label,
   tokens,
   onTokenSelect,
@@ -41,7 +41,7 @@ export const InputTokenAmount: React.FC<IProps> = ({
   currentAmount,
   className,
   isLoading,
-}: IProps) => {
+}: IProps) {
   return (
     <div className={`flex flex-col gap-2 ${className}`}>
       <div className="flex items-center justify-between">

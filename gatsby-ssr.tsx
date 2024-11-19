@@ -32,6 +32,9 @@ const HeadComponents = [
         background-attachment: fixed;
         background-image: linear-gradient(to bottom, #030712, #1f2937);
     }`}</style>,
+    <meta key="meta-tribeca-1" name="description" content="Tribeca DAO governance platform on Solana"/>,
+    <meta key="meta-tribeca-2" property="og:title" content="Tribeca DAO"/>,
+    <meta key="meta-tribeca-3" property="og:description" content="Decentralized governance platform for Solana"/>,
 ];
 
 export const onRenderBody = ({

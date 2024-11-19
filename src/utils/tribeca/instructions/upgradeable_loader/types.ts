@@ -12,8 +12,8 @@ import {
   union,
 } from "superstruct";
 
-import { PublicKeyFromString } from "../../validators/pubkey";
-import { ParsedInfo } from "../parseNonAnchorInstruction";
+import { PublicKeyFromString } from "@/utils/tribeca/validators/pubkey";
+import { ParsedInfo } from "@/utils/tribeca/instructions/parseNonAnchorInstruction";
 
 export type ProgramAccountInfo = Infer<typeof ProgramAccountInfo>;
 export const ProgramAccountInfo = type({

@@ -13,12 +13,12 @@ import React from "react";
 
 import { useGovernor } from "@/hooks/tribeca/useGovernor";
 import { useParsedEpochGauge } from "@/utils/tribeca/parsers";
-import { useEnvironment } from "@/utils/tribeca/useEnvironment";
-import { ContentLoader } from "@/components/tribeca/common/ContentLoader";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
+import ContentLoader from "@/components/tribeca/common/ContentLoader";
 import { MouseoverTooltip } from "@/components/tribeca/common/MouseoverTooltip";
 import { TokenAmountDisplay } from "@/components/tribeca/common/TokenAmountDisplay";
 import { TokenIcon } from "@/components/tribeca/common/TokenIcon";
-import { useGM } from "../../context";
+import { useGM } from "@/contexts/tribeca/gauges";
 
 const MdHorizontalRule = ({ className }: { className?: string }) => (
   <svg
@@ -73,7 +73,8 @@ interface Props {
  * Row in the "All Gauges" section of the Gauges homepage.
  * @returns
  */
-export const GaugeListRow: React.FC<Props> = ({
+
+const GaugeListRow: React.FC<Props> = ({
   quarry,
   gauge: {
     publicKey: gaugeKey,
@@ -273,3 +274,5 @@ export const GaugeListRow: React.FC<Props> = ({
     </tr>
   );
 };
+
+export default GaugeListRow;

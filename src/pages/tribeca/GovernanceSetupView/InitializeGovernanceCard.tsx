@@ -10,8 +10,8 @@ import { useMemo } from "react";
 import type { GovernorInfo } from "@/hooks/tribeca/useGovernor";
 import { formatDurationSeconds } from "@/utils/tribeca/format";
 import { AttributeList } from "@/components/tribeca/common/AttributeList";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { LoadingPage } from "@/components/tribeca/common/LoadingPage";
+import Card from "@/components/tribeca/common/governance/Card";
+import LoadingPage from "@/components/tribeca/common/LoadingPage";
 
 interface Props {
   info: GovernorInfo;

@@ -5,7 +5,7 @@ import React from "react";
 import { useGovernor } from "@/hooks/tribeca/useGovernor";
 import { formatDurationSeconds } from "@/utils/tribeca/format";
 import { AttributeList } from "@/components/tribeca/common/AttributeList";
-import { Card } from "@/components/tribeca/common/governance/Card";
+import Card from "@/components/tribeca/common/governance/Card";
 
 const LockerInfo: React.FC = () => {
   const { lockerData, minActivationThreshold, govToken } = useGovernor();

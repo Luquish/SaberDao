@@ -2,15 +2,15 @@ import { RewarderProvider } from "@rockooor/react-quarry";
 import React from 'react';
 
 import { useParsedGaugemeister } from "@/utils/tribeca/parsers";
-import { useEnvironment } from "@/utils/tribeca/useEnvironment";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { LoadingPage } from "@/components/tribeca/common/LoadingPage";
-import { useGaugemeister } from "../../../../gauges/hooks/useGaugemeister";
-import { CreateGaugesButton } from "./CreateGaugesButton";
-import { EnableGaugesButton } from "./EnableGaugesButton";
-import { GaugeSelector } from "./GaugeSelector";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
+import Card from "@/components/tribeca/common/governance/Card";
+import LoadingPage from "@/components/tribeca/common/LoadingPage";
+import { useGaugemeister } from "@/hooks/tribeca/useGaugemeister";
+import CreateGaugesButton from "@/pages/tribeca/GovernanceManageView/tabs/GaugesTab/AddGaugeCard/CreateGaugesButton";
+import EnableGaugesButton from "@/pages/tribeca/GovernanceManageView/tabs/GaugesTab/AddGaugeCard/EnableGaugesButton";
+import GaugeSelector from "@/pages/tribeca/GovernanceManageView/tabs/GaugesTab/AddGaugeCard/GaugeSelector";
 
-export const AddGaugeCard: React.FC = () => {
+const AddGaugeCard: React.FC = () => {
   const gaugemeister = useGaugemeister();
   const gm = useParsedGaugemeister(gaugemeister);
   const { network } = useEnvironment();
@@ -44,3 +44,5 @@ export const AddGaugeCard: React.FC = () => {
     </RewarderProvider>
   );
 };
+
+export default AddGaugeCard;

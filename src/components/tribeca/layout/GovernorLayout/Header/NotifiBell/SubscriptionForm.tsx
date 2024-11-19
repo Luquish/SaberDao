@@ -2,7 +2,7 @@ import React from "react";
 import { FaEnvelope, FaMobileAlt } from "react-icons/fa";
 
 import { Button } from "@/components/tribeca/common/Button";
-import { IconInput } from "./IconInput";
+import IconInput from "./IconInput";
 
 export interface Props {
   inputDisabled: boolean;
@@ -16,7 +16,7 @@ export interface Props {
   submit: () => void;
 }
 
-export const SubscriptionForm: React.FC<Props> = ({
+export default function SubscriptionForm({
   email,
   inputDisabled,
   submitDisabled,
@@ -26,7 +26,7 @@ export const SubscriptionForm: React.FC<Props> = ({
   setEmail,
   setPhone,
   submit,
-}: Props) => {
+}: Props) {
   return (
     <>
       <IconInput

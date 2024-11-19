@@ -7,16 +7,16 @@ import { FaCopy, FaExternalLinkAlt } from "react-icons/fa";
 
 
 import { notify } from "@/utils/tribeca/notifications";
-import { useEnvironment } from "@/utils/tribeca/useEnvironment";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
 import { Button } from "@/components/tribeca/common/Button";
-import { Profile } from "@/components/tribeca/common/governance/Profile";
+import Profile from "@/components/tribeca/common/governance/Profile";
 import { MouseoverTooltip } from "@/components/tribeca/common/MouseoverTooltip";
 
 interface Props {
   close?: () => void;
 }
 
-export const AccountPopover: React.FC<Props> = ({ close }: Props) => {
+export default function AccountPopover({ close }: Props) {
   const { network } = useEnvironment();
   const { publicKey } = useWallet();
   if (!publicKey) {

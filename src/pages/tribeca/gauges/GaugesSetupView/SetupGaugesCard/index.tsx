@@ -6,12 +6,12 @@ import {
   useParsedOperator,
   useParsedRewarder,
 } from "@/utils/tribeca/parsers";
-import { Card } from "@/components/tribeca/common/governance/Card";
+import Card from "@/components/tribeca/common/governance/Card";
 import { InputText } from "@/components/tribeca/common/inputs/InputText";
 import { ModalButton } from "@/components/tribeca/common/Modal/ModalButton";
-import { CreateGaugemeisterModal } from "./CreateGaugemeisterModal";
+import CreateGaugemeisterModal from "./CreateGaugemeisterModal";
 
-export const SetupGaugesCard: React.FC = () => {
+const SetupGaugesCard: React.FC = () => {
   const [rewarderKeyStr, setRewarderKeyStr] = useState<string>("");
   const rewarderKey = usePubkey(rewarderKeyStr);
 
@@ -83,3 +83,5 @@ export const SetupGaugesCard: React.FC = () => {
     </Card>
   );
 };
+
+export default SetupGaugesCard;

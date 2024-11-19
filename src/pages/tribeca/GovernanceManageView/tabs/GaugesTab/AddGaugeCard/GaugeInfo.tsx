@@ -12,8 +12,8 @@ import { useGaugeData } from "@/utils/tribeca/parsers";
 import { AddressLink } from "@/components/tribeca/common/AddressLink";
 import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
 import { Button } from "@/components/tribeca/common/Button";
-import { ContentLoader } from "@/components/tribeca/common/ContentLoader";
-import { LoadingSpinner } from "@/components/tribeca/common/LoadingSpinner";
+import ContentLoader from "@/components/tribeca/common/ContentLoader";
+import LoadingSpinner from "@/components/tribeca/common/LoadingSpinner";
 import { Toggle } from "@/components/tribeca/common/Toggle";
 import { TokenIcon } from "@/components/tribeca/common/TokenIcon";
 import React from "react";
@@ -22,7 +22,7 @@ interface Props {
   quarry: QuarryInfo;
 }
 
-export const GaugeInfo: React.FC<Props> = ({ quarry }: Props) => {
+const GaugeInfo: React.FC<Props> = ({ quarry }: Props) => {
   const { handleTX } = useSail();
   const { wrapTx } = useWrapTx();
   const { ownerInvokeTX, ownerInvokerKey } = useExecutiveCouncil();
@@ -118,3 +118,5 @@ export const GaugeInfo: React.FC<Props> = ({ quarry }: Props) => {
     </tr>
   );
 };
+
+export default GaugeInfo;

@@ -22,7 +22,7 @@ import {
   useParsedTXByKey,
   useParsedTXByKeys,
 } from "@/utils/tribeca/parsers";
-import { useEnvironment } from "@/utils/tribeca/useEnvironment";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
 import { useGovernor } from "./useGovernor";
 
 export class ProposalStatus {

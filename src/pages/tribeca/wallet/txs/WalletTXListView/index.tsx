@@ -6,7 +6,7 @@ import type { ParsedTX } from "@/hooks/tribeca/useSmartWallet";
 import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
 import { Button } from "@/components/tribeca/common/Button";
 import { EmptyState } from "@/components/tribeca/common/EmptyState";
-import { IXSummary } from "@/components/tribeca/common/governance/IXSummary";
+import IXSummary from "@/components/tribeca/common/governance/IXSummary";
 
 interface TXList {
   title: string;
@@ -31,7 +31,7 @@ const LISTS = {
   },
 };
 
-export const WalletTXListView: React.FC<WalletTXListViewProps> = ({ location }) => {
+const WalletTXListView: React.FC<WalletTXListViewProps> = ({ location }) => {
     const listId = (location?.pathname?.split('/')?.pop() as keyof typeof LISTS) ?? "all";
     const list: TXList = LISTS[listId];
     const { path, parsedTXs: allParsedTXs, key, threshold } = useSmartWallet();
@@ -108,3 +108,5 @@ export const WalletTXListView: React.FC<WalletTXListViewProps> = ({ location }) 
     </div>
   );
 };
+
+export default WalletTXListView;

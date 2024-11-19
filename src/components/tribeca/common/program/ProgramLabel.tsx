@@ -1,6 +1,6 @@
 import { useProgramLabel } from "@/hooks/tribeca/useProgramMeta";
 import { SYSVAR_OWNER } from "@/utils/tribeca/programs";
-import { AddressLink } from "../AddressLink";
+import { AddressLink } from "@/components/tribeca/common/AddressLink";
 import React from "react";
 
 type Props = React.ComponentProps<typeof AddressLink>;

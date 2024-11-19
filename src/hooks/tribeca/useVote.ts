@@ -4,7 +4,7 @@ import { findVoteAddress } from "@tribecahq/tribeca-sdk";
 import invariant from "tiny-invariant";
 
 import { useParsedVote } from "@/utils/tribeca/parsers";
-import { useEnvironment } from "@/utils/tribeca/useEnvironment";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
 
 export const useVote = (proposalKey?: PublicKey, voter?: PublicKey) => {
   const { network } = useEnvironment();

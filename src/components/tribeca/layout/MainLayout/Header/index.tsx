@@ -1,20 +1,20 @@
-import { startCase } from "lodash-es";
 import React from "react";
 import { Link } from "gatsby";
+import { startCase } from "lodash-es";
 
 import { CURRENT_APP } from "@/config";
-import { useEnvironment } from "@/utils/tribeca/useEnvironment";
-import { ReactComponent as SaberIcon } from "@/components/tribeca/common/svgs/Icon.svg";
-import { ReactComponent as SaberLogo } from "@/components/tribeca/common/svgs/logo-dark.svg";
-import { ReactComponent as TribecaIcon } from "@/components/tribeca/common/svgs/tribeca/favicon.svg";
-import { ReactComponent as TribecaLogo } from "@/components/tribeca/common/svgs/tribeca/logo.svg";
-import { WalletDropdown } from "@/components/tribeca/layout/GovernorLayout/Header/WalletDropdown";
-import { MoreInfo } from "./MoreInfo";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
+import SaberIcon from "@/svg/Icon.svg";
+import SaberLogo from "@/svg/logo-dark.svg";
+import TribecaIcon from "@/svg/tribeca/favicon.svg";
+import TribecaLogo from "@/svg/tribeca/logo.svg";
+import WalletDropdown from "@/components/tribeca/layout/GovernorLayout/Header/WalletDropdown";
+import MoreInfo from "./MoreInfo";
 
 const Logo = CURRENT_APP === "tribeca" ? TribecaLogo : SaberLogo;
 const Icon = CURRENT_APP === "tribeca" ? TribecaIcon : SaberIcon;
 
-export const Header: React.FC = () => {
+export default function Header() {
   const { network } = useEnvironment();
   return (
     <div className="relative flex items-center justify-between py-4 md:py-12">
@@ -46,4 +46,4 @@ export const Header: React.FC = () => {
       </div>
     </div>
   );
-};
+}

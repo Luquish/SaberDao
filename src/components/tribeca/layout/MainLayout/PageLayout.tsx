@@ -6,7 +6,7 @@ interface IProps {
   children: ReactNode | ReactNode[];
 }
 
-export const PageLayout: React.FC<IProps> = ({ children }: IProps) => {
+export default function PageLayout({ children }: IProps) {
   return (
     <div className="flex flex-col items-center mt-6 md:mt-12 w-full">
       <ErrorBoundary
@@ -20,4 +20,4 @@ export const PageLayout: React.FC<IProps> = ({ children }: IProps) => {
       </ErrorBoundary>
     </div>
   );
-};
+}

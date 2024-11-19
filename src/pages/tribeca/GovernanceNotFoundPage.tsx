@@ -3,19 +3,12 @@ import { useLocation } from "@reach/router";
 import React from "react";
 
 import { EmptyState } from "@/components/tribeca/common/EmptyState";
-import { Card } from "@/components/tribeca/common/governance/Card";
-
-// Función auxiliar para obtener parámetros de la URL
-function getParams(pathname: string) {
-  const paths = pathname.split('/');
-  return {
-    governor: paths[3] || '' // Asumiendo /tribeca/gov/:governor/
-  };
-}
+import Card from "@/components/tribeca/common/governance/Card";
+import { getUrlParams } from "@/utils/tribeca/urlParams";
 
 const GovernanceNotFoundPage = () => {
   const location = useLocation();
-  const { governor: governorStr } = getParams(location.pathname);
+  const governorStr = getUrlParams.governor(location.pathname);
 
   return (
     <div className="w-full">

@@ -7,13 +7,13 @@ import React from "react";
 import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { AddressLink } from "@/components/tribeca/common/AddressLink";
 import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
-import { Card } from "@/components/tribeca/common/governance/Card";
+import Card from "@/components/tribeca/common/governance/Card";
 
 interface Props {
   iouMint?: PublicKey;
 }
 
-export const InitializeRedeemer: React.FC<Props> = ({
+const InitializeRedeemer: React.FC<Props> = ({
   iouMint = SABER_IOU_MINT,
 }: Props) => {
   const { sdkMut } = useQuarrySDK();
@@ -40,3 +40,5 @@ export const InitializeRedeemer: React.FC<Props> = ({
     </Card>
   );
 };
+
+export default InitializeRedeemer;

@@ -1,16 +1,15 @@
 import { Suspense } from "react";
-import { Outlet } from "react-router";
 import React from "react";
 
 import {
   GovernorProvider,
   useGovernorInfo,
 } from "@/hooks/tribeca/useGovernor";
-import { LoadingPage } from "@/components/tribeca/common/LoadingPage";
+import LoadingPage from "@/components/tribeca/common/LoadingPage";
 import { GovernorLayout } from "@/components/tribeca/layout/GovernorLayout";
-import { GovernanceNotFoundPage } from "./GovernanceNotFoundPage";
+import GovernanceNotFoundPage from "./GovernanceNotFoundPage";
 
-export const GovernanceView: React.FC = () => {
+const GovernanceView: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
   const info = useGovernorInfo();
   if (info?.loading) {
     return (
@@ -31,7 +30,7 @@ export const GovernanceView: React.FC = () => {
     <GovernorProvider>
       <GovernorLayout>
         <Suspense>
-          <Outlet />
+          {children}
         </Suspense>
       </GovernorLayout>
     </GovernorProvider>

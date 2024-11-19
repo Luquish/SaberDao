@@ -17,15 +17,15 @@ import {
   EmptyState,
   EmptyStateConnectWallet,
 } from "@/components/tribeca/common/EmptyState";
-import { ErrorMessage } from "@/components/tribeca/common/ErrorMessage";
-import { LoadingPage } from "@/components/tribeca/common/LoadingPage";
-import { LoadingSpinner } from "@/components/tribeca/common/LoadingSpinner";
-import { Notice } from "@/components/tribeca/common/Notice";
-import { BasicPage } from "@/components/tribeca/common/page/BasicPage";
-import { ReactComponent as EmptyFolder } from "@/components/tribeca/common/svgs/EmptyFolder.svg";
-import { ProgramCard } from "../WalletProgramsView/ProgramCard";
+import ErrorMessage from "@/components/tribeca/common/ErrorMessage";
+import LoadingPage from "@/components/tribeca/common/LoadingPage";
+import LoadingSpinner from "@/components/tribeca/common/LoadingSpinner";
+import Notice from "@/components/tribeca/common/Notice";
+import BasicPage from "@/components/tribeca/common/page/BasicPage";
+import EmptyFolder from "@/svg/EmptyFolder.svg";
+import ProgramCard from "@/pages/tribeca/wallet/programs/WalletProgramsView/ProgramCard";
 
-export const ProgramImportView: React.FC<RouteComponentProps> = () => {
+const ProgramImportView: React.FC<RouteComponentProps> = () => {
     const wallet = useAnchorWallet();
     const { key } = useSmartWallet();
     const { programs, programData } = useAuthorityPrograms(wallet?.publicKey);
@@ -118,3 +118,5 @@ export const ProgramImportView: React.FC<RouteComponentProps> = () => {
       </BasicPage>
     );
   };
+
+export default ProgramImportView;

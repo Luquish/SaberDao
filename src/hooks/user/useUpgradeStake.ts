@@ -1,13 +1,13 @@
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import invariant from 'tiny-invariant';
 import { getOrCreateATAs, Token, TokenAmount } from '@saberhq/token-utils';
-import { executeMultipleTxs } from '../../helpers/transaction';
-import useQuarryMiner from './useQuarryMiner';
-import useProvider from '../useProvider';
-import useQuarry from '../useQuarry';
+import { executeMultipleTxs } from '@/helpers/transaction';
+import useQuarryMiner from '@/hooks/user/useQuarryMiner';
+import useProvider from '@/hooks/useProvider';
+import useQuarry from '@/hooks/useQuarry';
 import { PublicKey, Signer, TransactionInstruction } from '@solana/web3.js';
-import useStake from './useStake';
-import { PoolData } from '@/src/types';
+import useStake from '@/hooks/user/useStake';
+import { PoolData } from '@/types';
 
 export default function useUpgradeStake(pool: PoolData) {
     const { connection } = useConnection();

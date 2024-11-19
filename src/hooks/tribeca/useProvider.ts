@@ -8,7 +8,7 @@ import type { Signer, TransactionInstruction } from "@solana/web3.js";
 import { Keypair } from "@solana/web3.js";
 import { useMemo } from "react";
 
-import { useEnvironment } from "@/utils/tribeca/useEnvironment";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
 
 export function useProvider() {
   const wallet = useAnchorWallet();

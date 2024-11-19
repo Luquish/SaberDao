@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import clsx from "clsx";
 
-import { handleException } from "../../../utils/tribeca/error";
-import { LoadingSpinner } from "./LoadingSpinner";
+import { handleException } from "@/utils/tribeca/error";
+import LoadingSpinner from "./LoadingSpinner";
 
 type Variant =
   | "outline"

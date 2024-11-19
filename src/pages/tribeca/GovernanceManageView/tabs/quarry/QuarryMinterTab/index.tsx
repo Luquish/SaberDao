@@ -1,8 +1,8 @@
 import React from "react";
 
-import { MinterInner } from "./MinterInner";
+import MinterInner from "./MinterInner";
 
-export const QuarryMinterTab: React.FC = () => {
+const QuarryMinterTab: React.FC = () => {
   return <MinterInner />;
 };
 

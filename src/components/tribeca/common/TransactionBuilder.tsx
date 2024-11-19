@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Transaction } from '@solana/web3.js';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { Button } from './Button';
-import { notify } from '../../../utils/tribeca/notifications';
+import { notify } from '@/utils/tribeca/notifications';
 
 export const TransactionBuilder: React.FC = () => {
   const [rawTx, setRawTx] = useState<string>('');

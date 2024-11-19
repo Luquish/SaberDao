@@ -15,7 +15,7 @@ import { notify } from "@/utils/tribeca/notifications";
 import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
 import { Button } from "@/components/tribeca/common/Button";
 
-export const WalletCreateSimpleView: React.FC = () => {
+const WalletCreateSimpleView: React.FC = () => {
   const { handleTX } = useSail();
   const { wrapTx } = useWrapTx();
   const { sdkMut } = useSDK();

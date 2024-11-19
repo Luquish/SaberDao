@@ -5,18 +5,18 @@ import React from "react";
 import {
   useGovernor,
   useGovWindowTitle,
-} from "../../../../hooks/tribeca/useGovernor";
-import { useParsedGaugemeister } from "../../../../utils/tribeca/parsers";
-import { useEnvironment } from "../../../../utils/tribeca/useEnvironment";
-import { Card } from "../../../../components/tribeca/common/governance/Card";
-import { GovernancePage } from "../../../../components/tribeca/common/governance/GovernancePage";
-import { ExternalLink } from "../../../../components/tribeca/common/typography/ExternalLink";
-import { useGaugemeister } from "../hooks/useGaugemeister";
-import { AllGaugesPreview } from "./AllGaugesPreview";
-import { GaugemeisterInfo } from "./GaugemeisterInfo";
-import { UserGauges } from "./UserGauges";
+} from "@/hooks/tribeca/useGovernor";
+import { useParsedGaugemeister } from "@/utils/tribeca/parsers";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
+import Card from "@/components/tribeca/common/governance/Card";
+import GovernancePage from "@/components/tribeca/common/governance/GovernancePage";
+import { ExternalLink } from "@/components/tribeca/common/typography/ExternalLink";
+import { useGaugemeister } from "@/hooks/tribeca/useGaugemeister";
+import AllGaugesPreview from "./AllGaugesPreview";
+import GaugemeisterInfo from "./GaugemeisterInfo";
+import UserGauges from "./UserGauges";
 
-export const GaugesIndexView: React.FC = () => {
+const GaugesIndexView: React.FC = () => {
   const gaugemeister = useGaugemeister();
   useGovWindowTitle(`Gauges`);
   const { govToken, veToken, path } = useGovernor();

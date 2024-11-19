@@ -1,10 +1,10 @@
 import { RouteComponentProps } from '@reach/router';
-import { BasicPage } from "@/components/tribeca/common/page/BasicPage";
+import BasicPage from "@/components/tribeca/common/page/BasicPage";
 import { BasicSection } from "@/components/tribeca/common/page/Section";
-import { Tokens } from "./Tokens";
+import Tokens from "./Tokens";
 import React from "react";
 
-export const WalletTreasuryView: React.FC<RouteComponentProps> = () => {
+const WalletTreasuryView: React.FC<RouteComponentProps> = () => {
   return (
     <BasicPage
       title="Treasury Management"
@@ -22,3 +22,5 @@ export const WalletTreasuryView: React.FC<RouteComponentProps> = () => {
     </BasicPage>
   );
 };
+
+export default WalletTreasuryView;

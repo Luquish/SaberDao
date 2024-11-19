@@ -7,8 +7,8 @@ import React from "react";
 
 import { useSDK } from "@/contexts/sdk";
 import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
-import { useEnvironment } from "@/utils/tribeca/useEnvironment";
-import { useModal } from "@/components/tribeca/common/Modal/context";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
+import { useModal } from "@/contexts/tribeca/modal";
 import { ModalInner } from "@/components/tribeca/common/Modal/ModalInner";
 import { ExternalLink } from "@/components/tribeca/common/typography/ExternalLink";
 import type { BulkStreamConfig } from "./BulkCreateStream";
@@ -17,7 +17,7 @@ export interface Props {
   config: BulkStreamConfig;
 }
 
-export const BulkStreamModalInner: React.FC<Props> = ({ config }: Props) => {
+const BulkStreamModalInner: React.FC<Props> = ({ config }: Props) => {
   const { sdkMut } = useSDK();
   const { handleTXs } = useSail();
   const { wrapTx } = useWrapTx();
@@ -91,3 +91,5 @@ export const BulkStreamModalInner: React.FC<Props> = ({ config }: Props) => {
     </ModalInner>
   );
 };
+
+export default BulkStreamModalInner;

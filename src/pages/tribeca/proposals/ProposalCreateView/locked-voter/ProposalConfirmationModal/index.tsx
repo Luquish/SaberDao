@@ -15,12 +15,12 @@ import {
 } from "@/hooks/tribeca/useGovernor";
 import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { notify } from "@/utils/tribeca/notifications";
-import { useEnvironment } from "@/utils/tribeca/useEnvironment";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
 import { HelperCard } from "@/components/tribeca/common/HelperCard";
 import type { ModalProps } from "@/components/tribeca/common/Modal";
 import { Modal } from "@/components/tribeca/common/Modal";
 import { ModalInner } from "@/components/tribeca/common/Modal/ModalInner";
-import { ProposalIX } from "./ProposalIX";
+import ProposalIX from "./ProposalIX";
 
 type Props = Omit<ModalProps, "children"> & {
   proposal: {
@@ -30,7 +30,7 @@ type Props = Omit<ModalProps, "children"> & {
   };
 };
 
-export const ProposalConfirmModal: React.FC<Props> = ({
+const ProposalConfirmModal: React.FC<Props> = ({
   proposal,
   ...modalProps
 }: Props) => {
@@ -127,3 +127,5 @@ export const ProposalConfirmModal: React.FC<Props> = ({
     </Modal>
   );
 };
+
+export default ProposalConfirmModal;

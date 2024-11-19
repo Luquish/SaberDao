@@ -2,7 +2,7 @@ import type { PublicKey } from "@solana/web3.js";
 import React from "react";
 
 import { AddressWithContext } from "@/components/tribeca/common/program/AddressWithContext";
-import { Box } from "./Box";
+import Box from "./Box";
 
 interface Props {
   accounts: {
@@ -13,7 +13,7 @@ interface Props {
   }[];
 }
 
-export const IXAccounts: React.FC<Props> = ({ accounts }: Props) => {
+const IXAccounts: React.FC<Props> = ({ accounts }: Props) => {
   return (
     <Box title={`Accounts (${accounts.length})`} className="p-0">
       <div className="overflow-x-auto whitespace-nowrap">
@@ -55,3 +55,5 @@ export const IXAccounts: React.FC<Props> = ({ accounts }: Props) => {
     </Box>
   );
 };
+
+export default IXAccounts;

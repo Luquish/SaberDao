@@ -45,7 +45,7 @@ export const stateToDateSeconds = (
   }
 };
 
-export const ProposalStateDate: React.FC<Props> = ({ proposalInfo }: Props) => {
+const ProposalStateDate: React.FC<Props> = ({ proposalInfo }: Props) => {
   const { status, proposalData } = proposalInfo;
   const { executed, state } = status;
   const dateSeconds = stateToDateSeconds(proposalData, status);
@@ -71,3 +71,5 @@ export const ProposalStateDate: React.FC<Props> = ({ proposalInfo }: Props) => {
     </span>
   );
 };
+
+export default ProposalStateDate;

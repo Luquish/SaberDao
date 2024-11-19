@@ -1,4 +1,5 @@
 import React from 'react';
+import { Box } from '@/components/tribeca/common/Box';
 
 const ALLIANCE = [
   ["arrow", "arrowprotocol.com"],
@@ -22,6 +23,7 @@ const ALLIANCE = [
   ["traction", "traction.market"],
 ] as const;
 
+// La página principal que Gatsby necesita como default export
 const Alliance: React.FC = () => {
   return (
     <div className="mx-auto w-11/12 max-w-5xl">
@@ -67,14 +69,5 @@ const Alliance: React.FC = () => {
   );
 };
 
-interface BoxProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-  children: React.ReactNode;
-}
-
-const Box: React.FC<BoxProps> = ({ children, className, ...props }) => (
-  <a className={className} {...props}>
-    {children}
-  </a>
-);
-
+// Exportación necesaria para Gatsby
 export default Alliance;

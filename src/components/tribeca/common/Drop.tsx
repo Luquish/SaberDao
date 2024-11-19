@@ -2,7 +2,7 @@ import type { Placement } from "@popperjs/core";
 import { animated, config, useTransition } from "@react-spring/web";
 import React, { useCallback, useRef, useState } from "react";
 import { usePopper } from "react-popper";
-import { useOnClickOutside } from "../../../utils/tribeca/onClickOutside";
+import { useOnClickOutside } from "@/utils/tribeca/onClickOutside";
 
 const PopoverContainer = React.forwardRef<
   HTMLDivElement,
@@ -29,13 +29,13 @@ interface Props {
   placement?: Placement;
 }
 
-export const Drop: React.FC<Props> = ({
+export default function Drop({
   show,
   target,
   onDismiss,
   children,
   placement = "auto",
-}: Props) => {
+}: Props) {
   const popperElRef = useRef<HTMLDivElement | null>(null);
   const [popperElement, _setPopperElement] = useState<HTMLDivElement | null>(
     null

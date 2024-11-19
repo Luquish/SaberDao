@@ -2,9 +2,9 @@ import { Link } from "gatsby";
 import React from "react";
 import { RouteComponentProps } from '@reach/router';
 
-import { Button } from "../../../../../components/tribeca/common/Button";
+import { Button } from "@/components/tribeca/common/Button";
 
-export const DAOStep1IntroView: React.FC<RouteComponentProps> = () => {
+const DAOStep1IntroView: React.FC<RouteComponentProps> = () => {
   return (
     <div className="grid gap-12 w-full max-w-sm mx-auto">
       <div>

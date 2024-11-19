@@ -15,7 +15,7 @@ import type { ModalProps } from "@/components/tribeca/common/Modal";
 import { Modal } from "@/components/tribeca/common/Modal";
 import { TransactionPlanExecutor } from "@/components/tribeca/common/TransactionPlanExecutor";
 import type { TransactionPlan } from "@/components/tribeca/common/TransactionPlanExecutor/plan";
-import type { DAOParams } from "./params";
+import type { DAOParams } from "@/types/tribeca/dao/params";
 
 interface IProps extends Omit<ModalProps, "children"> {
   daoParams: DAOParams;
@@ -25,7 +25,7 @@ interface IProps extends Omit<ModalProps, "children"> {
   govTokenMint: PublicKey;
 }
 
-export const LaunchDAOModal: React.FC<IProps> = ({
+const LaunchDAOModal: React.FC<IProps> = ({
   daoParams,
   baseKP,
   emergencyDAO,
@@ -127,3 +127,5 @@ export const LaunchDAOModal: React.FC<IProps> = ({
     </Modal>
   );
 };
+
+export default LaunchDAOModal;

@@ -17,10 +17,10 @@ import { useSDK } from "@/contexts/sdk";
 import { ModalInner } from "@/components/tribeca/common/Modal/ModalInner";
 import { TransactionPlanExecutor } from "@/components/tribeca/common/TransactionPlanExecutor";
 import type { TransactionPlan } from "@/components/tribeca/common/TransactionPlanExecutor/plan";
-import { useGaugemeister, useGMData } from "../../hooks/useGaugemeister";
-import { useAllGauges } from "../../hooks/useGauges";
+import { useGaugemeister, useGMData } from "@/hooks/tribeca/useGaugemeister";
+import { useAllGauges } from "@/hooks/tribeca/useGauges";
 
-export const SyncModal: React.FC = () => {
+const SyncModal: React.FC = () => {
   const { sdkMut } = useSDK();
   const { gaugeKeys } = useAllGauges();
   const { data: gmData } = useGMData();
@@ -129,3 +129,5 @@ export const SyncModal: React.FC = () => {
     </ModalInner>
   );
 };
+
+export default SyncModal;

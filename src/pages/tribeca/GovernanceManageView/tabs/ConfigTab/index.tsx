@@ -6,10 +6,10 @@ import { BsGear } from "react-icons/bs";
 import React from 'react';
 
 import { useGovernor } from "@/hooks/tribeca/useGovernor";
-import { useEnvironment } from "@/utils/tribeca/useEnvironment";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
 import { Button } from "@/components/tribeca/common/Button";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { CardWithImage } from "@/components/tribeca/common/governance/CardWithImage";
+import Card from "@/components/tribeca/common/governance/Card";
+import CardWithImage from "@/components/tribeca/common/governance/CardWithImage";
 import { ExternalLink } from "@/components/tribeca/common/typography/ExternalLink";
 import { ProseSmall } from "@/components/tribeca/common/typography/Prose";
 
@@ -18,7 +18,7 @@ const makeAPIUrl = (network: Network, slug: string): string =>
     network
   )}/${slug}/Tribeca.toml`;
 
-export const ConfigTab: React.FC = () => {
+const ConfigTab: React.FC = () => {
   const { meta } = useGovernor();
   const { network } = useEnvironment();
 

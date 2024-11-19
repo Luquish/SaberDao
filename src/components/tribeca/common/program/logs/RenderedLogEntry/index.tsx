@@ -1,9 +1,9 @@
 import type { InstructionLogEntry, PublicKey } from "@saberhq/solana-contrib";
 import { formatLogEntry } from "@saberhq/solana-contrib";
 
-import { styleColor } from "../programLogsV2";
-import { RenderedCPI } from "./RenderedCPI";
-import { RenderedProgramError } from "./RenderedProgramError";
+import { styleColor } from "@/components/tribeca/common/program/logs/programLogsV2";
+import { RenderedCPI } from "@/components/tribeca/common/program/logs/RenderedLogEntry/RenderedCPI";
+import { RenderedProgramError } from "@/components/tribeca/common/program/logs/RenderedLogEntry/RenderedProgramError";
 import React from "react";
 
 export const prefixBuilder = (depth: number) => {

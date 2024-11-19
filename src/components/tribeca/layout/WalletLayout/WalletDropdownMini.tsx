@@ -4,13 +4,13 @@ import { useState } from "react";
 import { isMobile } from "react-device-detect";
 import React from "react";
 
-import { useEnvironment } from "@/utils/tribeca/useEnvironment";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
 import { shortenAddress } from "@/utils/tribeca/utils";
-import { Drop } from "@/components/tribeca/common/Drop";
-import { WalletButton } from "../GovernorLayout/Header/WalletButton";
-import { AccountPopover } from "../MainLayout/Header/WalletDropdown/AccountPopover";
+import Drop from "@/components/tribeca/common/Drop";
+import WalletButton from "@/components/tribeca/layout/GovernorLayout/Header/WalletButton";
+import AccountPopover from "@/components/tribeca/layout/MainLayout/Header/WalletDropdown/AccountPopover";
 
-export const WalletDropdownMini: React.FC = () => {
+export default function WalletDropdownMini() {
   const { network } = useEnvironment();
   const wallet = useAnchorWallet();
   const { wallet: solanaWallet } = useWallet();

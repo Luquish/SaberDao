@@ -3,22 +3,16 @@ import React from "react";
 import { useLocation } from "@reach/router";
 
 import { AttributeList } from "@/components/tribeca/common/AttributeList";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { LoadingPage } from "@/components/tribeca/common/LoadingPage";
-import { InitializeRedeemer } from "./InitializeRedeemer";
-import { RedeemerAllowance } from "./RedeemerAllowance";
-import { useRedeemer } from "./useRedeemer";
+import Card from "@/components/tribeca/common/governance/Card";
+import LoadingPage from "@/components/tribeca/common/LoadingPage";
+import InitializeRedeemer from "./InitializeRedeemer";
+import RedeemerAllowance from "./RedeemerAllowance";
+import { useRedeemer } from "@/hooks/tribeca/useRedeemer";
+import { getUrlParams } from "@/utils/tribeca/urlParams";
 
-// Función auxiliar para obtener parámetros de la URL
-function getParams(pathname: string) {
-  const paths = pathname.split('/');
-  const iouMint = paths[paths.indexOf('redeemer') + 1] || '';
-  return { iouMint };
-}
-
-export const TheRedeemer: React.FC = () => {
+const TheRedeemer: React.FC = () => {
   const location = useLocation();
-  const { iouMint: iouMintString } = getParams(location.pathname);
+  const iouMintString = getUrlParams.tokenMint(location.pathname);
   const iouMint = usePubkey(iouMintString);
   const { data: redeemer } = useRedeemer(iouMint ?? undefined);
 
@@ -49,3 +43,5 @@ export const TheRedeemer: React.FC = () => {
     </div>
   );
 };
+
+export default TheRedeemer;

@@ -30,7 +30,7 @@ interface Props {
   programID: PublicKey;
 }
 
-export const BufferCard: React.FC<Props> = ({ buffer, programID }: Props) => {
+const BufferCard: React.FC<Props> = ({ buffer, programID }: Props) => {
   const { sdkMut } = useSDK();
   const { smartWallet, key, path } = useSmartWallet();
   const { signAndConfirmTX } = useTXHandlers();
@@ -202,3 +202,5 @@ export const BufferCard: React.FC<Props> = ({ buffer, programID }: Props) => {
     </div>
   );
 };
+
+export default BufferCard;

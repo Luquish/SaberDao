@@ -4,7 +4,7 @@ import { useGovernor } from "@/hooks/tribeca/useGovernor";
 import type { ProposalInfo } from "@/hooks/tribeca/useProposals";
 import { Button } from "@/components/tribeca/common/Button";
 import { ModalInner } from "@/components/tribeca/common/Modal/ModalInner";
-import { VOTE_SIDE_LABEL } from "../VotesCard";
+import { VOTE_SIDE_LABEL } from "@/pages/tribeca/proposals/ProposalIndexView/locked-voter/VotesCard";
 
 interface Props {
   proposalInfo: ProposalInfo;
@@ -39,7 +39,7 @@ const formatTweet = ({
     .filter((s) => !!s)
     .join("\n\n");
 
-export const VoteResult: React.FC<Props> = ({
+const VoteResult: React.FC<Props> = ({
   proposalInfo,
   side,
   reason,
@@ -88,3 +88,5 @@ export const VoteResult: React.FC<Props> = ({
     </ModalInner>
   );
 };
+
+export default VoteResult;

@@ -7,25 +7,19 @@ import { useLocation, navigate } from "@reach/router";
 import invariant from "tiny-invariant";
 import React from "react";
 
-import { useSDK } from "../../../../../contexts/sdk";
-import { useSmartWalletAddress } from "../../../../../hooks/tribeca/useSmartWalletAddress";
-import { useWrapTx } from "../../../../../hooks/tribeca/useWrapTx";
-import { handleException } from "../../../../../utils/tribeca/error";
-import { notify } from "../../../../../utils/tribeca/notifications";
-import { AsyncButton } from "../../../../../components/tribeca/common/AsyncButton";
-import { Button } from "../../../../../components/tribeca/common/Button";
-import { InputText } from "../../../../../components/tribeca/common/inputs/InputText";
+import { useSDK } from "@/contexts/sdk";
+import { useSmartWalletAddress } from "@/hooks/tribeca/useSmartWalletAddress";
+import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
+import { handleException } from "@/utils/tribeca/error";
+import { notify } from "@/utils/tribeca/notifications";
+import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
+import { Button } from "@/components/tribeca/common/Button";
+import { InputText } from "@/components/tribeca/common/inputs/InputText";
+import { getUrlParams } from "@/utils/tribeca/urlParams";
 
-// Función auxiliar para obtener parámetros de la URL
-function getParams(pathname: string) {
-  const paths = pathname.split('/');
-  const executive = paths[paths.indexOf('dao') + 1] || '';
-  return { executive };
-}
-
-export const DAOStep3EmergencyView: React.FC = () => {
+const DAOStep3EmergencyView: React.FC = () => {
   const location = useLocation();
-  const { executive } = getParams(location.pathname);
+  const executive = getUrlParams.governor(location.pathname);
 
   const [baseKP, setBaseKP] = useState<Keypair>(Keypair.generate());
   const { data: smartWalletKey } = useSmartWalletAddress(baseKP.publicKey);

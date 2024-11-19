@@ -7,12 +7,12 @@ import clsx from "clsx";
 import { useGovernor } from "@/hooks/tribeca/useGovernor";
 import type { ProposalInfo } from "@/hooks/tribeca/useProposals";
 import { PROPOSAL_TITLE_MAX_LEN } from "@/utils/tribeca/constants";
-import { makeDate } from "../../../proposals/ProposalIndexView/nft-voter/ProposalHistory";
-import { ActiveProposalVotingBars } from "./ActiveProposalVotingBars";
-import { ProposalStateBadge } from "./ProposalStateBadge";
-import { ProposalStateDate } from "./ProposalStateDate";
-import { ProposalStateLabel } from "./ProposalStateLabel";
-import { ReactComponent as PulsingDot } from "./PulsingDot.svg";
+import { makeDate } from "@/pages/tribeca/proposals/ProposalIndexView/nft-voter/ProposalHistory";
+import ActiveProposalVotingBars from "@/pages/tribeca/GovernanceOverviewView/nft-voter/ProposalsList/ActiveProposalVotingBars";
+import ProposalStateBadge from "@/pages/tribeca/GovernanceOverviewView/nft-voter/ProposalsList/ProposalStateBadge";
+import ProposalStateDate from "@/pages/tribeca/GovernanceOverviewView/nft-voter/ProposalsList/ProposalStateDate";
+import ProposalStateLabel from "@/pages/tribeca/GovernanceOverviewView/nft-voter/ProposalsList/ProposalStateLabel";
+import PulsingDot from "@/pages/tribeca/GovernanceOverviewView/nft-voter/ProposalsList/PulsingDot.svg";
 
 interface Props {
   proposalInfo: ProposalInfo;
@@ -24,7 +24,7 @@ export const ProposalBadgeWrapper = ({ children }: { children: React.ReactNode }
   </div>
 );
 
-export const ProposalCard: React.FC<Props> = ({ proposalInfo }: Props) => {
+const ProposalCard: React.FC<Props> = ({ proposalInfo }: Props) => {
   const { path } = useGovernor();
   const { state, executed } = proposalInfo.status;
 
@@ -95,3 +95,5 @@ export const ProposalCard: React.FC<Props> = ({ proposalInfo }: Props) => {
     </Link>
   );
 };
+
+export default ProposalCard;

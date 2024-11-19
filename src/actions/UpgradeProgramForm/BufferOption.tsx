@@ -7,7 +7,7 @@ interface Props {
   buffer: ProgramDeployBuffer;
 }
 
-export const BufferOption: React.FC<Props> = ({ buffer }: Props) => {
+export default function BufferOption({ buffer }: Props) {
   const shasum = buffer.sha256Sum;
   return (
     <option key={buffer.pubkey.toString()} value={buffer.pubkey.toString()}>
@@ -15,4 +15,5 @@ export const BufferOption: React.FC<Props> = ({ buffer }: Props) => {
       {` (SHA256: ${truncateShasum(shasum)})`}
     </option>
   );
-};
+}
+

@@ -7,13 +7,13 @@ import type { PublicKey } from "@solana/web3.js";
 import React from "react";
 
 import { useSDK } from "@/contexts/sdk";
-import { TableCardBody } from "@/components/tribeca/common/card/TableCardBody";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { LoadingSpinner } from "@/components/tribeca/common/LoadingSpinner";
-import { CreateEscrowHistoryButton } from "./CreateEscrowHistoryButton";
-import { CreateLockerHistoryButton } from "./CreateLockerHistoryButton";
-import { SyncEscrowHistoryButton } from "./SyncEscrowHistoryButton";
-import { useSnapshotHistories } from "./useSnapshotHistories";
+import TableCardBody from "@/components/tribeca/common/card/TableCardBody";
+import Card from "@/components/tribeca/common/governance/Card";
+import LoadingSpinner from "@/components/tribeca/common/LoadingSpinner";
+import CreateEscrowHistoryButton from "./CreateEscrowHistoryButton";
+import CreateLockerHistoryButton from "./CreateLockerHistoryButton";
+import SyncEscrowHistoryButton from "./SyncEscrowHistoryButton";
+import { useSnapshotHistories } from "@/hooks/tribeca/useSnapshotHistories";
 
 const secondsPerEra = PERIOD_SECONDS * ERA_NUM_PERIODS;
 
@@ -24,7 +24,7 @@ interface Props {
   owner?: PublicKey | null;
 }
 
-export const LockerSnapshots: React.FC<Props> = ({ owner }: Props) => {
+const LockerSnapshots: React.FC<Props> = ({ owner }: Props) => {
   const { tribecaMut } = useSDK();
   const { lockerHistories, escrowHistories, eras, lockerKey, escrow } =
     useSnapshotHistories(owner ?? tribecaMut?.provider.walletKey);
@@ -101,3 +101,5 @@ export const LockerSnapshots: React.FC<Props> = ({ owner }: Props) => {
     </Card>
   );
 };
+
+export default LockerSnapshots;

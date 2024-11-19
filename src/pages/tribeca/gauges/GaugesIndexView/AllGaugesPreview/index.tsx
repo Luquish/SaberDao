@@ -1,13 +1,13 @@
 import React from 'react';
 import { useGovernor } from "@/hooks/tribeca/useGovernor";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { GaugeList } from "../GaugeList";
+import Card from "@/components/tribeca/common/governance/Card";
+import GaugeList from "@/pages/tribeca/gauges/GaugesIndexView/GaugeList";
 
 /**
  * TODO: add a tree map of all gauges.
  * @returns
  */
-export const AllGaugesPreview: React.FC = () => {
+const AllGaugesPreview: React.FC = () => {
   const { path } = useGovernor();
   return (
     <Card
@@ -24,3 +24,5 @@ export const AllGaugesPreview: React.FC = () => {
     </Card>
   );
 };
+
+export default AllGaugesPreview;

@@ -4,8 +4,8 @@ import {
   useGovernor,
   useGovWindowTitle,
 } from "@/hooks/tribeca/useGovernor";
-import { GovernancePage } from "@/components/tribeca/common/governance/GovernancePage";
-import { TopVotersCard } from "./TopVotersCard";
+import GovernancePage from "@/components/tribeca/common/governance/GovernancePage";
+import TopVotersCard from "./TopVotersCard";
 
 export const AllVotersView: React.FC = () => {
   const { path } = useGovernor();

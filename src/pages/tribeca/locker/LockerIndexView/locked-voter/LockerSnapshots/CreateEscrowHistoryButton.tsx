@@ -16,7 +16,7 @@ const escrowHistorySize = SNAPSHOTS_CODERS.Snapshots.coder.accounts.size(
   SNAPSHOTS_CODERS.Snapshots.idl.accounts[1]
 );
 
-export const CreateEscrowHistoryButton: React.FC<Props> = ({
+const CreateEscrowHistoryButton: React.FC<Props> = ({
   escrow,
   era,
 }: Props) => {
@@ -41,3 +41,5 @@ export const CreateEscrowHistoryButton: React.FC<Props> = ({
     </AsyncButton>
   );
 };
+
+export default CreateEscrowHistoryButton;

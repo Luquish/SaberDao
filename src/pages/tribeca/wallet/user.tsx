@@ -8,12 +8,12 @@ import React from "react";
 import { useProvider } from "@/hooks/tribeca/useProvider";
 import { getGPAConnection } from "@/utils/tribeca/gpaConnection";
 import { displayAddress } from "@/utils/tribeca/programs";
-import { LoadingSpinner } from "@/components/tribeca/common/LoadingSpinner";
-import { WalletButton } from "@/components/tribeca/layout/GovernorLayout/Header/WalletButton";
+import LoadingSpinner from "@/components/tribeca/common/LoadingSpinner";
+import WalletButton from "@/components/tribeca/layout/GovernorLayout/Header/WalletButton";
 
 const AMOUNT_OFFSET_BYTES = 8 + 32 + 1 + 8 + 8 + 8 + 4 + 8 + 4;
 
-export const UserView: React.FC = () => {
+const UserView: React.FC = () => {
   const { network, providerMut } = useProvider();
   const userKey = providerMut?.wallet.publicKey;
   const wallets = useQueries({

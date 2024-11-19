@@ -5,8 +5,8 @@ import { BN } from "bn.js";
 import React from 'react';
 
 import { useGovernor } from "@/hooks/tribeca/useGovernor";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { LoadingSpinner } from "@/components/tribeca/common/LoadingSpinner";
+import Card from "@/components/tribeca/common/governance/Card";
+import LoadingSpinner from "@/components/tribeca/common/LoadingSpinner";
 import { Meter } from "@/components/tribeca/common/Meter";
 
 export const VOTE_SIDE_LABEL = {
@@ -21,7 +21,7 @@ interface Props {
   proposal: ProposalData | null;
 }
 
-export const VotesCard: React.FC<Props> = ({ side, proposal }: Props) => {
+const VotesCard: React.FC<Props> = ({ side, proposal }: Props) => {
   const { veToken } = useGovernor();
   const voteCount = !proposal
     ? null
@@ -74,3 +74,5 @@ export const VotesCard: React.FC<Props> = ({ side, proposal }: Props) => {
     />
   );
 };
+
+export default VotesCard;

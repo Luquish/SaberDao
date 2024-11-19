@@ -5,16 +5,16 @@ import { useEffect, useState } from "react";
 import React from "react";
 
 import { useCardinalDisplayName } from "@/hooks/tribeca/cardinal/useAddressName";
-import { ContentLoader } from "@/components/tribeca/common/ContentLoader";
-import { Drop } from "@/components/tribeca/common/Drop";
-import { AccountPopover } from "@/components/tribeca/layout/MainLayout/Header/WalletDropdown/AccountPopover";
-import { WalletButton } from "./WalletButton";
+import ContentLoader from "@/components/tribeca/common/ContentLoader";
+import Drop from "@/components/tribeca/common/Drop";
+import AccountPopover from "@/components/tribeca/layout/MainLayout/Header/WalletDropdown/AccountPopover";
+import WalletButton from "./WalletButton";
 
 interface Props {
   className?: string;
 }
 
-export const WalletDropdown: React.FC<Props> = ({ className }: Props) => {
+export default function WalletDropdown({ className }: Props) {
   const wallet = useAnchorWallet();
   const { name, reverseEntryKey } = useCardinalDisplayName(wallet?.publicKey);
   const { wallet: solanaWallet } = useWallet();

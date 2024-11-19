@@ -14,9 +14,9 @@ import {
 } from "@/utils/tribeca/constants";
 import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
 import { Button } from "@/components/tribeca/common/Button";
-import { useTransaction } from "../context";
+import { useTransaction } from "@/contexts/tribeca/transaction";
 
-export const Actions: React.FC = () => {
+const Actions: React.FC = () => {
   const { state, id, tx, title, numSigned } = useTransaction();
   const { smartWallet, threshold, smartWalletData } = useSmartWallet();
   const { handleTX } = useSail();
@@ -179,3 +179,5 @@ export const Actions: React.FC = () => {
     </>
   );
 };
+
+export default Actions;

@@ -3,14 +3,14 @@ import type { Token } from "@saberhq/token-utils";
 import { RAW_SOL_MINT } from "@saberhq/token-utils";
 import { useAnchorWallet } from "@solana/wallet-adapter-react";
 import React from "react";
-import { useSDK } from "../../../../../contexts/sdk";
-import { LoadingSpinner } from "../../LoadingSpinner";
-import type { ModalProps } from "../../Modal";
-import { Modal } from "../../Modal";
-import { TokenIcon } from "../../TokenIcon";
-import { ReactComponent as SolanaLogo } from "./solana.svg";
-import { ReactComponent as Solscan } from "./solscan.svg";
-import { ReactComponent as SolscanGray } from "./solscan-gray.svg";
+import { useSDK } from "@/contexts/sdk";
+import LoadingSpinner from "@/components/tribeca/common/LoadingSpinner";
+import type { ModalProps } from "@/components/tribeca/common/Modal";
+import { Modal } from "@/components/tribeca/common/Modal";
+import { TokenIcon } from "@/components/tribeca/common/TokenIcon";
+import SolanaLogo from "@/components/tribeca/common/TokenSelector/SelectTokenModal/solana.svg";
+import Solscan from "@/components/tribeca/common/TokenSelector/SelectTokenModal/solscan.svg";
+import SolscanGray from "@/components/tribeca/common/TokenSelector/SelectTokenModal/solscan-gray.svg";
 
 interface Props extends Omit<ModalProps, "children"> {
   tokens: readonly Token[];

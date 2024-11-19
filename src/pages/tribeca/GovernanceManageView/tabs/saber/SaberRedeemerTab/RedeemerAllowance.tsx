@@ -12,7 +12,7 @@ import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { useSaberMinterInfoData } from "@/utils/tribeca/parsers";
 import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
 import { AttributeList } from "@/components/tribeca/common/AttributeList";
-import { Card } from "@/components/tribeca/common/governance/Card";
+import Card from "@/components/tribeca/common/governance/Card";
 
 const AIRDROP_REDEEMER = new PublicKey(
   "3pgqyLSjFXoEw8tMJMXqGmVzFnvx9gMxQEPtNotCFXPn"
@@ -24,7 +24,7 @@ interface Props {
   redeemer: PublicKey;
 }
 
-export const RedeemerAllowance: React.FC<Props> = ({ redeemer }: Props) => {
+const RedeemerAllowance: React.FC<Props> = ({ redeemer }: Props) => {
   const { ownerInvokeTX, ownerInvokerKey } = useExecutiveCouncil();
   const { handleTX } = useSail();
   const { wrapTx } = useWrapTx();
@@ -109,3 +109,5 @@ export const RedeemerAllowance: React.FC<Props> = ({ redeemer }: Props) => {
     </Card>
   );
 };
+
+export default RedeemerAllowance;

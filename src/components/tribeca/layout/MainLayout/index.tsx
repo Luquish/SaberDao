@@ -1,14 +1,14 @@
 import React, { Suspense } from "react";
-import { Outlet } from "react-router";
+import MainLayoutInner from "./MainLayoutInner";
 
-import { MainLayoutInner } from "./MainLayoutInner";
-
-export const MainLayout: React.FC = () => {
+export const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <MainLayoutInner>
       <Suspense>
-        <Outlet />
+        {children}
       </Suspense>
     </MainLayoutInner>
   );
 };
+
+export default MainLayout;

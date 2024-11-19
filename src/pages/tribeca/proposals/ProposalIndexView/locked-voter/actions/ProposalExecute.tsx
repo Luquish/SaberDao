@@ -16,18 +16,18 @@ import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { useGokiTransactionData } from "@/utils/tribeca/parsers";
 import { gokiTXLink, tsToDate } from "@/utils/tribeca/utils";
 import { AsyncConfirmButton } from "@/components/tribeca/common/AsyncConfirmButton";
-import { Card } from "@/components/tribeca/common/governance/Card";
+import Card from "@/components/tribeca/common/governance/Card";
 import { ExternalLink } from "@/components/tribeca/common/typography/ExternalLink";
 import { ProseSmall } from "@/components/tribeca/common/typography/Prose";
-import { ExecuteProposalButton } from "../../../../GovernanceManageView/tabs/ExecutiveCouncilTab/ExecuteProposalButton";
-import { EmbedTX } from "../EmbedTX";
+import ExecuteProposalButton from "@/pages/tribeca/GovernanceManageView/tabs/ExecutiveCouncilTab/ExecuteProposalButton";
+import EmbedTX from "@/pages/tribeca/proposals/ProposalIndexView/locked-voter/EmbedTX";
 
 interface Props {
   proposal: ProposalInfo;
   onActivate: () => void;
 }
 
-export const ProposalExecute: React.FC<Props> = ({
+const ProposalExecute: React.FC<Props> = ({
   proposal,
   onActivate,
 }: Props) => {
@@ -185,3 +185,5 @@ export const ProposalExecute: React.FC<Props> = ({
     </Card>
   );
 };
+
+export default ProposalExecute;

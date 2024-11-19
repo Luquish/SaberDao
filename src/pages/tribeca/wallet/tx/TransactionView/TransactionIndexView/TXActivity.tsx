@@ -1,12 +1,12 @@
 import { formatDistance } from "date-fns";
 import React from "react";
 
-import { LoadingPage } from "@/components/tribeca/common/LoadingPage";
+import LoadingPage from "@/components/tribeca/common/LoadingPage";
 import { TXLink } from "@/components/tribeca/common/TXLink";
-import { useTransaction } from "../context";
-import { TXEvent } from "./TXEvent";
+import { useTransaction } from "@/contexts/tribeca/transaction";
+import TXEvent from "./TXEvent";
 
-export const TXActivity: React.FC = () => {
+const TXActivity: React.FC = () => {
   const { historicalTXs } = useTransaction();
   const txsWithEvents = historicalTXs?.flatMap((tx) =>
     tx.events.map((event) => ({ tx, event }))
@@ -50,3 +50,5 @@ export const TXActivity: React.FC = () => {
     </div>
   );
 };
+
+export default TXActivity;

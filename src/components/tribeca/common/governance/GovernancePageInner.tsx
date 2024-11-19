@@ -3,8 +3,9 @@ import { Link } from "gatsby";
 import React from "react";
 
 import { useGovernor } from "@/hooks/tribeca/useGovernor";
-import { ImageWithFallback } from "../ImageWithFallback";
-import { Footer } from "./Footer";
+import { ImageWithFallback } from "@/components/tribeca/common/ImageWithFallback";
+import Footer from "@/components/tribeca/common/governance/Footer";
+import PageContainer from "@/components/tribeca/common/governance/PageContainer";
 
 interface Props {
   title: React.ReactNode;
@@ -21,7 +22,7 @@ interface Props {
   };
 }
 
-export const GovernancePageInner: React.FC<Props> = ({
+export default function GovernancePageInner({
   title,
   header,
   right,
@@ -31,7 +32,7 @@ export const GovernancePageInner: React.FC<Props> = ({
   containerStyles,
   hideDAOName = false,
   backLink,
-}: Props) => {
+}: Props) {
   const { daoName, iconURL } = useGovernor();
   return (
     <div className="w-full">
@@ -84,14 +85,4 @@ export const GovernancePageInner: React.FC<Props> = ({
       <Footer />
     </div>
   );
-};
-
-export const PageContainer: React.FC<{ className?: string; style?: React.CSSProperties; children?: React.ReactNode }> = ({ 
-    children, 
-    style,
-    className = "" 
-  }) => (
-    <div className={`max-w-5xl w-full md:w-11/12 mx-auto ${className}`} style={style}>
-      {children}
-    </div>
-  );
+}

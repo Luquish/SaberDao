@@ -13,12 +13,12 @@ import {
   useGaugeData,
   useParsedEpochGaugeVote,
 } from "@/utils/tribeca/parsers";
-import { ContentLoader } from "@/components/tribeca/common/ContentLoader";
+import ContentLoader from "@/components/tribeca/common/ContentLoader";
 import { Meter } from "@/components/tribeca/common/Meter";
 import { TokenIcon } from "@/components/tribeca/common/TokenIcon";
-import { useGMData } from "../../hooks/useGaugemeister";
-import type { UserGaugeInfo } from "../../hooks/useMyGauges";
-import { CommitVotesButton } from "./CommitVotesButton";
+import { useGMData } from "@/hooks/tribeca/useGaugemeister";
+import type { UserGaugeInfo } from "@/hooks/tribeca/useMyGauges";
+import CommitVotesButton from "@/pages/tribeca/gauges/GaugesIndexView/UserGauges/CommitVotesButton";
 
 interface Props {
   className?: string;
@@ -26,7 +26,7 @@ interface Props {
   gaugeVote: UserGaugeInfo;
 }
 
-export const UserGauge: React.FC<Props> = ({
+const UserGauge: React.FC<Props> = ({
   className,
   gaugeVote,
   owner,
@@ -99,3 +99,5 @@ export const UserGauge: React.FC<Props> = ({
     </tr>
   );
 };
+
+export default UserGauge;

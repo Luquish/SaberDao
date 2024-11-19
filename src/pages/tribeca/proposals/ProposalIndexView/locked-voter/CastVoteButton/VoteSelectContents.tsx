@@ -8,8 +8,8 @@ import { FORMAT_VOTE_PERCENT } from "@/utils/tribeca/format";
 import { HelperCard } from "@/components/tribeca/common/HelperCard";
 import { Textarea } from "@/components/tribeca/common/inputs/InputText";
 import { Meter } from "@/components/tribeca/common/Meter";
-import { sideColor } from "@/pages/tribeca/utils/voting";
-import { VOTE_SIDE_LABEL } from "../VotesCard";
+import sideColor from "@/utils/tribeca/voting";
+import { VOTE_SIDE_LABEL } from "@/pages/tribeca/proposals/ProposalIndexView/locked-voter/VotesCard";
 
 interface Props {
   proposal: ProposalInfo;
@@ -19,7 +19,7 @@ interface Props {
   setReason: (reason: string) => void;
 }
 
-export const VoteSelectContents: React.FC<Props> = ({
+const VoteSelectContents: React.FC<Props> = ({
   proposal,
   side,
   setSide,
@@ -138,3 +138,5 @@ export const VoteSelectContents: React.FC<Props> = ({
     </div>
   );
 };
+
+export default VoteSelectContents;

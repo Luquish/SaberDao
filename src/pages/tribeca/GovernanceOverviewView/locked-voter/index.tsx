@@ -2,15 +2,15 @@ import {
   useGovernor,
   useGovWindowTitle,
 } from "@/hooks/tribeca/useGovernor";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { GovernancePage } from "@/components/tribeca/common/governance/GovernancePage";
+import Card from "@/components/tribeca/common/governance/Card";
+import GovernancePage from "@/components/tribeca/common/governance/GovernancePage";
 import { ImageWithFallback } from "@/components/tribeca/common/ImageWithFallback";
-import { ProgramsList } from "../../ProgramsView/ProgramsList";
-import { OverviewHeader } from "./OverviewHeader";
-import { RecentProposals } from "./RecentProposals";
+import ProgramsList from "@/pages/tribeca/ProgramsView/ProgramsList";
+import OverviewHeader from "@/pages/tribeca/GovernanceOverviewView/locked-voter/OverviewHeader";
+import RecentProposals from "@/pages/tribeca/GovernanceOverviewView/locked-voter/RecentProposals";
 import React from "react";
 
-export const GovernanceOverviewView: React.FC = () => {
+const GovernanceOverviewView: React.FC = () => {
   useGovWindowTitle(`Overview`);
   const { daoName, iconURL, path } = useGovernor();
   return (
@@ -44,3 +44,5 @@ export const GovernanceOverviewView: React.FC = () => {
     </GovernancePage>
   );
 };
+
+export default GovernanceOverviewView;

@@ -10,7 +10,7 @@ interface Props {
   proposalInfo: ProposalInfo;
 }
 
-export const ProposalHelmet: React.FC<Props> = ({ proposalInfo }: Props) => {
+const ProposalHelmet: React.FC<Props> = ({ proposalInfo }: Props) => {
   const { daoName } = useGovernor();
   const { index } = proposalInfo;
 
@@ -53,3 +53,5 @@ export const ProposalHelmet: React.FC<Props> = ({ proposalInfo }: Props) => {
     </Helmet>
   );
 };
+
+export default ProposalHelmet;

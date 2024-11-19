@@ -11,7 +11,7 @@ interface Props {
   onChange: (path: string, key: string) => void;
 }
 
-export const AccountsForm: React.FC<Props> = ({
+const AccountsForm: React.FC<Props> = ({
   accountItems,
   accountsStrs,
   prefix,
@@ -63,3 +63,5 @@ export const AccountsForm: React.FC<Props> = ({
     </div>
   );
 };
+
+export default AccountsForm;

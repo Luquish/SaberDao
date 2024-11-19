@@ -1,7 +1,7 @@
-import { ContentLoader } from "../ContentLoader";
-import { EmptyState } from "../EmptyState";
-import type { Props as TableCardProps } from "./TableCardBody";
-import { TableCardBody } from "./TableCardBody";
+import ContentLoader from "@/components/tribeca/common/ContentLoader";
+import { EmptyState } from "@/components/tribeca/common/EmptyState";
+import type { Props as TableCardProps } from "@/components/tribeca/common/card/TableCardBody";
+import TableCardBody from "@/components/tribeca/common/card/TableCardBody";
 import React from "react";
 
 export interface RowProps<T> {
@@ -27,7 +27,7 @@ const defaultRowLoader = (
   </tr>
 );
 
-export const TableCard = <T,>({
+export function TableCard<T>({
   items,
   rowLoader = defaultRowLoader,
   generateKey,
@@ -35,7 +35,7 @@ export const TableCard = <T,>({
   children,
   Row,
   ...props
-}: Props<T>) => {
+}: Props<T>) {
   return (
     <TableCardBody {...props}>
       {items === undefined ? (
@@ -64,4 +64,6 @@ export const TableCard = <T,>({
       )}
     </TableCardBody>
   );
-};
+}
+
+export default TableCard;

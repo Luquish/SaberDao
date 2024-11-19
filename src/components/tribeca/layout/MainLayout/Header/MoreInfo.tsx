@@ -9,9 +9,9 @@ import {
 } from "react-icons/fa";
 
 import { APP_CONFIG } from "@/config";
-import { Drop } from "@/components/tribeca/common/Drop";
+import Drop from "@/components/tribeca/common/Drop";
 
-export const MoreInfo: React.FC = () => {
+export default function MoreInfo() {
   const [show, setShow] = useState(false);
   const targetRef = useRef(null);
   const MORE_ITEMS = [

@@ -5,14 +5,14 @@ import React from "react";
 import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
 import { useWindowTitle } from "@/hooks/tribeca/useWindowTitle";
 import { displayAddress } from "@/utils/tribeca/programs";
-import { useEnvironment } from "@/utils/tribeca/useEnvironment";
-import { useTransaction } from "../context";
-import { Actions } from "./Actions";
-import { InstructionCard } from "./InstructionCard";
-import { TXActivity } from "./TXActivity";
-import { TXSidebar } from "./TXSidebar";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
+import { useTransaction } from "@/contexts/tribeca/transaction";
+import Actions from "./Actions";
+import InstructionCard from "./InstructionCard";
+import TXActivity from "./TXActivity";
+import TXSidebar from "./TXSidebar";
 
-export const TransactionIndexView: React.FC = () => {
+const TransactionIndexView: React.FC = () => {
   const { key } = useSmartWallet();
   const { network } = useEnvironment();
   const { instructions, txEnv, title, id } = useTransaction();
@@ -69,3 +69,5 @@ export const TransactionIndexView: React.FC = () => {
     </div>
   );
 };
+
+export default TransactionIndexView;

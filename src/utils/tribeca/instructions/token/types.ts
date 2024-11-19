@@ -10,7 +10,7 @@ import {
   union,
 } from "superstruct";
 
-import { PublicKeyFromString } from "../../validators/pubkey";
+import { PublicKeyFromString } from "@/utils/tribeca/validators/pubkey";
 
 export type TokenAmountUi = Infer<typeof TokenAmountUi>;
 export const TokenAmountUi = type({

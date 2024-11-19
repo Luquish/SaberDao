@@ -4,28 +4,21 @@ import { useLocation } from "@reach/router";
 import React from "react";
 import clsx from "clsx";
 
-import { useEnvironment } from "@/utils/tribeca/useEnvironment";
-import { MobileNav } from "./MobileNav";
-import { Nav } from "./Nav";
-import { ReactComponent as Rook } from "./Rook.svg";
-import { SettingsModal } from "./SettingsModal";
-import { WalletDropdown } from "./WalletDropdown";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
+import MobileNav from "@/components/tribeca/layout/GovernorLayout/Header/MobileNav";
+import { Nav } from "@/components/tribeca/layout/GovernorLayout/Header/Nav";
+import Rook from "@/components/tribeca/layout/GovernorLayout/Header/Rook.svg";
+import SettingsModal from "@/components/tribeca/layout/GovernorLayout/Header/SettingsModal";
+import WalletDropdown from "@/components/tribeca/layout/GovernorLayout/Header/WalletDropdown";
+import { getUrlParams } from "@/utils/tribeca/urlParams";
 
 interface Props {
   placeholder: boolean;
 }
 
-// Función auxiliar para obtener parámetros de la URL
-function getParams(pathname: string) {
-  const paths = pathname.split('/');
-  return {
-    governor: paths[3] || '' 
-  };
-}
-
-export const Header: React.FC<Props> = ({ placeholder }: Props) => {
+export default function Header({ placeholder }: Props) {
   const location = useLocation();
-  const { governor } = getParams(location.pathname);
+  const governor = getUrlParams.governor(location.pathname);
   const { network } = useEnvironment();
   
   return (

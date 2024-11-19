@@ -6,11 +6,11 @@ interface Props {
   children?: React.ReactNode;
 }
 
-export const FieldWrapper: React.FC<Props> = ({
+export default function FieldWrapper({
   label,
   children,
   right,
-}: Props) => {
+}: Props) {
   return (
     <div className="grid gap-3 grid-flow-row">
       <div className="text-gray-300 text-sm w-full flex justify-between">

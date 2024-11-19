@@ -24,9 +24,9 @@ import { MEMO_PROGRAM_ID } from "@/utils/tribeca/constants";
 import { wrapAndSendSOLToATA } from "@/utils/tribeca/wrappedSol";
 import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
 import { InputText } from "@/components/tribeca/common/inputs/InputText";
-import { InputTokenAmount } from "@/components/tribeca/common/inputs/InputTokenAmount";
+import InputTokenAmount from "@/components/tribeca/common/inputs/InputTokenAmount";
 
-export const WalletTreasuryDepositInner: React.FC = () => {
+const WalletTreasuryDepositInner: React.FC = () => {
   const { key } = useSmartWallet();
   const { data: userTokenAccounts, isLoading: userIsLoading } =
     useUserTokenAccounts();
@@ -147,3 +147,5 @@ export const WalletTreasuryDepositInner: React.FC = () => {
     </div>
   );
 };
+
+export default WalletTreasuryDepositInner;

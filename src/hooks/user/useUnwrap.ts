@@ -1,9 +1,9 @@
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { WRAPPED_SOL } from '@saberhq/token-utils';
-import { createVersionedTransaction, executeMultipleTxs } from '../../helpers/transaction';
+import { createVersionedTransaction, executeMultipleTxs } from '@/helpers/transaction';
 import {  TransactionInstruction } from '@solana/web3.js';
-import useUserATA from './useUserATA';
-import useNetwork from '../useNetwork';
+import useUserATA from '@/hooks/user/useUserATA';
+import useNetwork from '@/hooks/useNetwork';
 import { TOKEN_PROGRAM_ID, Token } from '@solana/spl-token';
 
 export default function useUnwrap() {

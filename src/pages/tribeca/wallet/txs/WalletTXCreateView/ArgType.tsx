@@ -6,10 +6,12 @@ interface Props {
   type: IdlType;
 }
 
-export const ArgType: React.FC<Props> = ({ type }: Props) => {
+const ArgType: React.FC<Props> = ({ type }: Props) => {
   if (typeof type === "string") {
     return <>{type}</>;
   }
 
   return <>{JSON.stringify(type)}</>;
 };
+
+export default ArgType;

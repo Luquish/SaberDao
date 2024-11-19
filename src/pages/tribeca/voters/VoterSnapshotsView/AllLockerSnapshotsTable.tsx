@@ -7,15 +7,15 @@ import { zip } from "lodash-es";
 import React from "react";
 
 import { useSDK } from "@/contexts/sdk";
-import { TableCardBody } from "@/components/tribeca/common/card/TableCardBody";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { useSnapshotHistories } from "../../locker/LockerIndexView/locked-voter/LockerSnapshots/useSnapshotHistories";
+import TableCardBody from "@/components/tribeca/common/card/TableCardBody";
+import Card from "@/components/tribeca/common/governance/Card";
+import { useSnapshotHistories } from "@/hooks/tribeca/useSnapshotHistories";
 
 interface Props {
   owner?: PublicKey | null;
 }
 
-export const AllLockerSnapshotsTable: React.FC<Props> = ({ owner }: Props) => {
+const AllLockerSnapshotsTable: React.FC<Props> = ({ owner }: Props) => {
   const { tribecaMut } = useSDK();
   const { lockerHistories, escrowHistories, eras } = useSnapshotHistories(
     owner ?? tribecaMut?.provider.walletKey
@@ -89,3 +89,5 @@ export const AllLockerSnapshotsTable: React.FC<Props> = ({ owner }: Props) => {
     </Card>
   );
 };
+
+export default AllLockerSnapshotsTable;

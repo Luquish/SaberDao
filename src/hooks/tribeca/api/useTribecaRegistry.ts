@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import type { GovernorConfig, GovernorConfigJSON } from "@tribecahq/registry";
 import { loadGovernorConfig } from "@tribecahq/registry";
 
-import { useEnvironment } from "../../../utils/tribeca/useEnvironment";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
 
 const REGISTRY_URL =
   "https://raw.githubusercontent.com/TribecaHQ/tribeca-registry-build/master/registry/governor-metas";

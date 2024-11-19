@@ -19,7 +19,7 @@ import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
 import { Button } from "@/components/tribeca/common/Button";
 import { InputText } from "@/components/tribeca/common/inputs/InputText";
 
-export const DAOStep2ExecutiveView: React.FC = () => {
+const DAOStep2ExecutiveView: React.FC = () => {
   const [baseKP, setBaseKP] = useState<Keypair>(Keypair.generate());
   const { data: smartWalletKey } = useSmartWalletAddress(baseKP.publicKey);
   const { data: ownerInvokerKey } = useOwnerInvokerAddress(smartWalletKey);

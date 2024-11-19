@@ -21,8 +21,8 @@ import { Alert } from "@/components/tribeca/common/Alert";
 import { ModalButton } from "@/components/tribeca/common/Modal/ModalButton";
 import { ModalInner } from "@/components/tribeca/common/Modal/ModalInner";
 import { InputText } from "@/components/tribeca/common/inputs/InputText";
-import { InputTokenAmount } from "@/components/tribeca/common/inputs/InputTokenAmount";
-import { LabeledInput } from "@/components/tribeca/common/inputs/LabeledInput";
+import InputTokenAmount from "@/components/tribeca/common/inputs/InputTokenAmount";
+import LabeledInput from "@/components/tribeca/common/inputs/LabeledInput";
 import { tsToDate } from "@saberhq/solana-contrib";
 import { ProseSmall } from "@/components/tribeca/common/typography/Prose";
 import { useProvider } from "@/hooks/tribeca/useProvider";
@@ -32,7 +32,7 @@ interface Props {
     saveData: ProgramAccount<SAVEData>;
   }
   
-  export const LockSAVEForm: React.FC<Props> = ({ saveData }: Props) => {
+const LockSAVEForm: React.FC<Props> = ({ saveData }: Props) => {
     const { path } = useGovernor();
     const { data: saveToken } = useToken(saveData.account.mint);
     const [amountStr, setAmountStr] = useState<string>("");
@@ -161,5 +161,6 @@ interface Props {
         </ModalButton>
       </ProseSmall>
     );
-  };
-  
+};
+
+export default LockSAVEForm;

@@ -3,13 +3,13 @@ import { useState } from "react";
 import React from 'react';
 
 import { useGovWindowTitle } from "@/hooks/tribeca/useGovernor";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { GovernancePage } from "@/components/tribeca/common/governance/GovernancePage";
-import { ProposalsList } from "../../../GovernanceOverviewView/nft-voter/ProposalsList";
+import Card from "@/components/tribeca/common/governance/Card";
+import GovernancePage from "@/components/tribeca/common/governance/GovernancePage";
+import ProposalsList from "@/pages/tribeca/GovernanceOverviewView/nft-voter/ProposalsList";
 import { ProposalBadgeWrapper } from "@/pages/tribeca/GovernanceOverviewView/nft-voter/ProposalsList/ProposalCard";
-import { LegendsNeverDie } from "./LegendsNeverDie";
+import LegendsNeverDie from "@/pages/tribeca/proposals/ProposalsListView/nft-voter/LegendsNeverDie";
 
-export const ProposalsListView: React.FC = () => {
+const ProposalsListView: React.FC = () => {
   const [showDrafts, setShowDrafts] = useState<boolean>(false);
   useGovWindowTitle(`Proposals`);
 
@@ -51,3 +51,5 @@ export const ProposalsListView: React.FC = () => {
     </GovernancePage>
   );
 };
+
+export default ProposalsListView;

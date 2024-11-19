@@ -7,14 +7,14 @@ import { useGovernor } from "@/hooks/tribeca/useGovernor";
 import { formatDurationSeconds } from "@/utils/tribeca/format";
 import { Button } from "@/components/tribeca/common/Button";
 import { EmptyStateConnectWallet } from "@/components/tribeca/common/EmptyState";
-import { Card } from "@/components/tribeca/common/governance/Card";
+import Card from "@/components/tribeca/common/governance/Card";
 import { ExternalLink } from "@/components/tribeca/common/typography/ExternalLink";
 
 interface Props {
   className?: string;
 }
 
-export const SetupVoting: React.FC<Props> = ({ className }: Props) => {
+const SetupVoting: React.FC<Props> = ({ className }: Props) => {
   const { govToken, veToken, daoName, lockerData, governor } = useGovernor();
   const { sdkMut } = useSDK();
 
@@ -58,3 +58,5 @@ export const SetupVoting: React.FC<Props> = ({ className }: Props) => {
     </Card>
   );
 };
+
+export default SetupVoting;

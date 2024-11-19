@@ -1,9 +1,9 @@
 import React from "react";
 
-import { BasicPage } from "@/components/tribeca/common/page/BasicPage";
-import { BulkCreateStream } from "./BulkCreateStream";
+import BasicPage from "@/components/tribeca/common/page/BasicPage";
+import BulkCreateStream from "./BulkCreateStream";
 
-export const VenkoBulkCreateStreamView: React.FC = () => {
+const VenkoBulkCreateStreamView: React.FC = () => {
   return (
     <BasicPage
       title="Issue Bulk Venko Streams"
@@ -13,3 +13,5 @@ export const VenkoBulkCreateStreamView: React.FC = () => {
     </BasicPage>
   );
 };
+
+export default VenkoBulkCreateStreamView;

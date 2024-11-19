@@ -3,8 +3,8 @@ import React from 'react'
 
 import { useParsedTX } from "@/hooks/tribeca/useParsedTX";
 import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
-import { LoadingPage } from "@/components/tribeca/common/LoadingPage";
-import { TransactionProvider } from "./context";
+import LoadingPage from "@/components/tribeca/common/LoadingPage";
+import { TransactionProvider } from "@/contexts/tribeca/transaction";
 
 interface TransactionViewProps {
   params: {
@@ -13,7 +13,7 @@ interface TransactionViewProps {
   children: React.ReactNode;
 }
 
-export const TransactionView: React.FC<TransactionViewProps> = ({ params, children }) => {
+const TransactionView: React.FC<TransactionViewProps> = ({ params, children }) => {
   const { key } = useSmartWallet();
   const transactionSeq = params.transactionSeq;
   const { data: parsedTX, isLoading } = useParsedTX(
@@ -34,3 +34,5 @@ export const TransactionView: React.FC<TransactionViewProps> = ({ params, childr
     </div>
   );
 };
+
+export default TransactionView;

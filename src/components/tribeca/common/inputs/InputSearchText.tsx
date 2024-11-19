@@ -7,11 +7,11 @@ interface Props {
   placeholder?: string;
 }
 
-export const InputSearchText: React.FC<Props> = ({
+export default function InputSearchText({
   value,
   onChange,
   placeholder,
-}: Props) => {
+}: Props) {
   return (
     <div
       className="flex py-1.5 px-3 border border-gray-200 rounded m-0 transition-colors appearance-none

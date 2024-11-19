@@ -18,18 +18,18 @@ import type {
   import { useEffect, useMemo, useState } from "react";
   import { createContainer } from "unstated-next";
   
-  import { useSDK } from "../../contexts/sdk";
-  import type { ParsedNonAnchorInstruction } from "../../utils/tribeca/instructions/parseNonAnchorInstruction";
+  import { useSDK } from "@/contexts/sdk";
+  import type { ParsedNonAnchorInstruction } from "@/utils/tribeca/instructions/parseNonAnchorInstruction";
   import {
     InstructionParseError,
     parseNonAnchorInstruction,
-  } from "../../utils/tribeca/instructions/parseNonAnchorInstruction";
+  } from "@/utils/tribeca/instructions/parseNonAnchorInstruction";
   import {
     useBatchedGokiTransactions,
     useGokiSmartWalletData,
-  } from "../../utils/tribeca/parsers";
-  import { displayAddress, programLabel } from "../../utils/tribeca/programs";
-  import { useIDLs } from "./useIDLs";
+  } from "@/utils/tribeca/parsers";
+  import { displayAddress, programLabel } from "@/utils/tribeca/programs";
+  import { useIDLs } from "@/hooks/tribeca/useIDLs";
   
   export const SMART_WALLET_CODER = new SuperCoder<SmartWalletTypes>(
     GOKI_ADDRESSES.SmartWallet,

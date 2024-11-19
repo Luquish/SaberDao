@@ -2,12 +2,12 @@ import { mapSome, tsToDate } from "@saberhq/solana-contrib";
 import React from "react";
 
 import { useSmartWallet } from "@/hooks/tribeca/useSmartWallet";
-import { TableCardBody } from "@/components/tribeca/common/card/TableCardBody";
+import TableCardBody from "@/components/tribeca/common/card/TableCardBody";
 import { EmptyState } from "@/components/tribeca/common/EmptyState";
-import { LoadingPage } from "@/components/tribeca/common/LoadingPage";
-import { ExecuteProposalButton } from "./ExecuteProposalButton";
+import LoadingPage from "@/components/tribeca/common/LoadingPage";
+import ExecuteProposalButton from "./ExecuteProposalButton";
 
-export const PendingTXs: React.FC = () => {
+const PendingTXs: React.FC = () => {
   const { parsedTXs, smartWalletData } = useSmartWallet();
 
   const pendingTXs = parsedTXs?.filter((tx) => {
@@ -45,3 +45,5 @@ export const PendingTXs: React.FC = () => {
     </TableCardBody>
   );
 };
+
+export default PendingTXs;

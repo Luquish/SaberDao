@@ -1,7 +1,7 @@
 import { MdInfoOutline } from "react-icons/md";
 import React from 'react';
 
-import { CustomTooltip } from "./CustomTooltip";
+import CustomTooltip from "./CustomTooltip";
 
 interface Props {
   label: string;
@@ -10,7 +10,7 @@ interface Props {
   strech?: boolean;
 }
 
-export const CardItem: React.FC<Props> = ({
+const CardItem: React.FC<Props> = ({
   label,
   children,
   tooltip,
@@ -34,3 +34,5 @@ export const CardItem: React.FC<Props> = ({
     </div>
   );
 };
+
+export default CardItem;

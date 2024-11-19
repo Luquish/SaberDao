@@ -2,7 +2,7 @@ import { Link } from "gatsby";
 import React from "react";
 import clsx from "clsx";
 
-import { CardErrorBoundary } from "../CardErrorBoundary";
+import { CardErrorBoundary } from "@/components/tribeca/common/CardErrorBoundary";
 
 interface Props {
   className?: string;
@@ -21,7 +21,7 @@ interface Props {
   titleClassName?: string;
 }
 
-export const Card: React.FC<Props> = ({
+export default function Card({
   className,
   title,
   titleStyles,
@@ -30,7 +30,7 @@ export const Card: React.FC<Props> = ({
   padded = false,
   bodyScrollX = false,
   titleClassName,
-}: Props) => {
+}: Props) {
   return (
     <div
       className={clsx(
@@ -76,4 +76,4 @@ export const Card: React.FC<Props> = ({
         ))}
     </div>
   );
-};
+}

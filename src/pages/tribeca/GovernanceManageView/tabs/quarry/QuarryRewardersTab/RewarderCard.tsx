@@ -10,14 +10,14 @@ import { TokenAmount } from "@saberhq/token-utils";
 import BN from "bn.js";
 import React from "react";
 
-import { useEnvironment } from "@/utils/tribeca/useEnvironment";
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
 import { TokenIcon } from "@/components/tribeca/common/TokenIcon";
 
 interface Props {
   rewarder: ProgramAccount<RewarderData>;
 }
 
-export const RewarderCard: React.FC<Props> = ({ rewarder }: Props) => {
+const RewarderCard: React.FC<Props> = ({ rewarder }: Props) => {
   const { data: rewarderConfig } = useRewarderConfig(
     rewarder.publicKey.toString()
   );
@@ -90,3 +90,5 @@ export const RewarderCard: React.FC<Props> = ({ rewarder }: Props) => {
     </tr>
   );
 };
+
+export default RewarderCard;

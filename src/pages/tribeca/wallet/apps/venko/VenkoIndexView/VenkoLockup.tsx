@@ -1,11 +1,13 @@
 import React from "react";
 
-import { VenkoLockupInner } from "./VenkoLockupWithdraw";
+import VenkoLockupInner from "./VenkoLockupWithdraw";
 
-export const VenkoLockup: React.FC = () => {
+const VenkoLockup: React.FC = () => {
   return (
     <div>
       <VenkoLockupInner />
     </div>
   );
 };
+
+export default VenkoLockup;

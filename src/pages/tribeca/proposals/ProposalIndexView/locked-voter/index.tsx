@@ -5,30 +5,24 @@ import React from "react";
 import clsx from "clsx";
 
 import { useProposal } from "@/hooks/tribeca/useProposals";
-import { ContentLoader } from "@/components/tribeca/common/ContentLoader";
-import { GovernancePage } from "@/components/tribeca/common/governance/GovernancePage";
-import { Profile } from "@/components/tribeca/common/governance/Profile";
-import { PlaceholderSubtitle } from "../../../GovernanceOverviewView/locked-voter/ProposalsList/PlaceholderCard";
-import { ProposalSubtitle } from "../../../GovernanceOverviewView/locked-voter/ProposalsList/ProposalSubtitle";
-import { ProposalActivate } from "./actions/ProposalActivate";
-import { ProposalExecute } from "./actions/ProposalExecute";
-import { ProposalQueue } from "./actions/ProposalQueue";
-import { ProposalVote } from "./actions/ProposalVote";
-import { ProposalDetails } from "./ProposalDetails";
-import { ProposalHelmet } from "./ProposalHelmet";
-import { ProposalHistory } from "./ProposalHistory";
-import { VotesCard } from "./VotesCard";
+import ContentLoader from "@/components/tribeca/common/ContentLoader";
+import GovernancePage from "@/components/tribeca/common/governance/GovernancePage";
+import Profile from "@/components/tribeca/common/governance/Profile";
+import { PlaceholderSubtitle } from "@/pages/tribeca/GovernanceOverviewView/locked-voter/ProposalsList/PlaceholderCard";
+import ProposalSubtitle from "@/pages/tribeca/GovernanceOverviewView/locked-voter/ProposalsList/ProposalSubtitle";
+import ProposalActivate from "./actions/ProposalActivate";
+import ProposalExecute from "./actions/ProposalExecute";
+import ProposalQueue from "./actions/ProposalQueue";
+import ProposalVote from "./actions/ProposalVote";
+import ProposalDetails from "./ProposalDetails";
+import ProposalHelmet from "./ProposalHelmet";
+import ProposalHistory from "./ProposalHistory";
+import VotesCard from "./VotesCard";
+import { getUrlParams } from "@/utils/tribeca/urlParams";
 
-// Función auxiliar para obtener parámetros de la URL
-function getParams(pathname: string) {
-  const paths = pathname.split('/');
-  const proposalIndex = paths[paths.indexOf('proposals') + 1] || '';
-  return { proposalIndex };
-}
-
-export const ProposalIndexView: React.FC = () => {
+const ProposalIndexView: React.FC = () => {
   const location = useLocation();
-  const { proposalIndex: proposalIndexStr = "" } = getParams(location.pathname);
+  const proposalIndexStr = getUrlParams.proposal(location.pathname);
   const { info: proposalInfo } = useProposal(parseInt(proposalIndexStr));
 
   return (
@@ -99,3 +93,5 @@ export const ProposalIndexView: React.FC = () => {
     </GovernancePage>
   );
 };
+
+export default ProposalIndexView;

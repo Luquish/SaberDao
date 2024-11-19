@@ -8,23 +8,17 @@ import {
   useGovernor,
   useGovWindowTitle,
 } from "@/hooks/tribeca/useGovernor";
-import { useEnvironment } from "@/utils/tribeca/useEnvironment";
-import { GovernancePage } from "@/components/tribeca/common/governance/GovernancePage";
-import { useGMData } from "../../gauges/hooks/useGaugemeister";
-import { VoterHeader } from "./VoterHeader";
-import { VoterInner } from "./VoterInner";
-
-// Función auxiliar para obtener parámetros de la URL
-function getParams(pathname: string) {
-  const paths = pathname.split('/');
-  const voter = paths[paths.indexOf('address') + 1] || '';
-  return { voter };
-}
+import { useEnvironment } from "@/hooks/tribeca/useEnvironment";
+import GovernancePage from "@/components/tribeca/common/governance/GovernancePage";
+import { useGMData } from "@/hooks/tribeca/useGaugemeister";
+import VoterHeader from "@/pages/tribeca/voters/VoterIndexView/VoterHeader";
+import VoterInner from "@/pages/tribeca/voters/VoterIndexView/VoterInner";
+import { getUrlParams } from "@/utils/tribeca/urlParams";
 
 export const VoterIndexView: React.FC = () => {
   const location = useLocation();
-  const { voter: voterKeyStr = "" } = getParams(location.pathname);
-  const voterKey = useCardinalResolvedAddress(voterKeyStr);
+  const voter = getUrlParams.voter(location.pathname);
+  const voterKey = useCardinalResolvedAddress(voter);
   const { path } = useGovernor();
   const { data: gm } = useGMData();
   const { network } = useEnvironment();

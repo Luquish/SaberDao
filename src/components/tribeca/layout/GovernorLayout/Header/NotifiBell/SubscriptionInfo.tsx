@@ -10,7 +10,7 @@ interface RowProps {
   value: string;
   placeholder: string;
 }
-const InfoRow: React.FC<RowProps> = ({ value, placeholder }: RowProps) => {
+function InfoRow({ value, placeholder }: RowProps) {
   if (value === "") {
     return <span className="text-sm text-secondary">{placeholder}</span>;
   } else {
@@ -18,11 +18,11 @@ const InfoRow: React.FC<RowProps> = ({ value, placeholder }: RowProps) => {
   }
 };
 
-export const SubscriptionInfo: React.FC<Props> = ({
+export default function SubscriptionInfo({
   email,
   phone,
   edit,
-}: Props) => {
+}: Props) {
   return (
     <>
       <InfoRow value={email} placeholder={"No email address"} />

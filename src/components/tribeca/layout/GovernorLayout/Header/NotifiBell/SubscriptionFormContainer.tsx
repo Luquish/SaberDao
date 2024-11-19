@@ -3,10 +3,10 @@ import React from "react";
 import { useUserEscrow } from "@/hooks/tribeca/useEscrow";
 import { useGovernorInfo } from "@/hooks/tribeca/useGovernor";
 import type { Props } from "./SubscriptionForm";
-import { SubscriptionForm } from "./SubscriptionForm";
-import { SubscriptionGlimmer } from "./SubscriptionGlimmer";
+import SubscriptionForm from "./SubscriptionForm";
+import SubscriptionGlimmer from "./SubscriptionGlimmer";
 
-export const SubscriptionFormContainer: React.FC<Props> = (props: Props) => {
+export default function SubscriptionFormContainer(props: Props) {
   const info = useGovernorInfo();
 
   const manifest = info?.manifest;
@@ -19,12 +19,12 @@ export const SubscriptionFormContainer: React.FC<Props> = (props: Props) => {
   );
 };
 
-const LockedVoterSubscriptionForm: React.FC<Props> = ({
+function LockedVoterSubscriptionForm({
   inputDisabled,
   submitDisabled,
   warningMessage,
   ...rest
-}: Props) => {
+}: Props) {
   const { isEscrowLoading, veBalance, isLoading } = useUserEscrow();
   const localDisabled = !veBalance || veBalance.asNumber <= 0;
   const localWarningMessage = localDisabled

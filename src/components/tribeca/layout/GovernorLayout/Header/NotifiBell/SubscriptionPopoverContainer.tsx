@@ -1,9 +1,9 @@
 import type { MessageSignerWalletAdapterProps } from "@solana/wallet-adapter-base";
 import React from "react";
 
-import { SubscriptionCard } from "./SubscriptionCard";
-import { SubscriptionPopover } from "./SubscriptionPopover";
-import { WalletDisconnected } from "./WalletDisconnected";
+import SubscriptionCard from "./SubscriptionCard";
+import SubscriptionPopover from "./SubscriptionPopover";
+import WalletDisconnected from "./WalletDisconnected";
 
 interface Props {
   daoName: string;
@@ -12,7 +12,7 @@ interface Props {
   signer: MessageSignerWalletAdapterProps | null;
 }
 
-const WalletDisconnectedPopover: React.FC = () => {
+function WalletDisconnectedPopover() {
   return (
     <SubscriptionCard
       body={
@@ -27,7 +27,7 @@ const WalletDisconnectedPopover: React.FC = () => {
   );
 };
 
-const WalletUnsupportedPopover: React.FC = () => {
+function WalletUnsupportedPopover() {
   return (
     <SubscriptionCard
       body={
@@ -44,12 +44,12 @@ const WalletUnsupportedPopover: React.FC = () => {
   );
 };
 
-export const SubscriptionPopoverContainer: React.FC<Props> = ({
+export default function SubscriptionPopoverContainer({
   daoName,
   governor,
   walletPublicKey,
   signer,
-}: Props) => {
+}: Props) {
   if (walletPublicKey === null) {
     return <WalletDisconnectedPopover />;
   }

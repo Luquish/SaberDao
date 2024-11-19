@@ -3,15 +3,15 @@ import React from "react";
 
 import { useParsedTXByKey } from "@/hooks/tribeca/useParsedTX";
 import { SmartWalletProvider } from "@/hooks/tribeca/useSmartWallet";
-import { LoadingPage } from "@/components/tribeca/common/LoadingPage";
-import { TransactionProvider } from "../../../../wallet/tx/TransactionView/context";
-import { InstructionsInner } from "./InstructionsInner";
+import LoadingPage from "@/components/tribeca/common/LoadingPage";
+import { TransactionProvider } from "@/contexts/tribeca/transaction";
+import InstructionsInner from "./InstructionsInner";
 
 interface Props {
   txKey: PublicKey;
 }
 
-export const EmbedTX: React.FC<Props> = ({ txKey }: Props) => {
+const EmbedTX: React.FC<Props> = ({ txKey }: Props) => {
   const { data: parsedTX, isLoading } = useParsedTXByKey(txKey);
   return (
     <div className="py-6">
@@ -26,3 +26,5 @@ export const EmbedTX: React.FC<Props> = ({ txKey }: Props) => {
     </div>
   );
 };
+
+export default EmbedTX;

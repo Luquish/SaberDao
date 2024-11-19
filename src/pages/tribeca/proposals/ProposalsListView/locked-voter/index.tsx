@@ -9,12 +9,12 @@ import {
   useGovernor,
   useGovWindowTitle,
 } from "@/hooks/tribeca/useGovernor";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { GovernancePage } from "@/components/tribeca/common/governance/GovernancePage";
-import { ProposalsList } from "../../../GovernanceOverviewView/locked-voter/ProposalsList";
+import Card from "@/components/tribeca/common/governance/Card";
+import GovernancePage from "@/components/tribeca/common/governance/GovernancePage";
+import ProposalsList from "@/pages/tribeca/GovernanceOverviewView/locked-voter/ProposalsList";
 import { LegendsNeverDie } from "./LegendsNeverDie";
 
-export const ProposalsListView: React.FC = () => {
+const ProposalsListView: React.FC = () => {
   const { path } = useGovernor();
   const [showDrafts, setShowDrafts] = useState<boolean>(false);
   useGovWindowTitle(`Proposals`);
@@ -67,3 +67,5 @@ export const ProposalsListView: React.FC = () => {
     </GovernancePage>
   );
 };
+
+export default ProposalsListView;

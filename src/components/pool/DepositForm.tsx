@@ -1,22 +1,22 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import H2 from '../H2';
-import Input, { InputType } from '../Input';
+import H2 from '@/components/H2';
+import Input, { InputType } from '@/components/Input';
 import { useForm } from 'react-hook-form';
-import Button from '../Button';
-import { PoolData } from '../../types';
-import useUserATA from '../../hooks/user/useUserATA';
+import Button from '@/components/Button';
+import { PoolData } from '@/types';
+import useUserATA from '@/hooks/user/useUserATA';
 import { RAW_SOL_MINT, Token, TokenAmount, WRAPPED_SOL } from '@saberhq/token-utils';
-import { toPrecision } from '../../helpers/number';
-import TX from '../TX';
-import { useDeposit } from '../../hooks/user/useDeposit';
+import { toPrecision } from '@/helpers/number';
+
+import { useDeposit } from '@/hooks/user/useDeposit';
 import { useMutation } from '@tanstack/react-query';
-import useQuarryMiner from '../../hooks/user/useQuarryMiner';
-import useUserGetLPTokenBalance from '../../hooks/user/useGetLPTokenBalance';
-import { useStableSwapTokens } from '../../hooks/useStableSwapTokens';
+import useQuarryMiner from '@/hooks/user/useQuarryMiner';
+import useUserGetLPTokenBalance from '@/hooks/user/useGetLPTokenBalance';
+import { useStableSwapTokens } from '@/hooks/useStableSwapTokens';
 import clsx from 'clsx';
-import { getSymbol } from '../../helpers/pool';
-import { getMax } from '../../helpers/token';
-import useNetwork from '../../hooks/useNetwork';
+import { getSymbol } from '@/helpers/pool';
+import { getMax } from '@/helpers/token';
+import useNetwork from '@/hooks/useNetwork';
 
 export default function DepositForm(props: { pool: PoolData }) {
     const { network } = useNetwork();

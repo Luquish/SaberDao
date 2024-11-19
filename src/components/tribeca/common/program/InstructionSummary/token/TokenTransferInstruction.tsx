@@ -4,8 +4,8 @@ import { useMemo } from "react";
 import React from "react";
 
 import type { Transfer } from "@/utils/tribeca/instructions/token/types";
-import { AddressLink } from "../../../AddressLink";
-import { TokenAmountDisplay } from "../../../TokenAmountDisplay";
+import { AddressLink } from "@/components/tribeca/common/AddressLink";
+import { TokenAmountDisplay } from "@/components/tribeca/common/TokenAmountDisplay";
 
 interface Props {
   transfer: Transfer;

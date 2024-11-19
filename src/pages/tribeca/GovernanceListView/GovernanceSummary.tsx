@@ -1,9 +1,8 @@
 import type { GovernorConfig } from "@tribecahq/registry";
 import { Link } from "gatsby";
 import React from "react";
-import clsx from "clsx";
 
-import { useGovernorVoters } from "../voters/AllVotersView/useVotersList";
+import { useGovernorVoters } from "@/hooks/tribeca/useVotersList";
 
 interface Props {
   config: GovernorConfig;

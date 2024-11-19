@@ -13,14 +13,14 @@ import { useGovernor } from "@/hooks/tribeca/useGovernor";
 import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { AsyncConfirmButton } from "@/components/tribeca/common/AsyncConfirmButton";
 import { ProseSmall } from "@/components/tribeca/common/typography/Prose";
-import { EmbedTX } from "../../../proposals/ProposalIndexView/locked-voter/EmbedTX";
+import EmbedTX from "@/pages/tribeca/proposals/ProposalIndexView/locked-voter/EmbedTX";
 
 interface Props {
   tx: ProgramAccount<SmartWalletTransactionData>;
   onActivate?: () => void;
 }
 
-export const ExecuteProposalButton: React.FC<Props> = ({
+const ExecuteProposalButton: React.FC<Props> = ({
   tx,
   onActivate,
 }: Props) => {
@@ -135,3 +135,5 @@ export const ExecuteProposalButton: React.FC<Props> = ({
     </AsyncConfirmButton>
   );
 };
+
+export default ExecuteProposalButton;

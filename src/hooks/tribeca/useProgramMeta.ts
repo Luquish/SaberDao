@@ -1,8 +1,8 @@
 import type { PublicKey } from "@solana/web3.js";
 
-import { displayAddress, programLabel } from "../../utils/tribeca/programs";
-import type { ProgramDetails } from "./deploydao/types";
-import { useProgramMeta } from "./deploydao/useProgramMeta";
+import { displayAddress, programLabel } from "@/utils/tribeca/programs";
+import type { ProgramDetails } from "@/hooks/tribeca/deploydao/types";
+import { useProgramMeta } from "@/hooks/tribeca/deploydao/useProgramMeta";
 
 const makeURL = (programID: string) =>
   `https://raw.githubusercontent.com/DeployDAO/solana-program-index/master/programs/${programID}.json`;

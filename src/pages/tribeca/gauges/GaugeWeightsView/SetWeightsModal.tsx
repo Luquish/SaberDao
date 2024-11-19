@@ -18,15 +18,15 @@ import React from "react";
 
 import { useSDK } from "@/contexts/sdk";
 import { AttributeList } from "@/components/tribeca/common/AttributeList";
-import { useModal } from "@/components/tribeca/common/Modal/context";
+import { useModal } from "@/contexts/tribeca/modal";
 import { ModalInner } from "@/components/tribeca/common/Modal/ModalInner";
 import { TransactionPlanExecutor } from "@/components/tribeca/common/TransactionPlanExecutor";
 import type { TransactionPlan } from "@/components/tribeca/common/TransactionPlanExecutor/plan";
-import { useGaugemeister, useGMData } from "../hooks/useGaugemeister";
-import { useAllGauges } from "../hooks/useGauges";
-import { useUpdateGaugeWeights } from "./useUpdateGaugeWeights";
+import { useGaugemeister, useGMData } from "@/hooks/tribeca/useGaugemeister";
+import { useAllGauges } from "@/hooks/tribeca/useGauges";
+import { useUpdateGaugeWeights } from "@/hooks/tribeca/useUpdateGaugeWeights";
 
-export const SetWeightsModal: React.FC = () => {
+const SetWeightsModal: React.FC = () => {
   const gaugemeister = useGaugemeister();
   const { data: gmData } = useGMData();
   const { sdkMut } = useSDK();
@@ -255,3 +255,5 @@ export const SetWeightsModal: React.FC = () => {
     </ModalInner>
   );
 };
+
+export default SetWeightsModal;

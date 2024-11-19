@@ -2,7 +2,7 @@ import React, { lazy } from "react";
 import { Router, RouteComponentProps } from "@reach/router";
 import { Temp } from "@/components/tribeca/common/temp/index";
 
-import { GMProvider } from "./gauges/context";
+import { GMProvider } from "@/contexts/tribeca/gauges";
 
 const NftGaugesView: React.FC<RouteComponentProps & { label: string }> = React.lazy(() => import("./nft-gauges/Index"));
 const LockerIndexView: React.FC<RouteComponentProps<{ lockerSubpage: string }>> = React.lazy(() => import("./locker/LockerIndexView"));
@@ -37,7 +37,7 @@ const SaberRedeemerTab: React.FC<RouteComponentProps> = React.lazy(() => import(
 const SaberPoolView: React.FC<RouteComponentProps<{ poolID: string }>> = lazy(() => import("./saber-pools/SaberPoolView"));
 const SaberPoolsView: React.FC<RouteComponentProps> = lazy(() => import("./saber-pools/SaberPoolsView"));
 
-const governanceRoutes = (
+const TribecaRoutes = (
   <>
     <Router>
       <SaberPoolsView path="/tribeca/gov/saber-pools" />
@@ -86,4 +86,4 @@ const governanceRoutes = (
   </>
 );
 
-export default governanceRoutes;
+export default TribecaRoutes;

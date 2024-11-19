@@ -9,7 +9,7 @@ interface Props {
   actions?: React.ReactNode;
 }
 
-export const ProgramCard: React.FC<Props> = ({ program, actions }: Props) => {
+const ProgramCard: React.FC<Props> = ({ program, actions }: Props) => {
   const label = useProgramLabel(program.programID);
   return (
     <div className="flex items-center rounded bg-gray-50 border px-3 py-2 text-sm">
@@ -32,3 +32,5 @@ export const ProgramCard: React.FC<Props> = ({ program, actions }: Props) => {
     </div>
   );
 };
+
+export default ProgramCard;

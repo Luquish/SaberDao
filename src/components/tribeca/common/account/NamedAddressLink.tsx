@@ -1,5 +1,5 @@
 import { useCardinalDisplayName } from "@/hooks/tribeca/cardinal/useAddressName";
-import { AddressLink } from "../AddressLink";
+import { AddressLink } from "@/components/tribeca/common/AddressLink";
 import React from "react";
 type Props = React.ComponentProps<typeof AddressLink>;
 
@@ -9,15 +9,15 @@ type Props = React.ComponentProps<typeof AddressLink>;
  * @param param0
  * @returns
  */
-export const NamedAddressLink: React.FC<Props> = ({
+export default function NamedAddressLink({
   address,
   children,
   ...rest
-}: Props) => {
+}: Props) {
   const { name } = useCardinalDisplayName(address);
   return (
     <AddressLink address={address} {...rest}>
       {children ?? name ?? undefined}
     </AddressLink>
   );
-};
+}

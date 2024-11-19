@@ -1,7 +1,7 @@
 import { useExecutiveCouncil } from "@/hooks/tribeca/useExecutiveCouncil";
-import { NamedAddressLink } from "@/components/tribeca/common/account/NamedAddressLink";
+import NamedAddressLink from "@/components/tribeca/common/account/NamedAddressLink";
 import { AttributeList } from "@/components/tribeca/common/AttributeList";
-import { Card } from "@/components/tribeca/common/governance/Card";
+import Card from "@/components/tribeca/common/governance/Card";
 import { HelperCard } from "@/components/tribeca/common/HelperCard";
 import { ExternalLink } from "@/components/tribeca/common/typography/ExternalLink";
 import React from "react";

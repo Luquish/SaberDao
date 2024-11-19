@@ -1,5 +1,5 @@
-import { WalletButton } from "../layout/GovernorLayout/Header/WalletButton";
-import { ReactComponent as SolanaIcon } from "../layout/WalletLayout/SolanaIcon.svg";
+import WalletButton from "@/components/tribeca/layout/GovernorLayout/Header/WalletButton";
+import SolanaIcon from "@/components/tribeca/layout/WalletLayout/SolanaIcon.svg";
 import React from 'react';
 
 interface Props {

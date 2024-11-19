@@ -1,10 +1,10 @@
 import React from "react";
 import { useRewarder } from "@rockooor/react-quarry";
 
-import { TableCardBody } from "@/components/tribeca/common/card/TableCardBody";
-import { GaugeInfo } from "./GaugeInfo";
+import TableCardBody from "@/components/tribeca/common/card/TableCardBody";
+import GaugeInfo from "./GaugeInfo";
 
-export const GaugeSelector: React.FC = () => {
+const GaugeSelector: React.FC = () => {
   const { quarries } = useRewarder();
   return (
     <TableCardBody
@@ -23,3 +23,5 @@ export const GaugeSelector: React.FC = () => {
     </TableCardBody>
   );
 };
+
+export default GaugeSelector;

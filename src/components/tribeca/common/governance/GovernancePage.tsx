@@ -4,9 +4,9 @@ import {
   useGovernor,
   useGovernorInfo,
 } from "@/hooks/tribeca/useGovernor";
-import { GovernanceNotFoundPage } from "@/pages/tribeca/GovernanceNotFoundPage";
-import { LoadingPage } from "../LoadingPage";
-import { GovernancePageInner } from "./GovernancePageInner";
+import GovernanceNotFoundPage from "@/pages/tribeca/GovernanceNotFoundPage";
+import LoadingPage from "@/components/tribeca/common/LoadingPage";
+import GovernancePageInner from "./GovernancePageInner";
 
 interface Props {
   title: React.ReactNode;
@@ -24,7 +24,7 @@ interface Props {
   containerClassName?: string;
 }
 
-export const GovernancePage: React.FC<Props> = ({ ...props }: Props) => {
+export default function GovernancePage({ ...props }: Props) {
   const info = useGovernorInfo();
   const { governorData } = useGovernor();
   if (!info || governorData === null) {
@@ -34,4 +34,4 @@ export const GovernancePage: React.FC<Props> = ({ ...props }: Props) => {
     return <LoadingPage />;
   }
   return <GovernancePageInner {...props} />;
-};
+}

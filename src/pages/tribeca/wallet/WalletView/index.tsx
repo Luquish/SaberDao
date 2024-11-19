@@ -3,26 +3,26 @@ import { navigate } from "@reach/router";
 import { usePubkey } from "@rockooor/sail";
 import type { WindowLocation } from "@reach/router";
 
-import { SmartWalletProvider } from "../../../../hooks/tribeca/useSmartWallet";
-import { WalletLayout } from "../../../../components/tribeca/layout/WalletLayout";
-import { WalletSaberLockupView } from "../apps/SaberLockupView";
-import { VenkoBulkCreateStreamView } from "../apps/venko/VenkoBulkCreateStreamView";
-import { VenkoCreateStreamView } from "../apps/venko/VenkoCreateStreamView";
-import { VenkoIndexView } from "../apps/venko/VenkoIndexView";
-import { ProgramImportView } from "../programs/ProgramImportView";
-import { ProgramUpgradeView } from "../programs/ProgramUpgradeView";
-import { WalletProgramsView } from "../programs/WalletProgramsView";
-import { WalletTreasuryDepositView } from "../treasury/WalletTreasuryDepositView";
-import { WalletTreasurySendView } from "../treasury/WalletTreasurySendView";
-import { WalletTreasuryView } from "../treasury/WalletTreasuryView";
-import { TransactionView } from "../tx/TransactionView";
-import { TransactionIndexView } from "../tx/TransactionView/TransactionIndexView";
-import { TransactionSignView } from "../tx/TransactionView/TransactionSignView";
-import { WalletTXCreateView } from "../txs/WalletTXCreateView";
-import { WalletTXListView } from "../txs/WalletTXListView";
-import { WalletInboxView } from "../WalletInboxView";
-import { WalletSendsView } from "../WalletSendsView";
-import { WalletSettingsView } from "../WalletSettingsView";
+import { SmartWalletProvider } from "@/hooks/tribeca/useSmartWallet";
+import WalletLayout from "@/components/tribeca/layout/WalletLayout";
+import WalletSaberLockupView from "@/pages/tribeca/wallet/apps/SaberLockupView";
+import VenkoBulkCreateStreamView from "@/pages/tribeca/wallet/apps/venko/VenkoBulkCreateStreamView";
+import VenkoCreateStreamView from "@/pages/tribeca/wallet/apps/venko/VenkoCreateStreamView";
+import VenkoIndexView from "@/pages/tribeca/wallet/apps/venko/VenkoIndexView";
+import ProgramImportView from "@/pages/tribeca/wallet/programs/ProgramImportView";
+import ProgramUpgradeView from "@/pages/tribeca/wallet/programs/ProgramUpgradeView";
+import WalletProgramsView from "@/pages/tribeca/wallet/programs/WalletProgramsView";
+import WalletTreasuryDepositView from "@/pages/tribeca/wallet/treasury/WalletTreasuryDepositView";
+import WalletTreasurySendView from "@/pages/tribeca/wallet/treasury/WalletTreasurySendView";
+import WalletTreasuryView from "@/pages/tribeca/wallet/treasury/WalletTreasuryView";
+import TransactionView from "@/pages/tribeca/wallet/tx/TransactionView";
+import TransactionIndexView from "@/pages/tribeca/wallet/tx/TransactionView/TransactionIndexView";
+import TransactionSignView from "@/pages/tribeca/wallet/tx/TransactionView/TransactionSignView";
+import WalletTXCreateView from "@/pages/tribeca/wallet/txs/WalletTXCreateView";
+import WalletTXListView from "@/pages/tribeca/wallet/txs/WalletTXListView";
+import WalletInboxView from "@/pages/tribeca/wallet/WalletInboxView";
+import WalletSendsView from "@/pages/tribeca/wallet/WalletSendsView";
+import WalletSettingsView from "@/pages/tribeca/wallet/WalletSettingsView";
 
 interface WalletViewProps {
     params: {
@@ -31,7 +31,7 @@ interface WalletViewProps {
     location: WindowLocation;
   }
 
-export const WalletView: React.FC<WalletViewProps> = ({ params, location }) => {
+const WalletView: React.FC<WalletViewProps> = ({ params, location }) => {
   const walletKeyStr = params.walletKey;
   const walletKey = usePubkey(walletKeyStr);
 

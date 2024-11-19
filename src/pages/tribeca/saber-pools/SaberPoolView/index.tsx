@@ -22,9 +22,10 @@ import { useWrapTx } from "@/hooks/tribeca/useWrapTx";
 import { AsyncButton } from "@/components/tribeca/common/AsyncButton";
 import { AttributeList } from "@/components/tribeca/common/AttributeList";
 import { EmptyStateConnectWallet } from "@/components/tribeca/common/EmptyState";
-import { Card } from "@/components/tribeca/common/governance/Card";
-import { GovernancePage } from "@/components/tribeca/common/governance/GovernancePage";
-import { RampA } from "./RampA";
+import Card from "@/components/tribeca/common/governance/Card";
+import GovernancePage from "@/components/tribeca/common/governance/GovernancePage";
+import RampA from "./RampA";
+import { getUrlParams } from "@/utils/tribeca/urlParams";
 
 const SWAP_PARSER: ProgramAccountParser<StableSwapState> = {
   programID: SWAP_PROGRAM_ID,
@@ -49,17 +50,10 @@ const SWAP_FEE_AMOUNTS = [
   new Percent(4, 10_000),
 ];
 
-// Función auxiliar para obtener parámetros de la URL
-function getParams(pathname: string) {
-  const paths = pathname.split('/');
-  const poolID = paths[paths.indexOf('saber-pools') + 1] || '';
-  return { poolID };
-}
-
-export const SaberPoolView: React.FC = () => {
+const SaberPoolView: React.FC = () => {
   const { data: swaps } = useSaberSwaps();
   const location = useLocation();
-  const { poolID } = getParams(location.pathname);
+  const poolID = getUrlParams.poolID(location.pathname);
   const { ecWallet } = useExecutiveCouncil();
 
   const swap = swaps?.find((s: { id: string }) => s.id === poolID);

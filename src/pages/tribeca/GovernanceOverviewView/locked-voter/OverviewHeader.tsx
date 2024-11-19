@@ -4,9 +4,9 @@ import { TokenAmount } from "@saberhq/token-utils";
 import React from 'react';
 
 import { useGovernor } from "@/hooks/tribeca/useGovernor";
-import { useVotersList } from "../../voters/AllVotersView/useVotersList";
+import { useVotersList } from "@/hooks/tribeca/useVotersList";
 
-export const OverviewHeader: React.FC = () => {
+const OverviewHeader: React.FC = () => {
   const { govToken, veToken, lockedSupply } = useGovernor();
 
   const { data: votersList } = useVotersList();
@@ -86,3 +86,5 @@ export const OverviewHeader: React.FC = () => {
     </div>
   );
 };
+
+export default OverviewHeader;
