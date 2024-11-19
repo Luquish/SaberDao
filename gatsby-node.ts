@@ -1,5 +1,5 @@
 import path from 'path';
-import webpack from 'webpack';
+import webpack, { runtime } from 'webpack';
 import { GatsbyNode } from 'gatsby';
 
 export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ actions, getConfig }) => {
@@ -54,6 +54,22 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ act
         }
       ],
     },
+    optimization: {
+        runtimeChunk: {
+          name: runtime,
+        },
+        splitChunks: {
+          name: false,
+          cacheGroups: {
+            shared: {
+              name: 'shared',
+              chunks: 'all',
+              minChunks: 2,
+              reuseExistingChunk: true,
+            },
+          },
+        },
+    } 
   });
 };
 

@@ -8,9 +8,9 @@
     "gatsby"
   ],
   "scripts": {
-    "develop": "NODE_OPTIONS='--max-old-space-size=8192' gatsby develop",
+    "develop": "NODE_OPTIONS='--max-old-space-size=16384' gatsby develop",
     "start": "gatsby develop",
-    "build": "NODE_OPTIONS='--max-old-space-size=8192' gatsby build",
+    "build": "NODE_OPTIONS='--max-old-space-size=16384' gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "clean:deps": "rm -rf node_modules",
