@@ -73,96 +73,11 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ act
   });
 };
 
-export const createPages: GatsbyNode['createPages'] = async ({ actions }) => {
-  const { createPage } = actions
+export const onCreatePage: GatsbyNode["onCreatePage"] = ({ page, actions }) => {
+    const { createPage } = actions
 
-  createPage({
-    path: "/wallets/:walletKey/*",
-    component: path.resolve("./src/pages/tribeca/wallet/WalletView/index.tsx"),
-    context: {},
-  })
-
-  createPage({
-    path: "/tribeca/gov/:governor/*",
-    component: path.resolve("./src/pages/tribeca/GovernanceManageView/index.tsx"),
-    context: {},
-  })
-
-  createPage({
-    path: "/tribeca/gov/:governor/proposals/:proposalIndex",
-    component: path.resolve("./src/pages/tribeca/proposals/ProposalIndexView/nft-voter/index.tsx"),
-    context: {},
-  })
-
-  createPage({
-    path: "/tribeca/gov/:governor/gauges/:stakedMint",
-    component: path.resolve("./src/pages/tribeca/gauges/GaugeIndexView/index.tsx"),
-    context: {},
-  })
-
-  createPage({
-    path: "/tribeca/gov/:governor/saves/:saveMint",
-    component: path.resolve("./src/pages/tribeca/save/SAVEIndexView/index.tsx"),
-    context: {},
-  })
-
-  createPage({
-    path: "/tribeca/gov/saber-pools",
-    component: path.resolve("./src/pages/tribeca/saber-pools/SaberPoolsView/index.tsx"),
-    context: {},
-  })
-
-  createPage({
-    path: "/tribeca/gov/saber-pools/:poolID/fees",
-    component: path.resolve("./src/pages/tribeca/saber-pools/SaberPoolView/index.tsx"),
-    context: {},
-  })
-
-  createPage({
-    path: "/tribeca/gov/address/:voter/snapshots",
-    component: path.resolve("./src/pages/tribeca/voters/VoterSnapshotsView/index.tsx"),
-    context: {},
-  })
-
-  createPage({
-    path: "/tribeca/gov/address/:voter",
-    component: path.resolve("./src/pages/tribeca/voters/VoterIndexView/index.tsx"),
-    context: {},
-  })
-
-  createPage({
-    path: "/tribeca/gov/leaderboard",
-    component: path.resolve("./src/pages/tribeca/voters/AllVotersView/index.tsx"),
-    context: {},
-  })
-
-  createPage({
-    path: "/tribeca/gov/nftgauges/validator",
-    component: path.resolve("./src/pages/tribeca/nft-gauges/Index.tsx"),
-    context: { label: "Validator" },
-  })
-
-  createPage({
-    path: "/tribeca/gov/nftgauges/liquidity",
-    component: path.resolve("./src/pages/tribeca/nft-gauges/Index.tsx"),
-    context: { label: "Liquidity" },
-  })
-
-  createPage({
-    path: "/tribeca/gov/locker/:lockerSubpage",
-    component: path.resolve("./src/pages/tribeca/locker/LockerIndexView/index.tsx"),
-    context: {},
-  })
-
-  createPage({
-    path: "/tribeca/gov/details",
-    component: path.resolve("./src/pages/tribeca/GovernanceDetailsView/index.tsx"),
-    context: {},
-  })
-
-  createPage({
-    path: "/tribeca/gov/setup",
-    component: path.resolve("./src/pages/tribeca/GovernanceSetupView/index.tsx"),
-    context: {},
-  })
-} 
+    if (page.path.match(/^\/app/) || page.path.match(/^\/dashboard/)) {
+        page.matchPath = `${page.path}/*`
+        createPage(page)
+    }
+}

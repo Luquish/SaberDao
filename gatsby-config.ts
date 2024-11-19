@@ -19,7 +19,6 @@ const config: GatsbyConfig = {
             },
         },
         'gatsby-plugin-emotion',
-        'gatsby-plugin-react-helmet',
         {
             resolve: 'gatsby-plugin-typescript',
             options: {
@@ -53,6 +52,7 @@ const config: GatsbyConfig = {
             resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
             options: {
                 devMode: false,
+                analyzerMode: 'static',
             },
         },
     ],
