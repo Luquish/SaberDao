@@ -1,4 +1,4 @@
-import type { ProposalInfo } from "../../../../../../hooks/tribeca/useProposals";
+import type { ProposalInfo } from "@/src/hooks/governance/useProposals";
 import { ProposalStateDate } from "./ProposalStateDate";
 import { ProposalStateLabel } from "./ProposalStateLabel";
 

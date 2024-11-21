@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { SBR_REWARDER } from '@saberhq/saber-periphery';
-import { getRewarder } from '../helpers/rewarder';
+import { getRewarder } from '@/src/helpers/rewarder';
 
 const lsts = [
     'mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So',

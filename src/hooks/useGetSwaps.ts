@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchNullableWithSessionCache } from '../helpers/fetch';
-import { DetailedSwapSummary } from '../types';
+import { fetchNullableWithSessionCache } from '@/src/helpers/fetch';
+import { DetailedSwapSummary } from '@/src/types';
 
 export default function useGetSwaps(formattedNetwork: string) {
     return useQuery({

@@ -1,11 +1,11 @@
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { Token, TokenAmount, TokenInfo } from '@saberhq/token-utils';
 import invariant from 'tiny-invariant';
-import { createVersionedTransaction, executeMultipleTxs } from '../../helpers/transaction';
-import useUserGetLPTokenBalance from './useGetLPTokenBalance';
+import { createVersionedTransaction, executeMultipleTxs } from '@/src/helpers/transaction';
+import useUserGetLPTokenBalance from '@/src/hooks/user/useGetLPTokenBalance';
 import BigNumber from 'bignumber.js';
-import useQuarryMiner from './useQuarryMiner';
-import useProvider from '../useProvider';
+import useQuarryMiner from '@/src/hooks/user/useQuarryMiner';
+import useProvider from '@/src/hooks/useProvider';
 import { PublicKey, Signer, TransactionInstruction } from '@solana/web3.js';
 import { SBR_REWARDER } from '@saberhq/saber-periphery';
 import { findMergeMinerAddress } from '@quarryprotocol/quarry-sdk';

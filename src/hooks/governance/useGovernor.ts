@@ -8,8 +8,8 @@ import { useParams } from "react-router-dom";
 import { createContainer } from "unstated-next";
 
 import { useSDK } from "../../contexts/sdk";
-import { formatDurationSeconds } from "../../utils/format";
-import { useGovernorData, useLockerData } from "../../utils/parsers";
+import { formatDurationSeconds } from "@/src/utils/format";
+import { useGovernorData, useLockerData } from "@/src/utils/parsers";
 import { useGovernanceManifest } from "../api/useGovernanceManifest";
 import { useTribecaRegistry } from "../api/useTribecaRegistry";
 import { useWindowTitle } from "../useWindowTitle";

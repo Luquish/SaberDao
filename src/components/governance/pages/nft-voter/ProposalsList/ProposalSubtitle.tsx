@@ -1,7 +1,7 @@
 import { BN } from "bn.js";
 
-import type { ProposalInfo } from "../../../../../../hooks/tribeca/useProposals";
-import { makeDate } from "../../../proposals/ProposalIndexView/nft-voter/ProposalHistory";
+import type { ProposalInfo } from "@/src/hooks/tribeca/useProposals";
+import { makeDate } from "@/src/proposals/ProposalIndexView/nft-voter/ProposalHistory";
 import { ProposalStateDate } from "./ProposalStateDate";
 import { ProposalStateLabel } from "./ProposalStateLabel";
 

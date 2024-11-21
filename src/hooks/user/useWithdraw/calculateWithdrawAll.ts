@@ -3,7 +3,7 @@ import { calculateEstimatedWithdrawAmount } from '@saberhq/stableswap-sdk';
 import type { TokenAmount } from '@saberhq/token-utils';
 import { Percent } from '@saberhq/token-utils';
 
-import type { WithdrawCalculationResult } from '.';
+import type { WithdrawCalculationResult } from '@/src/hooks/user/useWithdraw';
 
 export const calculateWithdrawAll = ({
     poolTokenAmount,

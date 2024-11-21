@@ -1,5 +1,5 @@
-import { useGovernor } from "../../../../../hooks/tribeca/useGovernor";
-import { Card } from "../../../../common/governance/Card";
+import { useGovernor } from "@/src/hooks/governance/useGovernor";
+import { Card } from "@/src/components/governance/Card";
 import { ProposalsList } from "./ProposalsList";
 
 export const RecentProposals: React.FC = () => {

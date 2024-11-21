@@ -4,8 +4,8 @@ import type { Fraction, Token } from '@saberhq/token-utils';
 import { Percent, TokenAmount, ZERO } from '@saberhq/token-utils';
 import JSBI from 'jsbi';
 
-import type { WithdrawCalculationResult } from '.';
-import { WrappedToken } from '../../../types/wrappedToken';
+import type { WithdrawCalculationResult } from '@/src/hooks/user/useWithdraw';
+import { WrappedToken } from '@/src/types/wrappedToken';
 
 /**
  * Calculates withdrawOne parameters

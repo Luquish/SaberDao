@@ -1,8 +1,9 @@
+import React from "react";
 import {
   useGovernor,
   useGovernorInfo,
-} from "../../../hooks/tribeca/useGovernor";
-import { GovernanceNotFoundPage } from "../../pages/governance/GovernanceNotFoundPage";
+} from "@/src/hooks/governance/useGovernor";
+import { GovernanceNotFoundPage } from "@/src/pages/governance/GovernanceNotFoundPage";
 import { LoadingPage } from "../LoadingPage";
 import { GovernancePageInner } from "./GovernancePageInner";
 

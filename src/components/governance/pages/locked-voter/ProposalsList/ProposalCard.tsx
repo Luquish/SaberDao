@@ -2,9 +2,9 @@ import { ProposalState } from "@tribecahq/tribeca-sdk";
 import { Link } from "react-router-dom";
 import tw, { styled } from "twin.macro";
 
-import { useGovernor } from "../../../../../../hooks/tribeca/useGovernor";
-import type { ProposalInfo } from "../../../../../../hooks/tribeca/useProposals";
-import { PROPOSAL_TITLE_MAX_LEN } from "../../../../../../utils/constants";
+import { useGovernor } from "@/src/hooks/governance/useGovernor";
+import type { ProposalInfo } from "@/src/hooks/tribeca/useProposals";
+import { PROPOSAL_TITLE_MAX_LEN } from "@/src/utils/constants";
 import { ActiveProposalVotingBars } from "./ActiveProposalVotingBars";
 import { ProposalStateBadge } from "./ProposalStateBadge";
 import { ProposalStateDate } from "./ProposalStateDate";

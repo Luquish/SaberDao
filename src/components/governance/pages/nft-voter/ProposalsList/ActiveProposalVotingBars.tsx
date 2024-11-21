@@ -1,11 +1,11 @@
 import { BN } from "bn.js";
 import { theme } from "twin.macro";
 
-import { useGovernor } from "../../../../../../hooks/tribeca/useGovernor";
-import type { ProposalInfo } from "../../../../../../hooks/tribeca/useProposals";
-import { formatNumberSI } from "../../../../../../utils/format";
-import { LoadingSpinner } from "../../../../../common/LoadingSpinner";
-import { Meter } from "../../../../../common/Meter";
+import { useGovernor } from "@/src/hooks/governance/useGovernor";
+import type { ProposalInfo } from "@/src/hooks/tribeca/useProposals";
+import { formatNumberSI } from "@/src/utils/format";
+import { LoadingSpinner } from "@/src/common/LoadingSpinner";
+import { Meter } from "@/src/common/Meter";
 
 interface Props {
   proposal: ProposalInfo;

@@ -1,7 +1,7 @@
 // src/hooks/useGetStats.ts
 
 import { useQuery } from '@tanstack/react-query';
-import { fetchNullableWithSessionCache } from '../helpers/fetch';
+import { fetchNullableWithSessionCache } from '@/src/helpers/fetch';
 
 export default function useGetStats() {
     return useQuery({

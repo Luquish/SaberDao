@@ -3,10 +3,10 @@
 import { PythHttpClient, getPythProgramKeyForCluster } from '@pythnetwork/client';
 import { useConnection } from '@solana/wallet-adapter-react';
 import { useQuery } from '@tanstack/react-query';
-import useNetwork from '../hooks/useNetwork';
-import { OraclePrice } from '../types';
+import useNetwork from '@/src/hooks/useNetwork';
+import { OraclePrice } from '@/src/types';
 import { chunk } from 'lodash';
-import useGetPools from './useGetPools';
+import useGetPools from '@/src/hooks/useGetPools';
 import { SBR_MINT } from '@saberhq/saber-periphery';
 
 export default function useGetPrices() {

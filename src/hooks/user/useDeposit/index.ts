@@ -20,15 +20,15 @@ import type { PublicKey } from '@solana/web3.js';
 import { Keypair } from '@solana/web3.js';
 import { useCallback, useMemo } from 'react';
 import invariant from 'tiny-invariant';
-import { PoolData } from '../../../types';
-import { useStableSwapTokens } from '../../useStableSwapTokens';
-import useSettings from '../../useSettings';
-import { calculateDepositSlippage } from './calculateDepositSlippage';
-import { createEphemeralWrappedSolAccount } from '../../../utils/wrappedSol';
-import useProvider from '../../useProvider';
+import { PoolData } from '@/src/types';
+import { useStableSwapTokens } from '@/src/hooks/useStableSwapTokens';
+import useSettings from '@/src/hooks/useSettings';
+import { calculateDepositSlippage } from '@/src/hooks/user/useDeposit/calculateDepositSlippage';
+import { createEphemeralWrappedSolAccount } from '@/src/utils/wrappedSol';
+import useProvider from '@/src/hooks/useProvider';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-import { createVersionedTransaction, executeMultipleTxs } from '../../../helpers/transaction';
-import useUserATA from '../useUserATA';
+import { createVersionedTransaction, executeMultipleTxs } from '@/src/helpers/transaction';
+import useUserATA from '@/src/hooks/user/useUserATA';
 
 interface IDeposit {
   tokenAmounts: readonly TokenAmount[];

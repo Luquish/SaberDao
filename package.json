@@ -9,12 +9,13 @@
   ],
   "scripts": {
     "develop": "gatsby develop",
-    "start": "gatsby develop",
+    "start": "NODE_OPTIONS='--no-warnings --trace-warnings' gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
-    "postinstall": "node postinstall.js"
+    "postinstall": "node postinstall.js",
+    "fix-imports": "node scripts/fix-imports.js"
   },
   "dependencies": {
     "@project-serum/anchor": "^0.26.0",
@@ -38,6 +39,7 @@
     "@tanstack/react-query": "^5.22.2",
     "@tanstack/react-query-devtools": "^5.56.2",
     "@tanstack/react-query-persist-client": "^5.22.2",
+    "@tribecahq/tribeca-sdk": "^0.5.8",
     "@ubeswap/token-math": "^5.2.1",
     "@yornaath/batshit": "^0.10.1",
     "assert": "^2.1.0",

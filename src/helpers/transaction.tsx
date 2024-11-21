@@ -2,7 +2,7 @@ import React from 'react';
 import { Wallet } from '@solana/wallet-adapter-react';
 import invariant from 'tiny-invariant';
 import { ComputeBudgetProgram, Connection, LAMPORTS_PER_SOL, PublicKey, Signer, TransactionInstruction, TransactionMessage, VersionedTransaction } from '@solana/web3.js';
-import TX from '../components/TX';
+import TX from '@/src/components/TX';
 import { toast } from 'sonner';
 
 const getCUsForTx = async (

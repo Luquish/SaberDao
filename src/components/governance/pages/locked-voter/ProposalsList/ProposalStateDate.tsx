@@ -6,7 +6,7 @@ import Countdown from "react-countdown";
 import type {
   ProposalInfo,
   ProposalStatus,
-} from "../../../../../../hooks/tribeca/useProposals";
+} from "@/src/hooks/tribeca/useProposals";
 
 interface Props {
   proposalInfo: ProposalInfo;

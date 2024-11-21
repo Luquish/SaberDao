@@ -1,10 +1,10 @@
 // src/components/Table.tsx
 
 import React from 'react';
-import Block from './Block';
+import Block from '@/src/components/Block';
 import clsx from 'clsx';
 import { Link } from 'gatsby';
-import { ConditionalWrapper } from './ConditionalWrapper';
+import { ConditionalWrapper } from '@/src/components/ConditionalWrapper';
 
 export default function Table(props: {
     data: { data: any[]; rowLink: string }[];

@@ -3,7 +3,7 @@ import { mapN } from "@saberhq/solana-contrib";
 import { TokenAmount } from "@saberhq/token-utils";
 import tw, { styled } from "twin.macro";
 
-import { useGovernor } from "../../../../../hooks/tribeca/useGovernor";
+import { useGovernor } from "@/src/hooks/governance/useGovernor";
 import { useVotersList } from "../../voters/AllVotersView/useVotersList";
 
 export const OverviewHeader: React.FC = () => {
@@ -23,10 +23,10 @@ export const OverviewHeader: React.FC = () => {
   );
   const lockedSupplyFmt = lockedSupply
     ? lockedSupply.format({
-        numberFormatOptions: {
-          maximumFractionDigits: 0,
-        },
-      })
+      numberFormatOptions: {
+        maximumFractionDigits: 0,
+      },
+    })
     : lockedSupply;
 
   const totalVeTokens = useTokenAmount(veToken, votersList?.totalVotes ?? "0");

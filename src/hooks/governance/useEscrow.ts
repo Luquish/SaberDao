@@ -7,8 +7,8 @@ import { useEffect } from "react";
 import invariant from "tiny-invariant";
 
 import { useSDK } from "../../contexts/sdk";
-import { useEscrowData, useLockerData } from "../../utils/parsers";
-import { useEnvironment } from "../../utils/useEnvironment";
+import { useEscrowData, useLockerData } from "@/src/utils/parsers";
+import { useEnvironment } from "@/src/utils/useEnvironment";
 import { useGovernor } from "./useGovernor";
 
 export const useLocker = () => {
@@ -72,9 +72,9 @@ export const useEscrow = (owner?: PublicKey) => {
   const veBalance =
     veToken && result.data
       ? new TokenAmount(
-          veToken,
-          result.data.calculateVotingPower(new Date().getTime() / 1_000)
-        )
+        veToken,
+        result.data.calculateVotingPower(new Date().getTime() / 1_000)
+      )
       : null;
 
   const govTokensLocked =

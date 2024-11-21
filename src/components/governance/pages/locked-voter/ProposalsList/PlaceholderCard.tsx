@@ -1,7 +1,7 @@
 import { ProposalState } from "@tribecahq/tribeca-sdk";
 import React from "react";
 
-import { ContentLoader } from "../../../../../common/ContentLoader";
+import { ContentLoader } from "@/src/common/ContentLoader";
 import { ProposalStateLabel } from "./ProposalStateLabel";
 
 export const PlaceholderCard: React.FC = () => {

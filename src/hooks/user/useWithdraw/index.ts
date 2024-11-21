@@ -5,22 +5,22 @@ import { PublicKey, TransactionInstruction, VersionedTransaction, type Signer } 
 import { useMemo } from 'react';
 import invariant from 'tiny-invariant';
 
-import { calculateWithdrawAll } from './calculateWithdrawAll';
-import { calculateWithdrawOne } from './calculateWithdrawOne';
-import { WrappedToken } from '../../../types/wrappedToken';
-import { PoolData } from '../../../types';
+import { calculateWithdrawAll } from '@/src/hooks/user/useWithdraw/calculateWithdrawAll';
+import { calculateWithdrawOne } from '@/src/hooks/user/useWithdraw/calculateWithdrawOne';
+import { WrappedToken } from '@/src/types/wrappedToken';
+import { PoolData } from '@/src/types';
 import { Wallet, useConnection, useWallet } from '@solana/wallet-adapter-react';
-import useProvider from '../../useProvider';
-import useSettings from '../../useSettings';
+import useProvider from '@/src/hooks/useProvider';
+import useSettings from '@/src/hooks/useSettings';
 import { StableSwap } from '@saberhq/stableswap-sdk';
-import useUserGetLPTokenBalance from '../useGetLPTokenBalance';
-import { createVersionedTransaction, executeMultipleTxs } from '../../../helpers/transaction';
+import useUserGetLPTokenBalance from '@/src/hooks/user/useGetLPTokenBalance';
+import { createVersionedTransaction, executeMultipleTxs } from '@/src/helpers/transaction';
 import BigNumber from 'bignumber.js';
-import useQuarryMiner from '../useQuarryMiner';
-import { getClaimIxs } from '../../../helpers/claim';
+import useQuarryMiner from '@/src/hooks/user/useQuarryMiner';
+import { getClaimIxs } from '@/src/helpers/claim';
 import { findMergePoolAddress, getReplicaRewards } from '@/src/helpers/replicaRewards';
 import { findMergeMinerAddress } from '@quarryprotocol/quarry-sdk';
-import useQuarry from '../../useQuarry';
+import useQuarry from '@/src/hooks/useQuarry';
 import BN from 'bn.js';
 import { SolanaProvider, TransactionEnvelope } from '@saberhq/solana-contrib';
 

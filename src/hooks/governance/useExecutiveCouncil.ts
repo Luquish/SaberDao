@@ -8,7 +8,7 @@ import { useSDK } from "../../contexts/sdk";
 import {
   useBatchedSubaccountInfos,
   useGokiSmartWalletData,
-} from "../../utils/parsers";
+} from "@/src/utils/parsers";
 import { useOwnerInvokerAddress } from "../useSmartWalletAddress";
 import { useWrapTx } from "../useWrapTx";
 import { useGovernor } from "./useGovernor";

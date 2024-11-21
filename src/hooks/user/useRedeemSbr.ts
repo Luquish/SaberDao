@@ -1,10 +1,10 @@
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-import { executeMultipleTxs } from '../../helpers/transaction';
+import { executeMultipleTxs } from '@/src/helpers/transaction';
 import {  PublicKey, TransactionInstruction } from '@solana/web3.js';
 import { TOKEN_PROGRAM_ID } from '@solana/spl-token';
-import useUserATA from './useUserATA';
+import useUserATA from '@/src/hooks/user/useUserATA';
 import { getOrCreateATAs, Token } from '@saberhq/token-utils';
-import useProvider from '../useProvider';
+import useProvider from '@/src/hooks/useProvider';
 import { SABER_IOU_MINT, SBR_MINT } from '@saberhq/saber-periphery';
 
 export default function useRedeemSbr() {

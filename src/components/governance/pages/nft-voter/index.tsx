@@ -1,11 +1,12 @@
 import {
   useGovernor,
   useGovWindowTitle,
-} from "src/hooks/governance/useGovernor";;
-import { GovernancePage } from "src/pages/governance/GovernancePage";
+} from "@/src/hooks/governance/useGovernor";
+import { GovernancePage } from '@/src/components/governance/pages/GovernancePage';
+import { MarinadeMigration } from '@/src/components/governance/pages/MarinadeMigration';
 import React from "react";
-import { MarinadeMigration } from "src/pages/governance/MarinadeMigration";
 import { RecentProposals } from "./RecentProposals";
+;
 
 export const GovernanceOverviewView: React.FC = () => {
   useGovWindowTitle(`Overview`);

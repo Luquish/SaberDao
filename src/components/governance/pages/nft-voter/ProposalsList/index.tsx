@@ -1,10 +1,10 @@
+import React, { useState } from "react";
 import { ProposalState } from "@tribecahq/tribeca-sdk";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "gatsby";
 
-import { useGovernor } from "../../../../../../hooks/tribeca/useGovernor";
-import { useProposals } from "../../../../../../hooks/tribeca/useProposals";
-import { EmptyState } from "../../../../../common/EmptyState";
+import { useGovernor } from "@/src/hooks/governance/useGovernor";
+import { useProposals } from "@/src/hooks/governance/useProposals";
+import { EmptyState } from "@/src/components/governance/EmptyState";
 import { PageNav } from "./PageNav";
 import { PlaceholderCard } from "./PlaceholderCard";
 import { ProposalCard } from "./ProposalCard";
@@ -34,7 +34,7 @@ export const ProposalsList: React.FC<Props> = ({
       return showDrafts
         ? true
         : proposalState !== ProposalState.Draft &&
-            proposalState !== ProposalState.Canceled;
+        proposalState !== ProposalState.Canceled;
     })
     .slice(0, maxCount);
 
@@ -57,7 +57,7 @@ export const ProposalsList: React.FC<Props> = ({
       <div>
         <EmptyState title="There aren't any proposals yet.">
           <Link
-            tw="text-primary hover:text-white transition-colors"
+            className="text-primary hover:text-white transition-colors"
             to={`${path}/proposals/create`}
           >
             Create a proposal

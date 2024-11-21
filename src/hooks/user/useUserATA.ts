@@ -3,7 +3,7 @@ import { RAW_SOL_MINT, Token, TokenAmount, WRAPPED_SOL, getATAAddressesSync } fr
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { Connection, ParsedAccountData, PublicKey } from '@solana/web3.js';
 import { useQuery } from '@tanstack/react-query';
-import useNetwork from '../useNetwork';
+import useNetwork from '@/src/hooks/useNetwork';
 import { memoize } from 'lodash';
 import { create, windowScheduler } from '@yornaath/batshit';
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';

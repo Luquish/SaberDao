@@ -9,6 +9,16 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
     actions.replaceWebpackConfig(config);
 
     actions.setWebpackConfig({
+        stats: {
+            errors: true,
+            errorDetails: false,
+            errorStack: false,
+            moduleTrace: false,
+            logging: false,
+            chunks: false,
+            modules: false,
+            assets: false
+        },
         plugins: [
             new webpack.ProvidePlugin({
                 Buffer: ['buffer', 'Buffer'],
@@ -31,3 +41,4 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
         },
     });
 };
+

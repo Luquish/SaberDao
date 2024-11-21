@@ -1,13 +1,16 @@
+import React from "react";
 import {
   useGovernor,
   useGovWindowTitle,
-} from "../../../../../hooks/tribeca/useGovernor";
-import { Card } from "../../../../common/governance/Card";
-import { GovernancePage } from "../../../../common/governance/GovernancePage";
-import { ImageWithFallback } from "../../../../common/ImageWithFallback";
-import { ProgramsList } from "../../ProgramsView/ProgramsList";
+} from "@/src/hooks/governance/useGovernor";
+import { Card } from "@/src/components/governance/Card";
+import { GovernancePage } from "@/src/components/governance/pages/GovernancePage";
+import { ImageWithFallback } from "@/src//components/ImageWithFallback";
+{/*import { ProgramsList } from "../../ProgramsView/ProgramsList";*/ }
 import { OverviewHeader } from "./OverviewHeader";
 import { RecentProposals } from "./RecentProposals";
+
+
 
 export const GovernanceOverviewView: React.FC = () => {
   useGovWindowTitle(`Overview`);
@@ -38,7 +41,10 @@ export const GovernanceOverviewView: React.FC = () => {
           href: `${path}/programs`,
         }}
       >
+        {/* TODO: Add ProgramsList */}
+        {/*
         <ProgramsList maxCount={3} />
+        */}
       </Card>
     </GovernancePage>
   );
