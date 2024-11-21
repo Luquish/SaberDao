@@ -1,12 +1,13 @@
+import React from "react";
 import { ProposalState } from "@tribecahq/tribeca-sdk";
 import { BN } from "bn.js";
 import { Link } from "react-router-dom";
 import tw, { styled } from "twin.macro";
 
 import { useGovernor } from "@/src/hooks/governance/useGovernor";
-import type { ProposalInfo } from "@/src/hooks/tribeca/useProposals";
-import { PROPOSAL_TITLE_MAX_LEN } from "@/src/utils/constants";
-import { makeDate } from "@/src/proposals/ProposalIndexView/nft-voter/ProposalHistory";
+import type { ProposalInfo } from "@/src/hooks/governance/useProposals";
+import { PROPOSAL_TITLE_MAX_LEN } from "@/src/utils/governance/constants";
+import { makeDate } from "@/src/components/governance/pages/nft-voter/ProposalHistory";
 import { ActiveProposalVotingBars } from "./ActiveProposalVotingBars";
 import { ProposalStateBadge } from "./ProposalStateBadge";
 import { ProposalStateDate } from "./ProposalStateDate";
@@ -34,15 +35,15 @@ export const ProposalCard: React.FC<Props> = ({ proposalInfo }: Props) => {
   return (
     <Link
       to={`${path}/proposals/${proposalInfo.index}`}
-      tw="flex items-center justify-between py-5 px-6 border-l-2 border-l-transparent border-b border-b-warmGray-800 cursor-pointer hover:border-l-primary"
+      tw="flex items-center justify-between py-5 px-6 border-l-2 border-l-transparent border-b border-b-gray-800 cursor-pointer hover:border-l-2"
     >
       <div tw="flex items-center gap-5 w-3/4 md:w-[500px]">
         {state === ProposalState.Active && (
-          <PulsingDot tw="w-11 h-11 text-accent" />
+          <PulsingDot tw="w-11 h-11 text-center" />
         )}
         <div>
           <div tw="flex items-center">
-            <div tw="text-white leading-snug break-words hyphens[auto]">
+            <div tw="text-white leading-snug break-words [hyphens:auto]">
               {proposalInfo.proposalMetaData?.title.slice(
                 0,
                 PROPOSAL_TITLE_MAX_LEN

@@ -22,7 +22,7 @@ import {
   useParsedTXByKey,
   useParsedTXByKeys,
 } from "@/src/utils/parsers";
-import { useEnvironment } from "@/src/utils/useEnvironment";
+import { useEnvironment } from "@/src/hooks/governance/useEnvironment";
 import { useGovernor } from "./useGovernor";
 
 export class ProposalStatus {
@@ -123,8 +123,8 @@ export const useProposal = (index: number) => {
   const info = isLoading ? null : proposalInfoQuery.data ?? null;
   const state = proposalData
     ? getProposalState({
-        proposalData: proposalData.accountInfo.data,
-      })
+      proposalData: proposalData.accountInfo.data,
+    })
     : null;
 
   useEffect(() => {
@@ -171,23 +171,23 @@ export const useProposals = () => {
   const proposalsKeys = useQueries({
     queries: proposalCount
       ? Array(proposalCount)
-          .fill(null)
-          .map((_, i) => proposalCount - i - 1)
-          .map((i) => ({
-            queryKey: ["proposalKeys", network, governor.toString(), i],
-            queryFn: async () => {
-              invariant(governorData);
-              const [proposalKey] = await findProposalAddress(
-                governorData.publicKey,
-                new u64(i)
-              );
-              const [proposalMetaKey] = await findProposalMetaAddress(
-                proposalKey
-              );
-              return { proposalKey, proposalMetaKey };
-            },
-            enabled: !!governorData,
-          }))
+        .fill(null)
+        .map((_, i) => proposalCount - i - 1)
+        .map((i) => ({
+          queryKey: ["proposalKeys", network, governor.toString(), i],
+          queryFn: async () => {
+            invariant(governorData);
+            const [proposalKey] = await findProposalAddress(
+              governorData.publicKey,
+              new u64(i)
+            );
+            const [proposalMetaKey] = await findProposalMetaAddress(
+              proposalKey
+            );
+            return { proposalKey, proposalMetaKey };
+          },
+          enabled: !!governorData,
+        }))
       : [],
   });
 
@@ -226,38 +226,38 @@ export const useProposals = () => {
   return useQueries({
     queries: proposalCount
       ? Array(proposalCount)
-          .fill(null)
-          .map((_, i) => proposalCount - i - 1)
-          .map((i) => ({
-            queryKey: ["proposalInfo", network, governor.toString(), i],
-            queryFn: (): ProposalInfo | null => {
-              const proposalData = proposalsData.find(
-                (p) => p?.accountInfo.data.index.toNumber() === i
-              );
-              if (!proposalData) {
-                return null;
-              }
-              const proposalMetaData = proposalsMetaData.find((p) =>
-                p?.accountInfo.data.proposal.equals(proposalData.accountId)
-              );
-              const transactionData = transactionsData.find((t) =>
-                t
-                  ? proposalData.accountInfo.data.queuedTransaction.equals(
-                      t.accountId
-                    )
-                  : false
-              );
-              return buildProposalInfo({
-                index: proposalData.accountInfo.data.index.toNumber(),
-                proposalData,
-                proposalMetaData: proposalMetaData
-                  ? proposalMetaData.accountInfo.data
-                  : null,
-                executedAt: transactionData?.accountInfo.data.executedAt,
-              });
-            },
-            enabled: !isLoading,
-          }))
+        .fill(null)
+        .map((_, i) => proposalCount - i - 1)
+        .map((i) => ({
+          queryKey: ["proposalInfo", network, governor.toString(), i],
+          queryFn: (): ProposalInfo | null => {
+            const proposalData = proposalsData.find(
+              (p) => p?.accountInfo.data.index.toNumber() === i
+            );
+            if (!proposalData) {
+              return null;
+            }
+            const proposalMetaData = proposalsMetaData.find((p) =>
+              p?.accountInfo.data.proposal.equals(proposalData.accountId)
+            );
+            const transactionData = transactionsData.find((t) =>
+              t
+                ? proposalData.accountInfo.data.queuedTransaction.equals(
+                  t.accountId
+                )
+                : false
+            );
+            return buildProposalInfo({
+              index: proposalData.accountInfo.data.index.toNumber(),
+              proposalData,
+              proposalMetaData: proposalMetaData
+                ? proposalMetaData.accountInfo.data
+                : null,
+              executedAt: transactionData?.accountInfo.data.executedAt,
+            });
+          },
+          enabled: !isLoading,
+        }))
       : [],
   });
 };

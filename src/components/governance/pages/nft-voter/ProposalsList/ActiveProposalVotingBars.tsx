@@ -1,11 +1,12 @@
+import React from "react";
 import { BN } from "bn.js";
 import { theme } from "twin.macro";
 
 import { useGovernor } from "@/src/hooks/governance/useGovernor";
-import type { ProposalInfo } from "@/src/hooks/tribeca/useProposals";
-import { formatNumberSI } from "@/src/utils/format";
-import { LoadingSpinner } from "@/src/common/LoadingSpinner";
-import { Meter } from "@/src/common/Meter";
+import type { ProposalInfo } from "@/src/hooks/governance/useProposals";
+import { formatNumberSI } from "@/src/utils/governance/format";
+import { LoadingSpinner } from "@/src/components/governance/LoadingSpinner";
+import { Meter } from "@/src/components/governance/Meter";
 
 interface Props {
   proposal: ProposalInfo;
@@ -31,9 +32,9 @@ export const ActiveProposalVotingBars: React.FC<Props> = ({
         <Meter
           value={forVotes}
           max={maxVotes}
-          barColor={theme`colors.primary`}
+          barColor={theme`colors.green.500`}
         />
-        <div tw="flex-basis[44px]">{formatNumberSI(forVotes)}</div>
+        <div>{formatNumberSI(forVotes)}</div>
       </div>
       <div tw="w-full flex items-center gap-3 text-xs text-white font-medium h-6">
         <Meter
@@ -41,7 +42,7 @@ export const ActiveProposalVotingBars: React.FC<Props> = ({
           max={maxVotes}
           barColor={theme`colors.red.500`}
         />
-        <div tw="flex-basis[44px]">{formatNumberSI(againstVotes)}</div>
+        <div>{formatNumberSI(againstVotes)}</div>
       </div>
     </div>
   );

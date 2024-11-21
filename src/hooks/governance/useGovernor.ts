@@ -2,17 +2,21 @@ import { useAccountData, usePubkey, useToken } from "@rockooor/sail";
 import { Token, TokenAmount } from "@saberhq/token-utils";
 import type { PublicKey } from "@solana/web3.js";
 import type { GovernorConfig } from "@tribecahq/registry";
-import { GovernorWrapper } from "@tribecahq/tribeca-sdk";
+
 import { useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { createContainer } from "unstated-next";
 
+
+{/*
 import { useSDK } from "../../contexts/sdk";
-import { formatDurationSeconds } from "@/src/utils/format";
 import { useGovernorData, useLockerData } from "@/src/utils/parsers";
-import { useGovernanceManifest } from "../api/useGovernanceManifest";
-import { useTribecaRegistry } from "../api/useTribecaRegistry";
-import { useWindowTitle } from "../useWindowTitle";
+import { GovernorWrapper } from "@tribecahq/tribeca-sdk";
+import { formatDurationSeconds } from "@/src/utils/format";
+*/}
+import { useGovernanceManifest } from "@/src/hooks/governance/api/useGovernanceManifest";
+import { useTribecaRegistry } from "@/src/hooks/governance/api/useTribecaRegistry";
+import { useWindowTitle } from "@/src/hooks/governance/useWindowTitle";
 
 export interface GaugeSettings {
   gaugemeister: PublicKey;
@@ -20,17 +24,17 @@ export interface GaugeSettings {
 
 export type GovernorInfo = (
   | {
-      key: PublicKey;
-      meta: GovernorConfig | null;
-      slug: string;
-      loading: boolean;
-    }
+    key: PublicKey;
+    meta: GovernorConfig | null;
+    slug: string;
+    loading: boolean;
+  }
   | {
-      key: PublicKey | null;
-      meta: GovernorConfig | null;
-      slug: string;
-      loading: true;
-    }
+    key: PublicKey | null;
+    meta: GovernorConfig | null;
+    slug: string;
+    loading: true;
+  }
 ) & {
   gauge: GaugeSettings | null;
   manifest: GovernorConfig | null | undefined;
@@ -87,16 +91,20 @@ export const useGovernorInfo = (): GovernorInfo | null => {
 };
 
 const useGovernorInner = () => {
-  const info = useGovernorInfo();
-  if (!info) {
-    throw new Error(`governor not found`);
-  }
-  const { meta, key: governor, slug, gauge, manifest } = info;
-  if (!governor) {
-    throw new Error("Governor not loaded.");
-  }
-  const path = `/gov/${slug}`;
+  const { governor: governorStr = "" } = useParams<"governor">();
+  const { data: governorMetas } = useTribecaRegistry();
 
+  const governorMeta = useMemo(
+    () =>
+      governorMetas?.find(
+        (gov) =>
+          gov.address.toString() === governorStr || gov.slug === governorStr
+      ) ?? null,
+    [governorMetas, governorStr]
+  );
+
+  /*
+  const path = `/gov/${slug}`;
   const { data: govDataRaw } = useAccountData(governor);
   const { data: parsedGovernorData } = useGovernorData(governor);
 
@@ -105,35 +113,36 @@ const useGovernorInner = () => {
   const { data: lockerData } = useLockerData(
     governorData ? governorData.account.electorate : governorData
   );
-  const { data: backupGovToken } = useToken(
-    lockerData ? lockerData.account.tokenMint : lockerData
-  );
-
-  const govToken = meta?.govToken ? new Token(meta.govToken) : backupGovToken;
+  */
+  const { data: backupGovToken } = useToken(null);
+  const govToken = governorMeta?.govToken ? new Token(governorMeta.govToken) : backupGovToken;
+  /*
   const veToken = govToken
     ? new Token({
-        ...govToken.info,
-        name: `Voting Escrow ${govToken.name}`,
-        symbol: `ve${govToken.symbol}`,
-      })
+      ...govToken.info,
+      name: `Voting Escrow ${govToken.name}`,
+      symbol: `ve${govToken.symbol}`,
+    })
     : govToken;
+  */
 
-  const iconURL = meta?.iconURL ?? govToken?.icon;
+  const iconURL = governorMeta?.iconURL ?? govToken?.icon;
 
+  /*
   const minActivationThreshold =
     veToken && lockerData
       ? new TokenAmount(
-          veToken,
-          lockerData.account.params.proposalActivationMinVotes
-        )
+        veToken,
+        lockerData.account.params.proposalActivationMinVotes
+      )
       : null;
 
   const lockedSupply =
     govToken && lockerData
       ? new TokenAmount(govToken, lockerData.account.lockedSupply)
       : govToken === undefined && lockerData === undefined
-      ? undefined
-      : null;
+        ? undefined
+        : null;
 
   const proposalCount = governorData
     ? governorData.account.proposalCount.toNumber()
@@ -148,24 +157,25 @@ const useGovernorInner = () => {
   const smartWallet = governorData
     ? governorData.account.smartWallet
     : governorData;
+  */
 
   return {
-    meta,
-    manifest,
-    daoName: meta?.name ?? govToken?.name.split(" ")[0],
-    path,
-    governor,
-    governorW,
-    governorData,
-    lockerData,
-    govToken,
-    veToken,
-    minActivationThreshold,
-    lockedSupply,
-    proposalCount,
-    smartWallet,
+    meta: governorMeta,
+    // manifest,
+    daoName: governorMeta?.name ?? govToken?.name?.split(" ")[0],
+    // path,
+    // governor,
+    // governorW,
+    // governorData,
+    // lockerData,
+    // govToken,
+    // veToken,
+    // minActivationThreshold,
+    // lockedSupply,
+    // proposalCount,
+    // smartWallet,
     iconURL,
-    gauge,
+    // gauge,
   };
 };
 
@@ -183,8 +193,8 @@ export const useGovernorParams = () => {
 
 export const { useContainer: useGovernor, Provider: GovernorProvider } =
   createContainer(useGovernorInner);
-
 export const useGovWindowTitle = (title: string) => {
   const { daoName } = useGovernor();
   useWindowTitle(daoName ? `${daoName} | ${title}` : "Loading...");
 };
+

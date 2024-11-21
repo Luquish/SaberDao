@@ -8,7 +8,7 @@ import invariant from "tiny-invariant";
 
 import { useSDK } from "../../contexts/sdk";
 import { useEscrowData, useLockerData } from "@/src/utils/parsers";
-import { useEnvironment } from "@/src/utils/useEnvironment";
+import { useEnvironment } from "@/src/hooks/governance/useEnvironment";
 import { useGovernor } from "./useGovernor";
 
 export const useLocker = () => {

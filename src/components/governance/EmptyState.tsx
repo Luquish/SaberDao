@@ -1,8 +1,8 @@
 import tw, { css } from "twin.macro";
-
+{/*}
 import { WalletButton } from "../layout/GovernorLayout/Header/WalletButton";
 import { ReactComponent as SolanaIcon } from "../layout/WalletLayout/SolanaIcon.svg";
-
+*/}
 interface Props {
   icon?: React.ReactNode;
   title: string;
@@ -35,13 +35,14 @@ export const EmptyState: React.FC<Props> = ({
         </div>
       )}
       <div tw="h-6">
-        <span tw="text-secondary dark:text-coolGray-300">{title}</span>
+        <span tw="text-secondary dark:text-gray-300">{title}</span>
       </div>
       <div>{children}</div>
     </div>
   );
 };
 
+{/*}
 export const EmptyStateConnectWallet: React.FC<Partial<Props>> = (
   props: Partial<Props>
 ) => {
@@ -55,3 +56,4 @@ export const EmptyStateConnectWallet: React.FC<Partial<Props>> = (
     </EmptyState>
   );
 };
+*/}

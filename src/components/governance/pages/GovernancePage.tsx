@@ -1,12 +1,12 @@
 import React from "react";
 import {
-  useGovernor,
   useGovernorInfo,
 } from "@/src/hooks/governance/useGovernor";
+{/*
 import { GovernanceNotFoundPage } from "@/src/pages/governance/GovernanceNotFoundPage";
 import { LoadingPage } from "../LoadingPage";
 import { GovernancePageInner } from "./GovernancePageInner";
-
+*/ }
 interface Props {
   title: React.ReactNode;
   header?: React.ReactNode;
@@ -24,7 +24,9 @@ interface Props {
 
 export const GovernancePage: React.FC<Props> = ({ ...props }: Props) => {
   const info = useGovernorInfo();
-  const { governorData } = useGovernor();
+  const governorData = {};
+  {/* TODO ADD GovernanceNotFoundPage
+    const { governorData } = useGovernor();
   if (!info || governorData === null) {
     return <GovernanceNotFoundPage />;
   }
@@ -32,4 +34,6 @@ export const GovernancePage: React.FC<Props> = ({ ...props }: Props) => {
     return <LoadingPage />;
   }
   return <GovernancePageInner {...props} />;
+  */ }
+  return null;
 };

@@ -1,12 +1,12 @@
 import { ProposalState } from "@tribecahq/tribeca-sdk";
 import React from "react";
 
-import { ContentLoader } from "@/src/common/ContentLoader";
+import { ContentLoader } from "@/src/components/governance/ContentLoader";
 import { ProposalStateLabel } from "./ProposalStateLabel";
 
 export const PlaceholderCard: React.FC = () => {
   return (
-    <div tw="flex items-center justify-between py-5 px-6 border-l-2 border-l-transparent border-b border-b-warmGray-800 cursor-pointer hover:border-l-primary">
+    <div tw="flex items-center justify-between py-5 px-6 border-l-2 border-l-transparent border-b border-b-gray-800 cursor-pointer hover:border-l-primary">
       <div>
         <div tw="h-5 flex items-center">
           <ContentLoader tw="h-3 rounded" />

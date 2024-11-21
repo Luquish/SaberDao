@@ -29,7 +29,7 @@ export const PageNav: React.FC<Props> = (props: Props) => {
                 <button
                   css={[
                     tw`transition-colors`,
-                    currentPage === i && tw`text-primary-300`,
+                    currentPage === i && tw`text-gray-300`,
                   ]}
                   onClick={() => setCurrentPage(i)}
                 >
@@ -55,5 +55,5 @@ export const PageNav: React.FC<Props> = (props: Props) => {
 };
 
 const SideButton = styled.button`
-  ${tw`flex gap-2 relative justify-center items-center hover:text-primary-300 uppercase`}
+  ${tw`flex gap-2 relative justify-center items-center hover:text-gray-300 uppercase`}
 `;

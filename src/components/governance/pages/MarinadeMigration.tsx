@@ -1,3 +1,4 @@
+import React from "react";
 import { HiOutlineExternalLink } from "react-icons/hi";
 
 export const MarinadeMigration: React.FC = () => {
