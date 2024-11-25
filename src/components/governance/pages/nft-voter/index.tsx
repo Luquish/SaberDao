@@ -1,14 +1,15 @@
 import {
   useGovernor,
-  useGovWindowTitle,
+  useGovWindowTitle
 } from "@/src/hooks/governance/useGovernor";
+import { EnvironmentProvider } from "@/src/hooks/governance/useEnvironment";
+
 import { GovernancePage } from '@/src/components/governance/pages/GovernancePage';
 import { MarinadeMigration } from '@/src/components/governance/pages/MarinadeMigration';
 import React from "react";
 import { RecentProposals } from "./RecentProposals";
-;
 
-export const GovernanceOverviewView: React.FC = () => {
+const GovernanceContent: React.FC = () => {
   useGovWindowTitle(`Overview`);
   const { daoName, iconURL } = useGovernor();
   return (
@@ -29,5 +30,13 @@ export const GovernanceOverviewView: React.FC = () => {
     >
       <RecentProposals />
     </GovernancePage>
+  );
+};
+
+export const GovernanceOverviewView: React.FC = () => {
+  return (
+    <EnvironmentProvider>
+      <GovernanceContent />
+    </EnvironmentProvider>
   );
 };

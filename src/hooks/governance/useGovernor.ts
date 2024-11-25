@@ -193,6 +193,7 @@ export const useGovernorParams = () => {
 
 export const { useContainer: useGovernor, Provider: GovernorProvider } =
   createContainer(useGovernorInner);
+
 export const useGovWindowTitle = (title: string) => {
   const { daoName } = useGovernor();
   useWindowTitle(daoName ? `${daoName} | ${title}` : "Loading...");
