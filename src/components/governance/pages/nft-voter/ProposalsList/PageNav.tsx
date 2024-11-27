@@ -1,5 +1,6 @@
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import tw, { styled } from "twin.macro";
+import tw from "twin.macro";
+import styled, { css } from "styled-components";
 
 interface Props {
   numPages: number;
@@ -27,10 +28,7 @@ export const PageNav: React.FC<Props> = (props: Props) => {
             {new Array(numPages).fill(null).map((_, i) => (
               <li key={i}>
                 <button
-                  css={[
-                    tw`transition-colors`,
-                    currentPage === i && tw`text-gray-300`,
-                  ]}
+                  tw={currentPage === i ? "transition-colors text-gray-300" : "transition-colors"}
                   onClick={() => setCurrentPage(i)}
                 >
                   {i + 1}

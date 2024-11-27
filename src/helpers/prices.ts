@@ -1,4 +1,4 @@
-import { PoolData } from '@/src/types';
+import { PoolData } from '@/types';
 
 const blacklist = [
     'CowKesoLUaHSbAMaUxJUj7eodHHsaLsS65cy8NFyRDGP',

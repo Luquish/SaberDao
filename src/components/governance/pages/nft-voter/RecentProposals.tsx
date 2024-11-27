@@ -1,5 +1,5 @@
-import { useGovernor } from "@/src/hooks/governance/useGovernor";
-import { Card } from "@/src/components/governance/Card";
+import { useGovernor } from "@/hooks/governance/useGovernor";
+import { Card } from "@/components/governance/Card";
 import { ProposalsList } from "./ProposalsList";
 
 export const RecentProposals: React.FC = () => {

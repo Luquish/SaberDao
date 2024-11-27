@@ -3,7 +3,7 @@ import { SignerWallet, SolanaProvider } from '@saberhq/solana-contrib';
 import { useAnchorWallet, useConnection } from '@solana/wallet-adapter-react';
 import { Keypair } from '@solana/web3.js';
 import { useMemo } from 'react';
-import useNetwork from '@/src/hooks/useNetwork';
+import useNetwork from '@/hooks/useNetwork';
 
 export default function useProvider() {
     const wallet = useAnchorWallet();

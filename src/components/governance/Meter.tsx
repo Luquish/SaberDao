@@ -19,7 +19,7 @@ export const Meter: React.FC<Props> = ({
       ? value / max
       : new Fraction(value, max).asNumber;
   return (
-    <div className={className} tw="flex-grow bg-warmGray-700 h-1 rounded">
+    <div className={className} tw="flex-grow bg-gray-700 h-1 rounded">
       <div
         style={{
           width: `${Math.min(width, 1) * 100}%`,

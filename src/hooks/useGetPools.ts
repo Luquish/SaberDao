@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchNullableWithSessionCache } from '@/src/helpers/fetch';
-import { PoolInfoRaw } from '@/src/types';
+import { fetchNullableWithSessionCache } from '@/helpers/fetch';
+import { PoolInfoRaw } from '@/types';
 
 export default function useGetPools(formattedNetwork: string) {
     return useQuery({

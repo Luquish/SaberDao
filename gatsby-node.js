@@ -26,7 +26,7 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
         ],
         resolve: {
             alias: {
-                '@/src': path.resolve(__dirname, 'src'),
+                '@': path.resolve(__dirname, 'src'),
             },
             fallback: {
                 crypto: require.resolve('crypto-browserify'),

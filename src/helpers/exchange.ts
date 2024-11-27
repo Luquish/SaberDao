@@ -1,6 +1,6 @@
 import { Pair } from '@saberhq/saber-periphery';
 import { calculateAmpFactor, IExchangeInfo, calculateVirtualPrice } from '@saberhq/stableswap-sdk';
-import { PoolInfo } from '@/src/types';
+import { PoolInfo } from '@/types';
 import { Token, TokenAmount } from '@saberhq/token-utils';
 
 export const getExchange = (pool: PoolInfo, reserves: Record<string, string>, lpTokenAmounts: Record<string, string>) => {

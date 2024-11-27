@@ -7,7 +7,7 @@ import {
   FaTimes,
 } from "react-icons/fa";
 
-import type { ProposalStatus } from "@/src/hooks/tribeca/useProposals";
+import type { ProposalStatus } from "@/hooks/governance/useProposals";
 
 interface Props {
   status: ProposalStatus;

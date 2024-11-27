@@ -1,4 +1,6 @@
-import tw, { css } from "twin.macro";
+import tw from "twin.macro";
+import styled, { css } from "styled-components";
+
 {/*}
 import { WalletButton } from "../layout/GovernorLayout/Header/WalletButton";
 import { ReactComponent as SolanaIcon } from "../layout/WalletLayout/SolanaIcon.svg";
@@ -23,13 +25,7 @@ export const EmptyState: React.FC<Props> = ({
     >
       {icon && (
         <div
-          tw="w-20 h-20 mb-3"
-          css={css`
-            & > svg,
-            & > img {
-              ${tw`w-full h-full text-gray-300`}
-            }
-          `}
+          tw="w-20 h-20 mb-3 [&>svg]:w-full [&>svg]:h-full [&>svg]:text-gray-300 [&>img]:w-full [&>img]:h-full [&>img]:text-gray-300"
         >
           {icon}
         </div>

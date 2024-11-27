@@ -1,5 +1,5 @@
 import { PublicKey } from '@solana/web3.js';
-import { Explorer } from '@/src/types';
+import { Explorer } from '@/types';
 
 export const explorers = {
     [Explorer.SOLSCAN]: {

@@ -1,15 +1,16 @@
 import { FaRegQuestionCircle } from "react-icons/fa";
-import { PageProps } from "gatsby";
-import tw, { styled } from "twin.macro";
+import { useParams } from "react-router-dom";
+import tw from "twin.macro";
+import styled from "styled-components";
 
-import { EmptyState } from "@/src/components/governance/EmptyState";
-import { Card } from "@/src/components/governance/Card";
+import { EmptyState } from "@/components/governance/common/EmptyState";
+import { Card } from "@/components/governance/common/Card";
 
-export const GovernanceNotFoundPage: React.FC<PageProps> = ({ params }) => {
-  const governorStr = params.governor;
+export const GovernanceNotFoundPage: React.FC = () => {
+  const { governor: governorStr } = useParams<{ governor: string }>();
   return (
     <div tw="w-full">
-      <div tw="bg-warmGray-900 pb-24">
+      <div tw="bg-gray-900 pb-24">
         <PageContainer>
           <div tw="flex flex-col gap-4 md:(gap-8 flex-row min-h-[120px]) flex-wrap items-center justify-between w-full">
             <div tw="flex flex-col self-start md:self-center">

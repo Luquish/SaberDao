@@ -1,36 +1,75 @@
-import React from 'react';
-import { GovernorProvider } from "@/src/hooks/governance/useGovernor";
-import { GovernanceOverviewView as NftVoter } from "../../components/governance/pages/nft-voter";
+import React, { Suspense } from "react";
+import { Outlet } from "react-router";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { SailProvider } from "@rockooor/sail";
+import { ThemeProvider } from "@emotion/react";
 
-const GovernanceOverviewView: React.FC = () => {
-  return <NftVoter />;
-};
+import {
+  GovernorProvider,
+  useGovernorInfo,
+} from "@/hooks/governance/useGovernor";
+import { LoadingPage } from "@/components/governance/common/LoadingPage";
+import { GovernorLayout } from "@/components/governance/layout/GovernorLayout";
+import { GovernanceNotFoundPage } from "@/components/governance/pages/GovernanceNotFoundPage";
+import { SDKProvider } from "@/contexts/sdk";
+import { WalletConnectorProvider } from "@/contexts/wallet";
+import { theme } from "@/theme";
 
-// Wrap the export with the Provider
-export default function GovernanceOverviewPage() {
-  return (
-    <GovernanceOverviewView />
-  );
-}
+import { onBeforeTxSend, onTxSend, onSailError } from "@/utils/governance/transactionHandlers";
 
-{/*
-import React from 'react';
-import { useGovernor } from "@/src/hooks/governance/useGovernor";
-{import { GovernanceOverviewView as LockedVoter } from "../../components/governance/pages/locked-voter";
-import { GovernanceOverviewView as NftVoter } from "../../components/governance/pages/nft-voter";
+const queryClient = new QueryClient();
 
-
-export const GovernanceOverviewView: React.FC = () => {
-  const { manifest } = useGovernor();
-
+const GovernanceContent: React.FC = () => {
+  const info = useGovernorInfo();
   
-  if (manifest?.mndeNftLocker) {
-    return <NftVoter />; // The NftVoter is developed and currently only used by Marinade
-  } else {
-    return <LockedVoter />;
+  if (info?.loading) {
+    return (
+      <div tw="flex h-full justify-center items-center">
+        <LoadingPage />
+      </div>
+    );
   }
   
+  if (!info) {
+    return (
+      <GovernorLayout placeholder={true}>
+        <GovernanceNotFoundPage />
+      </GovernorLayout>
+    );
+  }
+
+  return (
+    <GovernorLayout>
+      <Suspense>
+        <Outlet />
+      </Suspense>
+    </GovernorLayout>
+  );
 };
 
-export default GovernanceOverviewView;
-*/}
+export const GovernanceView: React.FC = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={theme}>
+        <WalletConnectorProvider>
+          <SDKProvider>
+            <SailProvider
+              initialState={{
+                batchDurationMs: 50,
+                onBeforeTxSend,
+                onTxSend,
+                onSailError,
+              }}
+            >
+              <GovernorProvider>
+                <GovernanceContent />
+              </GovernorProvider>
+            </SailProvider>
+          </SDKProvider>
+        </WalletConnectorProvider>
+      </ThemeProvider>
+    </QueryClientProvider>
+  );
+};
+
+export default GovernanceView;

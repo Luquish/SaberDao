@@ -5,8 +5,8 @@ import { Pair, StableSwapPool } from '@saberhq/saber-periphery';
 import { IExchangeInfo, StableSwapConfig, StableSwapState, SwapTokenInfo } from '@saberhq/stableswap-sdk';
 import { Fraction, TokenInfo, u64 } from '@saberhq/token-utils';
 import { PublicKey } from '@solana/web3.js';
-import { PoolsMetricInfo } from '@/src/hooks/usePoolsData';
-import { QuarryRewarderInfo } from '@/src/helpers/rewarder';
+import { PoolsMetricInfo } from '@/hooks/usePoolsData';
+import { QuarryRewarderInfo } from '@/helpers/rewarder';
 
 export enum Explorer {
     SOLSCAN = 'SOLSCAN'

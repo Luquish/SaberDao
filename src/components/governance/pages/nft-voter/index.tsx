@@ -1,12 +1,11 @@
 import {
   useGovernor,
   useGovWindowTitle
-} from "@/src/hooks/governance/useGovernor";
-import { EnvironmentProvider } from "@/src/hooks/governance/useEnvironment";
+} from "@/hooks/governance/useGovernor";
+import { EnvironmentProvider } from "@/hooks/governance/useEnvironment";
 
-import { GovernancePage } from '@/src/components/governance/pages/GovernancePage';
-import { MarinadeMigration } from '@/src/components/governance/pages/MarinadeMigration';
-import React from "react";
+import { GovernancePage } from "@/components/governance/common/GovernancePage";
+import { MarinadeMigration } from "@/components/governance/common/MarinadeMigration";
 import { RecentProposals } from "./RecentProposals";
 
 const GovernanceContent: React.FC = () => {

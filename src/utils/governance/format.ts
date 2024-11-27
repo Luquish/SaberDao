@@ -3,7 +3,7 @@ import formatDuration from "date-fns/formatDuration";
 import intervalToDuration from "date-fns/intervalToDuration";
 import JSBI from "jsbi";
 
-import { CURRENCY_INFO, CurrencyMarket } from "@/src/utils/governance/currencies";
+import { CURRENCY_INFO, CurrencyMarket } from "@/utils/governance/currencies";
 
 export const DATE_FORMATTER = new Intl.DateTimeFormat(undefined, {
   month: "short",

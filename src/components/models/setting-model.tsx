@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import Button from '@/src/components/Button';
+import Button from '@/components/Button';
 import { useLocalStorage } from 'usehooks-ts';
-import Input, { InputType } from '@/src/components/Input';
+import Input, { InputType } from '@/components/Input';
 import { useForm } from 'react-hook-form';
 
 const RPCForm = () => {

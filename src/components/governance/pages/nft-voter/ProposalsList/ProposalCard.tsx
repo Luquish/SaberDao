@@ -2,12 +2,13 @@ import React from "react";
 import { ProposalState } from "@tribecahq/tribeca-sdk";
 import { BN } from "bn.js";
 import { Link } from "react-router-dom";
-import tw, { styled } from "twin.macro";
+import tw from "twin.macro";
+import styled from "styled-components";
 
-import { useGovernor } from "@/src/hooks/governance/useGovernor";
-import type { ProposalInfo } from "@/src/hooks/governance/useProposals";
-import { PROPOSAL_TITLE_MAX_LEN } from "@/src/utils/governance/constants";
-import { makeDate } from "@/src/components/governance/pages/nft-voter/ProposalHistory";
+import { useGovernor } from "@/hooks/governance/useGovernor";
+import type { ProposalInfo } from "@/hooks/governance/useProposals";
+import { PROPOSAL_TITLE_MAX_LEN } from "@/utils/governance/constants";
+import { makeDate } from "@/components/governance/pages/nft-voter/ProposalHistory";
 import { ActiveProposalVotingBars } from "./ActiveProposalVotingBars";
 import { ProposalStateBadge } from "./ProposalStateBadge";
 import { ProposalStateDate } from "./ProposalStateDate";

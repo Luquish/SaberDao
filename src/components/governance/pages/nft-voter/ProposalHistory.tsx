@@ -12,9 +12,9 @@ import BN from "bn.js";
 import { startCase } from "lodash-es";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
-import type { ProposalInfo } from "@/src/hooks/governance/useProposals";
-import { useGokiTransactionData } from "@/src/utils/parsers";
-import { Card } from "@/src/components/governance/Card";
+import type { ProposalInfo } from "@/hooks/governance/useProposals";
+import { useGokiTransactionData } from "@/utils/governance/parsers";
+import { Card } from "@/components/governance/Card";
 
 interface Props {
   className?: string;
@@ -114,7 +114,7 @@ export const ProposalHistory: React.FC<Props> = ({
             <div tw="flex items-center justify-between">
               <div tw="flex flex-col text-sm">
                 <span tw="text-white">{title}</span>
-                <span tw="text-warmGray-600 text-xs">
+                <span tw="text-warmgray-600 text-xs">
                   {date.toLocaleDateString(undefined, {
                     month: "long",
                     day: "numeric",

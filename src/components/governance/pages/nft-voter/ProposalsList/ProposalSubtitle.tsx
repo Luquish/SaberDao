@@ -1,7 +1,7 @@
 import { BN } from "bn.js";
 
-import type { ProposalInfo } from "@/src/hooks/governance/useProposals";
-import { makeDate } from "@/src/components/governance/pages/nft-voter/ProposalHistory";
+import type { ProposalInfo } from "@/hooks/governance/useProposals";
+import { makeDate } from "@/components/governance/pages/nft-voter/ProposalHistory";
 import { ProposalStateDate } from "./ProposalStateDate";
 import { ProposalStateLabel } from "./ProposalStateLabel";
 

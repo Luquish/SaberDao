@@ -2,7 +2,7 @@
 
 import React, { forwardRef, useState, useImperativeHandle, memo } from 'react';
 import type { ReactNode } from 'react';
-import UniversalModal from '@/src/components/models/universal-modal';
+import UniversalModal from '@/components/models/universal-modal';
 
 export interface Props {
     children: ReactNode;

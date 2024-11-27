@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import type { GovernorConfig, GovernorConfigJSON } from "@tribecahq/registry";
 import { loadGovernorConfig } from "@tribecahq/registry";
 
-import { useEnvironment } from "@/src/hooks/governance/useEnvironment";
+import { useEnvironment } from "@/hooks/governance/useEnvironment";
 
 const makeManifestURL = (network: Network, slug: string) =>
   `https://raw.githubusercontent.com/TribecaHQ/tribeca-registry-build/master/registry/${formatNetwork(

@@ -10,35 +10,35 @@ import BN from 'bn.js';
 import { useMutation } from '@tanstack/react-query';
 import clsx from 'clsx';
 
-import Saber from '@/src/svg/saber';
-import { PoolData } from '@/src/types';
+import Saber from '@/svg/saber';
+import { PoolData } from '@/types';
 
-import { toAPY, toPrecision } from '@/src/helpers/number';
-import { SBR_INFO } from '@/src/utils/builtinTokens';
-import { getLogo, getPoolId, getPoolName, getSymbol } from '@/src/helpers/pool';
+import { toAPY, toPrecision } from '@/helpers/number';
+import { SBR_INFO } from '@/utils/builtinTokens';
+import { getLogo, getPoolId, getPoolName, getSymbol } from '@/helpers/pool';
 
-import useClaim from '@/src/hooks/user/useClaim';
-import usePoolsInfo from '@/src/hooks/usePoolsInfo';
-import useUserGetLPTokenBalance from '@/src/hooks/user/useGetLPTokenBalance';
-import useQuarryMiner from '@/src/hooks/user/useQuarryMiner';
-import useClaimableRewards from '@/src/hooks/user/useClaimableRewards';
-import { calculateWithdrawAll } from '@/src/hooks/user/useWithdraw/calculateWithdrawAll';
-import useSettings from '@/src/hooks/useSettings';
-import useDailyRewards from '@/src/hooks/user/useDailyRewards';
+import useClaim from '@/hooks/user/useClaim';
+import usePoolsInfo from '@/hooks/usePoolsInfo';
+import useUserGetLPTokenBalance from '@/hooks/user/useGetLPTokenBalance';
+import useQuarryMiner from '@/hooks/user/useQuarryMiner';
+import useClaimableRewards from '@/hooks/user/useClaimableRewards';
+import { calculateWithdrawAll } from '@/hooks/user/useWithdraw/calculateWithdrawAll';
+import useSettings from '@/hooks/useSettings';
+import useDailyRewards from '@/hooks/user/useDailyRewards';
 
-import H2 from '@/src/components/H2';
-import H1 from '@/src/components/H1';
-import Block from '@/src/components/Block';
-import Address from '@/src/components/Address';
-import Tabs from '@/src/components/Tabs';
-import StakeForm from '@/src/components/pool/StakeForm';
-import WithdrawForm from '@/src/components/pool/WithdrawForm';
-import UnstakeForm from '@/src/components/pool/UnstakeForm';
-import DepositForm from '@/src/components/pool/DepositForm';
-import UniversalPopover, { Ref } from '@/src/components/models/universal-popover';
-import { TokenDisplay, TokenLogo } from '@/src/components/TokenDisplay';
-import useUpgradeStake from '@/src/hooks/user/useUpgradeStake';
-import useDeprecatedPools from '@/src/hooks/useDeprecatedPools';
+import H2 from '@/components/H2';
+import H1 from '@/components/H1';
+import Block from '@/components/Block';
+import Address from '@/components/Address';
+import Tabs from '@/components/Tabs';
+import StakeForm from '@/components/pool/StakeForm';
+import WithdrawForm from '@/components/pool/WithdrawForm';
+import UnstakeForm from '@/components/pool/UnstakeForm';
+import DepositForm from '@/components/pool/DepositForm';
+import UniversalPopover, { Ref } from '@/components/models/universal-popover';
+import { TokenDisplay, TokenLogo } from '@/components/TokenDisplay';
+import useUpgradeStake from '@/hooks/user/useUpgradeStake';
+import useDeprecatedPools from '@/hooks/useDeprecatedPools';
 import BigNumber from 'bignumber.js';
 
 const InfoPanel = (props: { data: any[][] }) => {

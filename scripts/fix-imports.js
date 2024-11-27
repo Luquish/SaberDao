@@ -16,7 +16,7 @@ async function findFileInProject(filename) {
     const foundPath = possibleFiles[0]
       .replace(/^src\//, '')
       .replace(/\.(ts|tsx|js|jsx)$/, '');
-    return `@/src/${foundPath}`;
+    return `@/${foundPath}`;
   }
 
   // Also check for index files
@@ -26,32 +26,10 @@ async function findFileInProject(filename) {
     const foundPath = possibleIndexFiles[0]
       .replace(/^src\//, '')
       .replace(/\/index\.(ts|tsx|js|jsx)$/, '');
-    return `@/src/${foundPath}`;
+    return `@/${foundPath}`;
   }
 
   return null;
-}
-
-function findFile(basePath, fileName) {
-  let results = [];
-
-  function searchFile(currentPath) {
-    const files = fs.readdirSync(currentPath);
-
-    for (const file of files) {
-      const filePath = path.join(currentPath, file);
-      const stat = fs.statSync(filePath);
-
-      if (stat.isDirectory()) {
-        searchFile(filePath);
-      } else if (file === fileName) {
-        results.push(filePath);
-      }
-    }
-  }
-
-  searchFile(basePath);
-  return results;
 }
 
 async function fixImports() {
@@ -73,26 +51,40 @@ async function fixImports() {
         continue;
       }
 
-      // Remove @/src/ prefix and get the relative path
-      const relativePath = importPath.replace(/^@\/src\//, '');
-      const directPath = path.join(SRC_DIR, relativePath);
+      // Convert @/src/ to @/
+      if (importPath.startsWith('@/src/')) {
+        const newPath = importPath.replace('@/src/', '@/');
+        content = content.replace(
+          `from '${importPath}'`,
+          `from '${newPath}'`
+        );
+        hasChanges = true;
+        console.log(`In ${file}:`);
+        console.log(`  Fixed: ${importPath} → ${newPath}`);
+        continue;
+      }
 
-      // If direct path doesn't exist, search for the file
-      if (!fs.existsSync(directPath + '.ts') &&
-        !fs.existsSync(directPath + '.tsx') &&
-        !fs.existsSync(directPath + '.js') &&
-        !fs.existsSync(directPath + '.jsx') &&
-        !fs.existsSync(directPath + '/index.ts') &&
-        !fs.existsSync(directPath + '/index.tsx')) {
-        const correctPath = await findFileInProject(path.basename(relativePath));
-        if (correctPath && correctPath !== importPath) {
-          content = content.replace(
-            `from '${importPath}'`,
-            `from '${correctPath}'`
-          );
-          hasChanges = true;
-          console.log(`In ${file}:`);
-          console.log(`  Fixed: ${importPath} → ${correctPath}`);
+      // Handle relative paths
+      if (importPath.startsWith('.')) {
+        const relativePath = importPath.replace(/^\.\.?\/?/, '');
+        const directPath = path.join(SRC_DIR, relativePath);
+
+        if (!fs.existsSync(directPath + '.ts') &&
+          !fs.existsSync(directPath + '.tsx') &&
+          !fs.existsSync(directPath + '.js') &&
+          !fs.existsSync(directPath + '.jsx') &&
+          !fs.existsSync(directPath + '/index.ts') &&
+          !fs.existsSync(directPath + '/index.tsx')) {
+          const correctPath = await findFileInProject(path.basename(relativePath));
+          if (correctPath && correctPath !== importPath) {
+            content = content.replace(
+              `from '${importPath}'`,
+              `from '${correctPath}'`
+            );
+            hasChanges = true;
+            console.log(`In ${file}:`);
+            console.log(`  Fixed: ${importPath} → ${correctPath}`);
+          }
         }
       }
     }

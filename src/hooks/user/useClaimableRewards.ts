@@ -1,10 +1,10 @@
 import { Token, TokenAmount, TokenInfo } from '@saberhq/token-utils';
-import useQuarryMiner from '@/src/hooks/user/useQuarryMiner';
-import { createQuarryPayroll } from '@/src/helpers/quarry';
+import useQuarryMiner from '@/hooks/user/useQuarryMiner';
+import { createQuarryPayroll } from '@/helpers/quarry';
 import BN from 'bn.js';
 import { useMemo, useState } from 'react';
-import { SBR_INFO } from '@/src/utils/builtinTokens';
-import useGetSecondaryPayrolls from '@/src/hooks/user/useGetSecondaryPayrolls';
+import { SBR_INFO } from '@/utils/builtinTokens';
+import useGetSecondaryPayrolls from '@/hooks/user/useGetSecondaryPayrolls';
 
 export default function useClaim(lpToken: TokenInfo) {
     const { data: miner } = useQuarryMiner(lpToken, true);

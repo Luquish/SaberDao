@@ -6,7 +6,7 @@
       "dom",
       "esnext"
     ],
-    "jsx": "react",
+    "jsx": "react-jsx",
     "module": "esnext",
     "moduleResolution": "node",
     "esModuleInterop": true,
@@ -14,10 +14,11 @@
     "strict": true,
     "skipLibCheck": true,
     "paths": {
-      "@/src/*": [
-        "./src/*"
+      "@/*": [
+        "src/*"
       ],
-    }
+    },
+    "resolveJsonModule": true
   },
   "include": [
     "./src/**/*",

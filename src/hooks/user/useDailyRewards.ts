@@ -1,9 +1,9 @@
 import { Token, TokenAmount, TokenInfo } from '@saberhq/token-utils';
-import useQuarryMiner from '@/src/hooks/user/useQuarryMiner';
-import { createQuarryPayroll } from '@/src/helpers/quarry';
+import useQuarryMiner from '@/hooks/user/useQuarryMiner';
+import { createQuarryPayroll } from '@/helpers/quarry';
 import BN from 'bn.js';
 import { useEffect, useState } from 'react';
-import { SBR_INFO } from '@/src/utils/builtinTokens';
+import { SBR_INFO } from '@/utils/builtinTokens';
 
 export default function useDailyRewards(lpToken: TokenInfo) {
     const { data: miner, refetch } = useQuarryMiner(lpToken, true);

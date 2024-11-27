@@ -1,16 +1,16 @@
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { Token, TokenAmount, TokenInfo } from '@saberhq/token-utils';
 import invariant from 'tiny-invariant';
-import { createVersionedTransaction, executeMultipleTxs } from '@/src/helpers/transaction';
-import useUserGetLPTokenBalance from '@/src/hooks/user/useGetLPTokenBalance';
+import { createVersionedTransaction, executeMultipleTxs } from '@/helpers/transaction';
+import useUserGetLPTokenBalance from '@/hooks/user/useGetLPTokenBalance';
 import BigNumber from 'bignumber.js';
-import useQuarryMiner from '@/src/hooks/user/useQuarryMiner';
-import useProvider from '@/src/hooks/useProvider';
+import useQuarryMiner from '@/hooks/user/useQuarryMiner';
+import useProvider from '@/hooks/useProvider';
 import { PublicKey, Signer, TransactionInstruction } from '@solana/web3.js';
 import { SBR_REWARDER } from '@saberhq/saber-periphery';
 import { findMergeMinerAddress } from '@quarryprotocol/quarry-sdk';
-import { findMergePoolAddress } from '@/src/helpers/replicaRewards';
-import { PoolData } from '@/src/types';
+import { findMergePoolAddress } from '@/helpers/replicaRewards';
+import { PoolData } from '@/types';
 
 export default function useStake(pool: PoolData) {
     const { connection } = useConnection();

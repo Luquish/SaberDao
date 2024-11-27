@@ -4,9 +4,9 @@ import * as Sentry from "@sentry/react";
 import { useEffect, useMemo } from "react";
 import { createContainer } from "unstated-next";
 
-import { SOLE_NETWORK } from "@/src/components/governance/wallet";
-import type { IEnvironment } from "@/src/utils/governance/environments";
-import { environments } from "@/src/utils/governance/environments";
+import { SOLE_NETWORK } from "@/components/governance/wallet";
+import type { IEnvironment } from "@/utils/governance/environments";
+import { environments } from "@/utils/governance/environments";
 
 export const envs = {
   "mainnet-beta": ChainId.MainnetBeta,

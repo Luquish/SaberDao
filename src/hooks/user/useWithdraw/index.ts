@@ -5,22 +5,22 @@ import { PublicKey, TransactionInstruction, VersionedTransaction, type Signer } 
 import { useMemo } from 'react';
 import invariant from 'tiny-invariant';
 
-import { calculateWithdrawAll } from '@/src/hooks/user/useWithdraw/calculateWithdrawAll';
-import { calculateWithdrawOne } from '@/src/hooks/user/useWithdraw/calculateWithdrawOne';
-import { WrappedToken } from '@/src/types/wrappedToken';
-import { PoolData } from '@/src/types';
+import { calculateWithdrawAll } from '@/hooks/user/useWithdraw/calculateWithdrawAll';
+import { calculateWithdrawOne } from '@/hooks/user/useWithdraw/calculateWithdrawOne';
+import { WrappedToken } from '@/types/wrappedToken';
+import { PoolData } from '@/types';
 import { Wallet, useConnection, useWallet } from '@solana/wallet-adapter-react';
-import useProvider from '@/src/hooks/useProvider';
-import useSettings from '@/src/hooks/useSettings';
+import useProvider from '@/hooks/useProvider';
+import useSettings from '@/hooks/useSettings';
 import { StableSwap } from '@saberhq/stableswap-sdk';
-import useUserGetLPTokenBalance from '@/src/hooks/user/useGetLPTokenBalance';
-import { createVersionedTransaction, executeMultipleTxs } from '@/src/helpers/transaction';
+import useUserGetLPTokenBalance from '@/hooks/user/useGetLPTokenBalance';
+import { createVersionedTransaction, executeMultipleTxs } from '@/helpers/transaction';
 import BigNumber from 'bignumber.js';
-import useQuarryMiner from '@/src/hooks/user/useQuarryMiner';
-import { getClaimIxs } from '@/src/helpers/claim';
-import { findMergePoolAddress, getReplicaRewards } from '@/src/helpers/replicaRewards';
+import useQuarryMiner from '@/hooks/user/useQuarryMiner';
+import { getClaimIxs } from '@/helpers/claim';
+import { findMergePoolAddress, getReplicaRewards } from '@/helpers/replicaRewards';
 import { findMergeMinerAddress } from '@quarryprotocol/quarry-sdk';
-import useQuarry from '@/src/hooks/useQuarry';
+import useQuarry from '@/hooks/useQuarry';
 import BN from 'bn.js';
 import { SolanaProvider, TransactionEnvelope } from '@saberhq/solana-contrib';
 

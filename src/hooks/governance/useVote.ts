@@ -3,8 +3,8 @@ import { useQuery } from "@tanstack/react-query";
 import { findVoteAddress } from "@tribecahq/tribeca-sdk";
 import invariant from "tiny-invariant";
 
-import { useParsedVote } from "@/src/utils/parsers";
-import { useEnvironment } from "@/src/hooks/governance/useEnvironment";
+import { useParsedVote } from "@/utils/governance/parsers";
+import { useEnvironment } from "@/hooks/governance/useEnvironment";
 
 export const useVote = (proposalKey?: PublicKey, voter?: PublicKey) => {
   const { network } = useEnvironment();

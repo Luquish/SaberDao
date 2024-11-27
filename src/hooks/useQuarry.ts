@@ -1,6 +1,6 @@
 import { QuarrySDK } from '@quarryprotocol/quarry-sdk';
 import { useQuery } from '@tanstack/react-query';
-import useProvider from '@/src/hooks/useProvider';
+import useProvider from '@/hooks/useProvider';
 
 export default function useQuarry() {
     const { provider, connected } = useProvider();

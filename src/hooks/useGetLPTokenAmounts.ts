@@ -3,10 +3,10 @@
 import { useQuery } from '@tanstack/react-query';
 import { chunk } from 'lodash';
 import { useConnection } from '@solana/wallet-adapter-react';
-import { PoolInfoRaw } from '@/src/types';
+import { PoolInfoRaw } from '@/types';
 import { ParsedAccountData, PublicKey } from '@solana/web3.js';
 import throat from 'throat';
-import useNetwork from '@/src/hooks/useNetwork';
+import useNetwork from '@/hooks/useNetwork';
 
 export default function useGetLPTokenAmounts(pools?: readonly PoolInfoRaw[]) {
     const { connection } = useConnection();

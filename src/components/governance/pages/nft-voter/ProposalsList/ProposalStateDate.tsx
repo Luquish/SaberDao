@@ -6,7 +6,7 @@ import Countdown from "react-countdown";
 import type {
   ProposalInfo,
   ProposalStatus,
-} from "@/src/hooks/governance/useProposals";
+} from "@/hooks/governance/useProposals";
 
 interface Props {
   proposalInfo: ProposalInfo;

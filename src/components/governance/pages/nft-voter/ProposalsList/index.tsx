@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { ProposalState } from "@tribecahq/tribeca-sdk";
 import { Link } from "gatsby";
 
-import { useGovernor } from "@/src/hooks/governance/useGovernor";
-import { useProposals } from "@/src/hooks/governance/useProposals";
-import { EmptyState } from "@/src/components/governance/EmptyState";
+import { useGovernor } from "@/hooks/governance/useGovernor";
+import { useProposals } from "@/hooks/governance/useProposals";
+import { EmptyState } from "@/components/governance/EmptyState";
 import { PageNav } from "./PageNav";
 import { PlaceholderCard } from "./PlaceholderCard";
 import { ProposalCard } from "./ProposalCard";

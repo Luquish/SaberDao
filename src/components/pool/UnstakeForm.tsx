@@ -1,19 +1,19 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import H2 from '@/src/components/H2';
-import Input, { InputType } from '@/src/components/Input';
+import H2 from '@/components/H2';
+import Input, { InputType } from '@/components/Input';
 import { useForm } from 'react-hook-form';
-import Button from '@/src/components/Button';
-import { PoolData } from '@/src/types';
-import useQuarryMiner from '@/src/hooks/user/useQuarryMiner';
+import Button from '@/components/Button';
+import { PoolData } from '@/types';
+import useQuarryMiner from '@/hooks/user/useQuarryMiner';
 import BigNumber from 'bignumber.js';
 import { useMutation } from '@tanstack/react-query';
-import { useWithdraw } from '@/src/hooks/user/useWithdraw';
+import { useWithdraw } from '@/hooks/user/useWithdraw';
 import { Token, TokenAmount } from '@saberhq/token-utils';
-import { useStableSwapTokens } from '@/src/hooks/useStableSwapTokens';
-import { calculateWithdrawAll } from '@/src/hooks/user/useWithdraw/calculateWithdrawAll';
-import useSettings from '@/src/hooks/useSettings';
-import { toPrecision } from '@/src/helpers/number';
-import useUserGetLPTokenBalance from '@/src/hooks/user/useGetLPTokenBalance';
+import { useStableSwapTokens } from '@/hooks/useStableSwapTokens';
+import { calculateWithdrawAll } from '@/hooks/user/useWithdraw/calculateWithdrawAll';
+import useSettings from '@/hooks/useSettings';
+import { toPrecision } from '@/helpers/number';
+import useUserGetLPTokenBalance from '@/hooks/user/useGetLPTokenBalance';
 
 export default function UnunstakeForm (props: { pool: PoolData }) {
     const { register, watch, setValue } = useForm<{ amount: number; noWithdraw: boolean }>();

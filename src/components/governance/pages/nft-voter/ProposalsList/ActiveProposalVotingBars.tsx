@@ -2,11 +2,11 @@ import React from "react";
 import { BN } from "bn.js";
 import { theme } from "twin.macro";
 
-import { useGovernor } from "@/src/hooks/governance/useGovernor";
-import type { ProposalInfo } from "@/src/hooks/governance/useProposals";
-import { formatNumberSI } from "@/src/utils/governance/format";
-import { LoadingSpinner } from "@/src/components/governance/LoadingSpinner";
-import { Meter } from "@/src/components/governance/Meter";
+import { useGovernor } from "@/hooks/governance/useGovernor";
+import type { ProposalInfo } from "@/hooks/governance/useProposals";
+import { formatNumberSI } from "@/utils/governance/format";
+import { LoadingSpinner } from "@/components/governance/LoadingSpinner";
+import { Meter } from "@/components/governance/Meter";
 
 interface Props {
   proposal: ProposalInfo;

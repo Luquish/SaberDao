@@ -12,20 +12,20 @@ import { Token, WRAPPED_SOL } from '@saberhq/token-utils';
 import { FaMedium, FaXTwitter } from 'react-icons/fa6';
 import clsx from 'clsx';
 
-import I18n from '@/src/i18n';
-import Saber from '@/src/svg/saber';
-import Button from '@/src/components/Button';
-import Block from '@/src/components/Block';
-import useUserATA from '@/src/hooks/user/useUserATA';
-import useNetwork from '@/src/hooks/useNetwork';
-import useUnwrap from '@/src/hooks/user/useUnwrap';
-import TX from '@/src/components/TX';
-import UniversalPopover, { Ref } from '@/src/components/models/universal-popover';
-import ModelHeader from '@/src/components/models/model-header';
-import SettingModel from '@/src/components/models/setting-model';
+import I18n from '@/i18n';
+import Saber from '@/svg/saber';
+import Button from '@/components/Button';
+import Block from '@/components/Block';
+import useUserATA from '@/hooks/user/useUserATA';
+import useNetwork from '@/hooks/useNetwork';
+import useUnwrap from '@/hooks/user/useUnwrap';
+import TX from '@/components/TX';
+import UniversalPopover, { Ref } from '@/components/models/universal-popover';
+import ModelHeader from '@/components/models/model-header';
+import SettingModel from '@/components/models/setting-model';
 import { toast } from 'sonner';
 import { SABER_IOU_MINT } from '@saberhq/saber-periphery';
-import useRedeemSbr from '@/src/hooks/user/useRedeemSbr';
+import useRedeemSbr from '@/hooks/user/useRedeemSbr';
 
 const WrappedSolBlock = () => {
     const { network } = useNetwork();
@@ -156,12 +156,12 @@ export default function Navbar() {
                             Pools
                         </Button>
                     </Link>
-                    <a href="https://tribeca.so/gov/sbr/" target="_blank" rel="noreferrer">
+                    <a href="/governance">
                         <Button type="secondary" className="flex items-center gap-2 h-10">
-                            Vote <FaExternalLinkAlt />
+                            TribecaDao
                         </Button>
                     </a>
-                    <a href="https://vota.fi/" target="_blank" rel="noreferrer">
+                    <a href="/bribes" target="_blank" rel="noreferrer">
                         <Button type="secondary" className="flex items-center gap-2 h-10">
                             Bribes <FaExternalLinkAlt />
                         </Button>

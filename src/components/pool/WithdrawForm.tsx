@@ -1,18 +1,18 @@
 // src/components/pool/WithdrawForm.tsx
 
 import React, { useEffect, useState } from 'react';
-import H2 from '@/src/components/H2';
-import Input, { InputType } from '@/src/components/Input';
+import H2 from '@/components/H2';
+import Input, { InputType } from '@/components/Input';
 import { useForm } from 'react-hook-form';
-import Button from '@/src/components/Button';
+import Button from '@/components/Button';
 import { useMutation } from '@tanstack/react-query';
-import useUserGetLPTokenBalance from '@/src/hooks/user/useGetLPTokenBalance';
-import { PoolData } from '@/src/types';
-import TX from '@/src/components/TX';
-import { useWithdraw } from '@/src/hooks/user/useWithdraw';
+import useUserGetLPTokenBalance from '@/hooks/user/useGetLPTokenBalance';
+import { PoolData } from '@/types';
+import TX from '@/components/TX';
+import { useWithdraw } from '@/hooks/user/useWithdraw';
 import { Token, TokenAmount } from '@saberhq/token-utils';
-import { useStableSwapTokens } from '@/src/hooks/useStableSwapTokens';
-import useQuarryMiner from '@/src/hooks/user/useQuarryMiner';
+import { useStableSwapTokens } from '@/hooks/useStableSwapTokens';
+import useQuarryMiner from '@/hooks/user/useQuarryMiner';
 import { toast } from 'sonner';
 
 export default function WithdrawForm (props: { pool: PoolData }) {

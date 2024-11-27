@@ -1,12 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { Token, TokenInfo } from '@saberhq/token-utils';
-import useQuarry from '@/src/hooks/useQuarry';
+import useQuarry from '@/hooks/useQuarry';
 import { SBR_REWARDER } from '@saberhq/saber-periphery';
-import useGetSwaps from '@/src/hooks/useGetSwaps';
-import useNetwork from '@/src/hooks/useNetwork';
+import useGetSwaps from '@/hooks/useGetSwaps';
+import useNetwork from '@/hooks/useNetwork';
 import { PublicKey } from '@solana/web3.js';
-import useGetRewarders from '@/src/hooks/useGetRewarders';
+import useGetRewarders from '@/hooks/useGetRewarders';
 import { MergeMiner, MergePool, MinerData } from '@quarryprotocol/quarry-sdk';
 import BN from 'bn.js';
 

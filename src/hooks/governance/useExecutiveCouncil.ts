@@ -8,9 +8,9 @@ import { useSDK } from "../../contexts/sdk";
 import {
   useBatchedSubaccountInfos,
   useGokiSmartWalletData,
-} from "@/src/utils/parsers";
-import { useOwnerInvokerAddress } from "../useSmartWalletAddress";
-import { useWrapTx } from "../useWrapTx";
+} from "@/utils/governance/parsers";
+import { useOwnerInvokerAddress } from "./useSmartWalletAddress";
+import { useWrapTx } from "./useWrapTx";
 import { useGovernor } from "./useGovernor";
 
 export const useExecutiveCouncil = () => {
