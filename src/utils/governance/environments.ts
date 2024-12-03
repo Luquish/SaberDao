@@ -4,23 +4,19 @@ export type IEnvironment = Readonly<{
 }>;
 
 const ENDPOINTS: Record<string, string> = {
-  "goki.so": "https://saber-solanam-77b6.mainnet.rpcpool.com",
   "tribeca.so": "https://saber-solanam-77b6.mainnet.rpcpool.com",
-  "anchor.so": "https://saber-solanam-77b6.mainnet.rpcpool.com",
+  "localhost:8000": "http://localhost:8000/governance/",
 };
 
 export const environments = {
   "mainnet-beta": {
     name: "Mainnet Beta",
     endpoint:
-      ENDPOINTS[window.location.hostname] ?? process.env.REACT_APP_RPC ?? "",
+      ENDPOINTS[window.location.hostname] ?? process.env.REACT_APP_RPC ?? "http://localhost:8000/governance/",
   },
   devnet: {
     name: "Devnet",
-    // endpoint: "https://psytrbhymqlkfrhudd.dev.genesysgo.net:8899/",
-    // endpoint: "https://api.devnet.rpcpool.com/",
     endpoint: "https://api.devnet.solana.com/",
-    // endpoint: "https://sg6.rpcpool.com/",
   },
   testnet: {
     name: "Testnet",
@@ -28,6 +24,6 @@ export const environments = {
   },
   localnet: {
     name: "Localnet",
-    endpoint: "http://localhost:8899/",
+    endpoint: "http://localhost:8000/governance/",
   },
-} as const;
+} as const; 

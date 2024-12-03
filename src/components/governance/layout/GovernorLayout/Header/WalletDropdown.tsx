@@ -1,3 +1,4 @@
+import React from 'react';
 import { shortenAddress } from "@cardinal/namespaces";
 import { useSail } from "@rockooor/sail";
 import { useAnchorWallet, useWallet } from "@solana/wallet-adapter-react";

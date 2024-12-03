@@ -1,5 +1,9 @@
+import React from 'react';
+import tw from "twin.macro";
+import styled from "styled-components";
 import { WalletButton } from "@/components/governance/layout/GovernorLayout/Header/WalletButton";
-import SolanaIcon from '@/components/governance/layout/WalletLayout/SolanaIcon.svg'
+// import SolanaIcon from '@/components/governance/layout/WalletLayout/SolanaIcon.svg'
+import { FaWallet } from 'react-icons/fa';
 
 interface Props {
   icon?: React.ReactNode;
@@ -39,7 +43,7 @@ export const EmptyStateConnectWallet: React.FC<Partial<Props>> = (
 ) => {
   return (
     <EmptyState
-      icon={<SolanaIcon />}
+      icon={<FaWallet />} // <SolanaIcon />
       title="Connect your wallet to view this page."
       {...props}
     >

@@ -1,4 +1,5 @@
-import { LoadingSpinner } from "./LoadingSpinner";
+import React from 'react';
+import { LoadingSpinner } from "@/components/governance/LoadingSpinner";
 
 interface Props {
   className?: string;

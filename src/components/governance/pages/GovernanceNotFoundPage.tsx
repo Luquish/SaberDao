@@ -1,3 +1,4 @@
+import React from 'react';
 import { FaRegQuestionCircle } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import tw from "twin.macro";

@@ -25,7 +25,10 @@ interface UseEnvironment {
 }
 
 const useEnvironmentInternal = (): UseEnvironment => {
-  const network = SOLE_NETWORK ?? "mainnet-beta";
+  const network = window.location.hostname === "localhost:8000" 
+    ? "localnet" 
+    : (SOLE_NETWORK ?? "mainnet-beta");
+  
   useEffect(() => {
     Sentry.setContext("network", {
       network,

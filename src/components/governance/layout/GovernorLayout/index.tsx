@@ -1,3 +1,4 @@
+import React from 'react';
 import { Global } from "@emotion/react";
 import tw from "twin.macro";
 import styled, { css } from "styled-components";

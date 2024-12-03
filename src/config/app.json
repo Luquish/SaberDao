@@ -28,6 +28,7 @@
       "theme": "#282A2C",
       "msTile": "#282A2C"
     },
-    "gaID": "G-3KJZR5HSRZ"
+    "gaID": "G-3KJZR5HSRZ",
+    "rpcEndpoint": "http://localhost:8000/governance/"
   }
 }
