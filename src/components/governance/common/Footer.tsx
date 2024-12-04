@@ -1,7 +1,6 @@
 import { pickBy } from "lodash-es";
 import { FaDiscord, FaGithub, FaMedium, FaTwitter } from "react-icons/fa";
-import tw from "twin.macro";
-import css from "twin.macro";
+import React from "react";
 
 import { useGovernor } from "@/hooks/governance/useGovernor";
 import { Button } from "@/components/governance/Button";
@@ -16,8 +15,16 @@ const SOCIALS = {
 
 export const Footer: React.FC = () => {
   const { manifest } = useGovernor();
+  
+  // En la landing page, mostrar un footer simple
   if (!manifest) {
-    return null;
+    return (
+      <footer tw="py-8 text-center">
+        <p tw="text-sm text-gray-400">
+          © {new Date().getFullYear()} Saber DAO. All rights reserved.
+        </p>
+      </footer>
+    );
   }
 
   const otherLinks = pickBy(manifest.links ?? {}, (_v, k) => {

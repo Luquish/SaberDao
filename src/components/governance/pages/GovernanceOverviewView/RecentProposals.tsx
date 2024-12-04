@@ -1,6 +1,6 @@
 import { useGovernor } from "@/hooks/governance/useGovernor";
 import { Card } from "@/components/governance/Card";
-import { ProposalsList } from "./ProposalsList";
+import { ProposalsList } from "./nft-voter/ProposalsList";
 
 export const RecentProposals: React.FC = () => {
   const { path } = useGovernor();

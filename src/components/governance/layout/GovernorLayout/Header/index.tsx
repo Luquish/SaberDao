@@ -1,11 +1,10 @@
 import React from 'react';
 import { startCase } from "lodash-es";
-import { Link, useParams } from "react-router-dom";
-
+import { Link, useParams } from "@reach/router";
 import { useEnvironment } from "@/hooks/governance/useEnvironment";
 import { MobileNav } from "./MobileNav";
 import { Nav } from "./Nav";
-import Rook from './Rook.svg'
+import { ReactComponent as Rook } from './Rook.svg';
 import { SettingsModal } from "./SettingsModal";
 import { WalletDropdown } from "./WalletDropdown";
 
@@ -14,13 +13,13 @@ interface Props {
 }
 
 export const Header: React.FC<Props> = ({ placeholder }: Props) => {
-  const { governor } = useParams<"governor">();
+  const { governor = "" } = useParams();
   const { network } = useEnvironment();
   return (
     <div tw="bg-warmgray-900 w-screen">
       <div tw="flex items-center justify-between h-20 mx-auto w-11/12 max-w-7xl">
         <div tw="flex items-center gap-4 z-20 md:z-auto">
-          <Link to={`/gov/${governor ?? ""}`}>
+          <Link to={`/governance/${governor}`}>
             <div tw="text-white hover:(text-primary -rotate-3) transition-all">
               <Rook />
             </div>

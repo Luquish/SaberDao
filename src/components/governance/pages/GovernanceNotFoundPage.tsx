@@ -1,14 +1,17 @@
 import React from 'react';
 import { FaRegQuestionCircle } from "react-icons/fa";
-import { useParams } from "react-router-dom";
+import { RouteComponentProps } from '@reach/router';
 import tw from "twin.macro";
 import styled from "styled-components";
 
 import { EmptyState } from "@/components/governance/common/EmptyState";
 import { Card } from "@/components/governance/common/Card";
 
-export const GovernanceNotFoundPage: React.FC = () => {
-  const { governor: governorStr } = useParams<{ governor: string }>();
+interface Props extends RouteComponentProps {
+    governor?: string;
+}
+
+export const GovernanceNotFoundPage: React.FC<Props> = ({ governor }) => {
   return (
     <div tw="w-full">
       <div tw="bg-gray-900 pb-24">
@@ -31,7 +34,7 @@ export const GovernanceNotFoundPage: React.FC = () => {
             >
               <div tw="max-w-sm text-center mt-4">
                 <p>
-                  We couldn't find a DAO at {governorStr}. Please check the
+                  We couldn't find a DAO at {governor}. Please check the
                   address and try again.
                 </p>
               </div>

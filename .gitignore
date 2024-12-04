@@ -6,4 +6,4 @@ src/gatsby-types.d.ts
 .yarn/
 yarn.lock
 .yarnrc.yml
-
+.cursorrules

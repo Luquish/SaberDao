@@ -1,8 +1,8 @@
 import type { PublicKey } from "@solana/web3.js";
 
-import { displayAddress, programLabel } from "../utils/programs";
-import type { ProgramDetails } from "./deploydao/types";
-import { useProgramMeta } from "./deploydao/useProgramMeta";
+import { displayAddress, programLabel } from "@/utils/governance/programs";
+import type { ProgramDetails } from "@/hooks/governance/deploydao/types";
+import { useProgramMeta } from "@/hooks/governance/deploydao/useProgramMeta";
 
 const makeURL = (programID: string) =>
   `https://raw.githubusercontent.com/DeployDAO/solana-program-index/master/programs/${programID}.json`;

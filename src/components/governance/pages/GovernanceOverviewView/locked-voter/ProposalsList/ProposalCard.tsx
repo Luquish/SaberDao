@@ -1,6 +1,4 @@
-import React from "react";
 import { ProposalState } from "@tribecahq/tribeca-sdk";
-import { BN } from "bn.js";
 import { Link } from "react-router-dom";
 import tw from "twin.macro";
 import styled from "styled-components";
@@ -8,7 +6,6 @@ import styled from "styled-components";
 import { useGovernor } from "@/hooks/governance/useGovernor";
 import type { ProposalInfo } from "@/hooks/governance/useProposals";
 import { PROPOSAL_TITLE_MAX_LEN } from "@/utils/governance/constants";
-import { makeDate } from "@/components/governance/pages/nft-voter/ProposalHistory";
 import { ActiveProposalVotingBars } from "./ActiveProposalVotingBars";
 import { ProposalStateBadge } from "./ProposalStateBadge";
 import { ProposalStateDate } from "./ProposalStateDate";
@@ -22,29 +19,18 @@ interface Props {
 export const ProposalCard: React.FC<Props> = ({ proposalInfo }: Props) => {
   const { path } = useGovernor();
   const { state, executed } = proposalInfo.status;
-
-  const queuedDate = !proposalInfo.proposalData.queuedAt.eq(new BN(0))
-    ? makeDate(proposalInfo.proposalData.queuedAt)
-    : undefined;
-
-  const expiredDate = queuedDate;
-  if (expiredDate) {
-    expiredDate.setDate(expiredDate.getDate() + 14);
-  }
-  const expired = expiredDate && expiredDate <= new Date();
-
   return (
     <Link
       to={`${path}/proposals/${proposalInfo.index}`}
-      tw="flex items-center justify-between py-5 px-6 border-l-2 border-l-transparent border-b border-b-gray-800 cursor-pointer hover:border-l-2"
+      tw="flex items-center justify-between py-5 px-6 border-l-2 border-l-transparent border-b border-b-gray-800 cursor-pointer hover:border-l-gray-50"
     >
       <div tw="flex items-center gap-5 w-3/4 md:w-[500px]">
         {state === ProposalState.Active && (
-          <PulsingDot tw="w-11 h-11 text-center" />
+          <PulsingDot tw="w-11 h-11 text-gray-50" />
         )}
         <div>
           <div tw="flex items-center">
-            <div tw="text-white leading-snug break-words [hyphens:auto]">
+            <div tw="text-white leading-snug break-words hyphens[auto]">
               {proposalInfo.proposalMetaData?.title.slice(
                 0,
                 PROPOSAL_TITLE_MAX_LEN
@@ -53,10 +39,7 @@ export const ProposalCard: React.FC<Props> = ({ proposalInfo }: Props) => {
           </div>
           {proposalInfo.proposalData && state !== null && (
             <div tw="flex flex-col mt-4 gap-2 md:(flex-row items-center mt-2)">
-              <ProposalStateLabel
-                state={state}
-                executed={executed || expired}
-              />
+              <ProposalStateLabel state={state} executed={executed} />
               <div tw="flex gap-1 text-xs font-semibold">
                 <span>{`000${proposalInfo.index}`.slice(-4)}</span>
                 <span>&middot;</span>
@@ -75,12 +58,7 @@ export const ProposalCard: React.FC<Props> = ({ proposalInfo }: Props) => {
         state !== ProposalState.Draft &&
         state !== ProposalState.Active && (
           <ProposalBadgeWrapper>
-            <ProposalStateBadge
-              status={{
-                ...proposalInfo.status,
-                executed: executed || (expired ?? false),
-              }}
-            />
+            <ProposalStateBadge status={proposalInfo.status} />
           </ProposalBadgeWrapper>
         )}
     </Link>

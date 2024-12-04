@@ -6,12 +6,12 @@ import { PublicKey } from "@solana/web3.js";
 import { useQueries, useQuery } from "@tanstack/react-query";
 import invariant from "tiny-invariant";
 
-import { generateSHA256BufferHash } from "../utils/crypto";
-import { getGPAConnection } from "../utils/gpaConnection";
-import { useEnvironment } from "../utils/useEnvironment";
-import { stripTrailingNullBytes } from "./deploydao/stripTrailingNullBytes";
-import type { VerifiableProgramRelease } from "./deploydao/types";
-import { fetchCanonicalVerifiableBuild } from "./deploydao/useCanonicalVerifiableBuild";
+import { generateSHA256BufferHash } from "@/utils/governance/crypto";
+import { getGPAConnection } from "@/utils/governance/gpaConnection";
+import { useEnvironment } from "@/hooks/governance/useEnvironment";
+import { stripTrailingNullBytes } from "@/hooks/governance/deploydao/stripTrailingNullBytes";
+import type { VerifiableProgramRelease } from "@/hooks/governance/deploydao/types";
+import { fetchCanonicalVerifiableBuild } from "@/hooks/governance/deploydao/useCanonicalVerifiableBuild";
 
 export const BPF_UPGRADEABLE_LOADER_ID = new PublicKey(
   "BPFLoaderUpgradeab1e11111111111111111111111"

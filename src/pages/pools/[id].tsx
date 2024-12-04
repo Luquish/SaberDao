@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import invariant from 'tiny-invariant';
-import type { HeadFC } from 'gatsby';
+import type { HeadFC, PageProps } from 'gatsby';
 import { Token, TokenAmount, TokenInfo } from '@saberhq/token-utils';
 import { FaDiscord, FaGithub, FaGlobe, FaMedium, FaTelegram } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
@@ -31,6 +31,7 @@ import H1 from '@/components/H1';
 import Block from '@/components/Block';
 import Address from '@/components/Address';
 import Tabs from '@/components/Tabs';
+import Button from '@/components/Button';
 import StakeForm from '@/components/pool/StakeForm';
 import WithdrawForm from '@/components/pool/WithdrawForm';
 import UnstakeForm from '@/components/pool/UnstakeForm';
@@ -412,14 +413,15 @@ const ReplicaEmissionRate = (props: { replica: NonNullable<PoolData['replicaQuar
     );
 };
 
-const PoolPage = (props: { params: { id: string } }) => {
-    const pools = usePoolsInfo();
+const PoolPage: React.FC<PageProps> = ({ params }) => {
+    const { id } = params;  // Obtiene el ID de la pool desde la URL
+    const pools = usePoolsInfo();   
 
     const leveragedRef = useRef<Ref>();
 
     const pool = useMemo(() => {
-        return pools?.data?.pools?.find((x) => getPoolId(x.info.id) === getPoolId(props.params.id));
-    }, [props.params.id, pools]);
+        return pools?.data?.pools?.find((x) => getPoolId(x.info.id) === getPoolId(id));
+    }, [id, pools]);
 
     const token0 = useMemo(() => {
         return pool?.info.tokens[0];

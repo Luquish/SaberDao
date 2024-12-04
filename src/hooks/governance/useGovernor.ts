@@ -86,15 +86,45 @@ export const useGovernorInfo = (): GovernorInfo | null => {
   };
 };
 
-const useGovernorInner = () => {
+export const useGovernorInner = () => {
   const info = useGovernorInfo();
-  if (!info) {
-    throw new Error(`governor not found`);
+  
+  console.log("Governor Info:", info);
+  
+  if (!info || info.loading) {
+    console.log("Loading or no info state");
+    return {
+      loading: true,
+      governor: null,
+      path: '',
+      daoName: '',
+      iconURL: '',
+      manifest: null,
+    };
   }
+
   const { meta, key: governor, slug, gauge, manifest } = info;
+  
   if (!governor) {
-    throw new Error("Governor not loaded.");
+    console.log("No governor found");
+    return {
+      loading: false,
+      error: "Governor not loaded",
+      governor: null,
+      path: '',
+      daoName: '',
+      iconURL: '',
+      manifest: null,
+    };
   }
+
+  console.log("Governor loaded:", {
+    meta,
+    governor: governor.toString(),
+    slug,
+    manifest
+  });
+
   const path = `/gov/${slug}`;
 
   const { data: govDataRaw } = useAccountData(governor);

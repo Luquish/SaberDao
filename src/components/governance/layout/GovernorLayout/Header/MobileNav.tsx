@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaGripLines } from "react-icons/fa";
-import { NavLink, useParams } from "react-router-dom";
+import { Link, useParams } from "@reach/router";
 import tw from "twin.macro";
 
 
@@ -29,7 +29,7 @@ export const MobileNav: React.FC<Props> = ({ className }: Props) => {
         <div tw="flex flex-grow items-center justify-center">
           <div tw="flex flex-col items-center font-bold text-base text-white">
             {navLinks.map(({ title, href }) => (
-              <NavLink
+              <Link
                 key={href}
                 to={`/gov/${governor ?? ""}${href}`}
                 tw="py-5"
@@ -38,7 +38,7 @@ export const MobileNav: React.FC<Props> = ({ className }: Props) => {
                 }}
               >
                 <div>{title}</div>
-              </NavLink>
+              </Link>
             ))}
           </div>
         </div>

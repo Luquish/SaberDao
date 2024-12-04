@@ -1,5 +1,5 @@
 import { BsArrowLeft } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link } from "@reach/router";
 import tw from "twin.macro";
 import styled from "styled-components";
 

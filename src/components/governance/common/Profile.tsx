@@ -1,7 +1,7 @@
 import type { PublicKey } from "@solana/web3.js";
 import makeBlockie from "ethereum-blockies-base64";
 import { FaTwitter } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link } from "@reach/router";
 import tw from "twin.macro";
 import { css } from "styled-components";
 

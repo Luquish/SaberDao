@@ -6,7 +6,7 @@ import { EnvironmentProvider } from "@/hooks/governance/useEnvironment";
 
 import { GovernancePage } from "@/components/governance/common/GovernancePage";
 import { MarinadeMigration } from "@/components/governance/common/MarinadeMigration";
-import { RecentProposals } from "./RecentProposals";
+import { RecentProposals } from "../RecentProposals";
 
 const GovernanceContent: React.FC = () => {
   useGovWindowTitle(`Overview`);

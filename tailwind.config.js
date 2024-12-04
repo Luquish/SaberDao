@@ -29,6 +29,24 @@ module.exports = {
             boxShadow: {
                 '3xl': 'rgba(82, 82, 82, 0.25) 10px 10px 20px, rgba(82, 82, 82, 0.25) -10px -10px  20px',
             },
+            keyframes: {
+                'fade-in-down': {
+                    '0%': {
+                        opacity: '0',
+                        transform: 'translateY(-10px)'
+                    },
+                    '100%': {
+                        opacity: '1',
+                        transform: 'translateY(0)'
+                    },
+                }
+            },
+            animation: {
+                'fade-in-down': 'fade-in-down 1.5s ease-out forwards',
+                'fade-in-down-delayed': 'fade-in-down 1.5s 0.2s ease-out forwards',
+                'fade-in-down-delayed-2': 'fade-in-down 1.5s 0.4s ease-out forwards',
+                'fade-in-down-delayed-3': 'fade-in-down 1.5s 0.6s ease-out forwards',
+            }
         },
     },
     plugins: [],

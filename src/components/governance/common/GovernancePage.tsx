@@ -1,10 +1,11 @@
-import {
-  useGovernor,
-  useGovernorInfo,
-} from "@/hooks/governance/useGovernor";
+import React from "react";
+import { useGovernor, useGovernorInfo } from "@/hooks/governance/useGovernor";
 import { GovernanceNotFoundPage } from "@/components/governance/pages/GovernanceNotFoundPage";
 import { LoadingPage } from "./LoadingPage";
 import { GovernancePageInner } from "./GovernancePageInner";
+import { BaseLayout } from "./BaseLayout";
+import { EnvironmentProvider } from "@/hooks/governance/useEnvironment";
+import { GovernorProvider } from "@/hooks/governance/useGovernor";
 
 interface Props {
   title: React.ReactNode;
@@ -21,14 +22,31 @@ interface Props {
   };
 }
 
-export const GovernancePage: React.FC<Props> = ({ ...props }: Props) => {
-  const info = useGovernorInfo();
-  const { governorData } = useGovernor();
-  if (!info || governorData === null) {
-    return <GovernanceNotFoundPage />;
-  }
-  if (info?.loading) {
+const GovernancePageContent: React.FC<Props> = (props: Props) => {
+  const { loading, error, governor } = useGovernor();
+  
+  console.log("Governance Page State:", { loading, error, governor });
+  
+  if (loading) {
     return <LoadingPage />;
   }
+
+  if (error || !governor) {
+    console.log("Governance Error:", error);
+    return <GovernanceNotFoundPage />;
+  }
+
   return <GovernancePageInner {...props} />;
+};
+
+export const GovernancePage: React.FC<Props> = (props: Props) => {
+  return (
+    <BaseLayout>
+      <EnvironmentProvider>
+        <GovernorProvider>
+          <GovernancePageContent {...props} />
+        </GovernorProvider>
+      </EnvironmentProvider>
+    </BaseLayout>
+  );
 };

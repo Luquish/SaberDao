@@ -1,7 +1,12 @@
-import { useMemo } from "react";
-import { NavLink, useParams } from "react-router-dom";
-
+import React, { useMemo } from "react";
+import { Link, useParams } from "@reach/router";
+import tw from "twin.macro";
 import { useGovernor } from "@/hooks/governance/useGovernor";
+
+const NavLink = tw(Link)`
+  px-3 py-1 rounded text-sm font-semibold transition-colors 
+  hover:text-white [&.active]:text-white [&.active]:bg-gray-800
+`;
 
 export const NAV_LINKS = [
   {
@@ -17,14 +22,14 @@ export const NAV_LINKS = [
     title: "Locker",
     href: "/locker",
   },
-  // {
-  //   title: "Boost",
-  //   href: "/boost",
-  // },
-  // {
-  //   title: "Payouts",
-  //   href: "/payouts",
-  // },
+  {
+    title: "Gauges",
+    href: "/gauges",
+  },
+  {
+    title: "Parameters",
+    href: "/parameters",
+  }
 ];
 
 export const useNavLinks = () => {
@@ -32,14 +37,6 @@ export const useNavLinks = () => {
   return useMemo(
     () => [
       ...NAV_LINKS,
-      ...(manifest?.quarry?.gauge && !manifest?.quarry?.gauge.hidden
-        ? [
-            {
-              title: "Gauges",
-              href: "/gauges",
-            },
-          ]
-        : []),
       ...(manifest?.saves
         ? [
             {
@@ -56,10 +53,6 @@ export const useNavLinks = () => {
             };
           })
         : []),
-      {
-        title: "Parameters",
-        href: "/details",
-      },
     ],
     [manifest]
   );
@@ -70,18 +63,18 @@ interface Props {
 }
 
 export const Nav: React.FC<Props> = ({ className }: Props) => {
-  const { governor } = useParams<"governor">();
+  const { governor = "" } = useParams();
   const navLinks = useNavLinks();
+  
   return (
     <nav tw="flex gap-2" className={className}>
       {navLinks.map(({ title, href }) => (
         <NavLink
           key={href}
-          to={`/gov/${governor ?? ""}${href}`}
-          className={({ isActive }) => (isActive ? "active" : "")}
-          tw={[
-            'px-3 py-1 rounded text-sm font-semibold transition-colors hover:text-white [&.active]:text-white [&.active]:bg-warmgray-800'
-          ].join(' ')}
+          to={`/governance/${governor}${href}`}
+          getProps={({ isCurrent, isPartiallyCurrent }) => ({
+            className: (href === "/" ? isCurrent : isPartiallyCurrent) ? "active" : ""
+          })}
         >
           <div>{title}</div>
         </NavLink>

@@ -15,7 +15,14 @@ const config: GatsbyConfig = {
         {
             resolve: "gatsby-plugin-google-tagmanager",
             options: {
-              id: "G-R67GCPSJD7",
+                id: "G-R67GCPSJD7",
+            },
+        },
+        {
+            resolve: 'gatsby-plugin-svgr',
+            options: {
+                svgo: false,
+                ref: true,
             },
         },
     ],

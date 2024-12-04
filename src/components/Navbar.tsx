@@ -156,11 +156,11 @@ export default function Navbar() {
                             Pools
                         </Button>
                     </Link>
-                    <a href="/governance">
+                    <Link to="/governance">
                         <Button type="secondary" className="flex items-center gap-2 h-10">
                             TribecaDao
                         </Button>
-                    </a>
+                    </Link>
                     <a href="/bribes" target="_blank" rel="noreferrer">
                         <Button type="secondary" className="flex items-center gap-2 h-10">
                             Bribes <FaExternalLinkAlt />
